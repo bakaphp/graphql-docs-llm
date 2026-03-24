@@ -1,0 +1,104 @@
+name: Update GraphQL Docs
+
+on:
+  # Triggered by kanvas-ecosystem-api via repository_dispatch
+  repository_dispatch:
+    types:
+      - update-dev-docs
+      - update-prod-docs
+
+  # Manual trigger for testing or emergency regeneration
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Which docs to regenerate"
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - both
+
+  # Fallback: daily sync to catch any missed dispatches
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  update-dev-docs:
+    name: Regenerate dev_docs
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'schedule' ||
+      github.event.action == 'update-dev-docs' ||
+      (github.event_name == 'workflow_dispatch' && (github.event.inputs.environment == 'dev' || github.event.inputs.environment == 'both'))
+    steps:
+      - name: Checkout graphql-docs-llm
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Remove outdated dev_docs
+        run: rm -rf dev_docs
+
+      - name: Generate dev_docs
+        run: |
+          deno run --allow-net --allow-write --allow-read app.ts \
+            --url "${{ secrets.DEV_GRAPHQL_URL }}" \
+            --output ./dev_docs
+
+      - name: Commit and push dev_docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dev_docs/
+          if git diff --staged --quiet; then
+            echo "No changes to dev_docs, skipping commit."
+          else
+            git commit -m "docs(dev): regenerate from development branch [skip ci]"
+            git push
+          fi
+
+  update-prod-docs:
+    name: Regenerate prod_docs
+    runs-on: ubuntu-latest
+    if: |
+      github.event.action == 'update-prod-docs' ||
+      (github.event_name == 'workflow_dispatch' && (github.event.inputs.environment == 'prod' || github.event.inputs.environment == 'both'))
+    steps:
+      - name: Checkout graphql-docs-llm
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Remove outdated prod_docs
+        run: rm -rf prod_docs
+
+      - name: Generate prod_docs
+        run: |
+          deno run --allow-net --allow-write --allow-read app.ts \
+            --url "${{ secrets.PROD_GRAPHQL_URL }}" \
+            --output ./prod_docs
+
+      - name: Commit and push prod_docs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prod_docs/
+          if git diff --staged --quiet; then
+            echo "No changes to prod_docs, skipping commit."
+          else
+            RELEASE_TAG="${{ github.event.client_payload.release_tag }}"
+            MSG="docs(prod): regenerate from release${RELEASE_TAG:+ $RELEASE_TAG} [skip ci]"
+            git commit -m "$MSG"
+            git push
+          fi

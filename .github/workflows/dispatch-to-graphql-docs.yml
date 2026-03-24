@@ -1,0 +1,54 @@
+# ==============================================================================
+# ESTE ARCHIVO DEBE COPIARSE A: bakaphp/kanvas-ecosystem-api
+# en la ruta: .github/workflows/dispatch-graphql-docs.yml
+#
+# Requiere un secret en kanvas-ecosystem-api:
+#   GRAPHQL_DOCS_DISPATCH_TOKEN  →  Personal Access Token con scope "repo"
+#   apuntando al repo graphql-docs-llm
+# ==============================================================================
+
+name: Dispatch GraphQL Docs Update
+
+on:
+  push:
+    branches:
+      - development
+
+  release:
+    types:
+      - published
+
+jobs:
+  dispatch-dev-docs:
+    name: Trigger dev_docs regeneration
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Send repository_dispatch to graphql-docs-llm
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GRAPHQL_DOCS_DISPATCH_TOKEN }}
+          repository: mctekk/graphql-docs-llm
+          event-type: update-dev-docs
+          client-payload: |
+            {
+              "sha": "${{ github.sha }}",
+              "ref": "${{ github.ref }}"
+            }
+
+  dispatch-prod-docs:
+    name: Trigger prod_docs regeneration
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - name: Send repository_dispatch to graphql-docs-llm
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GRAPHQL_DOCS_DISPATCH_TOKEN }}
+          repository: mctekk/graphql-docs-llm
+          event-type: update-prod-docs
+          client-payload: |
+            {
+              "release_tag": "${{ github.event.release.tag_name }}",
+              "release_url": "${{ github.event.release.html_url }}"
+            }
