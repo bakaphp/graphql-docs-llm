@@ -1,0 +1,20 @@
+# OBJECT: LoyaltyProgram
+
+
+
+## Estructura
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| uuid | `String!` |  |
+| name | `String!` |  |
+| description | `String` |  |
+| points_per_dollar | `Money!` |  |
+| expiration_days | `Int` |  |
+| referral_enabled | `Boolean!` |  |
+| referral_strategy | `String` |  |
+| referral_config | `Mixed` |  |
+| meta | `Mixed` |  |
+| created_at | `DateTime!` |  |
+| updated_at | `DateTime` |  |
