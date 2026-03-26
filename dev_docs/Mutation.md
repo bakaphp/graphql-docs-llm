@@ -1534,7 +1534,7 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 
 ---
-### createAgentMachine
+### openclawCreateMachine
 **Retorno:** `AgentMachineType!`  
 
 
@@ -1543,7 +1543,7 @@ Upload a file that is publicly available.
 | input | `AgentMachineInput!` |  |
 
 ---
-### updateAgentMachine
+### openclawUpdateMachine
 **Retorno:** `AgentMachineType!`  
 
 
@@ -1553,7 +1553,7 @@ Upload a file that is publicly available.
 | input | `UpdateAgentMachineInput!` |  |
 
 ---
-### deleteAgentMachine
+### openclawDeleteMachine
 **Retorno:** `Boolean!`  
 
 
@@ -1562,7 +1562,7 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 
 ---
-### launchAgent
+### openclawLaunchAgent
 **Retorno:** `AgentDeploymentType!`  
 
 
@@ -1571,7 +1571,7 @@ Upload a file that is publicly available.
 | input | `LaunchAgentInput!` |  |
 
 ---
-### terminateAgent
+### openclawTerminateAgent
 **Retorno:** `Boolean!`  
 
 
@@ -1580,7 +1580,7 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 
 ---
-### restartAgentContainer
+### openclawRestartContainer
 **Retorno:** `Boolean!`  
 
 
@@ -1589,7 +1589,7 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 
 ---
-### agentContainerLogs
+### openclawContainerLogs
 **Retorno:** `String!`  
 
 
@@ -1599,7 +1599,7 @@ Upload a file that is publicly available.
 | lines | `Int` |  |
 
 ---
-### agentContainerStatus
+### openclawContainerStatus
 **Retorno:** `AgentDeploymentType!`  
 
 
@@ -1608,7 +1608,7 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 
 ---
-### collectDeploymentUsage
+### openclawCollectUsage
 **Retorno:** `AgentUsageSnapshot!`  
 
 
@@ -1617,7 +1617,7 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 
 ---
-### setAgentSlackTokens
+### openclawSetSlackTokens
 **Retorno:** `Boolean!`  
 
 
@@ -1626,6 +1626,36 @@ Upload a file that is publicly available.
 | agent_id | `ID!` |  |
 | slack_bot_token | `String!` |  |
 | slack_app_token | `String!` |  |
+
+---
+### openclawExecCommand
+**Retorno:** `Boolean!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| command | `String!` |  |
+| session_id | `String!` |  |
+
+---
+### openclawGetConfig
+**Retorno:** `String!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+
+---
+### openclawUpdateConfig
+**Retorno:** `Boolean!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| config | `String!` |  |
 
 ---
 ### shopifySetup

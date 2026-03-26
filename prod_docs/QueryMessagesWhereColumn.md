@@ -1,0 +1,26 @@
+# ENUM: QueryMessagesWhereColumn
+
+Allowed column names for Query.messages.where.
+
+## Valores
+
+| Valor | Descripción |
+| :--- | :--- |
+| ID |  |
+| PARENT_ID |  |
+| PARENT_UNIQUE_ID |  |
+| COMPANIES_ID |  |
+| UUID |  |
+| SLUG |  |
+| USERS_ID |  |
+| MESSAGE_TYPES_ID |  |
+| MESSAGE |  |
+| REACTIONS_COUNT |  |
+| COMMENTS_COUNT |  |
+| TOTAL_LIKED |  |
+| TOTAL_CHILDREN |  |
+| TOTAL_DISLIKED |  |
+| TOTAL_SAVED |  |
+| TOTAL_VIEW |  |
+| TOTAL_SHARED |  |
+| IS_PUBLIC |  |

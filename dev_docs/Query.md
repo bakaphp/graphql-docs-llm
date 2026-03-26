@@ -1141,45 +1141,6 @@
 | page | `Int` | The offset from which items are returned. |
 
 ---
-### agentUsageSnapshots
-**Retorno:** `AgentUsageSnapshotPaginator!`  
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentUsageSnapshotsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
-
----
-### agentMachines
-**Retorno:** `AgentMachineTypePaginator!`  
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentMachinesWhereWhereConditions` |  |
-| orderBy | `[QueryAgentMachinesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
-
----
-### agentDeployments
-**Retorno:** `AgentDeploymentTypePaginator!`  
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentDeploymentsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentDeploymentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
-
----
 ### agents
 **Retorno:** `AgentPaginator!`  
 
@@ -2478,6 +2439,45 @@
 | :--- | :--- | :--- |
 | where | `QueryAgentModelsWhereWhereConditions` |  |
 | orderBy | `[QueryAgentModelsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+
+---
+### agentUsageSnapshots
+**Retorno:** `AgentUsageSnapshotPaginator!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryAgentUsageSnapshotsWhereWhereConditions` |  |
+| orderBy | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+
+---
+### agentMachines
+**Retorno:** `AgentMachineTypePaginator!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryAgentMachinesWhereWhereConditions` |  |
+| orderBy | `[QueryAgentMachinesOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+
+---
+### agentDeployments
+**Retorno:** `AgentDeploymentTypePaginator!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryAgentDeploymentsWhereWhereConditions` |  |
+| orderBy | `[QueryAgentDeploymentsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 
