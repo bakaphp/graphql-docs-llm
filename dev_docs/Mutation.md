@@ -4299,6 +4299,15 @@ Upload a file that is publicly available.
 | input | `ChatSimpleInput!` |  |
 
 ---
+### aiAgentUserChat
+**Retorno:** `UserChatResponse!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `UserChatInput!` |  |
+
+---
 ### createAgentSwarm
 **Retorno:** `AgentSwarm!`  
 

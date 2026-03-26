@@ -1068,6 +1068,7 @@
 - [UpdateTaskListInput](./UpdateTaskListInput.md) 
 - [UpdateTaskListItemInput](./UpdateTaskListItemInput.md) 
 - [UpdateUserInput](./UpdateUserInput.md) 
+- [UserChatInput](./UserChatInput.md) 
 - [UserContactInput](./UserContactInput.md) 
 - [UserCustomFieldsOrderByOrderByClause](./UserCustomFieldsOrderByOrderByClause.md) _(Order by clause for User)_
 - [UserInteractionInput](./UserInteractionInput.md) 

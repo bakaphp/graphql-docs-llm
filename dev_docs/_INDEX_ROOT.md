@@ -235,6 +235,7 @@
 - [addWarehouse](./Mutation.md#addwarehouse) 
 - [aiAgentChat](./Mutation.md#aiagentchat) 
 - [aiAgentCreateSession](./Mutation.md#aiagentcreatesession) 
+- [aiAgentUserChat](./Mutation.md#aiagentuserchat) 
 - [appActivateUser](./Mutation.md#appactivateuser) 
 - [appCreateUser](./Mutation.md#appcreateuser) 
 - [appDeActiveUser](./Mutation.md#appdeactiveuser) 
