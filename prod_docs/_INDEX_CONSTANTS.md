@@ -285,6 +285,7 @@
 - [QueryPaymentsOrderByColumn](./QueryPaymentsOrderByColumn.md) _(Allowed column names for Query)_
 - [QueryPaymentsOrderTypeColumn](./QueryPaymentsOrderTypeColumn.md) _(Allowed column names for Query)_
 - [QueryPaymentsWhereColumn](./QueryPaymentsWhereColumn.md) _(Allowed column names for Query)_
+- [QueryPeopleRelationshipsOrderByColumn](./QueryPeopleRelationshipsOrderByColumn.md) _(Allowed column names for Query)_
 - [QueryPeopleRelationshipsWhereColumn](./QueryPeopleRelationshipsWhereColumn.md) _(Allowed column names for Query)_
 - [QueryPeoplesHasAddressColumn](./QueryPeoplesHasAddressColumn.md) _(Allowed column names for Query)_
 - [QueryPeoplesHasCustomFieldsColumn](./QueryPeoplesHasCustomFieldsColumn.md) _(Allowed column names for Query)_

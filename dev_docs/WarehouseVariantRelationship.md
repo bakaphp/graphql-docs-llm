@@ -26,6 +26,8 @@
 | is_coming_soon | `Boolean` |  |
 | is_new | `Boolean` |  |
 | is_published | `Boolean` |  |
+| latitude | `Float` |  |
+| longitude | `Float` |  |
 | config | `Mixed` |  |
 | status_history | `[StatusHistoryRelationship!]!` |  |
 | prices_history | `[WarehousesPricesHistoryRelationship!]!` |  |

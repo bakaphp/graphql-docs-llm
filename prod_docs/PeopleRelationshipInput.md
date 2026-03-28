@@ -1,4 +1,4 @@
-# INPUT_OBJECT: LeadSourceInput
+# INPUT_OBJECT: PeopleRelationshipInput
 
 
 
@@ -6,8 +6,5 @@
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
-| companies_id | `ID` |  |
 | name | `String!` |  |
 | description | `String` |  |
-| is_active | `Boolean!` |  |
-| leads_types_id | `ID` |  |

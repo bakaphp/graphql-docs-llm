@@ -144,6 +144,7 @@
 - [PeopleEventVersionInput](./PeopleEventVersionInput.md) 
 - [PeopleInput](./PeopleInput.md) 
 - [PeopleParticipantInput](./PeopleParticipantInput.md) 
+- [PeopleRelationshipInput](./PeopleRelationshipInput.md) 
 - [PhoneNumberInput](./PhoneNumberInput.md) 
 - [PipelineInput](./PipelineInput.md) 
 - [PipelineStageInput](./PipelineStageInput.md) 
@@ -757,6 +758,7 @@
 - [QueryPaymentsWhereWhereConditions](./QueryPaymentsWhereWhereConditions.md) _(Dynamic WHERE conditions for the `where` argument of the query `payments`)_
 - [QueryPaymentsWhereWhereConditionsHasCondition](./QueryPaymentsWhereWhereConditionsHasCondition.md) _(Dynamic WHERE HAS conditions for the `where` argument of the query `payments`)_
 - [QueryPaymentsWhereWhereConditionsRelation](./QueryPaymentsWhereWhereConditionsRelation.md) _(Dynamic HAS conditions for WHERE conditions for the `where` argument of the query `payments`)_
+- [QueryPeopleRelationshipsOrderByOrderByClause](./QueryPeopleRelationshipsOrderByOrderByClause.md) _(Order by clause for Query)_
 - [QueryPeopleRelationshipsWhereWhereConditions](./QueryPeopleRelationshipsWhereWhereConditions.md) _(Dynamic WHERE conditions for the `where` argument of the query `peopleRelationships`)_
 - [QueryPeopleRelationshipsWhereWhereConditionsHasCondition](./QueryPeopleRelationshipsWhereWhereConditionsHasCondition.md) _(Dynamic WHERE HAS conditions for the `where` argument of the query `peopleRelationships`)_
 - [QueryPeopleRelationshipsWhereWhereConditionsRelation](./QueryPeopleRelationshipsWhereWhereConditionsRelation.md) _(Dynamic HAS conditions for WHERE conditions for the `where` argument of the query `peopleRelationships`)_
@@ -1068,6 +1070,7 @@
 - [UpdateOrderInput](./UpdateOrderInput.md) 
 - [UpdateOrderStatusInput](./UpdateOrderStatusInput.md) 
 - [UpdateOrderTypeInput](./UpdateOrderTypeInput.md) 
+- [UpdatePeopleRelationshipInput](./UpdatePeopleRelationshipInput.md) 
 - [UpdatePipelineInput](./UpdatePipelineInput.md) 
 - [UpdatePipelineStageInput](./UpdatePipelineStageInput.md) 
 - [UpdateReceiverWebhookInput](./UpdateReceiverWebhookInput.md) 

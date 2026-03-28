@@ -22,6 +22,7 @@
 | address | `[Address!]!` |  |
 | created_at | `DateTime!` |  |
 | updated_at | `DateTime` |  |
+| photo | `Filesystem` |  |
 | employment_history | `[PeopleEmploymentHistory!]` |  |
 | files | `FilesystemPaginator!` |  |
 | custom_fields | `CustomFieldPaginator!` |  |

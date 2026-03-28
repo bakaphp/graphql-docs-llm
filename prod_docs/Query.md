@@ -1304,7 +1304,9 @@
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
+| search | `String` |  |
 | where | `QueryPeopleRelationshipsWhereWhereConditions` |  |
+| orderBy | `[QueryPeopleRelationshipsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 

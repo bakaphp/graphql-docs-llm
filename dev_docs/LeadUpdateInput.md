@@ -6,7 +6,7 @@
 
 | Campo | Tipo | Descripción |
 | :--- | :--- | :--- |
-| branch_id | `ID!` |  |
+| branch_id | `ID` |  |
 | title | `String` |  |
 | people_id | `ID!` |  |
 | leads_owner_id | `ID` |  |

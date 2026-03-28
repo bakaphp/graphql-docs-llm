@@ -2065,6 +2065,44 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 
 ---
+### updatePeoplePhoto
+**Retorno:** `People!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| file | `Upload!` |  |
+
+---
+### createPeopleRelationship
+**Retorno:** `PeopleRelationship!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PeopleRelationshipInput!` |  |
+
+---
+### updatePeopleRelationship
+**Retorno:** `PeopleRelationship!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePeopleRelationshipInput!` |  |
+
+---
+### deletePeopleRelationship
+**Retorno:** `Boolean!`  
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+
+---
 ### createPipeline
 **Retorno:** `LeadPipeline`  
 
