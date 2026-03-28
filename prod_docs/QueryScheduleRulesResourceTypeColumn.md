@@ -4,6 +4,6 @@ Allowed column names for Query.scheduleRules.resourceType.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| RESOURCES_TYPE |  |
+| Valor          | Descripción |
+| :------------- | :---------- |
+| RESOURCES_TYPE |             |

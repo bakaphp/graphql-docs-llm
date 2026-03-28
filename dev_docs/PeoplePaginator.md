@@ -4,7 +4,7 @@ A paginated list of People items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+| Campo         | Tipo             | Descripción                                     |
+| :------------ | :--------------- | :---------------------------------------------- |
 | paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[People!]!` | A list of People items. |
+| data          | `[People!]!`     | A list of People items.                         |

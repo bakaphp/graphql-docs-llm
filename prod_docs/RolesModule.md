@@ -1,10 +1,8 @@
 # OBJECT: RolesModule
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| name | `AppModule` |  |
-| entities | `[RoleEntity!]` |  |
+| Campo    | Tipo            | Descripción |
+| :------- | :-------------- | :---------- |
+| name     | `AppModule`     |             |
+| entities | `[RoleEntity!]` |             |

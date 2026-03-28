@@ -4,7 +4,7 @@ Allowed column names for Query.companySubscriptions.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| STRIPE_STATUS |  |
+| Valor         | Descripción |
+| :------------ | :---------- |
+| ID            |             |
+| STRIPE_STATUS |             |

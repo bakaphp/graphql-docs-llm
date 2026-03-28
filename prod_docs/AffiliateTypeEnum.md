@@ -1,12 +1,10 @@
 # ENUM: AffiliateTypeEnum
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| INDIVIDUAL |  |
-| BUSINESS |  |
-| INFLUENCER |  |
-| AGENCY |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| INDIVIDUAL |             |
+| BUSINESS   |             |
+| INFLUENCER |             |
+| AGENCY     |             |

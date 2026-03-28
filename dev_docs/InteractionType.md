@@ -1,12 +1,10 @@
 # ENUM: InteractionType
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| LIKE |  |
-| SAVE |  |
-| SHARE |  |
-| REPORT |  |
+| Valor  | Descripción |
+| :----- | :---------- |
+| LIKE   |             |
+| SAVE   |             |
+| SHARE  |             |
+| REPORT |             |

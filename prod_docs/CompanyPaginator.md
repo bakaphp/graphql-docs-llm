@@ -4,7 +4,7 @@ A paginated list of Company items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+| Campo         | Tipo             | Descripción                                     |
+| :------------ | :--------------- | :---------------------------------------------- |
 | paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[Company!]!` | A list of Company items. |
+| data          | `[Company!]!`    | A list of Company items.                        |

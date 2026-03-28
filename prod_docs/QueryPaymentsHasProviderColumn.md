@@ -4,6 +4,6 @@ Allowed column names for Query.payments.hasProvider.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| COMPANY_ID |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| COMPANY_ID |             |

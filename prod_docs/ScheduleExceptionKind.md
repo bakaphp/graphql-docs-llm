@@ -1,10 +1,8 @@
 # ENUM: ScheduleExceptionKind
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| BLACKOUT |  |
-| EXTRA_OPEN |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| BLACKOUT   |             |
+| EXTRA_OPEN |             |

@@ -1,11 +1,9 @@
 # OBJECT: TemplateVariables
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| name | `String` |  |
-| value | `String` |  |
-| template_id | `Int` |  |
+| Campo       | Tipo     | Descripción |
+| :---------- | :------- | :---------- |
+| name        | `String` |             |
+| value       | `String` |             |
+| template_id | `Int`    |             |

@@ -5,7 +5,7 @@ Allowed column names for Query.attributes.where.
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| UUID |  |
-| ID |  |
-| NAME |  |
+| :---- | :---------- |
+| UUID  |             |
+| ID    |             |
+| NAME  |             |

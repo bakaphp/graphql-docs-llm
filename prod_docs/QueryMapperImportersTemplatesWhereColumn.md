@@ -4,8 +4,8 @@ Allowed column names for Query.mapperImportersTemplates.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| NAME |  |
-| DESCRIPTION |  |
+| Valor       | Descripción |
+| :---------- | :---------- |
+| ID          |             |
+| NAME        |             |
+| DESCRIPTION |             |

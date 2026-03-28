@@ -1,12 +1,13 @@
 # INPUT_OBJECT: QueryCommentsWhereWhereConditionsRelation
 
-Dynamic HAS conditions for WHERE conditions for the `where` argument of the query `comments`.
+Dynamic HAS conditions for WHERE conditions for the `where` argument of the
+query `comments`.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| relation | `String!` | The relation that is checked. |
-| operator | `SQLOperator` | The comparison operator to test against the amount. |
-| amount | `Int` | The amount to test. |
-| condition | `QueryCommentsWhereWhereConditionsHasCondition` | Additional condition logic. |
+| Campo     | Tipo                                            | Descripción                                         |
+| :-------- | :---------------------------------------------- | :-------------------------------------------------- |
+| relation  | `String!`                                       | The relation that is checked.                       |
+| operator  | `SQLOperator`                                   | The comparison operator to test against the amount. |
+| amount    | `Int`                                           | The amount to test.                                 |
+| condition | `QueryCommentsWhereWhereConditionsHasCondition` | Additional condition logic.                         |

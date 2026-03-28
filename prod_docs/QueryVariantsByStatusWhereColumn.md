@@ -4,8 +4,8 @@ Allowed column names for Query.variantsByStatus.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| QUANTITY |  |
-| PRICE |  |
-| SKU |  |
+| Valor    | Descripción |
+| :------- | :---------- |
+| QUANTITY |             |
+| PRICE    |             |
+| SKU      |             |

@@ -1,9 +1,7 @@
 # OBJECT: SocialChannelPivot
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| roles_id | `UsersRolesChannel!` |  |
+| Campo    | Tipo                 | Descripción |
+| :------- | :------------------- | :---------- |
+| roles_id | `UsersRolesChannel!` |             |

@@ -1,10 +1,8 @@
 # ENUM: AgentStatusEnum
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ACTIVE |  |
-| INACTIVE |  |
+| Valor    | Descripción |
+| :------- | :---------- |
+| ACTIVE   |             |
+| INACTIVE |             |

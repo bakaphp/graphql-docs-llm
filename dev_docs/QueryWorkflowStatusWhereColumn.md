@@ -5,6 +5,6 @@ Allowed column names for Query.workflowStatus.where.
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| NAME |  |
+| :---- | :---------- |
+| ID    |             |
+| NAME  |             |

@@ -4,7 +4,7 @@ A paginated list of States items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+| Campo         | Tipo             | Descripción                                     |
+| :------------ | :--------------- | :---------------------------------------------- |
 | paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[States!]!` | A list of States items. |
+| data          | `[States!]!`     | A list of States items.                         |

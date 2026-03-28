@@ -1,10 +1,8 @@
 # ENUM: DiscountConditionOperator
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| IN |  |
-| NOT_IN |  |
+| Valor  | Descripción |
+| :----- | :---------- |
+| IN     |             |
+| NOT_IN |             |

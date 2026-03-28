@@ -1,11 +1,9 @@
 # ENUM: DistributionType
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ALL |  |
-| Channels |  |
-| Followers |  |
+| Valor     | Descripción |
+| :-------- | :---------- |
+| ALL       |             |
+| Channels  |             |
+| Followers |             |

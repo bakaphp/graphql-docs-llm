@@ -4,7 +4,7 @@ A paginated list of Role items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+| Campo         | Tipo             | Descripción                                     |
+| :------------ | :--------------- | :---------------------------------------------- |
 | paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[Role!]!` | A list of Role items. |
+| data          | `[Role!]!`       | A list of Role items.                           |

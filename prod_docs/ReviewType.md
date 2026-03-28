@@ -1,11 +1,9 @@
 # OBJECT: ReviewType
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| user | `User!` |  |
-| name | `String!` |  |
+| Campo | Tipo      | Descripción |
+| :---- | :-------- | :---------- |
+| id    | `ID!`     |             |
+| user  | `User!`   |             |
+| name  | `String!` |             |

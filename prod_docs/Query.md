@@ -1,76 +1,72 @@
 # OBJECT: Query
 
-
-
 ### me
-**Retorno:** `User!`  
 
+**Retorno:** `User!`
 
 ---
 ### user
-**Retorno:** `User`  
+**Retorno:** `User`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-
 ---
+
 ### userByDisplayName
-**Retorno:** `User!`  
 
+**Retorno:** `User!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| displayname | `String!` |  |
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| displayname | `String!` |             |
 
 ---
 ### hello
-**Retorno:** `String!`  
-
-
+**Retorno:** `String!`
 ---
+
 ### city
-**Retorno:** `Cities`  
 
+**Retorno:** `Cities`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `Int!` |  |
+| Argumento | Tipo   | Descripción |
+| :-------- | :----- | :---------- |
+| id        | `Int!` |             |
 
 ---
 ### companySettings
-**Retorno:** `CompanySettings!`  
-
-
+**Retorno:** `CompanySettings!`
 ---
-### dashboard
-**Retorno:** `Dashboard!`  
 
+### dashboard
+
+**Retorno:** `Dashboard!`
 
 ---
 ### country
-**Retorno:** `Country`  
+**Retorno:** `Country`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `Int!` |  |
-
 ---
+
 ### customField
-**Retorno:** `Mixed`  
 
+**Retorno:** `Mixed`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| name | `String!` |  |
-| system_module_uuid | `String!` |  |
-| entity_id | `String!` |  |
+| Argumento          | Tipo      | Descripción |
+| :----------------- | :-------- | :---------- |
+| name               | `String!` |             |
+| system_module_uuid | `String!` |             |
+| entity_id          | `String!` |             |
 
 ---
 ### customFields
-**Retorno:** `Mixed`  
+**Retorno:** `Mixed`
 
 
 | Argumento | Tipo | Descripción |
@@ -78,247 +74,244 @@
 | name | `String!` |  |
 | system_module_uuid | `String!` |  |
 | entity_id | `String!` |  |
-
 ---
+
 ### getInvite
-**Retorno:** `ExternalInvite!`  
 
+**Retorno:** `ExternalInvite!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| hash | `String!` |  |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| hash      | `String!` |             |
 
 ---
 ### getAdminInvite
-**Retorno:** `ExternalAdminInvite!`  
+**Retorno:** `ExternalAdminInvite!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | hash | `String!` |  |
-
 ---
-### kanvasModules
-**Retorno:** `[KanvasModule!]!`  
 
+### kanvasModules
+
+**Retorno:** `[KanvasModule!]!`
 
 ---
 ### hasRole
-**Retorno:** `Boolean`  
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | userId | `ID!` |  |
 | role | `Mixed!` |  |
-
 ---
+
 ### can
-**Retorno:** `Boolean`  
 
+**Retorno:** `Boolean`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| userId | `ID!` |  |
-| permission | `String` |  |
+| Argumento  | Tipo     | Descripción |
+| :--------- | :------- | :---------- |
+| userId     | `ID!`    |             |
+| permission | `String` |             |
 
 ---
 ### getAllAbilities
-**Retorno:** `[String]`  
+**Retorno:** `[String]`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | userId | `ID!` |  |
 | companyId | `ID` |  |
-
 ---
+
 ### getRoleAbilities
-**Retorno:** `Mixed`  
 
+**Retorno:** `Mixed`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| role | `String!` |  |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| role      | `String!` |             |
 
 ---
 ### state
-**Retorno:** `States`  
+**Retorno:** `States`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `Int!` |  |
-
 ---
-### productDashboard
-**Retorno:** `productDashboard!`  
 
+### productDashboard
+
+**Retorno:** `productDashboard!`
 
 ---
 ### productsExport
-**Retorno:** `EntityExport`  
-
-
+**Retorno:** `EntityExport`
 ---
+
 ### productSemanticSearch
-**Retorno:** `[Product!]!`  
 
+**Retorno:** `[Product!]!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| query | `String!` |  |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| query     | `String!` |             |
 
 ---
 ### productStats
-**Retorno:** `CapacityStats!`  
+**Retorno:** `CapacityStats!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | input | `ProductStatsInput!` |  |
-
 ---
-### productAdminDashboard
-**Retorno:** `adminProductDashboard!`  
 
+### productAdminDashboard
+
+**Retorno:** `adminProductDashboard!`
 
 ---
 ### peopleCount
-**Retorno:** `Int`  
-
-
+**Retorno:** `Int`
 ---
+
 ### peopleCountByTag
-**Retorno:** `Int`  
 
+**Retorno:** `Int`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tag | `String!` |  |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| tag       | `String!` |             |
 
 ---
 ### peopleCountBySubscriptionType
-**Retorno:** `Int`  
+**Retorno:** `Int`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | type | `String!` |  |
-
 ---
+
 ### isFollowing
-**Retorno:** `Boolean`  
 
+**Retorno:** `Boolean`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID!` |  |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| user_id   | `ID!` |             |
 
 ---
 ### getTotalFollowers
-**Retorno:** `Int!`  
+**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | user_id | `ID!` |  |
-
 ---
+
 ### messageSearchSuggestions
-**Retorno:** `Mixed!`  
 
+**Retorno:** `Mixed!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| search    | `String` |             |
 
 ---
 ### userMessageUsageStats
-**Retorno:** `MessageUsageStats!`  
+**Retorno:** `MessageUsageStats!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | days | `Int` |  |
 | message_type_id | `ID` |  |
-
 ---
+
 ### companyMessageUsageStats
-**Retorno:** `MessageUsageStats!`  
 
+**Retorno:** `MessageUsageStats!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| days | `Int` |  |
-| message_type_id | `ID` |  |
+| Argumento       | Tipo  | Descripción |
+| :-------------- | :---- | :---------- |
+| days            | `Int` |             |
+| message_type_id | `ID`  |             |
 
 ---
 ### reaction
-**Retorno:** `Reaction`  
+**Retorno:** `Reaction`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-
 ---
+
 ### countUserReaction
-**Retorno:** `Int`  
 
+**Retorno:** `Int`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryCountUserReactionWhereWhereConditions` |  |
+| Argumento | Tipo                                         | Descripción |
+| :-------- | :------------------------------------------- | :---------- |
+| where     | `QueryCountUserReactionWhereWhereConditions` |             |
 
 ---
 ### getUserReactionGroupByReaction
-**Retorno:** `[ReactionsGroupBy!]!`  
+**Retorno:** `[ReactionsGroupBy!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | system_module_uuid | `ID` |  |
 | entity_id | `ID` |  |
-
 ---
+
 ### getUserInteraction
-**Retorno:** `UserEntityInteraction`  
 
+**Retorno:** `UserEntityInteraction`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_id | `ID!` |  |
-| entity_namespace | `String!` |  |
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| entity_id        | `ID!`     |             |
+| entity_namespace | `String!` |             |
 
 ---
 ### cart
-**Retorno:** `Cart`  
-
-
+**Retorno:** `Cart`
 ---
+
 ### exportOrders
-**Retorno:** `OrderExportResult!`  
 
+**Retorno:** `OrderExportResult!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| format | `ExportFormat!` |  |
-| search | `String` |  |
-| field_mapper | `Mixed` |  |
-| metadata | `ExportMetadataInput` |  |
-| timezone | `String` |  |
-| where | `QueryExportOrdersWhereWhereConditions` |  |
-| orderType | `QueryExportOrdersOrderTypeWhereConditions` |  |
-| orderStatus | `QueryExportOrdersOrderStatusWhereConditions` |  |
-| hasAddress | `QueryExportOrdersHasAddressWhereConditions` |  |
-| hasItems | `QueryExportOrdersHasItemsWhereHasConditions` |  |
-| hasPeople | `QueryExportOrdersHasPeopleWhereHasConditions` |  |
-| orderBy | `[QueryExportOrdersOrderByOrderByClause!]` |  |
+| Argumento    | Tipo                                           | Descripción |
+| :----------- | :--------------------------------------------- | :---------- |
+| format       | `ExportFormat!`                                |             |
+| search       | `String`                                       |             |
+| field_mapper | `Mixed`                                        |             |
+| metadata     | `ExportMetadataInput`                          |             |
+| timezone     | `String`                                       |             |
+| where        | `QueryExportOrdersWhereWhereConditions`        |             |
+| orderType    | `QueryExportOrdersOrderTypeWhereConditions`    |             |
+| orderStatus  | `QueryExportOrdersOrderStatusWhereConditions`  |             |
+| hasAddress   | `QueryExportOrdersHasAddressWhereConditions`   |             |
+| hasItems     | `QueryExportOrdersHasItemsWhereHasConditions`  |             |
+| hasPeople    | `QueryExportOrdersHasPeopleWhereHasConditions` |             |
+| orderBy      | `[QueryExportOrdersOrderByOrderByClause!]`     |             |
 
 ---
 ### exportOrderTransitionHistory
-**Retorno:** `OrderExportResult!`  
+**Retorno:** `OrderExportResult!`
 
 
 | Argumento | Tipo | Descripción |
@@ -336,74 +329,74 @@
 | hasProvider | `QueryExportOrderTransitionHistoryHasProviderWhereConditions` |  |
 | paymentMethodType | `PaymentMethodType` |  |
 | orderBy | `[QueryExportOrderTransitionHistoryOrderByOrderByClause!]` |  |
-
 ---
+
 ### orderPipeline
-**Retorno:** `OrderPipelineResult!`  
 
+**Retorno:** `OrderPipelineResult!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| order_id | `ID!` |  |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| order_id  | `ID!` |             |
 
 ---
 ### orderStats
-**Retorno:** `OrderStats!`  
+**Retorno:** `OrderStats!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | input | `OrderStatsInput` |  |
-
 ---
+
 ### orderPaymentStats
-**Retorno:** `OrderPaymentStats!`  
 
+**Retorno:** `OrderPaymentStats!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrderPaymentStatsInput` |  |
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `OrderPaymentStatsInput` |             |
 
 ---
 ### exportOrderPayments
-**Retorno:** `OrderExportResult!`  
+**Retorno:** `OrderExportResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | input | `ExportOrderPaymentsInput!` |  |
 | format | `ExportFormat!` |  |
-
 ---
-### myReferralInfo
-**Retorno:** `UserReferralInfo`  
 
+### myReferralInfo
+
+**Retorno:** `UserReferralInfo`
 
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
+| :-------- | :--- | :---------- |
+| user_id   | `ID` |             |
 
 ---
 ### paymentMethod
-**Retorno:** `PaymentMethod!`  
+**Retorno:** `PaymentMethod!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-
 ---
+
 ### getWalletBalance
-**Retorno:** `WalletResult`  
 
+**Retorno:** `WalletResult`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tag | `String!` |  |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| tag       | `String!` |             |
 
 ---
 ### getUserWallet
-**Retorno:** `WalletResult`  
+**Retorno:** `WalletResult`
 
 
 | Argumento | Tipo | Descripción |
@@ -411,118 +404,117 @@
 | tag | `String!` |  |
 | userId | `ID` |  |
 | metadata | `Mixed` |  |
-
 ---
+
 ### engagementByFilter
-**Retorno:** `Engagement`  
 
+**Retorno:** `Engagement`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| filter | `EngagementFilterInput!` |  |
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| filter    | `EngagementFilterInput!` |             |
 
 ---
 ### getAppSettings
-**Retorno:** `AppSettings`  
+**Retorno:** `AppSettings`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | key | `String!` |  |
 | orderBy | `[QueryGetAppSettingsOrderByOrderByClause!]` |  |
-
 ---
+
 ### appSetting
-**Retorno:** `AppSettings`  
 
+**Retorno:** `AppSettings`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderBy | `[QueryAppSettingOrderByOrderByClause!]` |  |
+| Argumento | Tipo                                     | Descripción |
+| :-------- | :--------------------------------------- | :---------- |
+| orderBy   | `[QueryAppSettingOrderByOrderByClause!]` |             |
 
 ---
 ### appSettings
-**Retorno:** `[ModuleConfig!]!`  
-
-
+**Retorno:** `[ModuleConfig!]!`
 ---
-### adminAppSettings
-**Retorno:** `[ModuleConfig!]!`  
 
+### adminAppSettings
+
+**Retorno:** `[ModuleConfig!]!`
 
 ---
 ### adminAppSetting
-**Retorno:** `Mixed`  
+**Retorno:** `Mixed`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | key | `String!` |  |
-
 ---
+
 ### companySetting
-**Retorno:** `[ModuleConfig!]!`  
 
+**Retorno:** `[ModuleConfig!]!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| entity_uuid | `String!` |             |
 
 ---
 ### adminCompanySettings
-**Retorno:** `[ModuleConfig!]!`  
+**Retorno:** `[ModuleConfig!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | entity_uuid | `String!` |  |
-
 ---
+
 ### adminCompanySetting
-**Retorno:** `Mixed`  
 
+**Retorno:** `Mixed`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
-| key | `String!` |  |
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| entity_uuid | `String!` |             |
+| key         | `String!` |             |
 
 ---
 ### userSettings
-**Retorno:** `[ModuleConfig!]!`  
+**Retorno:** `[ModuleConfig!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | entity_uuid | `String!` |  |
-
 ---
-### receiverStatus
-**Retorno:** `[WorkflowReceiverStatusEnum!]!`  
 
+### receiverStatus
+
+**Retorno:** `[WorkflowReceiverStatusEnum!]!`
 
 ---
 ### userSubscription
-**Retorno:** `UserSubscription!`  
+**Retorno:** `UserSubscription!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-
 ---
+
 ### resourceSchedule
-**Retorno:** `ResourceSchedule!`  
 
+**Retorno:** `ResourceSchedule!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| resources_id | `ID!` |  |
-| resources_type | `String!` |  |
+| Argumento      | Tipo      | Descripción |
+| :------------- | :-------- | :---------- |
+| resources_id   | `ID!`     |             |
+| resources_type | `String!` |             |
 
 ---
 ### isResourceOpen
-**Retorno:** `Boolean!`  
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -530,46 +522,46 @@
 | resources_id | `ID!` |  |
 | resources_type | `String!` |  |
 | datetime | `DateTime` |  |
-
 ---
+
 ### followUpPrompt
-**Retorno:** `String!`  
 
+**Retorno:** `String!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| lead_id | `ID!` |  |
-| pipeline_stage_id | `ID!` |  |
-| session_id | `String!` |  |
-| message_template | `String!` |  |
-| day | `Float!` |  |
+| Argumento         | Tipo      | Descripción |
+| :---------------- | :-------- | :---------- |
+| lead_id           | `ID!`     |             |
+| pipeline_stage_id | `ID!`     |             |
+| session_id        | `String!` |             |
+| message_template  | `String!` |             |
+| day               | `Float!`  |             |
 
 ---
 ### aiAgentSession
-**Retorno:** `AIAgentSession!`  
+**Retorno:** `AIAgentSession!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-
 ---
+
 ### getActivityLog
-**Retorno:** `ActivityLogPaginator!`  
 
+**Retorno:** `ActivityLogPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| system_module_uuid | `String!` |  |
-| entity_id | `Int!` |  |
-| where | `QueryGetActivityLogWhereWhereConditions` |  |
-| orderBy | `[QueryGetActivityLogOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento          | Tipo                                         | Descripción                               |
+| :----------------- | :------------------------------------------- | :---------------------------------------- |
+| system_module_uuid | `String!`                                    |                                           |
+| entity_id          | `Int!`                                       |                                           |
+| where              | `QueryGetActivityLogWhereWhereConditions`    |                                           |
+| orderBy            | `[QueryGetActivityLogOrderByOrderByClause!]` |                                           |
+| first              | `Int!`                                       | Limits number of fetched items.           |
+| page               | `Int`                                        | The offset from which items are returned. |
 
 ---
 ### cities
-**Retorno:** `CitiesPaginator!`  
+**Retorno:** `CitiesPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -578,24 +570,24 @@
 | where | `QueryCitiesWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### companies
-**Retorno:** `CompanyPaginator!`  
 
+**Retorno:** `CompanyPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryCompaniesWhereWhereConditions` |  |
-| hasUsers | `QueryCompaniesHasUsersWhereHasConditions` |  |
-| orderBy | `[QueryCompaniesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| search    | `String`                                   |                                           |
+| where     | `QueryCompaniesWhereWhereConditions`       |                                           |
+| hasUsers  | `QueryCompaniesHasUsersWhereHasConditions` |                                           |
+| orderBy   | `[QueryCompaniesOrderByOrderByClause!]`    |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### branches
-**Retorno:** `CompanyBranchPaginator!`  
+**Retorno:** `CompanyBranchPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -605,24 +597,24 @@
 | orderBy | `[QueryBranchesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### companyUsers
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryCompanyUsersWhereWhereConditions` |  |
-| orderBy | `[QueryCompanyUsersOrderByOrderByClause!]` |  |
-| userRole | `QueryCompanyUsersUserRoleWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| search    | `String`                                   |                                           |
+| where     | `QueryCompanyUsersWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryCompanyUsersOrderByOrderByClause!]` |                                           |
+| userRole  | `QueryCompanyUsersUserRoleWhereConditions` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### companyBranchUsers
-**Retorno:** `UserPaginator!`  
+**Retorno:** `UserPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -631,22 +623,22 @@
 | orderBy | `[QueryCompanyBranchUsersOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### companyAddresses
-**Retorno:** `CompanyAddressPaginator!`  
 
+**Retorno:** `CompanyAddressPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryCompanyAddressesWhereWhereConditions` |  |
-| orderBy | `[QueryCompanyAddressesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| where     | `QueryCompanyAddressesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryCompanyAddressesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### countries
-**Retorno:** `CountryPaginator!`  
+**Retorno:** `CountryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -657,22 +649,22 @@
 | hasCities | `QueryCountriesHasCitiesWhereHasConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### currencies
-**Retorno:** `CurrencyPaginator!`  
 
+**Retorno:** `CurrencyPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderBy | `[QueryCurrenciesOrderByOrderByClause!]` |  |
-| where | `QueryCurrenciesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| orderBy   | `[QueryCurrenciesOrderByOrderByClause!]` |                                           |
+| where     | `QueryCurrenciesWhereWhereConditions`    |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---
 ### mapperImportersTemplates
-**Retorno:** `ImporterTemplatePaginator!`  
+**Retorno:** `ImporterTemplatePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -681,22 +673,22 @@
 | hasAttributes | `QueryMapperImportersTemplatesHasAttributesWhereHasConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### usersInvites
-**Retorno:** `InvitePaginator!`  
 
+**Retorno:** `InvitePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryUsersInvitesWhereWhereConditions` |  |
-| orderBy | `[QueryUsersInvitesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| where     | `QueryUsersInvitesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryUsersInvitesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### adminInvites
-**Retorno:** `AdminInvitePaginator!`  
+**Retorno:** `AdminInvitePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -705,23 +697,23 @@
 | orderBy | `[QueryAdminInvitesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### languages
-**Retorno:** `LanguagePaginator!`  
 
+**Retorno:** `LanguagePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryLanguagesWhereWhereConditions` |  |
-| orderBy | `[QueryLanguagesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| search    | `String`                                |                                           |
+| where     | `QueryLanguagesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryLanguagesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
 
 ---
 ### notifications
-**Retorno:** `NotificationPaginator!`  
+**Retorno:** `NotificationPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -734,22 +726,22 @@
 | orderBy | `[QueryNotificationsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### notificationTypes
-**Retorno:** `NotificationTypePaginator!`  
 
+**Retorno:** `NotificationTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryNotificationTypesWhereWhereConditions` |  |
-| orderBy | `[QueryNotificationTypesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                            | Descripción                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------- |
+| where     | `QueryNotificationTypesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryNotificationTypesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                          | Limits number of fetched items.           |
+| page      | `Int`                                           | The offset from which items are returned. |
 
 ---
 ### notificationChannels
-**Retorno:** `NotificationChannelPaginator!`  
+**Retorno:** `NotificationChannelPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -758,22 +750,22 @@
 | orderBy | `[QueryNotificationChannelsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### notificationSettings
-**Retorno:** `NotificationSettingsPaginator!`  
 
+**Retorno:** `NotificationSettingsPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryNotificationSettingsWhereWhereConditions` |  |
-| filterByChannel | `NotificationChannels` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento       | Tipo                                            | Descripción                               |
+| :-------------- | :---------------------------------------------- | :---------------------------------------- |
+| where           | `QueryNotificationSettingsWhereWhereConditions` |                                           |
+| filterByChannel | `NotificationChannels`                          |                                           |
+| first           | `Int!`                                          | Limits number of fetched items.           |
+| page            | `Int`                                           | The offset from which items are returned. |
 
 ---
 ### roles
-**Retorno:** `RolePaginator!`  
+**Retorno:** `RolePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -783,21 +775,21 @@
 | orderBy | `[QueryRolesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### states
-**Retorno:** `StatesPaginator!`  
 
+**Retorno:** `StatesPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryStatesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                              | Descripción                               |
+| :-------- | :-------------------------------- | :---------------------------------------- |
+| where     | `QueryStatesWhereWhereConditions` |                                           |
+| first     | `Int!`                            | Limits number of fetched items.           |
+| page      | `Int`                             | The offset from which items are returned. |
 
 ---
 ### systemModels
-**Retorno:** `SystemModulePaginator!`  
+**Retorno:** `SystemModulePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -806,22 +798,22 @@
 | orderBy | `[QuerySystemModelsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### globalSystemModels
-**Retorno:** `SystemModulePaginator!`  
 
+**Retorno:** `SystemModulePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryGlobalSystemModelsWhereWhereConditions` |  |
-| orderBy | `[QueryGlobalSystemModelsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                             | Descripción                               |
+| :-------- | :----------------------------------------------- | :---------------------------------------- |
+| where     | `QueryGlobalSystemModelsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryGlobalSystemModelsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                           | Limits number of fetched items.           |
+| page      | `Int`                                            | The offset from which items are returned. |
 
 ---
 ### templates
-**Retorno:** `TemplatePaginator!`  
+**Retorno:** `TemplatePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -831,24 +823,24 @@
 | orderBy | `[QueryTemplatesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### users
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryUsersWhereWhereConditions` |  |
-| hasRoles | `QueryUsersHasRolesWhereHasConditions` |  |
-| orderBy | `[QueryUsersOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                   | Descripción                               |
+| :-------- | :------------------------------------- | :---------------------------------------- |
+| search    | `String`                               |                                           |
+| where     | `QueryUsersWhereWhereConditions`       |                                           |
+| hasRoles  | `QueryUsersHasRolesWhereHasConditions` |                                           |
+| orderBy   | `[QueryUsersOrderByOrderByClause!]`    |                                           |
+| first     | `Int!`                                 | Limits number of fetched items.           |
+| page      | `Int`                                  | The offset from which items are returned. |
 
 ---
 ### entityFiles
-**Retorno:** `FilesystemPaginator!`  
+**Retorno:** `FilesystemPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -857,23 +849,23 @@
 | where | `QueryEntityFilesWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### filesystemMappers
-**Retorno:** `FilesystemMapperPaginator!`  
 
+**Retorno:** `FilesystemMapperPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryFilesystemMappersWhereWhereConditions` |  |
-| orderBy | `[QueryFilesystemMappersOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                            | Descripción                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                        |                                           |
+| where     | `QueryFilesystemMappersWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryFilesystemMappersOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                          | Limits number of fetched items.           |
+| page      | `Int`                                           | The offset from which items are returned. |
 
 ---
 ### filesystemImportHistory
-**Retorno:** `FilesystemImportHistoryPaginator!`  
+**Retorno:** `FilesystemImportHistoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -884,23 +876,23 @@
 | orderBy | `[QueryFilesystemImportHistoryOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### attributes
-**Retorno:** `AttributesPaginator!`  
 
+**Retorno:** `AttributesPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAttributesWhereWhereConditions` |  |
-| orderBy | `[QueryAttributesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| search    | `String`                                 |                                           |
+| where     | `QueryAttributesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAttributesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---
 ### attributesTypes
-**Retorno:** `AttributesTypePaginator!`  
+**Retorno:** `AttributesTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -910,23 +902,23 @@
 | orderBy | `[QueryAttributesTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### bundles
-**Retorno:** `BundlePaginator!`  
 
+**Retorno:** `BundlePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryBundlesWhereWhereConditions` |  |
-| hasBundleItems | `QueryBundlesHasBundleItemsWhereHasConditions` |  |
-| orderBy | `[QueryBundlesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento      | Tipo                                           | Descripción                               |
+| :------------- | :--------------------------------------------- | :---------------------------------------- |
+| where          | `QueryBundlesWhereWhereConditions`             |                                           |
+| hasBundleItems | `QueryBundlesHasBundleItemsWhereHasConditions` |                                           |
+| orderBy        | `[QueryBundlesOrderByOrderByClause!]`          |                                           |
+| first          | `Int!`                                         | Limits number of fetched items.           |
+| page           | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### categories
-**Retorno:** `CategoryPaginator!`  
+**Retorno:** `CategoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -936,23 +928,23 @@
 | orderBy | `[QueryCategoriesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### channels
-**Retorno:** `ChannelPaginator!`  
 
+**Retorno:** `ChannelPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryChannelsWhereWhereConditions` |  |
-| orderBy | `[QueryChannelsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                   | Descripción                               |
+| :-------- | :------------------------------------- | :---------------------------------------- |
+| search    | `String`                               |                                           |
+| where     | `QueryChannelsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryChannelsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                 | Limits number of fetched items.           |
+| page      | `Int`                                  | The offset from which items are returned. |
 
 ---
 ### channelsByRegion
-**Retorno:** `ChannelPaginator!`  
+**Retorno:** `ChannelPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -960,27 +952,27 @@
 | region_id | `ID!` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### channelProducts
-**Retorno:** `ProductPaginator!`  
 
+**Retorno:** `ProductPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `String!` |  |
-| search | `String` |  |
-| visitor | `VisitorEntityInput` |  |
-| where | `QueryChannelProductsWhereWhereConditions` |  |
-| hasAttributesValues | `QueryChannelProductsHasAttributesValuesWhereHasConditions` |  |
-| whereRating | `QueryChannelProductsWhereRatingWhereConditions` |  |
-| orderBy | `[QueryChannelProductsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento           | Tipo                                                        | Descripción                               |
+| :------------------ | :---------------------------------------------------------- | :---------------------------------------- |
+| id                  | `String!`                                                   |                                           |
+| search              | `String`                                                    |                                           |
+| visitor             | `VisitorEntityInput`                                        |                                           |
+| where               | `QueryChannelProductsWhereWhereConditions`                  |                                           |
+| hasAttributesValues | `QueryChannelProductsHasAttributesValuesWhereHasConditions` |                                           |
+| whereRating         | `QueryChannelProductsWhereRatingWhereConditions`            |                                           |
+| orderBy             | `[QueryChannelProductsOrderByOrderByClause!]`               |                                           |
+| first               | `Int!`                                                      | Limits number of fetched items.           |
+| page                | `Int`                                                       | The offset from which items are returned. |
 
 ---
 ### products
-**Retorno:** `ProductPaginator!`  
+**Retorno:** `ProductPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1001,23 +993,23 @@
 | orderBy | `[QueryProductsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### productRecommendations
-**Retorno:** `ProductPaginator!`  
 
+**Retorno:** `ProductPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| intent | `String!` |  |
-| config | `Mixed` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo      | Descripción                               |
+| :-------- | :-------- | :---------------------------------------- |
+| id        | `ID!`     |                                           |
+| intent    | `String!` |                                           |
+| config    | `Mixed`   |                                           |
+| first     | `Int!`    | Limits number of fetched items.           |
+| page      | `Int`     | The offset from which items are returned. |
 
 ---
 ### productTypes
-**Retorno:** `ProductTypePaginator!`  
+**Retorno:** `ProductTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1027,22 +1019,22 @@
 | orderBy | `[QueryProductTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### regions
-**Retorno:** `RegionPaginator!`  
 
+**Retorno:** `RegionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryRegionsWhereWhereConditions` |  |
-| orderBy | `[QueryRegionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                  | Descripción                               |
+| :-------- | :------------------------------------ | :---------------------------------------- |
+| where     | `QueryRegionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryRegionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                | Limits number of fetched items.           |
+| page      | `Int`                                 | The offset from which items are returned. |
 
 ---
 ### status
-**Retorno:** `StatusPaginator!`  
+**Retorno:** `StatusPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1052,25 +1044,25 @@
 | orderBy | `[QueryStatusOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### variants
-**Retorno:** `VariantPaginator!`  
 
+**Retorno:** `VariantPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryVariantsWhereWhereConditions` |  |
-| hasAttributesValues | `QueryVariantsHasAttributesValuesWhereHasConditions` |  |
-| hasChannel | `QueryVariantsHasChannelWhereHasConditions` |  |
-| orderBy | `[QueryVariantsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento           | Tipo                                                 | Descripción                               |
+| :------------------ | :--------------------------------------------------- | :---------------------------------------- |
+| search              | `String`                                             |                                           |
+| where               | `QueryVariantsWhereWhereConditions`                  |                                           |
+| hasAttributesValues | `QueryVariantsHasAttributesValuesWhereHasConditions` |                                           |
+| hasChannel          | `QueryVariantsHasChannelWhereHasConditions`          |                                           |
+| orderBy             | `[QueryVariantsOrderByOrderByClause!]`               |                                           |
+| first               | `Int!`                                               | Limits number of fetched items.           |
+| page                | `Int`                                                | The offset from which items are returned. |
 
 ---
 ### channelVariants
-**Retorno:** `VariantChannelPaginator!`  
+**Retorno:** `VariantChannelPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1084,25 +1076,25 @@
 | orderBy | `[QueryChannelVariantsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### channelVariantsFilterByAttributes
-**Retorno:** `VariantChannelPaginator!`  
 
+**Retorno:** `VariantChannelPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| attributes | `Mixed` |  |
-| search | `String` |  |
-| where | `QueryChannelVariantsFilterByAttributesWhereWhereConditions` |  |
-| orderBy | `[QueryChannelVariantsFilterByAttributesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento  | Tipo                                                            | Descripción                               |
+| :--------- | :-------------------------------------------------------------- | :---------------------------------------- |
+| id         | `ID!`                                                           |                                           |
+| attributes | `Mixed`                                                         |                                           |
+| search     | `String`                                                        |                                           |
+| where      | `QueryChannelVariantsFilterByAttributesWhereWhereConditions`    |                                           |
+| orderBy    | `[QueryChannelVariantsFilterByAttributesOrderByOrderByClause!]` |                                           |
+| first      | `Int!`                                                          | Limits number of fetched items.           |
+| page       | `Int`                                                           | The offset from which items are returned. |
 
 ---
 ### warehouseVariants
-**Retorno:** `VariantPaginator!`  
+**Retorno:** `VariantPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1112,25 +1104,25 @@
 | where | `QueryWarehouseVariantsWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### variantsByStatus
-**Retorno:** `VariantPaginator!`  
 
+**Retorno:** `VariantPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| warehouse_id | `ID!` |  |
-| status_id | `[ID]!` |  |
-| search | `String` |  |
-| where | `QueryVariantsByStatusWhereWhereConditions` |  |
-| orderBy | `[QueryVariantsByStatusOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento    | Tipo                                           | Descripción                               |
+| :----------- | :--------------------------------------------- | :---------------------------------------- |
+| warehouse_id | `ID!`                                          |                                           |
+| status_id    | `[ID]!`                                        |                                           |
+| search       | `String`                                       |                                           |
+| where        | `QueryVariantsByStatusWhereWhereConditions`    |                                           |
+| orderBy      | `[QueryVariantsByStatusOrderByOrderByClause!]` |                                           |
+| first        | `Int!`                                         | Limits number of fetched items.           |
+| page         | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### warehouses
-**Retorno:** `WarehousePaginator!`  
+**Retorno:** `WarehousePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1140,21 +1132,21 @@
 | orderBy | `[QueryWarehousesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### warehousesByChannel
-**Retorno:** `WarehousePaginator!`  
 
+**Retorno:** `WarehousePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| channel_id | `ID!` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento  | Tipo   | Descripción                               |
+| :--------- | :----- | :---------------------------------------- |
+| channel_id | `ID!`  |                                           |
+| first      | `Int!` | Limits number of fetched items.           |
+| page       | `Int`  | The offset from which items are returned. |
 
 ---
 ### agents
-**Retorno:** `AgentPaginator!`  
+**Retorno:** `AgentPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1163,22 +1155,22 @@
 | orderBy | `[QueryAgentsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### contactType
-**Retorno:** `ContactTypePaginator!`  
 
+**Retorno:** `ContactTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryContactTypeWhereWhereConditions` |  |
-| orderBy | `[QueryContactTypeOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| where     | `QueryContactTypeWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryContactTypeOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### leads
-**Retorno:** `LeadPaginator!`  
+**Retorno:** `LeadPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1195,21 +1187,21 @@
 | orderBy | `[QueryLeadsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### leadsDashboard
-**Retorno:** `LeadDashboardPaginator!`  
 
+**Retorno:** `LeadDashboardPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryLeadsDashboardWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| where     | `QueryLeadsDashboardWhereWhereConditions` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### leadReceivers
-**Retorno:** `LeadReceiverPaginator!`  
+**Retorno:** `LeadReceiverPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1217,21 +1209,21 @@
 | where | `QueryLeadReceiversWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### leadsRotations
-**Retorno:** `LeadRotationPaginator!`  
 
+**Retorno:** `LeadRotationPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryLeadsRotationsWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| where     | `QueryLeadsRotationsWhereWhereConditions` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### leadSources
-**Retorno:** `LeadSourcePaginator!`  
+**Retorno:** `LeadSourcePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1240,20 +1232,20 @@
 | orderBy | `[QueryLeadSourcesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### leadStatuses
-**Retorno:** `LeadStatusPaginator!`  
 
+**Retorno:** `LeadStatusPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo   | Descripción                               |
+| :-------- | :----- | :---------------------------------------- |
+| first     | `Int!` | Limits number of fetched items.           |
+| page      | `Int`  | The offset from which items are returned. |
 
 ---
 ### leadTypes
-**Retorno:** `LeadTypePaginator!`  
+**Retorno:** `LeadTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1262,22 +1254,22 @@
 | orderBy | `[QueryLeadTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### organizations
-**Retorno:** `OrganizationPaginator!`  
 
+**Retorno:** `OrganizationPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryOrganizationsWhereWhereConditions` |  |
-| orderBy | `[QueryOrganizationsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                        | Descripción                               |
+| :-------- | :------------------------------------------ | :---------------------------------------- |
+| where     | `QueryOrganizationsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryOrganizationsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                      | Limits number of fetched items.           |
+| page      | `Int`                                       | The offset from which items are returned. |
 
 ---
 ### peoples
-**Retorno:** `PeoplePaginator!`  
+**Retorno:** `PeoplePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1296,23 +1288,23 @@
 | orderBy | `[QueryPeoplesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### peopleRelationships
-**Retorno:** `PeopleRelationshipPaginator!`  
 
+**Retorno:** `PeopleRelationshipPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryPeopleRelationshipsWhereWhereConditions` |  |
-| orderBy | `[QueryPeopleRelationshipsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                              | Descripción                               |
+| :-------- | :------------------------------------------------ | :---------------------------------------- |
+| search    | `String`                                          |                                           |
+| where     | `QueryPeopleRelationshipsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryPeopleRelationshipsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                            | Limits number of fetched items.           |
+| page      | `Int`                                             | The offset from which items are returned. |
 
 ---
 ### pipelines
-**Retorno:** `LeadPipelinePaginator!`  
+**Retorno:** `LeadPipelinePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1321,24 +1313,24 @@
 | orderBy | `[QueryPipelinesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### socialChannels
-**Retorno:** `SocialChannelPaginator!`  
 
+**Retorno:** `SocialChannelPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QuerySocialChannelsWhereWhereConditions` |  |
-| hasTags | `QuerySocialChannelsHasTagsWhereHasConditions` |  |
-| hasCategories | `QuerySocialChannelsHasCategoriesWhereHasConditions` |  |
-| orderBy | `[QuerySocialChannelsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento     | Tipo                                                 | Descripción                               |
+| :------------ | :--------------------------------------------------- | :---------------------------------------- |
+| where         | `QuerySocialChannelsWhereWhereConditions`            |                                           |
+| hasTags       | `QuerySocialChannelsHasTagsWhereHasConditions`       |                                           |
+| hasCategories | `QuerySocialChannelsHasCategoriesWhereHasConditions` |                                           |
+| orderBy       | `[QuerySocialChannelsOrderByOrderByClause!]`         |                                           |
+| first         | `Int!`                                               | Limits number of fetched items.           |
+| page          | `Int`                                                | The offset from which items are returned. |
 
 ---
 ### getFollowers
-**Retorno:** `UserPaginator!`  
+**Retorno:** `UserPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1346,21 +1338,21 @@
 | user_id | `ID!` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### getFollowing
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID!` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo   | Descripción                               |
+| :-------- | :----- | :---------------------------------------- |
+| user_id   | `ID!`  |                                           |
+| first     | `Int!` | Limits number of fetched items.           |
+| page      | `Int`  | The offset from which items are returned. |
 
 ---
 ### getFollowingEntity
-**Retorno:** `FollowingPaginator!`  
+**Retorno:** `FollowingPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1368,22 +1360,22 @@
 | user_id | `ID!` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### getWhoToFollow
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID!` |  |
-| static_recommendation | `Boolean!` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento             | Tipo       | Descripción                               |
+| :-------------------- | :--------- | :---------------------------------------- |
+| user_id               | `ID!`      |                                           |
+| static_recommendation | `Boolean!` |                                           |
+| first                 | `Int!`     | Limits number of fetched items.           |
+| page                  | `Int`      | The offset from which items are returned. |
 
 ---
 ### entityInteractions
-**Retorno:** `EntityInteractionsPaginator!`  
+**Retorno:** `EntityInteractionsPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1393,33 +1385,33 @@
 | where | `QueryEntityInteractionsWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### messages
-**Retorno:** `MessagePaginator!`  
 
+**Retorno:** `MessagePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryMessagesWhereWhereConditions` |  |
-| hasUser | `QueryMessagesHasUserWhereHasConditions` |  |
-| hasChannel | `QueryMessagesHasChannelWhereHasConditions` |  |
-| hasTags | `QueryMessagesHasTagsWhereHasConditions` |  |
-| hasCategories | `QueryMessagesHasCategoriesWhereHasConditions` |  |
-| requiredTags | `[String!]` |  |
-| customFilters | `[String!]` |  |
-| hasType | `QueryMessagesHasTypeWhereHasConditions` |  |
-| hasChannelCategory | `QueryMessagesHasChannelCategoryWhereHasConditions` |  |
-| hasAppModuleMessage | `QueryMessagesHasAppModuleMessageWhereHasConditions` |  |
-| orderBy | `[QueryMessagesOrderByOrderByClause!]` |  |
-| search | `String` |  |
-| random | `Boolean` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento           | Tipo                                                 | Descripción                               |
+| :------------------ | :--------------------------------------------------- | :---------------------------------------- |
+| where               | `QueryMessagesWhereWhereConditions`                  |                                           |
+| hasUser             | `QueryMessagesHasUserWhereHasConditions`             |                                           |
+| hasChannel          | `QueryMessagesHasChannelWhereHasConditions`          |                                           |
+| hasTags             | `QueryMessagesHasTagsWhereHasConditions`             |                                           |
+| hasCategories       | `QueryMessagesHasCategoriesWhereHasConditions`       |                                           |
+| requiredTags        | `[String!]`                                          |                                           |
+| customFilters       | `[String!]`                                          |                                           |
+| hasType             | `QueryMessagesHasTypeWhereHasConditions`             |                                           |
+| hasChannelCategory  | `QueryMessagesHasChannelCategoryWhereHasConditions`  |                                           |
+| hasAppModuleMessage | `QueryMessagesHasAppModuleMessageWhereHasConditions` |                                           |
+| orderBy             | `[QueryMessagesOrderByOrderByClause!]`               |                                           |
+| search              | `String`                                             |                                           |
+| random              | `Boolean`                                            |                                           |
+| first               | `Int!`                                               | Limits number of fetched items.           |
+| page                | `Int`                                                | The offset from which items are returned. |
 
 ---
 ### forYouMessages
-**Retorno:** `MessagePaginator!`  
+**Retorno:** `MessagePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1430,24 +1422,24 @@
 | orderBy | `[QueryForYouMessagesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### followingFeedMessages
-**Retorno:** `MessagePaginator!`  
 
+**Retorno:** `MessagePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryFollowingFeedMessagesWhereWhereConditions` |  |
-| hasTags | `QueryFollowingFeedMessagesHasTagsWhereHasConditions` |  |
-| hasType | `QueryFollowingFeedMessagesHasTypeWhereHasConditions` |  |
-| orderBy | `[QueryFollowingFeedMessagesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                                  | Descripción                               |
+| :-------- | :---------------------------------------------------- | :---------------------------------------- |
+| where     | `QueryFollowingFeedMessagesWhereWhereConditions`      |                                           |
+| hasTags   | `QueryFollowingFeedMessagesHasTagsWhereHasConditions` |                                           |
+| hasType   | `QueryFollowingFeedMessagesHasTypeWhereHasConditions` |                                           |
+| orderBy   | `[QueryFollowingFeedMessagesOrderByOrderByClause!]`   |                                           |
+| first     | `Int!`                                                | Limits number of fetched items.           |
+| page      | `Int`                                                 | The offset from which items are returned. |
 
 ---
 ### customFeedMessages
-**Retorno:** `MessagePaginator!`  
+**Retorno:** `MessagePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1459,24 +1451,24 @@
 | scenario | `String!` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### channelMessages
-**Retorno:** `MessagePaginator!`  
 
+**Retorno:** `MessagePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| channel_uuid | `String` |  |
-| channel_slug | `String` |  |
-| where | `QueryChannelMessagesWhereWhereConditions` |  |
-| orderBy | `[QueryChannelMessagesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento    | Tipo                                          | Descripción                               |
+| :----------- | :-------------------------------------------- | :---------------------------------------- |
+| channel_uuid | `String`                                      |                                           |
+| channel_slug | `String`                                      |                                           |
+| where        | `QueryChannelMessagesWhereWhereConditions`    |                                           |
+| orderBy      | `[QueryChannelMessagesOrderByOrderByClause!]` |                                           |
+| first        | `Int!`                                        | Limits number of fetched items.           |
+| page         | `Int`                                         | The offset from which items are returned. |
 
 ---
 ### messagesGroupByDate
-**Retorno:** `MessagePaginator!`  
+**Retorno:** `MessagePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1490,23 +1482,23 @@
 | search | `String` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### messagesLikedByUser
-**Retorno:** `MessagePaginator!`  
 
+**Retorno:** `MessagePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| where | `QueryMessagesLikedByUserWhereWhereConditions` |  |
-| orderBy | `[QueryMessagesLikedByUserOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                              | Descripción                               |
+| :-------- | :------------------------------------------------ | :---------------------------------------- |
+| id        | `ID!`                                             |                                           |
+| where     | `QueryMessagesLikedByUserWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryMessagesLikedByUserOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                            | Limits number of fetched items.           |
+| page      | `Int`                                             | The offset from which items are returned. |
 
 ---
 ### viewMessageHistory
-**Retorno:** `MessagePaginator!`  
+**Retorno:** `MessagePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1515,22 +1507,22 @@
 | orderBy | `[QueryViewMessageHistoryOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### comments
-**Retorno:** `MessageCommentsPaginator!`  
 
+**Retorno:** `MessageCommentsPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryCommentsWhereWhereConditions` |  |
-| orderBy | `[QueryCommentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                   | Descripción                               |
+| :-------- | :------------------------------------- | :---------------------------------------- |
+| where     | `QueryCommentsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryCommentsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                 | Limits number of fetched items.           |
+| page      | `Int`                                  | The offset from which items are returned. |
 
 ---
 ### messageTypes
-**Retorno:** `MessageTypePaginator!`  
+**Retorno:** `MessageTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1540,22 +1532,22 @@
 | orderBy | `[QueryMessageTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### reactions
-**Retorno:** `ReactionPaginator!`  
 
+**Retorno:** `ReactionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryReactionsWhereWhereConditions` |  |
-| orderBy | `[QueryReactionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| where     | `QueryReactionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryReactionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
 
 ---
 ### userReactions
-**Retorno:** `UserReactionPaginator!`  
+**Retorno:** `UserReactionPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1563,23 +1555,23 @@
 | where | `QueryUserReactionsWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### tags
-**Retorno:** `TagPaginator!`  
 
+**Retorno:** `TagPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryTagsWhereWhereConditions` |  |
-| orderBy | `[QueryTagsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                               | Descripción                               |
+| :-------- | :--------------------------------- | :---------------------------------------- |
+| search    | `String`                           |                                           |
+| where     | `QueryTagsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryTagsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                             | Limits number of fetched items.           |
+| page      | `Int`                              | The offset from which items are returned. |
 
 ---
 ### topics
-**Retorno:** `TopicPaginator!`  
+**Retorno:** `TopicPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1589,22 +1581,22 @@
 | search | `String` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### blockedUsers
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryBlockedUsersWhereWhereConditions` |  |
-| orderBy | `[QueryBlockedUsersOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| where     | `QueryBlockedUsersWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryBlockedUsersOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### getUsersLists
-**Retorno:** `UserListPaginator!`  
+**Retorno:** `UserListPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1613,22 +1605,22 @@
 | orderBy | `[QueryGetUsersListsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### getUsersListsEntities
-**Retorno:** `UserListPaginator!`  
 
+**Retorno:** `UserListPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryGetUsersListsEntitiesWhereWhereConditions` |  |
-| orderBy | `[QueryGetUsersListsEntitiesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                                | Descripción                               |
+| :-------- | :-------------------------------------------------- | :---------------------------------------- |
+| where     | `QueryGetUsersListsEntitiesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryGetUsersListsEntitiesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                              | Limits number of fetched items.           |
+| page      | `Int`                                               | The offset from which items are returned. |
 
 ---
 ### searchUsersLists
-**Retorno:** `UserListPaginator!`  
+**Retorno:** `UserListPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1637,21 +1629,21 @@
 | orderBy | `[QuerySearchUsersListsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### getUserInteractions
-**Retorno:** `UserInteractionPaginator!`  
 
+**Retorno:** `UserInteractionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryGetUserInteractionsWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| where     | `QueryGetUserInteractionsWhereWhereConditions` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### companyReviewTypes
-**Retorno:** `CompanyReviewTypePaginator!`  
+**Retorno:** `CompanyReviewTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1660,23 +1652,23 @@
 | orderBy | `[QueryCompanyReviewTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### affiliatePrograms
-**Retorno:** `AffiliateProgramPaginator!`  
 
+**Retorno:** `AffiliateProgramPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAffiliateProgramsWhereWhereConditions` |  |
-| orderBy | `[QueryAffiliateProgramsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                            | Descripción                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                        |                                           |
+| where     | `QueryAffiliateProgramsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAffiliateProgramsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                          | Limits number of fetched items.           |
+| page      | `Int`                                           | The offset from which items are returned. |
 
 ---
 ### affiliateTiers
-**Retorno:** `AffiliateTierPaginator!`  
+**Retorno:** `AffiliateTierPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1686,23 +1678,23 @@
 | orderBy | `[QueryAffiliateTiersOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### affiliates
-**Retorno:** `AffiliatePaginator!`  
 
+**Retorno:** `AffiliatePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAffiliatesWhereWhereConditions` |  |
-| orderBy | `[QueryAffiliatesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| search    | `String`                                 |                                           |
+| where     | `QueryAffiliatesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAffiliatesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---
 ### affiliateLinks
-**Retorno:** `AffiliateLinkPaginator!`  
+**Retorno:** `AffiliateLinkPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1712,23 +1704,23 @@
 | orderBy | `[QueryAffiliateLinksOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### affiliateConversions
-**Retorno:** `AffiliateConversionPaginator!`  
 
+**Retorno:** `AffiliateConversionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAffiliateConversionsWhereWhereConditions` |  |
-| orderBy | `[QueryAffiliateConversionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                               | Descripción                               |
+| :-------- | :------------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                           |                                           |
+| where     | `QueryAffiliateConversionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAffiliateConversionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                             | Limits number of fetched items.           |
+| page      | `Int`                                              | The offset from which items are returned. |
 
 ---
 ### affiliateCommissionPayouts
-**Retorno:** `AffiliateCommissionPayoutPaginator!`  
+**Retorno:** `AffiliateCommissionPayoutPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1738,30 +1730,30 @@
 | orderBy | `[QueryAffiliateCommissionPayoutsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### orders
-**Retorno:** `OrderPaginator!`  
 
+**Retorno:** `OrderPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryOrdersWhereWhereConditions` |  |
-| orderType | `QueryOrdersOrderTypeWhereConditions` |  |
-| orderStatus | `QueryOrdersOrderStatusWhereConditions` |  |
-| hasAddress | `QueryOrdersHasAddressWhereConditions` |  |
-| hasItems | `QueryOrdersHasItemsWhereHasConditions` |  |
-| hasPeople | `QueryOrdersHasPeopleWhereHasConditions` |  |
-| hasAffiliateConversion | `QueryOrdersHasAffiliateConversionWhereHasConditions` |  |
-| whereHasProvider | `ID` |  |
-| orderBy | `[QueryOrdersOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento              | Tipo                                                  | Descripción                               |
+| :--------------------- | :---------------------------------------------------- | :---------------------------------------- |
+| search                 | `String`                                              |                                           |
+| where                  | `QueryOrdersWhereWhereConditions`                     |                                           |
+| orderType              | `QueryOrdersOrderTypeWhereConditions`                 |                                           |
+| orderStatus            | `QueryOrdersOrderStatusWhereConditions`               |                                           |
+| hasAddress             | `QueryOrdersHasAddressWhereConditions`                |                                           |
+| hasItems               | `QueryOrdersHasItemsWhereHasConditions`               |                                           |
+| hasPeople              | `QueryOrdersHasPeopleWhereHasConditions`              |                                           |
+| hasAffiliateConversion | `QueryOrdersHasAffiliateConversionWhereHasConditions` |                                           |
+| whereHasProvider       | `ID`                                                  |                                           |
+| orderBy                | `[QueryOrdersOrderByOrderByClause!]`                  |                                           |
+| first                  | `Int!`                                                | Limits number of fetched items.           |
+| page                   | `Int`                                                 | The offset from which items are returned. |
 
 ---
 ### providerOrders
-**Retorno:** `OrderPaginator!`  
+**Retorno:** `OrderPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1777,23 +1769,23 @@
 | orderBy | `[QueryProviderOrdersOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### orderTypes
-**Retorno:** `OrderTypePaginator!`  
 
+**Retorno:** `OrderTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| orderBy | `[QueryOrderTypesOrderByOrderByClause!]` |  |
-| where | `QueryOrderTypesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| search    | `String`                                 |                                           |
+| orderBy   | `[QueryOrderTypesOrderByOrderByClause!]` |                                           |
+| where     | `QueryOrderTypesWhereWhereConditions`    |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---
 ### orderTransitionHistory
-**Retorno:** `OrderTransitionHistoryPaginator!`  
+**Retorno:** `OrderTransitionHistoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1809,23 +1801,23 @@
 | paymentMethodType | `PaymentMethodType` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### orderStatus
-**Retorno:** `OrderStatusPaginator!`  
 
+**Retorno:** `OrderStatusPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| orderBy | `[QueryOrderStatusOrderByOrderByClause!]` |  |
-| where | `QueryOrderStatusWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| search    | `String`                                  |                                           |
+| orderBy   | `[QueryOrderStatusOrderByOrderByClause!]` |                                           |
+| where     | `QueryOrderStatusWhereWhereConditions`    |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### referralCodeUsages
-**Retorno:** `ReferralRedemptionPaginator!`  
+**Retorno:** `ReferralRedemptionPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1834,25 +1826,25 @@
 | where | `QueryReferralCodeUsagesWhereWhereConditions` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### payments
-**Retorno:** `PaymentPaginator!`  
 
+**Retorno:** `PaymentPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryPaymentsWhereWhereConditions` |  |
-| hasOrder | `QueryPaymentsHasOrderWhereConditions` |  |
-| hasProvider | `QueryPaymentsHasProviderWhereConditions` |  |
-| orderType | `QueryPaymentsOrderTypeWhereConditions` |  |
-| orderBy | `[QueryPaymentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento   | Tipo                                      | Descripción                               |
+| :---------- | :---------------------------------------- | :---------------------------------------- |
+| where       | `QueryPaymentsWhereWhereConditions`       |                                           |
+| hasOrder    | `QueryPaymentsHasOrderWhereConditions`    |                                           |
+| hasProvider | `QueryPaymentsHasProviderWhereConditions` |                                           |
+| orderType   | `QueryPaymentsOrderTypeWhereConditions`   |                                           |
+| orderBy     | `[QueryPaymentsOrderByOrderByClause!]`    |                                           |
+| first       | `Int!`                                    | Limits number of fetched items.           |
+| page        | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### providerPayments
-**Retorno:** `PaymentPaginator!`  
+**Retorno:** `PaymentPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1864,22 +1856,22 @@
 | orderBy | `[QueryProviderPaymentsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### paymentMethods
-**Retorno:** `PaymentMethodPaginator!`  
 
+**Retorno:** `PaymentMethodPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderBy | `PaymentMethodOrderByInput` |  |
-| where | `QueryPaymentMethodsWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| orderBy   | `PaymentMethodOrderByInput`               |                                           |
+| where     | `QueryPaymentMethodsWhereWhereConditions` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### getWalletTransactions
-**Retorno:** `WalletTransactionPaginator!`  
+**Retorno:** `WalletTransactionPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1889,23 +1881,23 @@
 | orderBy | `[QueryGetWalletTransactionsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### getUserWalletTransactions
-**Retorno:** `WalletTransactionPaginator!`  
 
+**Retorno:** `WalletTransactionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tag | `String!` |  |
-| where | `QueryGetUserWalletTransactionsWhereWhereConditions` |  |
-| orderBy | `[QueryGetUserWalletTransactionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                                    | Descripción                               |
+| :-------- | :------------------------------------------------------ | :---------------------------------------- |
+| tag       | `String!`                                               |                                           |
+| where     | `QueryGetUserWalletTransactionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryGetUserWalletTransactionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                                  | Limits number of fetched items.           |
+| page      | `Int`                                                   | The offset from which items are returned. |
 
 ---
 ### discounts
-**Retorno:** `DiscountPaginator!`  
+**Retorno:** `DiscountPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1915,22 +1907,22 @@
 | orderBy | `[QueryDiscountsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### discountTypes
-**Retorno:** `DiscountTypePaginator!`  
 
+**Retorno:** `DiscountTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryDiscountTypesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| search    | `String`                                 |                                           |
+| where     | `QueryDiscountTypesWhereWhereConditions` |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---
 ### actionEngineActions
-**Retorno:** `ActionPaginator!`  
+**Retorno:** `ActionPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1940,23 +1932,23 @@
 | orderBy | `[QueryActionEngineActionsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### companyActions
-**Retorno:** `CompanyActionPaginator!`  
 
+**Retorno:** `CompanyActionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryCompanyActionsWhereWhereConditions` |  |
-| orderBy | `[QueryCompanyActionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                         | Descripción                               |
+| :-------- | :------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                     |                                           |
+| where     | `QueryCompanyActionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryCompanyActionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                       | Limits number of fetched items.           |
+| page      | `Int`                                        | The offset from which items are returned. |
 
 ---
 ### engagements
-**Retorno:** `EngagementPaginator!`  
+**Retorno:** `EngagementPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1965,23 +1957,23 @@
 | orderBy | `[QueryEngagementsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### actionPipelines
-**Retorno:** `ActionPipelinePaginator!`  
 
+**Retorno:** `ActionPipelinePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryActionPipelinesWhereWhereConditions` |  |
-| orderBy | `[QueryActionPipelinesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                          | Descripción                               |
+| :-------- | :-------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                      |                                           |
+| where     | `QueryActionPipelinesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryActionPipelinesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                        | Limits number of fetched items.           |
+| page      | `Int`                                         | The offset from which items are returned. |
 
 ---
 ### taskLists
-**Retorno:** `TaskListPaginator!`  
+**Retorno:** `TaskListPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1991,22 +1983,22 @@
 | orderBy | `[QueryTaskListsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### taskListItems
-**Retorno:** `TaskListItemPaginator!`  
 
+**Retorno:** `TaskListItemPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryTaskListItemsWhereWhereConditions` |  |
-| orderBy | `[QueryTaskListItemsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                        | Descripción                               |
+| :-------- | :------------------------------------------ | :---------------------------------------- |
+| where     | `QueryTaskListItemsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryTaskListItemsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                      | Limits number of fetched items.           |
+| page      | `Int`                                       | The offset from which items are returned. |
 
 ---
 ### leadTaskItems
-**Retorno:** `LeadTaskEngagementItemPaginator!`  
+**Retorno:** `LeadTaskEngagementItemPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2015,22 +2007,22 @@
 | task_list_id | `ID` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### apps
-**Retorno:** `AppPaginator!`  
 
+**Retorno:** `AppPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryAppsWhereWhereConditions` |  |
-| orderBy | `[QueryAppsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                               | Descripción                               |
+| :-------- | :--------------------------------- | :---------------------------------------- |
+| where     | `QueryAppsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAppsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                             | Limits number of fetched items.           |
+| page      | `Int`                              | The offset from which items are returned. |
 
 ---
 ### appUsers
-**Retorno:** `UserPaginator!`  
+**Retorno:** `UserPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2041,23 +2033,23 @@
 | orderBy | `[QueryAppUsersOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### appAdmins
-**Retorno:** `UserPaginator!`  
 
+**Retorno:** `UserPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAppAdminsWhereWhereConditions` |  |
-| orderBy | `[QueryAppAdminsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| search    | `String`                                |                                           |
+| where     | `QueryAppAdminsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAppAdminsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
 
 ---
 ### adminUserCompanies
-**Retorno:** `CompanyPaginator!`  
+**Retorno:** `CompanyPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2065,23 +2057,23 @@
 | user_id | `ID!` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### integrations
-**Retorno:** `IntegrationsPaginator!`  
 
+**Retorno:** `IntegrationsPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryIntegrationsWhereWhereConditions` |  |
-| orderBy | `[QueryIntegrationsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| search    | `String`                                   |                                           |
+| where     | `QueryIntegrationsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryIntegrationsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### workflowStatus
-**Retorno:** `WorkflowStatusPaginator!`  
+**Retorno:** `WorkflowStatusPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2090,23 +2082,23 @@
 | orderBy | `[QueryWorkflowStatusOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### integrationsByEntityHistory
-**Retorno:** `IntegrationsEntityHistoryPaginator!`  
 
+**Retorno:** `IntegrationsEntityHistoryPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| system_module_uuid | `String!` |  |
-| entity_id | `ID!` |  |
-| orderBy | `[QueryIntegrationsByEntityHistoryOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento          | Tipo                                                      | Descripción                               |
+| :----------------- | :-------------------------------------------------------- | :---------------------------------------- |
+| system_module_uuid | `String!`                                                 |                                           |
+| entity_id          | `ID!`                                                     |                                           |
+| orderBy            | `[QueryIntegrationsByEntityHistoryOrderByOrderByClause!]` |                                           |
+| first              | `Int!`                                                    | Limits number of fetched items.           |
+| page               | `Int`                                                     | The offset from which items are returned. |
 
 ---
 ### workflowIntegrationsHistory
-**Retorno:** `WorkflowIntegrationsHistoryPaginator!`  
+**Retorno:** `WorkflowIntegrationsHistoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2116,23 +2108,23 @@
 | orderBy | `[QueryWorkflowIntegrationsHistoryOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### receiverWebhooks
-**Retorno:** `WorkflowReceiverPaginator!`  
 
+**Retorno:** `WorkflowReceiverPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryReceiverWebhooksWhereWhereConditions` |  |
-| orderBy | `[QueryReceiverWebhooksOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                       |                                           |
+| where     | `QueryReceiverWebhooksWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryReceiverWebhooksOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### workflowReceiverHistory
-**Retorno:** `WorkflowReceiversHistoryPaginator!`  
+**Retorno:** `WorkflowReceiversHistoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2142,22 +2134,22 @@
 | orderBy | `[QueryWorkflowReceiverHistoryOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### actions
-**Retorno:** `WorkflowActionPaginator!`  
 
+**Retorno:** `WorkflowActionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryActionsWhereWhereConditions` |  |
-| orderBy | `[QueryActionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                  | Descripción                               |
+| :-------- | :------------------------------------ | :---------------------------------------- |
+| where     | `QueryActionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryActionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                | Limits number of fetched items.           |
+| page      | `Int`                                 | The offset from which items are returned. |
 
 ---
 ### rules
-**Retorno:** `WorkflowRulePaginator!`  
+**Retorno:** `WorkflowRulePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2167,22 +2159,22 @@
 | orderBy | `[QueryRulesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### ruleTypes
-**Retorno:** `WorkflowRuleTypePaginator!`  
 
+**Retorno:** `WorkflowRuleTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryRuleTypesWhereWhereConditions` |  |
-| orderBy | `[QueryRuleTypesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| where     | `QueryRuleTypesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryRuleTypesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
 
 ---
 ### companySubscriptions
-**Retorno:** `CompanySubscriptionPaginator!`  
+**Retorno:** `CompanySubscriptionPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2192,24 +2184,24 @@
 | orderBy | `[QueryCompanySubscriptionsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### subscriptionPlans
-**Retorno:** `PlanPaginator!`  
 
+**Retorno:** `PlanPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QuerySubscriptionPlansWhereWhereConditions` |  |
-| hasPrices | `QuerySubscriptionPlansHasPricesWhereHasConditions` |  |
-| orderBy | `[QuerySubscriptionPlansOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                                | Descripción                               |
+| :-------- | :-------------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                            |                                           |
+| where     | `QuerySubscriptionPlansWhereWhereConditions`        |                                           |
+| hasPrices | `QuerySubscriptionPlansHasPricesWhereHasConditions` |                                           |
+| orderBy   | `[QuerySubscriptionPlansOrderByOrderByClause!]`     |                                           |
+| first     | `Int!`                                              | Limits number of fetched items.           |
+| page      | `Int`                                               | The offset from which items are returned. |
 
 ---
 ### events
-**Retorno:** `EventPaginator!`  
+**Retorno:** `EventPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2221,24 +2213,24 @@
 | orderBy | `[QueryEventsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### eventVersions
-**Retorno:** `EventVersionPaginator!`  
 
+**Retorno:** `EventVersionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryEventVersionsWhereWhereConditions` |  |
-| eventStatus | `QueryEventVersionsEventStatusWhereConditions` |  |
-| orderBy | `[QueryEventVersionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento   | Tipo                                           | Descripción                               |
+| :---------- | :--------------------------------------------- | :---------------------------------------- |
+| search      | `String`                                       |                                           |
+| where       | `QueryEventVersionsWhereWhereConditions`       |                                           |
+| eventStatus | `QueryEventVersionsEventStatusWhereConditions` |                                           |
+| orderBy     | `[QueryEventVersionsOrderByOrderByClause!]`    |                                           |
+| first       | `Int!`                                         | Limits number of fetched items.           |
+| page        | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### eventVersionParticipants
-**Retorno:** `EventVersionParticipantPaginator!`  
+**Retorno:** `EventVersionParticipantPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2248,23 +2240,23 @@
 | orderBy | `[QueryEventVersionParticipantsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### eventCategories
-**Retorno:** `EventCategoryPaginator!`  
 
+**Retorno:** `EventCategoryPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryEventCategoriesWhereWhereConditions` |  |
-| orderBy | `[QueryEventCategoriesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                          | Descripción                               |
+| :-------- | :-------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                      |                                           |
+| where     | `QueryEventCategoriesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryEventCategoriesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                        | Limits number of fetched items.           |
+| page      | `Int`                                         | The offset from which items are returned. |
 
 ---
 ### eventThemes
-**Retorno:** `EventThemePaginator!`  
+**Retorno:** `EventThemePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2274,23 +2266,23 @@
 | orderBy | `[QueryEventThemesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### eventThemeAreas
-**Retorno:** `EventThemeAreaPaginator!`  
 
+**Retorno:** `EventThemeAreaPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryEventThemeAreasWhereWhereConditions` |  |
-| orderBy | `[QueryEventThemeAreasOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                          | Descripción                               |
+| :-------- | :-------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                      |                                           |
+| where     | `QueryEventThemeAreasWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryEventThemeAreasOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                        | Limits number of fetched items.           |
+| page      | `Int`                                         | The offset from which items are returned. |
 
 ---
 ### eventTypes
-**Retorno:** `EventTypePaginator!`  
+**Retorno:** `EventTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2300,23 +2292,23 @@
 | orderBy | `[QueryEventTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### eventStatus
-**Retorno:** `EventStatusPaginator!`  
 
+**Retorno:** `EventStatusPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryEventStatusWhereWhereConditions` |  |
-| orderBy | `[QueryEventStatusOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| search    | `String`                                  |                                           |
+| where     | `QueryEventStatusWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryEventStatusOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
 ### eventClasses
-**Retorno:** `EventClassPaginator!`  
+**Retorno:** `EventClassPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2326,23 +2318,23 @@
 | orderBy | `[QueryEventClassesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### facilitators
-**Retorno:** `ParticipantPaginator!`  
 
+**Retorno:** `ParticipantPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryFacilitatorsWhereWhereConditions` |  |
-| orderBy | `[QueryFacilitatorsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| search    | `String`                                   |                                           |
+| where     | `QueryFacilitatorsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryFacilitatorsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### participants
-**Retorno:** `ParticipantPaginator!`  
+**Retorno:** `ParticipantPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2352,23 +2344,23 @@
 | orderBy | `[QueryParticipantsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### participantTypes
-**Retorno:** `ParticipantTypePaginator!`  
 
+**Retorno:** `ParticipantTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryParticipantTypesWhereWhereConditions` |  |
-| orderBy | `[QueryParticipantTypesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                       |                                           |
+| where     | `QueryParticipantTypesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryParticipantTypesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### participantPassMotives
-**Retorno:** `ParticipantPassMotivePaginator!`  
+**Retorno:** `ParticipantPassMotivePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2378,22 +2370,22 @@
 | orderBy | `[QueryParticipantPassMotivesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### scheduleExceptions
-**Retorno:** `ScheduleExceptionPaginator!`  
 
+**Retorno:** `ScheduleExceptionPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScheduleExceptionsWhereWhereConditions` |  |
-| orderBy | `[QueryScheduleExceptionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                             | Descripción                               |
+| :-------- | :----------------------------------------------- | :---------------------------------------- |
+| where     | `QueryScheduleExceptionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScheduleExceptionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                           | Limits number of fetched items.           |
+| page      | `Int`                                            | The offset from which items are returned. |
 
 ---
 ### scheduleHistory
-**Retorno:** `ScheduleHistoryPaginator!`  
+**Retorno:** `ScheduleHistoryPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2402,24 +2394,24 @@
 | orderBy | `[QueryScheduleHistoryOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### scheduleRules
-**Retorno:** `ScheduleRulesPaginator!`  
 
+**Retorno:** `ScheduleRulesPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryScheduleRulesWhereWhereConditions` |  |
-| resourceType | `QueryScheduleRulesResourceTypeWhereConditions` |  |
-| orderBy | `[QueryScheduleRulesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento    | Tipo                                            | Descripción                               |
+| :----------- | :---------------------------------------------- | :---------------------------------------- |
+| search       | `String`                                        |                                           |
+| where        | `QueryScheduleRulesWhereWhereConditions`        |                                           |
+| resourceType | `QueryScheduleRulesResourceTypeWhereConditions` |                                           |
+| orderBy      | `[QueryScheduleRulesOrderByOrderByClause!]`     |                                           |
+| first        | `Int!`                                          | Limits number of fetched items.           |
+| page         | `Int`                                           | The offset from which items are returned. |
 
 ---
 ### timeSlots
-**Retorno:** `TimeSlotsPaginator!`  
+**Retorno:** `TimeSlotsPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2430,23 +2422,23 @@
 | orderBy | `[QueryTimeSlotsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### agentsAi
-**Retorno:** `AgentAiPaginator!`  
 
+**Retorno:** `AgentAiPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentsAiWhereWhereConditions` |  |
-| orderBy | `[QueryAgentsAiOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                   | Descripción                               |
+| :-------- | :------------------------------------- | :---------------------------------------- |
+| search    | `String`                               |                                           |
+| where     | `QueryAgentsAiWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentsAiOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                 | Limits number of fetched items.           |
+| page      | `Int`                                  | The offset from which items are returned. |
 
 ---
 ### agentModels
-**Retorno:** `AgentAiModelPaginator!`  
+**Retorno:** `AgentAiModelPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2455,23 +2447,23 @@
 | orderBy | `[QueryAgentModelsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### agentUsageSnapshots
-**Retorno:** `AgentUsageSnapshotPaginator!`  
 
+**Retorno:** `AgentUsageSnapshotPaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentUsageSnapshotsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                              | Descripción                               |
+| :-------- | :------------------------------------------------ | :---------------------------------------- |
+| search    | `String`                                          |                                           |
+| where     | `QueryAgentUsageSnapshotsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                            | Limits number of fetched items.           |
+| page      | `Int`                                             | The offset from which items are returned. |
 
 ---
 ### agentMachines
-**Retorno:** `AgentMachineTypePaginator!`  
+**Retorno:** `AgentMachineTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2481,23 +2473,23 @@
 | orderBy | `[QueryAgentMachinesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### agentDeployments
-**Retorno:** `AgentDeploymentTypePaginator!`  
 
+**Retorno:** `AgentDeploymentTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentDeploymentsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentDeploymentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                       |                                           |
+| where     | `QueryAgentDeploymentsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentDeploymentsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
 ---
 ### agentSwarms
-**Retorno:** `AgentSwarmPaginator!`  
+**Retorno:** `AgentSwarmPaginator!`
 
 
 | Argumento | Tipo | Descripción |
@@ -2507,18 +2499,18 @@
 | orderBy | `[QueryAgentSwarmsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
-
 ---
+
 ### agentTypes
-**Retorno:** `agentTypePaginator!`  
 
+**Retorno:** `agentTypePaginator!`
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentTypesWhereWhereConditions` |  |
-| orderBy | `[QueryAgentTypesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
+| Argumento | Tipo                                     | Descripción                               |
+| :-------- | :--------------------------------------- | :---------------------------------------- |
+| search    | `String`                                 |                                           |
+| where     | `QueryAgentTypesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentTypesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                   | Limits number of fetched items.           |
+| page      | `Int`                                    | The offset from which items are returned. |
 
 ---

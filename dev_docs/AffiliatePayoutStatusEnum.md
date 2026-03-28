@@ -1,14 +1,12 @@
 # ENUM: AffiliatePayoutStatusEnum
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| PENDING_APPROVAL |  |
-| APPROVED |  |
-| PROCESSING |  |
-| COMPLETED |  |
-| FAILED |  |
-| CANCELLED |  |
+| Valor            | Descripción |
+| :--------------- | :---------- |
+| PENDING_APPROVAL |             |
+| APPROVED         |             |
+| PROCESSING       |             |
+| COMPLETED        |             |
+| FAILED           |             |
+| CANCELLED        |             |

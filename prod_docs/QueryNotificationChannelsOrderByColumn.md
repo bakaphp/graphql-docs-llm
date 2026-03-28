@@ -5,5 +5,5 @@ Allowed column names for Query.notificationChannels.orderBy.
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| ID |  |
+| :---- | :---------- |
+| ID    |             |

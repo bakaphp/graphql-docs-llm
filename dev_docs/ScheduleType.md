@@ -1,10 +1,8 @@
 # ENUM: ScheduleType
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| WEEKLY |  |
-| MONTHLY |  |
+| Valor   | Descripción |
+| :------ | :---------- |
+| WEEKLY  |             |
+| MONTHLY |             |

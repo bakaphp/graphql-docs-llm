@@ -1,10 +1,8 @@
 # OBJECT: MessageDailyCount
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| date | `String!` |  |
-| count | `Int!` |  |
+| Campo | Tipo      | Descripción |
+| :---- | :-------- | :---------- |
+| date  | `String!` |             |
+| count | `Int!`    |             |

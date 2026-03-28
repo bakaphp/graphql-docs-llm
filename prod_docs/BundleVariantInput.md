@@ -1,11 +1,9 @@
 # INPUT_OBJECT: BundleVariantInput
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| quantity | `Int!` |  |
-| unit | `String!` |  |
+| Campo    | Tipo      | Descripción |
+| :------- | :-------- | :---------- |
+| id       | `ID!`     |             |
+| quantity | `Int!`    |             |
+| unit     | `String!` |             |

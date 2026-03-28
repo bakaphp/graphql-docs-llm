@@ -4,7 +4,7 @@ Allowed column names for Query.contactType.orderBy.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| NAME |  |
-| CREATED_AT |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| NAME       |             |
+| CREATED_AT |             |

@@ -1,13 +1,11 @@
 # ENUM: AffiliateConversionStatusEnum
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| PENDING |  |
-| CONFIRMED |  |
-| PAID |  |
-| REVERSED |  |
-| DISPUTED |  |
+| Valor     | Descripción |
+| :-------- | :---------- |
+| PENDING   |             |
+| CONFIRMED |             |
+| PAID      |             |
+| REVERSED  |             |
+| DISPUTED  |             |

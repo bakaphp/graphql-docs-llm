@@ -4,8 +4,8 @@ Allowed column names for Query.scheduleExceptions.orderBy.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| WINDOW_START |  |
-| CREATED_AT |  |
+| Valor        | Descripción |
+| :----------- | :---------- |
+| ID           |             |
+| WINDOW_START |             |
+| CREATED_AT   |             |

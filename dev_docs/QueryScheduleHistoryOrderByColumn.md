@@ -4,7 +4,7 @@ Allowed column names for Query.scheduleHistory.orderBy.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| CREATED_AT |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| ID         |             |
+| CREATED_AT |             |

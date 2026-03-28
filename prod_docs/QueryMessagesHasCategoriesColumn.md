@@ -5,7 +5,7 @@ Allowed column names for Query.messages.hasCategories.
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| NAME |  |
-| SLUG |  |
+| :---- | :---------- |
+| ID    |             |
+| NAME  |             |
+| SLUG  |             |

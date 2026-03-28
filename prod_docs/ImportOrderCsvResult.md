@@ -1,10 +1,8 @@
 # OBJECT: ImportOrderCsvResult
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| status | `String!` |  |
-| message | `Mixed` |  |
+| Campo   | Tipo      | Descripción |
+| :------ | :-------- | :---------- |
+| status  | `String!` |             |
+| message | `Mixed`   |             |

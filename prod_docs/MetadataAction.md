@@ -1,11 +1,9 @@
 # ENUM: MetadataAction
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| MERGE |  |
-| REPLACE |  |
-| CLEAR |  |
+| Valor   | Descripción |
+| :------ | :---------- |
+| MERGE   |             |
+| REPLACE |             |
+| CLEAR   |             |

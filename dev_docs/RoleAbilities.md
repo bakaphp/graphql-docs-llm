@@ -1,9 +1,7 @@
 # OBJECT: RoleAbilities
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| module | `AppModule!` |  |
+| Campo  | Tipo         | Descripción |
+| :----- | :----------- | :---------- |
+| module | `AppModule!` |             |

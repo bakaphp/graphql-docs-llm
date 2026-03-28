@@ -1,10 +1,8 @@
 # ENUM: EngagementEntityType
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| LEAD |  |
-| PEOPLE |  |
+| Valor  | Descripción |
+| :----- | :---------- |
+| LEAD   |             |
+| PEOPLE |             |

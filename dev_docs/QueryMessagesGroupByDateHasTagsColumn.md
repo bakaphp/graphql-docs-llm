@@ -5,7 +5,7 @@ Allowed column names for Query.messagesGroupByDate.hasTags.
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| NAME |  |
-| SLUG |  |
+| :---- | :---------- |
+| ID    |             |
+| NAME  |             |
+| SLUG  |             |

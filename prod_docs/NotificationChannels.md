@@ -1,12 +1,10 @@
 # ENUM: NotificationChannels
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| MAIL |  |
-| PUSH |  |
-| REALTIME |  |
-| SMS |  |
+| Valor    | Descripción |
+| :------- | :---------- |
+| MAIL     |             |
+| PUSH     |             |
+| REALTIME |             |
+| SMS      |             |

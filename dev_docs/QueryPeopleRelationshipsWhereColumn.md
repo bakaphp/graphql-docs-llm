@@ -4,8 +4,8 @@ Allowed column names for Query.peopleRelationships.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| NAME |  |
-| DESCRIPTION |  |
-| ID |  |
+| Valor       | Descripción |
+| :---------- | :---------- |
+| NAME        |             |
+| DESCRIPTION |             |
+| ID          |             |

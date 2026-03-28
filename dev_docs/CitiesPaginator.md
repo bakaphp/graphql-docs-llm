@@ -4,7 +4,7 @@ A paginated list of Cities items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
+| Campo         | Tipo             | Descripción                                     |
+| :------------ | :--------------- | :---------------------------------------------- |
 | paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[Cities!]!` | A list of Cities items. |
+| data          | `[Cities!]!`     | A list of Cities items.                         |

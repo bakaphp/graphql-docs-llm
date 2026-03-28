@@ -4,18 +4,18 @@ Allowed column names for Query.payments.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| UUID |  |
-| COMPANIES_ID |  |
-| USERS_ID |  |
-| PAYABLE_ID |  |
-| PAYABLE_TYPE |  |
-| PAYMENT_METHODS_ID |  |
-| STATUS |  |
-| AMOUNT |  |
-| CURRENCY |  |
-| PAYMENT_DATE |  |
-| CREATED_AT |  |
-| UPDATED_AT |  |
+| Valor              | Descripción |
+| :----------------- | :---------- |
+| ID                 |             |
+| UUID               |             |
+| COMPANIES_ID       |             |
+| USERS_ID           |             |
+| PAYABLE_ID         |             |
+| PAYABLE_TYPE       |             |
+| PAYMENT_METHODS_ID |             |
+| STATUS             |             |
+| AMOUNT             |             |
+| CURRENCY           |             |
+| PAYMENT_DATE       |             |
+| CREATED_AT         |             |
+| UPDATED_AT         |             |

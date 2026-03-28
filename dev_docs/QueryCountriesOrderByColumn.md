@@ -4,8 +4,8 @@ Allowed column names for Query.countries.orderBy.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| CREATED_AT |  |
-| NAME |  |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| ID         |             |
+| CREATED_AT |             |
+| NAME       |             |

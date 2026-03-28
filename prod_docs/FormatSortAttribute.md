@@ -1,11 +1,9 @@
 # ENUM: FormatSortAttribute
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| NUMERIC |  |
-| STRING |  |
-| DATE |  |
+| Valor   | Descripción |
+| :------ | :---------- |
+| NUMERIC |             |
+| STRING  |             |
+| DATE    |             |

@@ -1,11 +1,9 @@
 # ENUM: PayoutFrequencyEnum
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| WEEKLY |  |
-| MONTHLY |  |
-| QUARTERLY |  |
+| Valor     | Descripción |
+| :-------- | :---------- |
+| WEEKLY    |             |
+| MONTHLY   |             |
+| QUARTERLY |             |

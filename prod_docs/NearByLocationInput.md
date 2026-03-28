@@ -1,11 +1,9 @@
 # INPUT_OBJECT: NearByLocationInput
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| lat | `Float!` |  |
-| long | `Float!` |  |
-| radius | `Float!` |  |
+| Campo  | Tipo     | Descripción |
+| :----- | :------- | :---------- |
+| lat    | `Float!` |             |
+| long   | `Float!` |             |
+| radius | `Float!` |             |

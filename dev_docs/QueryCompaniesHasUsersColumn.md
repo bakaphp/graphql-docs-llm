@@ -4,9 +4,9 @@ Allowed column names for Query.companies.hasUsers.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| UUID |  |
-| DISPLAYNAME |  |
-| EMAIL |  |
+| Valor       | Descripción |
+| :---------- | :---------- |
+| ID          |             |
+| UUID        |             |
+| DISPLAYNAME |             |
+| EMAIL       |             |

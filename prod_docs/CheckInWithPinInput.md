@@ -1,10 +1,8 @@
 # INPUT_OBJECT: CheckInWithPinInput
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| code | `String!` |  |
-| format | `String` |  |
+| Campo  | Tipo      | Descripción |
+| :----- | :-------- | :---------- |
+| code   | `String!` |             |
+| format | `String`  |             |

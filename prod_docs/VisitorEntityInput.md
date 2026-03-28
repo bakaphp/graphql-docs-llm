@@ -1,10 +1,8 @@
 # INPUT_OBJECT: VisitorEntityInput
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| type | `String!` |  |
+| Campo | Tipo      | Descripción |
+| :---- | :-------- | :---------- |
+| id    | `ID!`     |             |
+| type  | `String!` |             |

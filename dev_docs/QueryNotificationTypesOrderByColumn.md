@@ -4,7 +4,7 @@ Allowed column names for Query.notificationTypes.orderBy.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| ID |  |
-| WEIGHT |  |
+| Valor  | Descripción |
+| :----- | :---------- |
+| ID     |             |
+| WEIGHT |             |

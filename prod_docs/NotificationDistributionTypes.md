@@ -1,10 +1,8 @@
 # ENUM: NotificationDistributionTypes
 
-
-
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| FOLLOWERS |  |
-| USERS |  |
+| Valor     | Descripción |
+| :-------- | :---------- |
+| FOLLOWERS |             |
+| USERS     |             |

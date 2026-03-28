@@ -1,12 +1,10 @@
 # ENUM: ChannelProductFilterEnum
 
-
-
 ## Valores
 
 | Valor | Descripción |
-| :--- | :--- |
-| SLUG |  |
-| UUID |  |
-| NAME |  |
-| SKU |  |
+| :---- | :---------- |
+| SLUG  |             |
+| UUID  |             |
+| NAME  |             |
+| SKU   |             |

@@ -4,7 +4,7 @@ A paginated list of OrderTransitionHistory items.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| paginatorInfo | `PaginatorInfo!` | Pagination information about the list of items. |
-| data | `[OrderTransitionHistory!]!` | A list of OrderTransitionHistory items. |
+| Campo         | Tipo                         | Descripción                                     |
+| :------------ | :--------------------------- | :---------------------------------------------- |
+| paginatorInfo | `PaginatorInfo!`             | Pagination information about the list of items. |
+| data          | `[OrderTransitionHistory!]!` | A list of OrderTransitionHistory items.         |

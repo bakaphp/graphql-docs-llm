@@ -1,10 +1,8 @@
 # OBJECT: OrderResult
 
-
-
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| order | `Order` |  |
-| message | `Mixed` |  |
+| Campo   | Tipo    | Descripción |
+| :------ | :------ | :---------- |
+| order   | `Order` |             |
+| message | `Mixed` |             |

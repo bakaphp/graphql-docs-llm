@@ -4,8 +4,8 @@ Allowed column names for Query.orders.hasItems.
 
 ## Valores
 
-| Valor | Descripción |
-| :--- | :--- |
-| PRODUCT_NAME |  |
-| PRODUCT_SKU |  |
-| VARIANT_ID |  |
+| Valor        | Descripción |
+| :----------- | :---------- |
+| PRODUCT_NAME |             |
+| PRODUCT_SKU  |             |
+| VARIANT_ID   |             |

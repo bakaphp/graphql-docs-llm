@@ -1,12 +1,13 @@
 # INPUT_OBJECT: QueryLeadReceiversWhereWhereConditionsRelation
 
-Dynamic HAS conditions for WHERE conditions for the `where` argument of the query `leadReceivers`.
+Dynamic HAS conditions for WHERE conditions for the `where` argument of the
+query `leadReceivers`.
 
 ## Estructura
 
-| Campo | Tipo | Descripción |
-| :--- | :--- | :--- |
-| relation | `String!` | The relation that is checked. |
-| operator | `SQLOperator` | The comparison operator to test against the amount. |
-| amount | `Int` | The amount to test. |
-| condition | `QueryLeadReceiversWhereWhereConditionsHasCondition` | Additional condition logic. |
+| Campo     | Tipo                                                 | Descripción                                         |
+| :-------- | :--------------------------------------------------- | :-------------------------------------------------- |
+| relation  | `String!`                                            | The relation that is checked.                       |
+| operator  | `SQLOperator`                                        | The comparison operator to test against the amount. |
+| amount    | `Int`                                                | The amount to test.                                 |
+| condition | `QueryLeadReceiversWhereWhereConditionsHasCondition` | Additional condition logic.                         |
