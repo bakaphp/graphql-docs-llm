@@ -458,6 +458,7 @@
 - [Topic](./Topic.md)
 - [TopicPaginator](./TopicPaginator.md) _(A paginated list of Topic items)_
 - [User](./User.md)
+- [UserChatResponse](./UserChatResponse.md)
 - [UserContactsMatchesFindings](./UserContactsMatchesFindings.md)
 - [UserEntityInteraction](./UserEntityInteraction.md)
 - [UserInteraction](./UserInteraction.md)

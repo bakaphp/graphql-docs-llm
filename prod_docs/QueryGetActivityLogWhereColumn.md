@@ -12,4 +12,3 @@ Allowed column names for Query.getActivityLog.where.
 | SUBJECT_ID   |             |
 | CAUSER_ID    |             |
 | EVENT        |             |
-| BATCH_UUID   |             |

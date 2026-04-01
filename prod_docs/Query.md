@@ -982,6 +982,7 @@
 | variantAttributeOrderBy | `ProductAttributeOrderBy` |  |
 | attributeOrderBy | `ProductAttributeOrderBy` |  |
 | nearByLocation | `NearByLocationInput` |  |
+| nearByWarehouseLocation | `NearByLocationInput` |  |
 | where | `QueryProductsWhereWhereConditions` |  |
 | hasVariants | `QueryProductsHasVariantsWhereHasConditions` |  |
 | hasCategories | `QueryProductsHasCategoriesWhereHasConditions` |  |

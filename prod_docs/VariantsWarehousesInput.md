@@ -19,3 +19,5 @@
 | can_pre_order   | `Boolean`              |             |
 | is_coming_soon  | `Boolean`              |             |
 | is_new          | `Boolean`              |             |
+| latitude        | `Float`                |             |
+| longitude       | `Float`                |             |

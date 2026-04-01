@@ -11,3 +11,4 @@
 | timezone       | `String`    |             |
 | language       | `String`    |             |
 | fieldMapper    | `Mixed`     |             |
+| user_email     | `String`    |             |

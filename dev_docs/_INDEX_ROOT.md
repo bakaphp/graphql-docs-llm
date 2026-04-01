@@ -488,6 +488,7 @@
 - [openclawLaunchAgent](./Mutation.md#openclawlaunchagent)
 - [openclawRestartContainer](./Mutation.md#openclawrestartcontainer)
 - [openclawSetSlackTokens](./Mutation.md#openclawsetslacktokens)
+- [openclawSetTelegramToken](./Mutation.md#openclawsettelegramtoken)
 - [openclawTerminateAgent](./Mutation.md#openclawterminateagent)
 - [openclawUpdateConfig](./Mutation.md#openclawupdateconfig)
 - [openclawUpdateMachine](./Mutation.md#openclawupdatemachine)
