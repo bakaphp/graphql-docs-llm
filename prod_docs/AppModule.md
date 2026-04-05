@@ -10,3 +10,5 @@
 | SOCIAL        |             |
 | WORKFLOW      |             |
 | ACTION_ENGINE |             |
+| AI            |             |
+| COMMERCE      |             |
