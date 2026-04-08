@@ -17,13 +17,24 @@ prod_docs/   Schema from the latest production release (stable)
 
 Both directories share the same internal structure:
 
+**Core indexes (start here):**
+
 | File | Purpose |
 | :--- | :--- |
 | `_LIBRARY_MAP.md` | Master index. Start here. |
-| `_INDEX_ROOT.md` | All available Queries and Mutations |
-| `_INDEX_ENTITIES.md` | All object types (API response shapes) |
-| `_INDEX_INPUTS.md` | All input types and filter objects |
-| `_INDEX_CONSTANTS.md` | All enums and their allowed values |
+| `_INDEX_QUERIES.md` | All available Queries (read operations) |
+| `_INDEX_MUTATIONS.md` | All available Mutations (write operations) |
+| `_INDEX_ENTITIES.md` | Core object types (API response shapes) |
+| `_INDEX_INPUTS.md` | Core input types (mutation arguments) |
+| `_INDEX_CONSTANTS.md` | Core enums (business logic values) |
+
+**Auto-generated sub-indexes (only if needed):**
+
+| File | Purpose |
+| :--- | :--- |
+| `_INDEX_INPUTS_FILTERS.md` | Auto-generated query filter types (WHERE/OrderBy) |
+| `_INDEX_CONSTANTS_COLUMNS.md` | Auto-generated column name enums |
+| `_INDEX_ENTITIES_PAGINATORS.md` | Paginator wrapper types |
 | `<TypeName>.md` | Full definition of a single type |
 
 ### How to navigate
@@ -31,8 +42,9 @@ Both directories share the same internal structure:
 Always follow this order to minimize unnecessary fetches:
 
 1. Fetch `_LIBRARY_MAP.md` to understand the overall context.
-2. Fetch the relevant index (`_INDEX_ROOT.md`, `_INDEX_ENTITIES.md`, `_INDEX_INPUTS.md`, or `_INDEX_CONSTANTS.md`) depending on what the user needs.
+2. Fetch the relevant core index depending on what the user needs.
 3. Fetch the specific `<TypeName>.md` file to verify exact field names, argument types, nullability, and enum values.
+4. Only fetch auto-generated sub-indexes when you need filter/column/paginator details. Filter type names follow predictable patterns — you can often construct the filename directly.
 
 Never guess field names, argument types, or enum values. Always verify from the docs before generating any GraphQL.
 
@@ -145,11 +157,15 @@ deno run --allow-net --allow-write --allow-read app.ts \
 ├── app.ts                          Deno script that generates the docs
 ├── SKILL.md                        Claude Code skill definition
 ├── dev_docs/                       Generated docs for the development schema
-│   ├── _LIBRARY_MAP.md
-│   ├── _INDEX_ROOT.md
-│   ├── _INDEX_ENTITIES.md
-│   ├── _INDEX_INPUTS.md
-│   ├── _INDEX_CONSTANTS.md
+│   ├── _LIBRARY_MAP.md             Master navigation index
+│   ├── _INDEX_QUERIES.md           Core: queries
+│   ├── _INDEX_MUTATIONS.md         Core: mutations
+│   ├── _INDEX_ENTITIES.md          Core: object types
+│   ├── _INDEX_INPUTS.md            Core: input types
+│   ├── _INDEX_CONSTANTS.md         Core: enums
+│   ├── _INDEX_INPUTS_FILTERS.md    Auto-gen: query filter types
+│   ├── _INDEX_CONSTANTS_COLUMNS.md Auto-gen: column enums
+│   ├── _INDEX_ENTITIES_PAGINATORS.md Auto-gen: paginators
 │   └── <TypeName>.md  (one per type)
 ├── prod_docs/                      Generated docs for the production schema
 │   └── ...

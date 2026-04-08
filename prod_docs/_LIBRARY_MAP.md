@@ -1,24 +1,22 @@
-# 📚 DOCUMENTACIÓN TÉCNICA DE LA API (LLM READY)
+# DOCUMENTACIÓN TÉCNICA DE LA API (LLM READY)
 
-Definición completa del esquema GraphQL. Estructura optimizada para Agentes de
-IA.
+Esquema GraphQL completo. Navega: Mapa → Índice → Archivo de tipo.
 
-## 🚀 [Puntos de Entrada (Queries/Mutations)](./_INDEX_ROOT.md)
+## Core (empieza aquí)
 
-Define acciones disponibles: **Queries** para lectura y **Mutations** para
-escritura.
+- [Queries](./_INDEX_QUERIES.md) — 212 operaciones de lectura
+- [Mutations](./_INDEX_MUTATIONS.md) — 473 operaciones de escritura
+- [Entities](./_INDEX_ENTITIES.md) — 288 objetos de respuesta
+- [Inputs](./_INDEX_INPUTS.md) — 256 estructuras de entrada
+- [Constants](./_INDEX_CONSTANTS.md) — 46 enums
 
-## 📦 [Objetos de Datos (Entities)](./_INDEX_ENTITIES.md)
+## Auto-Generados (solo si necesario)
 
-Modelos de datos core del sistema que representan la respuesta de la API.
-
-## ⚙️ [Entradas y Filtros (Inputs)](./_INDEX_INPUTS.md)
-
-Estructuras requeridas para enviar datos o aplicar filtros complejos.
-
-## 🔢 [Constantes (Enums)](./_INDEX_CONSTANTS.md)
-
-Listados de valores fijos permitidos para ciertos campos.
+- [Filter Inputs](./_INDEX_INPUTS_FILTERS.md) — 849 tipos WHERE/OrderBy de
+  queries
+- [Column Enums](./_INDEX_CONSTANTS_COLUMNS.md) — 356 enums de columnas
+  permitidas
+- [Paginators](./_INDEX_ENTITIES_PAGINATORS.md) — 125 wrappers de paginación
 
 ---
 

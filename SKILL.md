@@ -58,13 +58,23 @@ Follow this order when fetching documentation:
 1. **Entry point** — `_LIBRARY_MAP.md`
    Read this first to understand overall context and available modules.
 
-2. **Functional index** — choose based on what the user needs:
-   - For actions (queries/mutations): `{BASE_URL}_INDEX_ROOT.md`
+2. **Core index** — choose based on what the user needs:
+   - For queries (read ops): `{BASE_URL}_INDEX_QUERIES.md`
+   - For mutations (write ops): `{BASE_URL}_INDEX_MUTATIONS.md`
    - For data structures: `{BASE_URL}_INDEX_ENTITIES.md`
    - For input types: `{BASE_URL}_INDEX_INPUTS.md`
    - For allowed values: `{BASE_URL}_INDEX_CONSTANTS.md`
 
-3. **Leaf node** — the specific `.md` file for the type (e.g. `{BASE_URL}User.md`)
+3. **Auto-generated sub-indexes** — only fetch if specifically needed:
+   - For query filter types (WHERE/OrderBy): `{BASE_URL}_INDEX_INPUTS_FILTERS.md`
+   - For column enum types: `{BASE_URL}_INDEX_CONSTANTS_COLUMNS.md`
+   - For paginator wrappers: `{BASE_URL}_INDEX_ENTITIES_PAGINATORS.md`
+
+   **Shortcut:** Filter type names follow predictable patterns. For a query
+   named `actions`, the filter input is `QueryActionsWhereWhereConditions`.
+   You can construct the filename directly without fetching the filter index.
+
+4. **Leaf node** — the specific `.md` file for the type (e.g. `{BASE_URL}User.md`)
 
 Only fetch what you need. Do not load all docs upfront — navigate to the
 specific node that answers the user's question.
@@ -78,7 +88,7 @@ specific node that answers the user's question.
 Before writing a single line of GraphQL, confirm from the docs:
 
 - **Nullability**: Does the field have `!`? If not, handle potential `null`.
-- **Mutation arguments**: Check `_INDEX_ROOT.md` for the mutation, then read
+- **Mutation arguments**: Check `_INDEX_MUTATIONS.md` for the mutation, then read
   the required `Input.md` file.
 - **Enums**: Never suggest arbitrary strings for status/type fields. Always read
   the Enum file from the Constants index.
@@ -94,7 +104,7 @@ URLs fetched to validate the response. Example:
 ```
 **Documentation References**
 Environment: dev
-- https://raw.githubusercontent.com/bakaphp/graphql-docs-llm/refs/heads/main/dev_docs/_INDEX_ROOT.md
+- https://raw.githubusercontent.com/bakaphp/graphql-docs-llm/refs/heads/main/dev_docs/_INDEX_MUTATIONS.md
 - https://raw.githubusercontent.com/bakaphp/graphql-docs-llm/refs/heads/main/dev_docs/CreateUserInput.md
 ```
 
