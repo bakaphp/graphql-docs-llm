@@ -33,6 +33,7 @@
 - [appUsers](./Query.md#appusers)
 - [attributes](./Query.md#attributes)
 - [attributesTypes](./Query.md#attributestypes)
+- [attributeValues](./Query.md#attributevalues)
 - [blockedUsers](./Query.md#blockedusers)
 - [branches](./Query.md#branches)
 - [bundles](./Query.md#bundles)

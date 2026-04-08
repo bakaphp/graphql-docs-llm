@@ -425,6 +425,17 @@
 - [QueryAttributesWhereWhereConditionsRelation](./QueryAttributesWhereWhereConditionsRelation.md)
   _(Dynamic HAS conditions for WHERE conditions for the `where` argument of the
   query `attributes`)_
+- [QueryAttributeValuesOrderByOrderByClause](./QueryAttributeValuesOrderByOrderByClause.md)
+  _(Order by clause for Query)_
+- [QueryAttributeValuesWhereWhereConditions](./QueryAttributeValuesWhereWhereConditions.md)
+  _(Dynamic WHERE conditions for the `where` argument of the query
+  `attributeValues`)_
+- [QueryAttributeValuesWhereWhereConditionsHasCondition](./QueryAttributeValuesWhereWhereConditionsHasCondition.md)
+  _(Dynamic WHERE HAS conditions for the `where` argument of the query
+  `attributeValues`)_
+- [QueryAttributeValuesWhereWhereConditionsRelation](./QueryAttributeValuesWhereWhereConditionsRelation.md)
+  _(Dynamic HAS conditions for WHERE conditions for the `where` argument of the
+  query `attributeValues`)_
 - [QueryBlockedUsersOrderByOrderByClause](./QueryBlockedUsersOrderByOrderByClause.md)
   _(Order by clause for Query)_
 - [QueryBlockedUsersWhereWhereConditions](./QueryBlockedUsersWhereWhereConditions.md)

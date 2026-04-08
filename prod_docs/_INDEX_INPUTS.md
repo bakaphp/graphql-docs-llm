@@ -128,6 +128,7 @@
 - [OrderBillingInput](./OrderBillingInput.md)
 - [OrderByClause](./OrderByClause.md) _(Allows ordering a list of records)_
 - [OrderCartInput](./OrderCartInput.md)
+- [OrderCommissionStatsInput](./OrderCommissionStatsInput.md)
 - [OrderCustomerInput](./OrderCustomerInput.md)
 - [OrderInput](./OrderInput.md)
 - [OrderItemInput](./OrderItemInput.md)

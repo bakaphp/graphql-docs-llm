@@ -76,6 +76,8 @@
 - [AttributesTypePaginator](./AttributesTypePaginator.md) _(A paginated list of
   AttributesType items)_
 - [AttributesValue](./AttributesValue.md)
+- [AttributesValuePaginator](./AttributesValuePaginator.md) _(A paginated list
+  of AttributesValue items)_
 - [AttributeTranslation](./AttributeTranslation.md)
 - [AttributeValueTranslation](./AttributeValueTranslation.md)
 - [AverageRotation](./AverageRotation.md)

@@ -299,6 +299,7 @@
 - [NotificationTypePaginator](./NotificationTypePaginator.md) _(A paginated list
   of NotificationType items)_
 - [Order](./Order.md)
+- [OrderCommissionStats](./OrderCommissionStats.md)
 - [OrderDiscount](./OrderDiscount.md)
 - [OrderDiscountRelation](./OrderDiscountRelation.md)
 - [OrderExportResult](./OrderExportResult.md)

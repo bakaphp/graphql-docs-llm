@@ -24,6 +24,9 @@
 | shipping_price_net_amount   | `Money!`                    |             |
 | discount_amount             | `Money!`                    |             |
 | tax_amount                  | `Money!`                    |             |
+| commission_rate             | `Float`                     |             |
+| commission_amount           | `Money`                     |             |
+| provider_amount             | `Money`                     |             |
 | discount_name               | `String`                    |             |
 | voucher_id                  | `Int`                       |             |
 | language_code               | `String`                    |             |

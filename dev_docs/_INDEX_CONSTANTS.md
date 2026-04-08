@@ -133,6 +133,10 @@
   _(Allowed column names for Query)_
 - [QueryAttributesWhereColumn](./QueryAttributesWhereColumn.md) _(Allowed column
   names for Query)_
+- [QueryAttributeValuesOrderByColumn](./QueryAttributeValuesOrderByColumn.md)
+  _(Allowed column names for Query)_
+- [QueryAttributeValuesWhereColumn](./QueryAttributeValuesWhereColumn.md)
+  _(Allowed column names for Query)_
 - [QueryBlockedUsersOrderByColumn](./QueryBlockedUsersOrderByColumn.md)
   _(Allowed column names for Query)_
 - [QueryBlockedUsersWhereColumn](./QueryBlockedUsersWhereColumn.md) _(Allowed
