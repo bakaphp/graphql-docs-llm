@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (165)
+## Queries con enums de columnas (166)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -33,10 +33,10 @@ Messages, MessagesGroupByDate, MessagesLikedByUser, NotificationChannels,
 NotificationSettings, NotificationTypes, Notifications, OrderStatus,
 OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
 OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
-OrderTypes, Orders, OrdersOrderStatusColumn, OrdersOrderTypeColumn,
-Organizations, ParticipantPassMotives, ParticipantTypes, Participants,
-PaymentMethods, Payments, PaymentsOrderTypeColumn, PeopleRelationships, Peoples,
-Pipelines, ProductTypes, Products, ProviderOrders,
+OrderTypeStatuses, OrderTypes, Orders, OrdersOrderStatusColumn,
+OrdersOrderTypeColumn, Organizations, ParticipantPassMotives, ParticipantTypes,
+Participants, PaymentMethods, Payments, PaymentsOrderTypeColumn,
+PeopleRelationships, Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
 ProviderOrdersOrderStatusColumn, ProviderOrdersOrderTypeColumn,
 ProviderPayments, ProviderPaymentsOrderTypeColumn, Reactions, ReceiverWebhooks,
 ReferralCodeUsages, Regions, Roles, RuleTypes, Rules, ScheduleExceptions,
@@ -51,5 +51,6 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 - [CompanyBranchCustomFieldsOrderByColumn](./CompanyBranchCustomFieldsOrderByColumn.md)
 - [CompanyCustomFieldsOrderByColumn](./CompanyCustomFieldsOrderByColumn.md)
+- [OrderTypeStatusesOrderByColumn](./OrderTypeStatusesOrderByColumn.md)
 - [TagChildrenOrderByColumn](./TagChildrenOrderByColumn.md)
 - [UserCustomFieldsOrderByColumn](./UserCustomFieldsOrderByColumn.md)

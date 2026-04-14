@@ -17,6 +17,7 @@
 | status        | `LeadStatus`               |             |
 | type          | `LeadType`                 |             |
 | source        | `LeadSource`               |             |
+| subSource     | `LeadSubSource`            |             |
 | firstname     | `String`                   |             |
 | lastname      | `String`                   |             |
 | email         | `String`                   |             |

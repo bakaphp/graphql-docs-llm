@@ -22,6 +22,7 @@
 | currency            | `String`        |             |
 | status              | `String`        |             |
 | metadata            | `Mixed`         |             |
+| payment_logs        | `[PaymentLog!]` |             |
 | created_at          | `String!`       |             |
 | updated_at          | `String`        |             |
 | is_deleted          | `Boolean!`      |             |

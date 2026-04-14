@@ -2,8 +2,9 @@
 
 ## Estructura
 
-| Campo              | Tipo   | Descripción |
-| :----------------- | :----- | :---------- |
-| filesystemImported | `JSON` |             |
-| leadUpdate         | `Lead` |             |
-| agentChatResponse  | `JSON` |             |
+| Campo              | Tipo                 | Descripción |
+| :----------------- | :------------------- | :---------- |
+| filesystemImported | `JSON`               |             |
+| agentTelemetry     | `AgentTelemetryData` |             |
+| leadUpdate         | `Lead`               |             |
+| agentChatResponse  | `JSON`               |             |

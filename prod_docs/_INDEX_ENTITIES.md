@@ -189,6 +189,7 @@
 - [PaymentActionResult](./PaymentActionResult.md)
 - [PaymentIntentResult](./PaymentIntentResult.md)
 - [PaymentLinkResult](./PaymentLinkResult.md)
+- [PaymentLog](./PaymentLog.md)
 - [PaymentMethod](./PaymentMethod.md)
 - [PaymentResult](./PaymentResult.md)
 - [PaymentValidationResult](./PaymentValidationResult.md)

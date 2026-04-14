@@ -1,0 +1,15 @@
+# INPUT_OBJECT: QueryOrdersByUserCustomFieldOrderTypeWhereConditions
+
+Dynamic WHERE conditions for the `orderType` argument of the query
+`ordersByUserCustomField`.
+
+## Estructura
+
+| Campo    | Tipo                                                           | Descripción                                                                           |
+| :------- | :------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| column   | `QueryOrdersByUserCustomFieldOrderTypeColumn`                  | The column that is used for the condition.                                            |
+| operator | `SQLOperator`                                                  | The operator that is used for the condition.                                          |
+| value    | `Mixed`                                                        | The value that is used for the condition.                                             |
+| AND      | `[QueryOrdersByUserCustomFieldOrderTypeWhereConditions!]`      | A set of conditions that requires all conditions to match.                            |
+| OR       | `[QueryOrdersByUserCustomFieldOrderTypeWhereConditions!]`      | A set of conditions that requires at least one condition to match.                    |
+| HAS      | `QueryOrdersByUserCustomFieldOrderTypeWhereConditionsRelation` | Check whether a relation exists. Extra conditions or a minimum amount can be applied. |

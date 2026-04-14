@@ -10,3 +10,4 @@
 | description    | `String`                    |             |
 | email_template | `String`                    |             |
 | custom_fields  | `[CustomFieldEntityInput!]` |             |
+| role_id        | `Int`                       |             |

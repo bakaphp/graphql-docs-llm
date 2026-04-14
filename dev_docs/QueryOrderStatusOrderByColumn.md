@@ -10,3 +10,4 @@ Allowed column names for Query.orderStatus.orderBy.
 | CREATED_AT |             |
 | UPDATED_AT |             |
 | NAME       |             |
+| SEQUENCE   |             |

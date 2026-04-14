@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (125)
+## Entidades con paginador (126)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -17,15 +17,16 @@ EventCategory, EventClass, EventStatus, EventTheme, EventThemeArea, EventType,
 EventVersion, EventVersionParticipant, EventVersionParticipantDate, Facilitator,
 Filesystem, FilesystemImportHistory, FilesystemMapper, Following, Integrations,
 IntegrationsEntityHistory, Invite, Language, Lead, LeadDashboard, LeadPipeline,
-LeadReceiver, LeadRotation, LeadSource, LeadStatus, LeadTaskEngagementItem,
-LeadType, Message, MessageComments, MessageType, Notification,
-NotificationChannel, NotificationSettings, NotificationType, Order, OrderStatus,
-OrderTransitionHistory, OrderType, Organization, Participant,
-ParticipantPassMotive, ParticipantType, Payment, PaymentMethod, People,
-PeopleRelationship, Plan, Product, ProductType, Reaction, ReferralRedemption,
-Region, Role, ScheduleException, ScheduleHistory, ScheduleRules, SocialChannel,
-States, Status, SystemModule, Tag, TaskList, TaskListItem, Template, TimeSlots,
-Topic, User, UserInteraction, UserList, UserReaction, Variant, VariantChannel,
-WalletTransaction, Warehouse, WorkflowAction, WorkflowIntegrationsHistory,
-WorkflowReceiver, WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType,
-WorkflowStatus, agentType
+LeadReceiver, LeadRotation, LeadSource, LeadStatus, LeadSubSource,
+LeadTaskEngagementItem, LeadType, Message, MessageComments, MessageType,
+Notification, NotificationChannel, NotificationSettings, NotificationType,
+Order, OrderStatus, OrderTransitionHistory, OrderType, Organization,
+Participant, ParticipantPassMotive, ParticipantType, Payment, PaymentMethod,
+People, PeopleRelationship, Plan, Product, ProductType, Reaction,
+ReferralRedemption, Region, Role, ScheduleException, ScheduleHistory,
+ScheduleRules, SocialChannel, States, Status, SystemModule, Tag, TaskList,
+TaskListItem, Template, TimeSlots, Topic, User, UserInteraction, UserList,
+UserReaction, Variant, VariantChannel, WalletTransaction, Warehouse,
+WorkflowAction, WorkflowIntegrationsHistory, WorkflowReceiver,
+WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType, WorkflowStatus,
+agentType

@@ -10,5 +10,6 @@
 | name        | `String!`   |             |
 | description | `String`    |             |
 | is_active   | `Boolean`   |             |
+| config      | `Mixed`     |             |
 | created_at  | `DateTime!` |             |
 | updated_at  | `DateTime!` |             |

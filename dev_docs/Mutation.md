@@ -1901,63 +1901,82 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
+### createLeadSubSource
+
+**Retorno:** `LeadSubSource!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `LeadSubSourceInput!` |             |
+
+---
+### updateLeadSubSource
+**Retorno:** `LeadSubSource!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateLeadSubSourceInput!` |  |
+---
+
+### deleteLeadSubSource
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createLeadType
+**Retorno:** `LeadType`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadTypeInput!` |  |
+---
+
+### updateLeadType
 
 **Retorno:** `LeadType`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `LeadTypeInput!` |             |
 
 ---
-### updateLeadType
-**Retorno:** `LeadType`
+### deleteLeadType
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `LeadTypeInput!` |  |
 ---
 
-### deleteLeadType
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrganization
-**Retorno:** `Organization`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationInput!` |  |
----
-
-### updateOrganization
 
 **Retorno:** `Organization`
 
 | Argumento | Tipo                 | Descripción |
 | :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
 | input     | `OrganizationInput!` |             |
 
 ---
-### deleteOrganization
-**Retorno:** `Boolean`
+### updateOrganization
+**Retorno:** `Organization`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `OrganizationInput!` |  |
 ---
 
-### restoreOrganization
+### deleteOrganization
 
 **Retorno:** `Boolean`
 
@@ -1966,16 +1985,16 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### addPeopleToOrganization
-**Retorno:** `Boolean!`
+### restoreOrganization
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `OrganizationPeopleInput!` |  |
+| id | `ID!` |  |
 ---
 
-### removePeopleFromOrganization
+### addPeopleToOrganization
 
 **Retorno:** `Boolean!`
 
@@ -1984,35 +2003,35 @@ Upload a file that is publicly available.
 | input     | `OrganizationPeopleInput!` |             |
 
 ---
-### createPeople
-**Retorno:** `People`
+### removePeopleFromOrganization
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PeopleInput!` |  |
+| input | `OrganizationPeopleInput!` |  |
 ---
 
-### updatePeople
+### createPeople
 
 **Retorno:** `People`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
 | input     | `PeopleInput!` |             |
 
 ---
-### deletePeople
-**Retorno:** `Boolean`
+### updatePeople
+**Retorno:** `People`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PeopleInput!` |  |
 ---
 
-### restorePeople
+### deletePeople
 
 **Retorno:** `Boolean`
 
@@ -2021,133 +2040,133 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### importPeoples
-**Retorno:** `String!`
+### restorePeople
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `[PeopleInput!]!` |  |
-| companyId | `Int` |  |
+| id | `ID!` |  |
 ---
 
+### importPeoples
+
+**Retorno:** `String!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `[PeopleInput!]!` |             |
+| companyId | `Int`             |             |
+
+---
 ### attachFileToPeople
+**Retorno:** `People!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `Upload!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### attachFilesToPeople
+
+**Retorno:** `People!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
+
+---
+### deletePeopleAddress
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateContact
+
+**Retorno:** `Contact!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `UpdateContactInput!` |             |
+
+---
+### deleteContact
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updatePeoplePhoto
 
 **Retorno:** `People!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
 | id        | `ID!`     |             |
-| params    | `Mixed`   |             |
+| file      | `Upload!` |             |
 
 ---
-### attachFilesToPeople
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| files | `[Upload!]!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### deletePeopleAddress
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateContact
-**Retorno:** `Contact!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateContactInput!` |  |
----
-
-### deleteContact
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updatePeoplePhoto
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
----
-
 ### createPeopleRelationship
-
-**Retorno:** `PeopleRelationship!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `PeopleRelationshipInput!` |             |
-
----
-### updatePeopleRelationship
 **Retorno:** `PeopleRelationship!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdatePeopleRelationshipInput!` |  |
+| input | `PeopleRelationshipInput!` |  |
 ---
 
-### deletePeopleRelationship
+### updatePeopleRelationship
 
+**Retorno:** `PeopleRelationship!`
+
+| Argumento | Tipo                             | Descripción |
+| :-------- | :------------------------------- | :---------- |
+| id        | `ID!`                            |             |
+| input     | `UpdatePeopleRelationshipInput!` |             |
+
+---
+### deletePeopleRelationship
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createPipeline
-**Retorno:** `LeadPipeline`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PipelineInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updatePipeline
+### createPipeline
 
 **Retorno:** `LeadPipeline`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
-| id        | `ID!`            |             |
 | input     | `PipelineInput!` |             |
 
 ---
-### deletePipeline
-**Retorno:** `Boolean`
+### updatePipeline
+**Retorno:** `LeadPipeline`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineInput!` |  |
 ---
 
-### restorePipeline
+### deletePipeline
 
 **Retorno:** `Boolean`
 
@@ -2156,35 +2175,35 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createPipelineStage
-**Retorno:** `LeadPipelineStage`
+### restorePipeline
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PipelineStageInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updatePipelineStage
+### createPipelineStage
 
 **Retorno:** `LeadPipelineStage`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `PipelineStageInput!` |             |
 
 ---
-### deletePipelineStage
-**Retorno:** `Boolean`
+### updatePipelineStage
+**Retorno:** `LeadPipelineStage`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineStageInput!` |  |
 ---
 
-### restorePipelineStage
+### deletePipelineStage
 
 **Retorno:** `Boolean`
 
@@ -2193,27 +2212,8 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createSocialChannel
-**Retorno:** `SocialChannel`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SocialChannelInput!` |  |
----
-
-### updateSocialChannel
-
-**Retorno:** `SocialChannel`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `SocialChannelInput!` |             |
-
----
-### deleteSocialChannel
-**Retorno:** `SocialChannel`
+### restorePipelineStage
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
@@ -2221,23 +2221,60 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### attachUserToSocialChannel
+### createSocialChannel
 
 **Retorno:** `SocialChannel`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AttachUserInput!` |             |
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `SocialChannelInput!` |             |
 
 ---
-### detachUserToSocialChannel
+### updateSocialChannel
 **Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `SocialChannelInput!` |  |
+---
+
+### deleteSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### attachUserToSocialChannel
+**Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AttachUserInput!` |  |
+---
+
+### detachUserToSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| channel_id | `ID!` |             |
+| user_id    | `ID!` |             |
+
+---
+### clearSocialChannelMessages
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | channel_id | `ID!` |  |
-| user_id | `ID!` |  |
 ---
 
 ### userFollow

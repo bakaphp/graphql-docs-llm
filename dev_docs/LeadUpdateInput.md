@@ -13,6 +13,7 @@
 | status_id         | `ID`                        |             |
 | type_id           | `ID`                        |             |
 | source_id         | `ID`                        |             |
+| sub_source_id     | `ID`                        |             |
 | description       | `String`                    |             |
 | reason_lost       | `String`                    |             |
 | pipeline_stage_id | `ID`                        |             |
