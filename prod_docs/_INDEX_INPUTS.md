@@ -128,6 +128,7 @@
 - [OrderInput](./OrderInput.md)
 - [OrderItemInput](./OrderItemInput.md)
 - [OrderLineItemInput](./OrderLineItemInput.md)
+- [OrderMetadataFilter](./OrderMetadataFilter.md)
 - [OrderPaymentStatsInput](./OrderPaymentStatsInput.md)
 - [OrderStatsInput](./OrderStatsInput.md)
 - [OrganizationInput](./OrganizationInput.md)

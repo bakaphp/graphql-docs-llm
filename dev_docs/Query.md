@@ -1191,6 +1191,7 @@
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
+| all | `Boolean` |  |
 | where | `QueryMechanicOrdersWhereWhereConditions` |  |
 | orderStatus | `QueryMechanicOrdersOrderStatusWhereConditions` |  |
 | orderBy | `[QueryMechanicOrdersOrderByOrderByClause!]` |  |

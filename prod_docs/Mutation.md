@@ -692,6 +692,19 @@
 | data | `ResetPasswordInput!` |  |
 ---
 
+### verifyEmail
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| token     | `String!` |             |
+
+---
+### resendVerificationEmail
+**Retorno:** `Boolean!`
+---
+
 ### updateUser
 
 **Retorno:** `User!`

@@ -1,6 +1,7 @@
 # Mutations (Escritura)
 
 - [activateApp](./Mutation.md#activateapp)
+- [activatePaymentMethod](./Mutation.md#activatepaymentmethod)
 - [addAddressToCompany](./Mutation.md#addaddresstocompany)
 - [addAgentToSwarm](./Mutation.md#addagenttoswarm)
 - [addAttribute](./Mutation.md#addattribute)
@@ -318,6 +319,7 @@
 - [removeWarehouse](./Mutation.md#removewarehouse)
 - [renameFile](./Mutation.md#renamefile)
 - [requestDeleteAccount](./Mutation.md#requestdeleteaccount)
+- [resendVerificationEmail](./Mutation.md#resendverificationemail)
 - [resetPassword](./Mutation.md#resetpassword)
 - [restoreApp](./Mutation.md#restoreapp)
 - [restoreLead](./Mutation.md#restorelead)
@@ -473,6 +475,7 @@
 - [validatePayment](./Mutation.md#validatepayment)
 - [validatePaymentByOrder](./Mutation.md#validatepaymentbyorder)
 - [verifyCode](./Mutation.md#verifycode)
+- [verifyEmail](./Mutation.md#verifyemail)
 - [verifyPayment](./Mutation.md#verifypayment)
 - [viewMessage](./Mutation.md#viewmessage)
 - [voidPayment](./Mutation.md#voidpayment)

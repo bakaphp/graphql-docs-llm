@@ -7,6 +7,7 @@ Allowed column names for Query.mechanicOrders.where.
 | Valor              | Descripción |
 | :----------------- | :---------- |
 | ID                 |             |
+| USERS_ID           |             |
 | CREATED_AT         |             |
 | UPDATED_AT         |             |
 | FULFILLMENT_STATUS |             |

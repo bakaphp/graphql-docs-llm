@@ -24,6 +24,7 @@
 - [InteractionType](./InteractionType.md)
 - [LeadStatusEnum](./LeadStatusEnum.md)
 - [MetadataAction](./MetadataAction.md)
+- [MetadataFilterOperator](./MetadataFilterOperator.md)
 - [NotificationChannels](./NotificationChannels.md)
 - [NotificationDistributionTypes](./NotificationDistributionTypes.md)
 - [OrderByRelationAggregateFunction](./OrderByRelationAggregateFunction.md)

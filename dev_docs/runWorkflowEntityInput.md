@@ -8,3 +8,4 @@
 | entity_id        | `ID!`     |             |
 | action           | `String!` |             |
 | params           | `Mixed`   |             |
+| activity_class   | `String`  |             |
