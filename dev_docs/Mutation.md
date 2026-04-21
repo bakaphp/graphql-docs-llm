@@ -1582,25 +1582,25 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### openclawLaunchAgent
-**Retorno:** `AgentDeploymentType!`
+### openclawUpdateMachineContainers
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LaunchAgentInput!` |  |
+| machine_id | `ID!` |  |
 ---
 
+### openclawLaunchAgent
+
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
 ### openclawTerminateAgent
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### openclawRestartContainer
 **Retorno:** `Boolean!`
 
 
@@ -1609,18 +1609,36 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 ---
 
-### openclawContainerLogs
+### openclawRestartContainer
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### openclawContainerLogs
 **Retorno:** `String!`
 
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| lines | `Int` |  |
+---
+
+### openclawContainerStatus
+
+**Retorno:** `AgentDeploymentType!`
+
 | Argumento     | Tipo  | Descripción |
 | :------------ | :---- | :---------- |
 | deployment_id | `ID!` |             |
-| lines         | `Int` |             |
 
 ---
-### openclawContainerStatus
-**Retorno:** `AgentDeploymentType!`
+### openclawCollectUsage
+**Retorno:** `AgentUsageSnapshot!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1628,34 +1646,34 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |  |
 ---
 
-### openclawCollectUsage
+### openclawSetSlackTokens
 
-**Retorno:** `AgentUsageSnapshot!`
+**Retorno:** `Boolean!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| agent_id        | `ID!`     |             |
+| slack_bot_token | `String!` |             |
+| slack_app_token | `String!` |             |
 
 ---
-### openclawSetSlackTokens
+### openclawSetTelegramToken
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| slack_bot_token | `String!` |  |
-| slack_app_token | `String!` |  |
+| telegram_bot_token | `String!` |  |
 ---
 
-### openclawSetTelegramToken
+### openclawMigrateAgentWorkspace
 
-**Retorno:** `Boolean!`
+**Retorno:** `AgentDeploymentType!`
 
-| Argumento          | Tipo      | Descripción |
-| :----------------- | :-------- | :---------- |
-| agent_id           | `ID!`     |             |
-| telegram_bot_token | `String!` |             |
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `MigrateAgentWorkspaceInput!` |             |
 
 ---
 ### openclawExecCommand
@@ -1697,27 +1715,27 @@ Upload a file that is publicly available.
 | input     | `ShopifySetupInput!` |             |
 
 ---
-### createLead
-**Retorno:** `Lead!`
+### createDeal
+**Retorno:** `Deal!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadInput!` |  |
+| input | `DealInput!` |  |
 ---
 
-### updateLead
+### updateDeal
 
-**Retorno:** `Lead!`
+**Retorno:** `Deal!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `LeadUpdateInput!` |             |
+| input     | `UpdateDealInput!` |             |
 
 ---
-### deleteLead
-**Retorno:** `Boolean`
+### deleteDeal
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1725,7 +1743,48 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### restoreLead
+### attachFileToDeal
+
+**Retorno:** `Deal!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
+
+---
+### attachFilesToDeal
+**Retorno:** `Deal!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `[Upload!]!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### createLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `LeadInput!` |             |
+
+---
+### updateLead
+**Retorno:** `Lead!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadUpdateInput!` |  |
+---
+
+### deleteLead
 
 **Retorno:** `Boolean`
 
@@ -1734,16 +1793,16 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### addLeadParticipant
-**Retorno:** `Boolean!`
+### restoreLead
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadsParticipantsInput!` |  |
+| id | `ID!` |  |
 ---
 
-### removeLeadParticipant
+### addLeadParticipant
 
 **Retorno:** `Boolean!`
 
@@ -1752,16 +1811,16 @@ Upload a file that is publicly available.
 | input     | `LeadsParticipantsInput!` |             |
 
 ---
-### followLead
-**Retorno:** `Boolean`
+### removeLeadParticipant
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `FollowInput!` |  |
+| input | `LeadsParticipantsInput!` |  |
 ---
 
-### unFollowLead
+### followLead
 
 **Retorno:** `Boolean`
 
@@ -1770,59 +1829,96 @@ Upload a file that is publicly available.
 | input     | `FollowInput!` |             |
 
 ---
+### unFollowLead
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
 ### attachFileToLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
+
+---
+### attachFilesToLead
 **Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| file | `Upload!` |  |
+| file | `[Upload!]!` |  |
 | id | `ID!` |  |
 | params | `Mixed` |  |
 ---
 
-### attachFilesToLead
+### leadWonOrLost
 
 **Retorno:** `Lead!`
 
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| file      | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
+| Argumento   | Tipo              | Descripción |
+| :---------- | :---------------- | :---------- |
+| id          | `ID!`             |             |
+| status      | `LeadStatusEnum!` |             |
+| reason_lost | `String`          |             |
 
 ---
-### leadWonOrLost
-**Retorno:** `Lead!`
+### createLeadReceiver
+**Retorno:** `LeadReceiver!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| status | `LeadStatusEnum!` |  |
-| reason_lost | `String` |  |
+| input | `LeadReceiverInput!` |  |
 ---
 
-### createLeadReceiver
+### updateLeadReceiver
 
 **Retorno:** `LeadReceiver!`
 
 | Argumento | Tipo                 | Descripción |
 | :-------- | :------------------- | :---------- |
+| id        | `ID!`                |             |
 | input     | `LeadReceiverInput!` |             |
 
 ---
-### updateLeadReceiver
-**Retorno:** `LeadReceiver!`
+### deleteLeadReceiver
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `LeadReceiverInput!` |  |
 ---
 
-### deleteLeadReceiver
+### createLeadRotation
+
+**Retorno:** `LeadRotation!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `LeadRotationInput!` |             |
+
+---
+### updateLeadRotation
+**Retorno:** `LeadRotation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadRotationInput!` |  |
+---
+
+### deleteLeadRotation
 
 **Retorno:** `Boolean!`
 
@@ -1831,166 +1927,110 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createLeadRotation
-**Retorno:** `LeadRotation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadRotationInput!` |  |
----
-
-### updateLeadRotation
-
-**Retorno:** `LeadRotation!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `LeadRotationInput!` |             |
-
----
-### deleteLeadRotation
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createLeadSource
+**Retorno:** `LeadSource`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadSourceInput` |  |
+---
+
+### updateLeadSource
 
 **Retorno:** `LeadSource`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
+| id        | `ID!`             |             |
 | input     | `LeadSourceInput` |             |
 
 ---
-### updateLeadSource
-**Retorno:** `LeadSource`
+### deleteLeadSource
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `LeadSourceInput` |  |
 ---
 
-### deleteLeadSource
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createLeadStatus
-**Retorno:** `LeadStatus`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadStatusInput!` |  |
----
-
-### updateLeadStatus
 
 **Retorno:** `LeadStatus`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
-| id        | `ID!`              |             |
 | input     | `LeadStatusInput!` |             |
 
 ---
+### updateLeadStatus
+**Retorno:** `LeadStatus`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadStatusInput!` |  |
+---
+
 ### deleteLeadStatus
+
 **Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createLeadSubSource
-
-**Retorno:** `LeadSubSource!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `LeadSubSourceInput!` |             |
-
----
-### updateLeadSubSource
-**Retorno:** `LeadSubSource!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateLeadSubSourceInput!` |  |
----
-
-### deleteLeadSubSource
-
-**Retorno:** `Boolean!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
-### createLeadType
-**Retorno:** `LeadType`
+### createLeadSubSource
+**Retorno:** `LeadSubSource!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadTypeInput!` |  |
+| input | `LeadSubSourceInput!` |  |
 ---
 
-### updateLeadType
+### updateLeadSubSource
+
+**Retorno:** `LeadSubSource!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateLeadSubSourceInput!` |             |
+
+---
+### deleteLeadSubSource
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createLeadType
 
 **Retorno:** `LeadType`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
-| id        | `ID!`            |             |
 | input     | `LeadTypeInput!` |             |
 
 ---
+### updateLeadType
+**Retorno:** `LeadType`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadTypeInput!` |  |
+---
+
 ### deleteLeadType
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createOrganization
-
-**Retorno:** `Organization`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `OrganizationInput!` |             |
-
----
-### updateOrganization
-**Retorno:** `Organization`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `OrganizationInput!` |  |
----
-
-### deleteOrganization
 
 **Retorno:** `Boolean`
 
@@ -1999,7 +2039,26 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### restoreOrganization
+### createOrganization
+**Retorno:** `Organization`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrganizationInput!` |  |
+---
+
+### updateOrganization
+
+**Retorno:** `Organization`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| id        | `ID!`                |             |
+| input     | `OrganizationInput!` |             |
+
+---
+### deleteOrganization
 **Retorno:** `Boolean`
 
 
@@ -2008,16 +2067,16 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### addPeopleToOrganization
+### restoreOrganization
 
-**Retorno:** `Boolean!`
+**Retorno:** `Boolean`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `OrganizationPeopleInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### removePeopleFromOrganization
+### addPeopleToOrganization
 **Retorno:** `Boolean!`
 
 
@@ -2026,26 +2085,44 @@ Upload a file that is publicly available.
 | input | `OrganizationPeopleInput!` |  |
 ---
 
-### createPeople
+### removePeopleFromOrganization
 
-**Retorno:** `People`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `PeopleInput!` |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `OrganizationPeopleInput!` |             |
 
 ---
-### updatePeople
+### createPeople
 **Retorno:** `People`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
 | input | `PeopleInput!` |  |
 ---
 
+### updatePeople
+
+**Retorno:** `People`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| id        | `ID!`          |             |
+| input     | `PeopleInput!` |             |
+
+---
 ### deletePeople
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### restorePeople
 
 **Retorno:** `Boolean`
 
@@ -2054,105 +2131,124 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### restorePeople
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### importPeoples
-
 **Retorno:** `String!`
 
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `[PeopleInput!]!` |             |
-| companyId | `Int`             |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `[PeopleInput!]!` |  |
+| companyId | `Int` |  |
 ---
+
 ### attachFileToPeople
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### attachFilesToPeople
-
-**Retorno:** `People!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| files     | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
-
----
-### deletePeopleAddress
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### updateContact
-
-**Retorno:** `Contact!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `UpdateContactInput!` |             |
-
----
-### deleteContact
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### updatePeoplePhoto
 
 **Retorno:** `People!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
 | file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
 
 ---
+### attachFilesToPeople
+**Retorno:** `People!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| files | `[Upload!]!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### deletePeopleAddress
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### updateContact
+**Retorno:** `Contact!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateContactInput!` |  |
+---
+
+### deleteContact
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### updatePeoplePhoto
+**Retorno:** `People!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| file | `Upload!` |  |
+---
+
 ### createPeopleRelationship
+
+**Retorno:** `PeopleRelationship!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleRelationshipInput!` |             |
+
+---
+### updatePeopleRelationship
 **Retorno:** `PeopleRelationship!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PeopleRelationshipInput!` |  |
+| id | `ID!` |  |
+| input | `UpdatePeopleRelationshipInput!` |  |
 ---
 
-### updatePeopleRelationship
-
-**Retorno:** `PeopleRelationship!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdatePeopleRelationshipInput!` |             |
-
----
 ### deletePeopleRelationship
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createPeopleType
+**Retorno:** `PeopleType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PeopleTypeInput!` |  |
+---
+
+### updatePeopleType
+
+**Retorno:** `PeopleType!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
+| input     | `PeopleTypeInput!` |             |
+
+---
+### deletePeopleType
 **Retorno:** `Boolean!`
 
 
@@ -4203,6 +4299,117 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
+### followEvent
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
+### unFollowEvent
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### createEventVersion
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `EventVersionInput!` |             |
+
+---
+### updateEventVersion
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventVersionUpdateInput!` |  |
+---
+
+### deleteEventVersion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### followEventVersion
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### unFollowEventVersion
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
+### addEventVersionDate
+**Retorno:** `EventVersionDate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AddEventVersionDateInput!` |  |
+---
+
+### updateEventVersionDate
+
+**Retorno:** `EventVersionDate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateEventVersionDateInput!` |             |
+
+---
+### deleteEventVersionDate
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateEventVersionParticipant
+
+**Retorno:** `EventVersionParticipant!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `EventVersionParticipantUpdateInput!` |             |
+
+---
+### deleteEventVersionParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### bookTimeSlot
 
 **Retorno:** `EventVersion!`
@@ -4257,6 +4464,248 @@ Upload a file that is publicly available.
 | input | `ConfirmBookingInput!` |  |
 ---
 
+### createEventCategory
+
+**Retorno:** `EventCategory!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `EventCategoryInput!` |             |
+
+---
+### updateEventCategory
+**Retorno:** `EventCategory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventCategoryUpdateInput!` |  |
+---
+
+### deleteEventCategory
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createEventType
+**Retorno:** `EventType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
+---
+
+### updateEventType
+
+**Retorno:** `EventType!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `EventLookupUpdateInput!` |             |
+
+---
+### deleteEventType
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createEventClass
+
+**Retorno:** `EventClass!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
+
+---
+### updateEventClass
+**Retorno:** `EventClass!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
+---
+
+### deleteEventClass
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createEventStatus
+**Retorno:** `EventStatus!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
+---
+
+### updateEventStatus
+
+**Retorno:** `EventStatus!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `EventLookupUpdateInput!` |             |
+
+---
+### deleteEventStatus
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createEventTheme
+
+**Retorno:** `EventTheme!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
+
+---
+### updateEventTheme
+**Retorno:** `EventTheme!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
+---
+
+### deleteEventTheme
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createEventThemeArea
+**Retorno:** `EventThemeArea!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
+---
+
+### updateEventThemeArea
+
+**Retorno:** `EventThemeArea!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `EventLookupUpdateInput!` |             |
+
+---
+### deleteEventThemeArea
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createFacilitator
+
+**Retorno:** `Facilitator!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `FacilitatorInput!` |             |
+
+---
+### updateFacilitator
+**Retorno:** `Facilitator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `FacilitatorUpdateInput!` |  |
+---
+
+### deleteFacilitator
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### attachFacilitatorToEventVersion
+**Retorno:** `EventVersionFacilitator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FacilitatorEventVersionInput!` |  |
+---
+
+### detachFacilitatorFromEventVersion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                            | Descripción |
+| :-------- | :------------------------------ | :---------- |
+| input     | `FacilitatorEventVersionInput!` |             |
+
+---
+### createParticipant
+**Retorno:** `Participant!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ParticipantInput!` |  |
+---
+
+### updateParticipant
+
+**Retorno:** `Participant!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `ParticipantUpdateInput!` |             |
+
+---
+### deleteParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### addPeopleToEventVersion
 
 **Retorno:** `Participant!`
@@ -4273,6 +4722,43 @@ Upload a file that is publicly available.
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | input | `PeopleEventVersionInput!` |  |
+---
+
+### copyParticipantsToEventVersion
+
+**Retorno:** `Int!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `CopyParticipantsInput!` |             |
+
+---
+### createParticipantType
+**Retorno:** `ParticipantType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
+---
+
+### updateParticipantType
+
+**Retorno:** `ParticipantType!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `EventLookupUpdateInput!` |             |
+
+---
+### deleteParticipantType
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
 
 ### issueEventCode

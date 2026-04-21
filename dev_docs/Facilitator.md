@@ -13,6 +13,7 @@
 | description    | `String`                |             |
 | identification | `String`                |             |
 | resume         | `String`                |             |
+| photo          | `Filesystem`            |             |
 | created_at     | `DateTime`              |             |
 | updated_at     | `DateTime`              |             |
 | files          | `FilesystemPaginator!`  |             |

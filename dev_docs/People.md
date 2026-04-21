@@ -15,6 +15,7 @@
 | subscriptions      | `[PeopleSubscription!]!`      |             |
 | dob                | `Date`                        |             |
 | license_number     | `String`                      |             |
+| people_type        | `PeopleType`                  |             |
 | organizations      | `[Organization!]`             |             |
 | contacts           | `[Contact!]!`                 |             |
 | address            | `[Address!]!`                 |             |

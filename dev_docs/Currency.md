@@ -7,3 +7,6 @@
 | id       | `Int!`    |             |
 | code     | `String!` |             |
 | currency | `String!` |             |
+| name     | `String!` |             |
+| symbol   | `String`  |             |
+| country  | `String`  |             |

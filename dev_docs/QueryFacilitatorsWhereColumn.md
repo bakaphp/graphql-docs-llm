@@ -7,6 +7,7 @@ Allowed column names for Query.facilitators.where.
 | Valor        | Descripción |
 | :----------- | :---------- |
 | ID           |             |
+| UUID         |             |
 | NAME         |             |
 | SLUG         |             |
 | COMPANIES_ID |             |

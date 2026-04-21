@@ -9,4 +9,4 @@
 | user          | `User!`         |             |
 | date          | `Date!`         |             |
 | start_time    | `String!`       |             |
-| end_time      | `String!`       |             |
+| end_time      | `String`        |             |

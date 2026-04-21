@@ -11,3 +11,4 @@ Allowed column names for Query.agentsAi.where.
 | IS_ACTIVE            |             |
 | AGENT_TYPE_ID        |             |
 | COMPANY_TASK_LIST_ID |             |
+| CREATED_AT           |             |

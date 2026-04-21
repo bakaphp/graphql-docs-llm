@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (175)
+## Queries con filtros (177)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -27,7 +27,7 @@ Cities, Comments, Companies, CompanyActions, CompanyAddresses,
 CompanyBranchCustomFields, CompanyBranchUsers, CompanyCustomFields,
 CompanyReviewTypes, CompanySubscriptions, CompanyUsers, CompanyUsersUserRole,
 ContactType, CountUserReaction, Countries, Currencies, CustomFeedMessages,
-DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
+Deals, DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
 EventCategories, EventClasses, EventStatus, EventThemeAreas, EventThemes,
 EventTypes, EventVersionParticipants, EventVersions, EventVersionsEventStatus,
 Events, EventsStatus, ExportOrderTransitionHistory,
@@ -47,16 +47,17 @@ OrderTransitionHistoryToStatus, OrderTypeStatuses, OrderTypes, Orders,
 OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatus,
 OrdersByUserCustomFieldOrderType, OrdersOrderStatus, OrdersOrderType,
 Organizations, ParticipantPassMotives, ParticipantTypes, Participants,
-PaymentMethods, Payments, PaymentsOrderType, PeopleRelationships, Peoples,
-Pipelines, ProductTypes, Products, ProviderOrders, ProviderOrdersOrderStatus,
-ProviderOrdersOrderType, ProviderPayments, ProviderPaymentsOrderType, Reactions,
-ReceiverWebhooks, ReferralCodeUsages, Regions, Roles, RuleTypes, Rules,
-ScheduleExceptions, ScheduleHistory, ScheduleRules, ScheduleRulesResourceType,
-SearchUsersLists, SocialChannels, States, Status, SubSources, SubscriptionPlans,
-SystemModels, TagChildren, Tags, TaskListItems, TaskLists, Templates, TimeSlots,
-TimeSlotsResourceType, Topics, UserCustomFields, UserReactions, Users,
-UsersInvites, Variants, VariantsByStatus, ViewMessageHistory, WarehouseVariants,
-Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
+PaymentMethods, Payments, PaymentsOrderType, PeopleRelationships, PeopleTypes,
+Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
+ProviderOrdersOrderStatus, ProviderOrdersOrderType, ProviderPayments,
+ProviderPaymentsOrderType, Reactions, ReceiverWebhooks, ReferralCodeUsages,
+Regions, Roles, RuleTypes, Rules, ScheduleExceptions, ScheduleHistory,
+ScheduleRules, ScheduleRulesResourceType, SearchUsersLists, SocialChannels,
+States, Status, SubSources, SubscriptionPlans, SystemModels, TagChildren, Tags,
+TaskListItems, TaskLists, Templates, TimeSlots, TimeSlotsResourceType, Topics,
+UserCustomFields, UserReactions, Users, UsersInvites, Variants,
+VariantsByStatus, ViewMessageHistory, WarehouseVariants, Warehouses,
+WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 ## Filtros adicionales
 

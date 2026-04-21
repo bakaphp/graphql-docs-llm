@@ -10,6 +10,7 @@
 | ticket_price     | `Money!`          |             |
 | discount         | `Money!`          |             |
 | invoice_date     | `Date`            |             |
+| payment_status   | `String`          |             |
 | metadata         | `Mixed`           |             |
 | participant_type | `ParticipantType` |             |
 | created_at       | `DateTime`        |             |

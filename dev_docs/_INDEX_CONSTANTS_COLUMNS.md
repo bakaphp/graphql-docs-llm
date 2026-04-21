@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (172)
+## Queries con enums de columnas (174)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -15,12 +15,12 @@ ChannelProducts, ChannelVariants, ChannelVariantsFilterByAttributes, Channels,
 Cities, Comments, Companies, CompanyActions, CompanyBranchCustomFields,
 CompanyBranchUsers, CompanyCustomFields, CompanyReviewTypes,
 CompanySubscriptions, CompanyUsersUserRoleColumn, ContactType,
-CountUserReaction, Countries, Currencies, CustomFeedMessages, DiscountTypes,
-Discounts, Engagements, EntityFiles, EntityInteractions, EventCategories,
-EventClasses, EventStatus, EventThemeAreas, EventThemes, EventTypes,
-EventVersionParticipants, EventVersions, EventVersionsEventStatusColumn, Events,
-EventsStatusColumn, ExportOrderTransitionHistory,
-ExportOrderTransitionHistoryFromStatusColumn,
+CountUserReaction, Countries, Currencies, CustomFeedMessages, Deals,
+DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
+EventCategories, EventClasses, EventStatus, EventThemeAreas, EventThemes,
+EventTypes, EventVersionParticipants, EventVersions,
+EventVersionsEventStatusColumn, Events, EventsStatusColumn,
+ExportOrderTransitionHistory, ExportOrderTransitionHistoryFromStatusColumn,
 ExportOrderTransitionHistoryOrderTypeColumn,
 ExportOrderTransitionHistoryToStatusColumn, ExportOrders,
 ExportOrdersOrderStatusColumn, ExportOrdersOrderTypeColumn, Facilitators,
@@ -39,8 +39,8 @@ OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatusColumn,
 OrdersByUserCustomFieldOrderTypeColumn, OrdersOrderStatusColumn,
 OrdersOrderTypeColumn, Organizations, ParticipantPassMotives, ParticipantTypes,
 Participants, PaymentMethods, Payments, PaymentsOrderTypeColumn,
-PeopleRelationships, Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
-ProviderOrdersOrderStatusColumn, ProviderOrdersOrderTypeColumn,
+PeopleRelationships, PeopleTypes, Peoples, Pipelines, ProductTypes, Products,
+ProviderOrders, ProviderOrdersOrderStatusColumn, ProviderOrdersOrderTypeColumn,
 ProviderPayments, ProviderPaymentsOrderTypeColumn, Reactions, ReceiverWebhooks,
 ReferralCodeUsages, Regions, Roles, RuleTypes, Rules, ScheduleExceptions,
 ScheduleHistory, ScheduleRules, ScheduleRulesResourceTypeColumn,

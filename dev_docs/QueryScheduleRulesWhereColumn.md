@@ -7,6 +7,7 @@ Allowed column names for Query.scheduleRules.where.
 | Valor             | Descripción |
 | :---------------- | :---------- |
 | ID                |             |
+| UUID              |             |
 | COMPANIES_ID      |             |
 | RESOURCES_ID      |             |
 | START_AT          |             |

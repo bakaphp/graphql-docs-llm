@@ -5,6 +5,7 @@
 - [AffiliateStatusEnum](./AffiliateStatusEnum.md)
 - [AffiliateTypeEnum](./AffiliateTypeEnum.md)
 - [AgentStatusEnum](./AgentStatusEnum.md)
+- [AnalyticsBucket](./AnalyticsBucket.md)
 - [AppModule](./AppModule.md)
 - [AttributionModelEnum](./AttributionModelEnum.md)
 - [ChannelColumns](./ChannelColumns.md)

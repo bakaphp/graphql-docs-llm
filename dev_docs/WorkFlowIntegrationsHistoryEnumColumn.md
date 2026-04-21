@@ -9,3 +9,4 @@
 | ENTITY_ID        |             |
 | STATUS_ID        |             |
 | INTEGRATIONS_ID  |             |
+| CREATED_AT       |             |
