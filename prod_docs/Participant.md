@@ -12,6 +12,7 @@
 | company       | `Company!`              |             |
 | themeArea     | `EventThemeArea`        |             |
 | is_prospect   | `Boolean!`              |             |
+| photo         | `Filesystem`            |             |
 | created_at    | `DateTime`              |             |
 | updated_at    | `DateTime`              |             |
 | files         | `FilesystemPaginator!`  |             |

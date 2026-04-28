@@ -19,6 +19,7 @@
 | files                   | `[FilesystemInputUrl!]`           |             |
 | custom_fields           | `[CustomFieldEntityInput!]`       |             |
 | tags                    | `[TagInput!]`                     |             |
+| people_type_id          | `ID`                              |             |
 | peopleEmploymentHistory | `[EmploymentPeopleHistoryInput!]` |             |
 | organization            | `String`                          |             |
 | created_at              | `DateTime`                        |             |

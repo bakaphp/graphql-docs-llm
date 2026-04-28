@@ -144,6 +144,7 @@
 - [leadTypes](./Query.md#leadtypes)
 - [me](./Query.md#me)
 - [mechanicOrders](./Query.md#mechanicorders)
+- [mechanics](./Query.md#mechanics)
 - [messageAnalytics](./Query.md#messageanalytics)
 - [messages](./Query.md#messages)
 - [messageSearchSuggestions](./Query.md#messagesearchsuggestions)

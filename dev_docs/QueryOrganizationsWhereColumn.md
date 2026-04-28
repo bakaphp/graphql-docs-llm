@@ -4,8 +4,9 @@ Allowed column names for Query.organizations.where.
 
 ## Valores
 
-| Valor | Descripción |
-| :---- | :---------- |
-| ID    |             |
-| NAME  |             |
-| UUID  |             |
+| Valor           | Descripción |
+| :-------------- | :---------- |
+| ID              |             |
+| NAME            |             |
+| UUID            |             |
+| TOTAL_EMPLOYEES |             |

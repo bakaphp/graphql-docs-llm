@@ -24,6 +24,8 @@
 - [FormatSortAttribute](./FormatSortAttribute.md)
 - [InteractionType](./InteractionType.md)
 - [LeadStatusEnum](./LeadStatusEnum.md)
+- [MechanicAvailabilityEnum](./MechanicAvailabilityEnum.md)
+- [MechanicFilterEnum](./MechanicFilterEnum.md)
 - [MetadataAction](./MetadataAction.md)
 - [MetadataFilterOperator](./MetadataFilterOperator.md)
 - [NotificationChannels](./NotificationChannels.md)

@@ -17,3 +17,6 @@
 | config        | `Mixed`                     |             |
 | participants  | `[String!]`                 |             |
 | dates         | `[EventVersionDateInput!]!` |             |
+| custom_fields | `[CustomFieldEntityInput!]` |             |
+| tags          | `[TagInput!]`               |             |
+| files         | `[FilesystemInputUrl!]`     |             |
