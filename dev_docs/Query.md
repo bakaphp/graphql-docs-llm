@@ -2800,3 +2800,16 @@
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
+
+### ledgerEvents
+
+**Retorno:** `LedgerEventPaginator!`
+
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| where     | `QueryLedgerEventsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryLedgerEventsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
+
+---

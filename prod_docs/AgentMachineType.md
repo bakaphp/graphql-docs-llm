@@ -16,5 +16,7 @@
 | port_range_end   | `Int!`      |             |
 | max_agents       | `Int!`      |             |
 | is_active        | `Boolean!`  |             |
+| is_connected     | `Boolean!`  |             |
+| last_ping_at     | `DateTime`  |             |
 | created_at       | `DateTime!` |             |
 | updated_at       | `DateTime!` |             |

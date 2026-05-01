@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (175)
+## Queries con enums de columnas (177)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -29,13 +29,14 @@ ForYouMessages, GetActivityLog, GetAppSettings, GetUserInteractions,
 GetUserWalletTransactions, GetUsersLists, GetUsersListsEntities,
 GetWalletTransactions, GlobalSystemModels, Integrations,
 IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
-Leads, LeadsDashboard, LeadsRotations, MapperImportersTemplates, MechanicOrders,
-MechanicOrdersOrderStatusColumn, MessageTypes, Messages, MessagesGroupByDate,
-MessagesLikedByUser, NotificationChannels, NotificationSettings,
-NotificationTypes, Notifications, OrderStatus, OrderTransitionHistory,
-OrderTransitionHistoryFromStatusColumn, OrderTransitionHistoryOrderTypeColumn,
-OrderTransitionHistoryToStatusColumn, OrderTypeStatuses, OrderTypes, Orders,
-OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatusColumn,
+Leads, LeadsDashboard, LeadsRotations, MapperImportersTemplates, Mechanic,
+MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics, MessageTypes,
+Messages, MessagesGroupByDate, MessagesLikedByUser, NotificationChannels,
+NotificationSettings, NotificationTypes, Notifications, OrderStatus,
+OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
+OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
+OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
+OrdersByUserCustomFieldOrderStatusColumn,
 OrdersByUserCustomFieldOrderTypeColumn, OrdersOrderStatusColumn,
 OrdersOrderTypeColumn, Organizations, ParticipantPassMotives, ParticipantTypes,
 Participants, PaymentMethods, Payments, PaymentsOrderTypeColumn,
@@ -54,6 +55,7 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 - [CompanyBranchCustomFieldsOrderByColumn](./CompanyBranchCustomFieldsOrderByColumn.md)
 - [CompanyCustomFieldsOrderByColumn](./CompanyCustomFieldsOrderByColumn.md)
+- [MechanicWhereColumn](./MechanicWhereColumn.md)
 - [OrderTypeStatusesOrderByColumn](./OrderTypeStatusesOrderByColumn.md)
 - [TagChildrenOrderByColumn](./TagChildrenOrderByColumn.md)
 - [UserCustomFieldsOrderByColumn](./UserCustomFieldsOrderByColumn.md)

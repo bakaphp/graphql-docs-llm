@@ -1,6 +1,4 @@
-# ENUM: QueryMechanicsWhereColumn
-
-Allowed column names for Query.mechanics.where.
+# ENUM: MechanicWhereColumn
 
 ## Valores
 

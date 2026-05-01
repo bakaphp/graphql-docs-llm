@@ -313,6 +313,7 @@
 - [openclawGetConfig](./Mutation.md#openclawgetconfig)
 - [openclawLaunchAgent](./Mutation.md#openclawlaunchagent)
 - [openclawMigrateAgentWorkspace](./Mutation.md#openclawmigrateagentworkspace)
+- [openclawPingMachine](./Mutation.md#openclawpingmachine)
 - [openclawRestartContainer](./Mutation.md#openclawrestartcontainer)
 - [openclawSetSlackTokens](./Mutation.md#openclawsetslacktokens)
 - [openclawSetTelegramToken](./Mutation.md#openclawsettelegramtoken)

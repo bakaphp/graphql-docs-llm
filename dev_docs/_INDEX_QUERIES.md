@@ -142,6 +142,7 @@
 - [leadStatuses](./Query.md#leadstatuses)
 - [leadTaskItems](./Query.md#leadtaskitems)
 - [leadTypes](./Query.md#leadtypes)
+- [ledgerEvents](./Query.md#ledgerevents)
 - [me](./Query.md#me)
 - [mechanicOrders](./Query.md#mechanicorders)
 - [mechanics](./Query.md#mechanics)
