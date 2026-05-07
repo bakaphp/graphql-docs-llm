@@ -6,6 +6,7 @@
 | :--------------------- | :----------------------------- | :---------- |
 | agent_type_id          | `Int!`                         |             |
 | name                   | `String!`                      |             |
+| user_id                | `ID`                           |             |
 | agent_model_id         | `Int`                          |             |
 | description            | `String`                       |             |
 | config                 | `Mixed!`                       |             |
@@ -21,3 +22,4 @@
 | company_task_list_id   | `Int`                          |             |
 | communication_channels | `[CommunicationChannelPivot!]` |             |
 | swarm_ids              | `[ID!]`                        |             |
+| tool_ids               | `[ID!]`                        |             |

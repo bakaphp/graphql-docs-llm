@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (177)
+## Queries con enums de columnas (178)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -29,11 +29,11 @@ ForYouMessages, GetActivityLog, GetAppSettings, GetUserInteractions,
 GetUserWalletTransactions, GetUsersLists, GetUsersListsEntities,
 GetWalletTransactions, GlobalSystemModels, Integrations,
 IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
-Leads, LeadsDashboard, LeadsRotations, MapperImportersTemplates, Mechanic,
-MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics, MessageTypes,
-Messages, MessagesGroupByDate, MessagesLikedByUser, NotificationChannels,
-NotificationSettings, NotificationTypes, Notifications, OrderStatus,
-OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
+Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MapperImportersTemplates,
+Mechanic, MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics,
+MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser,
+NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
+OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
 OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
 OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatusColumn,

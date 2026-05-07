@@ -6,6 +6,8 @@
 | :--------------- | :-------- | :---------- |
 | name             | `String!` |             |
 | description      | `String`  |             |
+| provider         | `String`  |             |
+| handler          | `String`  |             |
 | config           | `String!` |             |
 | is_active        | `Boolean` |             |
 | role             | `String!` |             |

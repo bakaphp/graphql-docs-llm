@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (179)
+## Queries con filtros (180)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -38,8 +38,8 @@ FollowingFeedMessages, ForYouMessages, GetActivityLog, GetAppSettings,
 GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels, Integrations,
 IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
-Leads, LeadsDashboard, LeadsRotations, MapperImportersTemplates, MechanicOrders,
-MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
+Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MapperImportersTemplates,
+MechanicOrders, MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
 MessagesGroupByDate, MessagesLikedByUser, NotificationChannels,
 NotificationSettings, NotificationTypes, Notifications, OrderStatus,
 OrderTransitionHistory, OrderTransitionHistoryFromStatus,
