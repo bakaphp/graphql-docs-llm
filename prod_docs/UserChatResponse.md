@@ -4,5 +4,5 @@
 
 | Campo      | Tipo      | Descripción |
 | :--------- | :-------- | :---------- |
-| response   | `String!` |             |
+| response   | `Mixed!`  |             |
 | session_id | `String!` |             |

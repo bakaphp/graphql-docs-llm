@@ -3281,6 +3281,7 @@ Upload a file that is publicly available.
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | orderId | `ID!` |  |
+| stripeVersion | `String` |  |
 ---
 
 ### transitionOrderStatus

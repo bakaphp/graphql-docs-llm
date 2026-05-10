@@ -11,3 +11,4 @@
 | payment_date       | `String`                |             |
 | concept            | `String`                |             |
 | use_hold           | `Boolean`               |             |
+| idempotency_key    | `String`                |             |

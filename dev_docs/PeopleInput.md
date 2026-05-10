@@ -13,6 +13,7 @@
 | linkedin_contact_id     | `String`                          |             |
 | google_contact_id       | `String`                          |             |
 | license_number          | `String`                          |             |
+| license_expiration_date | `Date`                            |             |
 | dob                     | `String`                          |             |
 | contacts                | `[ContactInput!]`                 |             |
 | address                 | `[AddressInput!]`                 |             |

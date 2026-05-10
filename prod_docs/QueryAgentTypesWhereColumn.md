@@ -8,6 +8,7 @@ Allowed column names for Query.agentTypes.where.
 | :----------- | :---------- |
 | ID           |             |
 | NAME         |             |
+| PROVIDER     |             |
 | IS_ACTIVE    |             |
 | IS_DEFAULT   |             |
 | IS_PUBLISHED |             |

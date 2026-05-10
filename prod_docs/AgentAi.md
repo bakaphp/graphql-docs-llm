@@ -6,7 +6,8 @@
 | :---------------- | :---------------------- | :---------- |
 | id                | `ID!`                   |             |
 | company           | `[Company!]!`           |             |
-| user              | `[User!]!`              |             |
+| user              | `User`                  |             |
+| creator           | `User`                  |             |
 | type              | `agentType!`            |             |
 | model             | `AgentAiModel`          |             |
 | companyTaskList   | `TaskList`              |             |
@@ -29,6 +30,7 @@
 | agent_model_id    | `ID`                    |             |
 | parent_id         | `ID`                    |             |
 | is_active         | `Boolean!`              |             |
+| selectedTools     | `[NervousSystemTool!]!` |             |
 | created_at        | `DateTime!`             |             |
 | updated_at        | `DateTime!`             |             |
 | files             | `FilesystemPaginator!`  |             |
