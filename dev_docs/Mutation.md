@@ -4966,36 +4966,57 @@ Upload a file that is publicly available.
 | tool_id | `ID!` |  |
 ---
 
-### createAgentSwarm
+### aiAgentNeuronChat
 
-**Retorno:** `AgentSwarm!`
+**Retorno:** `String!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
-| input     | `AgentSwarmInput!` |             |
+| input     | `NeuronChatInput!` |             |
 
 ---
-### updateAgentSwarm
+### createAgentSwarm
 **Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentSwarmInput!` |  |
+| input | `AgentSwarmInput!` |  |
 ---
 
-### deleteAgentSwarm
+### updateAgentSwarm
 
+**Retorno:** `AgentSwarm!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateAgentSwarmInput!` |             |
+
+---
+### deleteAgentSwarm
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addAgentToSwarm
+
+**Retorno:** `AgentSwarm!`
+
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
 
 ---
-### addAgentToSwarm
-**Retorno:** `AgentSwarm!`
+### updateSwarmMember
+**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5006,116 +5027,114 @@ Upload a file that is publicly available.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### updateSwarmMember
+### removeAgentFromSwarm
 
-**Retorno:** `AgentSwarmMember!`
+**Retorno:** `AgentSwarm!`
 
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| swarm_id  | `ID!` |             |
+| agent_id  | `ID!` |             |
 
 ---
-### removeAgentFromSwarm
-**Retorno:** `AgentSwarm!`
+### createAgentType
+**Retorno:** `agentType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| swarm_id | `ID!` |  |
-| agent_id | `ID!` |  |
+| input | `AgentTypeInput!` |  |
 ---
 
-### createAgentType
+### updateAgentType
 
 **Retorno:** `agentType!`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
+| id        | `ID!`             |             |
 | input     | `AgentTypeInput!` |             |
 
 ---
-### updateAgentType
-**Retorno:** `agentType!`
+### deleteAgentType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AgentTypeInput!` |  |
 ---
 
-### deleteAgentType
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createNervousSystemSkill
-**Retorno:** `NervousSystemSkill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateNervousSystemSkillInput!` |  |
----
-
-### updateNervousSystemSkill
 
 **Retorno:** `NervousSystemSkill!`
 
 | Argumento | Tipo                             | Descripción |
 | :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdateNervousSystemSkillInput!` |             |
+| input     | `CreateNervousSystemSkillInput!` |             |
 
 ---
-### createNervousSystemTool
-**Retorno:** `NervousSystemTool!`
+### updateNervousSystemSkill
+**Retorno:** `NervousSystemSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemToolInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemSkillInput!` |  |
 ---
 
-### updateNervousSystemTool
+### createNervousSystemTool
 
 **Retorno:** `NervousSystemTool!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| id        | `ID!`                           |             |
-| input     | `UpdateNervousSystemToolInput!` |             |
+| input     | `CreateNervousSystemToolInput!` |             |
 
 ---
+### updateNervousSystemTool
+**Retorno:** `NervousSystemTool!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemToolInput!` |  |
+---
+
 ### grantNervousSystemSkill
+
+**Retorno:** `NervousSystemAgentSkill!`
+
+| Argumento | Tipo                                 | Descripción |
+| :-------- | :----------------------------------- | :---------- |
+| skill_id  | `ID!`                                |             |
+| input     | `GrantNervousSystemCapabilityInput!` |             |
+
+---
+### revokeNervousSystemSkill
 **Retorno:** `NervousSystemAgentSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| skill_id | `ID!` |  |
-| input | `GrantNervousSystemCapabilityInput!` |  |
+| grant_id | `ID!` |  |
+| reason | `String` |  |
 ---
 
-### revokeNervousSystemSkill
-
-**Retorno:** `NervousSystemAgentSkill!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| grant_id  | `ID!`    |             |
-| reason    | `String` |             |
-
----
 ### attachNervousSystemToolToAgentType
+
 **Retorno:** `NervousSystemTool!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| tool_id       | `ID!` |             |
+| agent_type_id | `ID!` |             |
+
+---
+### detachNervousSystemToolFromAgentType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5124,66 +5143,65 @@ Upload a file that is publicly available.
 | agent_type_id | `ID!` |  |
 ---
 
-### detachNervousSystemToolFromAgentType
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| tool_id       | `ID!` |             |
-| agent_type_id | `ID!` |             |
-
----
 ### createNervousSystemPlan
-**Retorno:** `NervousSystemPlan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateNervousSystemPlanInput!` |  |
----
-
-### updateNervousSystemPlan
 
 **Retorno:** `NervousSystemPlan!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| id        | `ID!`                           |             |
-| input     | `UpdateNervousSystemPlanInput!` |             |
+| input     | `CreateNervousSystemPlanInput!` |             |
 
 ---
-### approveNervousSystemPlan
+### updateNervousSystemPlan
 **Retorno:** `NervousSystemPlan!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ApproveNervousSystemPlanInput!` |  |
+| input | `UpdateNervousSystemPlanInput!` |  |
 ---
 
+### approveNervousSystemPlan
+
+**Retorno:** `NervousSystemPlan!`
+
+| Argumento | Tipo                             | Descripción |
+| :-------- | :------------------------------- | :---------- |
+| id        | `ID!`                            |             |
+| input     | `ApproveNervousSystemPlanInput!` |             |
+
+---
 ### addTaskToNervousSystemPlan
-
-**Retorno:** `NervousSystemTask!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| plan_id   | `ID!`                     |             |
-| input     | `NervousSystemTaskInput!` |             |
-
----
-### updateNervousSystemTaskStatus
 **Retorno:** `NervousSystemTask!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemTaskStatusInput!` |  |
+| plan_id | `ID!` |  |
+| input | `NervousSystemTaskInput!` |  |
 ---
 
+### updateNervousSystemTaskStatus
+
+**Retorno:** `NervousSystemTask!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `UpdateNervousSystemTaskStatusInput!` |             |
+
+---
 ### deleteNervousSystemPlan
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### deleteNervousSystemTask
 
 **Retorno:** `Boolean!`
 
@@ -5191,12 +5209,4 @@ Upload a file that is publicly available.
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
----
-### deleteNervousSystemTask
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---

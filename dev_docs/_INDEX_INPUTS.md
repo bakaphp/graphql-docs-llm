@@ -137,6 +137,7 @@
 - [ModuleConfigInput](./ModuleConfigInput.md)
 - [NearByLocationInput](./NearByLocationInput.md)
 - [NervousSystemTaskInput](./NervousSystemTaskInput.md)
+- [NeuronChatInput](./NeuronChatInput.md)
 - [NotificationEntityFilterInput](./NotificationEntityFilterInput.md)
 - [NotificationMessageMetaDataDistributionInput](./NotificationMessageMetaDataDistributionInput.md)
 - [NotificationMessageMetaDataInput](./NotificationMessageMetaDataInput.md)

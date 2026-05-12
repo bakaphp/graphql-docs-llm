@@ -10,6 +10,7 @@ Allowed column names for Query.globalSystemModels.where.
 | UUID       |             |
 | SLUG       |             |
 | PARENTS_ID |             |
+| MODEL_NAME |             |
 | USE_IMPORT |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
