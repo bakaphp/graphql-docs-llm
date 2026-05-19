@@ -327,43 +327,25 @@
 | input     | `CustomFieldInput!` |             |
 
 ---
-### createMapperImporterTemplate
-**Retorno:** `ImporterTemplate!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ImporterTemplateInput!` |  |
----
-
 ### inviteUser
-
 **Retorno:** `Invite!`
 
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `InviteInput!` |             |
-
----
-### inviteAdmin
-**Retorno:** `AdminInvite!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AdminInviteInput!` |  |
+| input | `InviteInput!` |  |
 ---
 
+### inviteAdmin
+
+**Retorno:** `AdminInvite!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `AdminInviteInput!` |             |
+
+---
 ### deleteInvite
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo   | Descripción |
-| :-------- | :----- | :---------- |
-| id        | `Int!` |             |
-
----
-### deleteAdminInvite
 **Retorno:** `Boolean!`
 
 
@@ -372,25 +354,25 @@
 | id | `Int!` |  |
 ---
 
-### getInvite
+### deleteAdminInvite
 
-**Retorno:** `ExternalInvite!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| hash      | `String!` |             |
+| Argumento | Tipo   | Descripción |
+| :-------- | :----- | :---------- |
+| id        | `Int!` |             |
 
 ---
-### processInvite
-**Retorno:** `TokenResponse!`
+### getInvite
+**Retorno:** `ExternalInvite!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CompleteInviteInput!` |  |
+| hash | `String!` |  |
 ---
 
-### processAdminInvite
+### processInvite
 
 **Retorno:** `TokenResponse!`
 
@@ -399,25 +381,21 @@
 | input     | `CompleteInviteInput!` |             |
 
 ---
+### processAdminInvite
+**Retorno:** `TokenResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CompleteInviteInput!` |  |
+---
+
 ### readAllNotifications
-**Retorno:** `Boolean`
----
 
+**Retorno:** `Boolean`
+
+---
 ### sendNotificationBaseOnTemplate
-
-**Retorno:** `Boolean`
-
-| Argumento     | Tipo         | Descripción |
-| :------------ | :----------- | :---------- |
-| template_name | `String!`    |             |
-| data          | `Mixed!`     |             |
-| via           | `[String!]!` |             |
-| users         | `[Mixed!]!`  |             |
-| subject       | `String!`    |             |
-| attachment    | `[String]`   |             |
-
----
-### sendNotificationAnonymousBaseOnTemplate
 **Retorno:** `Boolean`
 
 
@@ -425,95 +403,100 @@
 | :--- | :--- | :--- |
 | template_name | `String!` |  |
 | data | `Mixed!` |  |
-| email | `Email!` |  |
+| via | `[String!]!` |  |
+| users | `[Mixed!]!` |  |
 | subject | `String!` |  |
 | attachment | `[String]` |  |
 ---
 
+### sendNotificationAnonymousBaseOnTemplate
+
+**Retorno:** `Boolean`
+
+| Argumento     | Tipo       | Descripción |
+| :------------ | :--------- | :---------- |
+| template_name | `String!`  |             |
+| data          | `Mixed!`   |             |
+| email         | `Email!`   |             |
+| subject       | `String!`  |             |
+| attachment    | `[String]` |             |
+
+---
 ### sendNotificationByMessage
-
 **Retorno:** `NotificationMessageResponse!`
-
-| Argumento | Tipo                                | Descripción |
-| :-------- | :---------------------------------- | :---------- |
-| metadata  | `NotificationMessageMetaDataInput!` |             |
-| message   | `Mixed!`                            |             |
-
----
-### notificationsMuteAll
-**Retorno:** `Boolean!`
----
-
-### setNotificationSettings
-
-**Retorno:** `NotificationSettings!`
-
-| Argumento              | Tipo                       | Descripción |
-| :--------------------- | :------------------------- | :---------- |
-| notifications_types_id | `Int!`                     |             |
-| is_enabled             | `Int!`                     |             |
-| channels               | `[NotificationChannels!]!` |             |
-
----
-### createRole
-**Retorno:** `Role`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `RoleInput!` |  |
+| metadata | `NotificationMessageMetaDataInput!` |  |
+| message | `Mixed!` |  |
 ---
 
-### updateRole
+### notificationsMuteAll
+
+**Retorno:** `Boolean!`
+
+---
+### setNotificationSettings
+**Retorno:** `NotificationSettings!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| notifications_types_id | `Int!` |  |
+| is_enabled | `Int!` |  |
+| channels | `[NotificationChannels!]!` |  |
+---
+
+### createRole
 
 **Retorno:** `Role`
 
-| Argumento | Tipo        | Descripción |
-| :-------- | :---------- | :---------- |
-| id        | `ID!`       |             |
-| input     | `RoleInput` |             |
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `RoleInput!` |             |
 
 ---
-### deleteRole
-**Retorno:** `Boolean`
+### updateRole
+**Retorno:** `Role`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `RoleInput` |  |
 ---
 
-### assignRoleToUser
+### deleteRole
 
 **Retorno:** `Boolean`
 
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| userId    | `ID!`    |             |
-| roleIds   | `[ID!]!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### removeRole
+### assignRoleToUser
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | userId | `ID!` |  |
-| role | `Mixed!` |  |
+| roleIds | `[ID!]!` |  |
 ---
 
-### givePermissionToUser
+### removeRole
 
 **Retorno:** `Boolean`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| userId     | `ID!`     |             |
-| permission | `String!` |             |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| userId    | `ID!`    |             |
+| role      | `Mixed!` |             |
 
 ---
-### removePermissionToUser
+### givePermissionToUser
 **Retorno:** `Boolean`
 
 
@@ -523,18 +506,17 @@
 | permission | `String!` |  |
 ---
 
-### givePermissionToRole
+### removePermissionToUser
 
 **Retorno:** `Boolean`
 
-| Argumento    | Tipo      | Descripción |
-| :----------- | :-------- | :---------- |
-| role         | `String!` |             |
-| permission   | `String!` |             |
-| systemModule | `String!` |             |
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| userId     | `ID!`     |             |
+| permission | `String!` |             |
 
 ---
-### removePermissionToRole
+### givePermissionToRole
 **Retorno:** `Boolean`
 
 
@@ -545,18 +527,18 @@
 | systemModule | `String!` |  |
 ---
 
-### giveModulePermissionToRole
+### removePermissionToRole
 
 **Retorno:** `Boolean`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| role       | `String!` |             |
-| moduleId   | `Int!`    |             |
-| permission | `String!` |             |
+| Argumento    | Tipo      | Descripción |
+| :----------- | :-------- | :---------- |
+| role         | `String!` |             |
+| permission   | `String!` |             |
+| systemModule | `String!` |             |
 
 ---
-### removeModulePermissionFromRole
+### giveModulePermissionToRole
 **Retorno:** `Boolean`
 
 
@@ -567,59 +549,177 @@
 | permission | `String!` |  |
 ---
 
+### removeModulePermissionFromRole
+
+**Retorno:** `Boolean`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| role       | `String!` |             |
+| moduleId   | `Int!`    |             |
+| permission | `String!` |             |
+
+---
 ### createState
+**Retorno:** `States`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| countries_id | `Int!` |  |
+| name | `String!` |  |
+| code | `String!` |  |
+---
+
+### updateState
 
 **Retorno:** `States`
 
 | Argumento    | Tipo      | Descripción |
 | :----------- | :-------- | :---------- |
+| id           | `Int!`    |             |
 | countries_id | `Int!`    |             |
 | name         | `String!` |             |
-| code         | `String!` |             |
+| code         | `String`  |             |
 
 ---
-### updateState
+### deleteState
 **Retorno:** `States`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `Int!` |  |
-| countries_id | `Int!` |  |
-| name | `String!` |  |
-| code | `String` |  |
 ---
 
-### deleteState
-
-**Retorno:** `States`
-
-| Argumento | Tipo   | Descripción |
-| :-------- | :----- | :---------- |
-| id        | `Int!` |             |
-
----
 ### createTemplate
-**Retorno:** `Template!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `TemplateInput!` |  |
----
-
-### updateTemplate
 
 **Retorno:** `Template!`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
-| id        | `ID!`            |             |
 | input     | `TemplateInput!` |             |
 
 ---
+### updateTemplate
+**Retorno:** `Template!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `TemplateInput!` |  |
+---
+
 ### deleteTemplate
+
 **Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### login
+**Retorno:** `TokenResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `LoginInput!` |  |
+---
+
+### logout
+
+**Retorno:** `Boolean!`
+
+---
+### logoutFromAllDevices
+**Retorno:** `Boolean!`
+---
+
+### register
+
+**Retorno:** `RegisterResponse!`
+
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| data      | `RegisterInput!` |             |
+
+---
+### refreshToken
+**Retorno:** `TokenResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| refresh_token | `String!` |  |
+---
+
+### changePassword
+
+**Retorno:** `Boolean!`
+
+| Argumento                 | Tipo      | Descripción |
+| :------------------------ | :-------- | :---------- |
+| current_password          | `String!` |             |
+| new_password              | `String!` |             |
+| new_password_confirmation | `String`  |             |
+
+---
+### forgotPassword
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `ForgotPasswordInput!` |  |
+---
+
+### resetPassword
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| data      | `ResetPasswordInput!` |             |
+
+---
+### verifyEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| token | `String!` |  |
+---
+
+### resendVerificationEmail
+
+**Retorno:** `Boolean!`
+
+---
+### updateUser
+**Retorno:** `User!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| data | `UpdateUserInput!` |  |
+---
+
+### updateEmail
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| email     | `String!` |             |
+
+---
+### deleteUserAddress
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -627,149 +727,34 @@
 | id | `ID!` |  |
 ---
 
-### login
-
-**Retorno:** `TokenResponse!`
-
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| data      | `LoginInput!` |             |
-
----
-### logout
-**Retorno:** `Boolean!`
----
-
-### logoutFromAllDevices
-
-**Retorno:** `Boolean!`
-
----
-### register
-**Retorno:** `RegisterResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| data | `RegisterInput!` |  |
----
-
-### refreshToken
-
-**Retorno:** `TokenResponse!`
-
-| Argumento     | Tipo      | Descripción |
-| :------------ | :-------- | :---------- |
-| refresh_token | `String!` |             |
-
----
-### changePassword
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| current_password | `String!` |  |
-| new_password | `String!` |  |
-| new_password_confirmation | `String` |  |
----
-
-### forgotPassword
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| data      | `ForgotPasswordInput!` |             |
-
----
-### resetPassword
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| data | `ResetPasswordInput!` |  |
----
-
-### verifyEmail
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| token     | `String!` |             |
-
----
-### resendVerificationEmail
-**Retorno:** `Boolean!`
----
-
-### updateUser
-
-**Retorno:** `User!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| id        | `ID!`              |             |
-| data      | `UpdateUserInput!` |             |
-
----
-### updateEmail
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| email | `String!` |  |
----
-
-### deleteUserAddress
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### updateDisplayname
+
+**Retorno:** `Boolean!`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| displayname | `String!` |             |
+
+---
+### switchCompanyBranch
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| displayname | `String!` |  |
+| company_branch_id | `Int!` |  |
 ---
 
-### switchCompanyBranch
-
-**Retorno:** `Boolean!`
-
-| Argumento         | Tipo   | Descripción |
-| :---------------- | :----- | :---------- |
-| company_branch_id | `Int!` |             |
-
----
 ### socialLogin
+
 **Retorno:** `TokenResponse!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| data      | `SocialLoginInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| data | `SocialLoginInput!` |  |
 ---
-
 ### linkDevice
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| data      | `DeviceInput!` |             |
-
----
-### unLinkDevice
 **Retorno:** `Boolean!`
 
 
@@ -778,205 +763,241 @@
 | data | `DeviceInput!` |  |
 ---
 
-### sendVerificationCode
+### unLinkDevice
 
 **Retorno:** `Boolean!`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| data      | `DeviceInput!` |             |
 
 ---
-### verifyCode
+### sendVerificationCode
 **Retorno:** `Boolean!`
+---
+
+### verifyCode
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| code      | `String!` |             |
+
+---
+### updatePhotoProfile
+**Retorno:** `User!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| code | `String!` |  |
+| file | `Upload!` |  |
+| user_id | `ID!` |  |
 ---
 
-### updatePhotoProfile
+### uploadFileToUser
 
 **Retorno:** `User!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
 | file      | `Upload!` |             |
-| user_id   | `ID!`     |             |
 
 ---
-### uploadFileToUser
-**Retorno:** `User!`
+### setToggleTwoFactorAuthIn30Days
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
+| active | `Boolean!` |  |
+---
+
+### requestDeleteAccount
+
+**Retorno:** `Boolean!`
+
+---
+### checkUsersContactsMatch
+**Retorno:** `UserContactsMatchesFindings!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| contacts | `[UserContactInput!]!` |  |
+---
+
+### saveUserAppPreferences
+
+**Retorno:** `Boolean!`
+
+| Argumento   | Tipo     | Descripción |
+| :---------- | :------- | :---------- |
+| preferences | `Mixed!` |             |
+
+---
+### upload
+**Retorno:** `Filesystem!`
+Upload a file that is publicly available.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
 | file | `Upload!` |  |
 ---
 
-### setToggleTwoFactorAuthIn30Days
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo       | Descripción |
-| :-------- | :--------- | :---------- |
-| active    | `Boolean!` |             |
-
----
-### requestDeleteAccount
-**Retorno:** `Boolean!`
----
-
-### checkUsersContactsMatch
-
-**Retorno:** `UserContactsMatchesFindings!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| contacts  | `[UserContactInput!]!` |             |
-
----
-### saveUserAppPreferences
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| preferences | `Mixed!` |  |
----
-
-### upload
-
-**Retorno:** `Filesystem!`\
-Upload a file that is publicly available.
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
-
----
 ### createFileSystem
+
 **Retorno:** `Filesystem!`
 
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `FilesystemInputUrl!` |             |
+
+---
+### multiUpload
+**Retorno:** `[Filesystem!]!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `FilesystemInputUrl!` |  |
+| files | `[Upload!]!` |  |
 ---
 
-### multiUpload
+### attachFile
 
-**Retorno:** `[Filesystem!]!`
+**Retorno:** `String!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `FilesystemAttachInput!` |             |
+
+---
+### deAttachFile
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
+---
+
+### deAttachFiles
+
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo         | Descripción |
 | :-------- | :----------- | :---------- |
-| files     | `[Upload!]!` |             |
+| uuids     | `[String!]!` |             |
 
 ---
-### attachFile
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FilesystemAttachInput!` |  |
----
-
-### deAttachFile
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| uuid      | `String!` |             |
-
----
-### deAttachFiles
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| uuids | `[String!]!` |  |
----
-
 ### deleteFile
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| uuid      | `String!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
 ---
+
 ### uploadCsv
+
 **Retorno:** `Mixed!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
 ---
-
 ### mergeFiles
-
 **Retorno:** `Filesystem`
 
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| files     | `[ID!]!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| files | `[ID!]!` |  |
 ---
+
 ### renameFile
+
 **Retorno:** `Filesystem!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| name      | `String!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| name | `String!` |  |
 ---
-
 ### editFile
-
 **Retorno:** `String!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| uuid      | `String!`                      |             |
-| input     | `FilesystemEntityUpdateInput!` |             |
-
----
-### createAttribute
-**Retorno:** `Attributes!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AttributeInput!` |  |
+| uuid | `String!` |  |
+| input | `FilesystemEntityUpdateInput!` |  |
 ---
 
-### updateAttribute
+### createAttribute
 
 **Retorno:** `Attributes!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `AttributeUpdateInput!` |             |
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `AttributeInput!` |             |
 
 ---
-### updateAttributeTranslations
+### updateAttribute
 **Retorno:** `Attributes!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AttributeTranslationInput!` |  |
-| code | `String!` |  |
-| values | `[AttributeValueTranslationInput]` |  |
+| input | `AttributeUpdateInput!` |  |
 ---
 
+### updateAttributeTranslations
+
+**Retorno:** `Attributes!`
+
+| Argumento | Tipo                               | Descripción |
+| :-------- | :--------------------------------- | :---------- |
+| id        | `ID!`                              |             |
+| input     | `AttributeTranslationInput!`       |             |
+| code      | `String!`                          |             |
+| values    | `[AttributeValueTranslationInput]` |             |
+
+---
 ### deleteAttribute
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createBundle
+
+**Retorno:** `Bundle!`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `BundleInput!` |             |
+
+---
+### updateBundle
+**Retorno:** `Bundle!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `BundleInput!` |  |
+---
+
+### deleteBundle
 
 **Retorno:** `Boolean!`
 
@@ -985,65 +1006,84 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createBundle
-**Retorno:** `Bundle!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `BundleInput!` |  |
----
-
-### updateBundle
-
-**Retorno:** `Bundle!`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
-| input     | `BundleInput!` |             |
-
----
-### deleteBundle
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createCategory
+**Retorno:** `Category!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CategoryInput!` |  |
+---
+
+### updateCategory
 
 **Retorno:** `Category!`
 
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `CategoryInput!` |             |
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `CategoryUpdateInput!` |             |
 
 ---
-### updateCategory
+### updateCategoryTranslations
 **Retorno:** `Category!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `CategoryUpdateInput!` |  |
+| input | `TranslationInput!` |  |
+| code | `String!` |  |
 ---
 
-### updateCategoryTranslations
-
-**Retorno:** `Category!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `TranslationInput!` |             |
-| code      | `String!`           |             |
-
----
 ### deleteCategory
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### uploadFileToCategory
+**Retorno:** `Product!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| file | `Upload!` |  |
+---
+
+### createChannel
+
+**Retorno:** `Channel!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `CreateChannelInput!` |             |
+
+---
+### updateChannel
+**Retorno:** `Channel!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateChannelInput!` |  |
+---
+
+### deleteChannel
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### unPublishAllVariantsFromChannel
 **Retorno:** `Boolean!`
 
 
@@ -1052,7 +1092,48 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### uploadFileToCategory
+### importProduct
+
+**Retorno:** `String!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `[ImporterProductInput!]!` |             |
+| companyId | `Int!`                     |             |
+| regionId  | `Int`                      |             |
+
+---
+### createProduct
+**Retorno:** `Product!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ProductInput!` |  |
+---
+
+### updateProduct
+
+**Retorno:** `Product!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| id        | `ID!`                |             |
+| input     | `ProductInputUpdate` |             |
+
+---
+### updateProductTranslations
+**Retorno:** `Product!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ProductTranslationInput!` |  |
+| code | `String!` |  |
+---
+
+### uploadFileToProduct
 
 **Retorno:** `Product!`
 
@@ -1062,145 +1143,47 @@ Upload a file that is publicly available.
 | file      | `Upload!` |             |
 
 ---
-### createChannel
-**Retorno:** `Channel!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateChannelInput!` |  |
----
-
-### updateChannel
-
-**Retorno:** `Channel!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `UpdateChannelInput!` |             |
-
----
-### deleteChannel
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### unPublishAllVariantsFromChannel
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### importProduct
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `[ImporterProductInput!]!` |  |
-| companyId | `Int!` |  |
-| regionId | `Int` |  |
----
-
-### createProduct
-
-**Retorno:** `Product!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| input     | `ProductInput!` |             |
-
----
-### updateProduct
-**Retorno:** `Product!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ProductInputUpdate` |  |
----
-
-### updateProductTranslations
-
-**Retorno:** `Product!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `ProductTranslationInput!` |             |
-| code      | `String!`                  |             |
-
----
-### uploadFileToProduct
-**Retorno:** `Product!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
----
-
 ### deleteProduct
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### addAttribute
+
 **Retorno:** `Product`
 
+| Argumento    | Tipo      | Descripción |
+| :----------- | :-------- | :---------- |
+| id           | `ID!`     |             |
+| attribute_id | `ID!`     |             |
+| value        | `String!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| attribute_id | `ID!` |  |
-| value | `String!` |  |
 ---
-
 ### addAttributeToProduct
-
-**Retorno:** `Product`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `ProductAttributesInput!` |             |
-
----
-### removeAttribute
 **Retorno:** `Product`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| attribute_id | `ID!` |  |
+| input | `ProductAttributesInput!` |  |
 ---
 
-### addWarehouse
+### removeAttribute
 
 **Retorno:** `Product`
 
 | Argumento    | Tipo  | Descripción |
 | :----------- | :---- | :---------- |
 | id           | `ID!` |             |
-| warehouse_id | `ID!` |             |
+| attribute_id | `ID!` |             |
 
 ---
-### removeWarehouse
+### addWarehouse
 **Retorno:** `Product`
 
 
@@ -1210,255 +1193,254 @@ Upload a file that is publicly available.
 | warehouse_id | `ID!` |  |
 ---
 
-### addCategory
+### removeWarehouse
 
 **Retorno:** `Product`
 
-| Argumento   | Tipo  | Descripción |
-| :---------- | :---- | :---------- |
-| id          | `ID!` |             |
-| category_id | `ID!` |             |
+| Argumento    | Tipo  | Descripción |
+| :----------- | :---- | :---------- |
+| id           | `ID!` |             |
+| warehouse_id | `ID!` |             |
 
 ---
+### addCategory
+**Retorno:** `Product`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| category_id | `ID!` |  |
+---
+
 ### duplicateProduct
+
+**Retorno:** `Product!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### publishProduct
 **Retorno:** `Product!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| is_published | `Boolean!` |  |
 ---
 
-### publishProduct
-
-**Retorno:** `Product!`
-
-| Argumento    | Tipo       | Descripción |
-| :----------- | :--------- | :---------- |
-| id           | `ID!`      |             |
-| is_published | `Boolean!` |             |
-
----
 ### updateProductAttributeTranslations
+
 **Retorno:** `ProductAttributesValue!`
 
+| Argumento    | Tipo      | Descripción |
+| :----------- | :-------- | :---------- |
+| product_id   | `ID!`     |             |
+| attribute_id | `ID!`     |             |
+| code         | `String!` |             |
+| value        | `Mixed`   |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| product_id | `ID!` |  |
-| attribute_id | `ID!` |  |
-| code | `String!` |  |
-| value | `Mixed` |  |
 ---
-
 ### createProductSimple
-
 **Retorno:** `Product!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `ProductSimpleInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ProductSimpleInput!` |  |
 ---
+
 ### updateProductSimple
+
 **Retorno:** `Product!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `ProductSimpleUpdateInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ProductSimpleUpdateInput!` |  |
 ---
-
 ### createProductType
-
 **Retorno:** `ProductType!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `ProductTypeInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ProductTypeInput!` |  |
 ---
+
 ### updateProductType
+
 **Retorno:** `ProductType!`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `ProductTypeUpdateInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ProductTypeUpdateInput!` |  |
 ---
-
 ### updateProductTypeTranslations
-
 **Retorno:** `ProductType!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `TranslationInput!` |             |
-| code      | `String!`           |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `TranslationInput!` |  |
+| code | `String!` |  |
 ---
+
 ### deleteProductType
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### assignProductTypeAttribute
-
 **Retorno:** `ProductType!`
 
-| Argumento | Tipo                               | Descripción |
-| :-------- | :--------------------------------- | :---------- |
-| id        | `ID!`                              |             |
-| input     | `ProductTypeAttributesAssignInput` |             |
-
----
-### createRegion
-**Retorno:** `Region!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `RegionInput!` |  |
+| id | `ID!` |  |
+| input | `ProductTypeAttributesAssignInput` |  |
 ---
 
-### updateRegion
+### createRegion
 
 **Retorno:** `Region!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `RegionInputUpdate!` |             |
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `RegionInput!` |             |
 
 ---
-### deleteRegion
-**Retorno:** `Boolean!`
+### updateRegion
+**Retorno:** `Region!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `RegionInputUpdate!` |  |
 ---
 
+### deleteRegion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createStatus
+**Retorno:** `Status!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `StatusInput!` |  |
+---
+
+### updateStatus
 
 **Retorno:** `Status!`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
+| id        | `ID!`          |             |
 | input     | `StatusInput!` |             |
 
 ---
-### updateStatus
+### updateStatusTranslations
 **Retorno:** `Status!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `StatusInput!` |  |
+| input | `TranslationInput!` |  |
+| code | `String!` |  |
 ---
 
-### updateStatusTranslations
-
-**Retorno:** `Status!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `TranslationInput!` |             |
-| code      | `String!`           |             |
-
----
 ### deleteStatus
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createVariant
-
-**Retorno:** `Variant`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `VariantsInput!` |             |
-
----
-### updateVariant
 **Retorno:** `Variant`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `VariantsUpdateInput!` |  |
-| id | `ID!` |  |
+| input | `VariantsInput!` |  |
 ---
 
-### updateVariantTranslations
+### updateVariant
 
+**Retorno:** `Variant`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `VariantsUpdateInput!` |             |
+| id        | `ID!`                  |             |
+
+---
+### updateVariantTranslations
 **Retorno:** `Variant!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `VariantTranslationInput!` |             |
-| code      | `String`                   |             |
-
----
-### updateVariantAttributeTranslations
-**Retorno:** `VariantAttributesValue!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| variant_id | `ID!` |  |
-| attribute_id | `ID!` |  |
-| code | `String!` |  |
-| value | `Mixed` |  |
+| id | `ID!` |  |
+| input | `VariantTranslationInput!` |  |
+| code | `String` |  |
 ---
 
+### updateVariantAttributeTranslations
+
+**Retorno:** `VariantAttributesValue!`
+
+| Argumento    | Tipo      | Descripción |
+| :----------- | :-------- | :---------- |
+| variant_id   | `ID!`     |             |
+| attribute_id | `ID!`     |             |
+| code         | `String!` |             |
+| value        | `Mixed`   |             |
+
+---
 ### uploadFileToVariant
-
 **Retorno:** `Product!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
-| file      | `Upload!` |             |
-
----
-### deleteVariant
-**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| file | `Upload!` |  |
 ---
 
+### deleteVariant
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### addAttributeToVariant
-
-**Retorno:** `Variant`
-
-| Argumento     | Tipo                       | Descripción |
-| :------------ | :------------------------- | :---------- |
-| id            | `ID!`                      |             |
-| attributes_id | `ID!`                      |             |
-| input         | `VariantsAttributesInput!` |             |
-
----
-### removeAttributeToVariant
 **Retorno:** `Variant`
 
 
@@ -1466,21 +1448,20 @@ Upload a file that is publicly available.
 | :--- | :--- | :--- |
 | id | `ID!` |  |
 | attributes_id | `ID!` |  |
+| input | `VariantsAttributesInput!` |  |
 ---
 
-### addVariantToChannel
+### removeAttributeToVariant
 
 **Retorno:** `Variant`
 
-| Argumento     | Tipo                   | Descripción |
-| :------------ | :--------------------- | :---------- |
-| variants_id   | `ID!`                  |             |
-| channels_id   | `ID!`                  |             |
-| warehouses_id | `ID!`                  |             |
-| input         | `VariantChannelInput!` |             |
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| id            | `ID!` |             |
+| attributes_id | `ID!` |             |
 
 ---
-### updateVariantInChannel
+### addVariantToChannel
 **Retorno:** `Variant`
 
 
@@ -1492,28 +1473,30 @@ Upload a file that is publicly available.
 | input | `VariantChannelInput!` |  |
 ---
 
-### removeVariantChannel
+### updateVariantInChannel
 
 **Retorno:** `Variant`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| variants_id   | `ID!` |             |
-| channels_id   | `ID!` |             |
-| warehouses_id | `ID!` |             |
+| Argumento     | Tipo                   | Descripción |
+| :------------ | :--------------------- | :---------- |
+| variants_id   | `ID!`                  |             |
+| channels_id   | `ID!`                  |             |
+| warehouses_id | `ID!`                  |             |
+| input         | `VariantChannelInput!` |             |
 
 ---
-### addVariantToWarehouse
+### removeVariantChannel
 **Retorno:** `Variant`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `WarehouseReferenceInput!` |  |
+| variants_id | `ID!` |  |
+| channels_id | `ID!` |  |
+| warehouses_id | `ID!` |  |
 ---
 
-### updateVariantInWarehouse
+### addVariantToWarehouse
 
 **Retorno:** `Variant`
 
@@ -1523,73 +1506,92 @@ Upload a file that is publicly available.
 | input     | `WarehouseReferenceInput!` |             |
 
 ---
-### removeVariantToWarehouse
+### updateVariantInWarehouse
 **Retorno:** `Variant`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| warehouse_id | `ID!` |  |
+| input | `WarehouseReferenceInput!` |  |
 ---
 
+### removeVariantToWarehouse
+
+**Retorno:** `Variant`
+
+| Argumento    | Tipo  | Descripción |
+| :----------- | :---- | :---------- |
+| id           | `ID!` |             |
+| warehouse_id | `ID!` |             |
+
+---
 ### createWarehouse
-
-**Retorno:** `Warehouse!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `WarehouseInput!` |             |
-
----
-### updateWarehouse
 **Retorno:** `Warehouse!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `WarehouseInputUpdate!` |  |
+| input | `WarehouseInput!` |  |
+---
+
+### updateWarehouse
+
+**Retorno:** `Warehouse!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `WarehouseInputUpdate!` |             |
+| id        | `ID!`                   |             |
+
+---
+### deleteWarehouse
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
 | id | `ID!` |  |
 ---
 
-### deleteWarehouse
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### enableCorporateMode
+
 **Retorno:** `CorporateOnboardingResult!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `CorporateOnboardingInput!` |             |
+
+---
+### shopifySetup
+**Retorno:** `Boolean`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CorporateOnboardingInput!` |  |
+| input | `ShopifySetupInput!` |  |
 ---
 
-### openclawCreateMachine
+### createDeal
 
-**Retorno:** `AgentMachineType!`
+**Retorno:** `Deal!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `AgentMachineInput!` |             |
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `DealInput!` |             |
 
 ---
-### openclawUpdateMachine
-**Retorno:** `AgentMachineType!`
+### updateDeal
+**Retorno:** `Deal!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateAgentMachineInput!` |  |
+| input | `UpdateDealInput!` |  |
 ---
 
-### openclawDeleteMachine
+### deleteDeal
 
 **Retorno:** `Boolean!`
 
@@ -1598,228 +1600,57 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### openclawUpdateMachineContainers
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| machine_id | `ID!` |  |
----
-
-### openclawPingMachine
-
-**Retorno:** `AgentMachineType!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
-
----
-### openclawBackupAgent
-**Retorno:** `AgentBackupType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| include_workspace | `Boolean` |  |
----
-
-### openclawLaunchAgent
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `LaunchAgentInput!` |             |
-
----
-### openclawTerminateAgent
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### openclawRestartContainer
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### openclawContainerLogs
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| lines | `Int` |  |
----
-
-### openclawContainerStatus
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### openclawCollectUsage
-**Retorno:** `AgentUsageSnapshot!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### openclawSetSlackTokens
-
-**Retorno:** `Boolean!`
-
-| Argumento       | Tipo      | Descripción |
-| :-------------- | :-------- | :---------- |
-| agent_id        | `ID!`     |             |
-| slack_bot_token | `String!` |             |
-| slack_app_token | `String!` |             |
-
----
-### openclawSetTelegramToken
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| agent_id | `ID!` |  |
-| telegram_bot_token | `String!` |  |
----
-
-### openclawMigrateAgentWorkspace
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `MigrateAgentWorkspaceInput!` |             |
-
----
-### openclawExecCommand
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| command | `String!` |  |
-| session_id | `String!` |  |
----
-
-### openclawGetConfig
-
-**Retorno:** `String!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### openclawUpdateConfig
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| config | `String!` |  |
----
-
-### shopifySetup
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ShopifySetupInput!` |             |
-
----
-### createDeal
-**Retorno:** `Deal!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `DealInput!` |  |
----
-
-### updateDeal
-
-**Retorno:** `Deal!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| id        | `ID!`              |             |
-| input     | `UpdateDealInput!` |             |
-
----
-### deleteDeal
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### attachFileToDeal
-
-**Retorno:** `Deal!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
-| id        | `ID!`     |             |
-| params    | `Mixed`   |             |
-
----
-### attachFilesToDeal
 **Retorno:** `Deal!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| file | `[Upload!]!` |  |
+| file | `Upload!` |  |
 | id | `ID!` |  |
 | params | `Mixed` |  |
 ---
 
-### createLead
+### attachFilesToDeal
 
-**Retorno:** `Lead!`
+**Retorno:** `Deal!`
 
 | Argumento | Tipo         | Descripción |
 | :-------- | :----------- | :---------- |
-| input     | `LeadInput!` |             |
+| file      | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
 
 ---
-### updateLead
+### createLead
 **Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `LeadUpdateInput!` |  |
+| input | `LeadInput!` |  |
 ---
 
+### updateLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
+| input     | `LeadUpdateInput!` |             |
+
+---
 ### deleteLead
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### restoreLead
 
 **Retorno:** `Boolean`
 
@@ -1828,25 +1659,7 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### restoreLead
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### addLeadParticipant
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| input     | `LeadsParticipantsInput!` |             |
-
----
-### removeLeadParticipant
 **Retorno:** `Boolean!`
 
 
@@ -1855,16 +1668,16 @@ Upload a file that is publicly available.
 | input | `LeadsParticipantsInput!` |  |
 ---
 
-### followLead
+### removeLeadParticipant
 
-**Retorno:** `Boolean`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `FollowInput!` |             |
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `LeadsParticipantsInput!` |             |
 
 ---
-### unFollowLead
+### followLead
 **Retorno:** `Boolean`
 
 
@@ -1873,87 +1686,68 @@ Upload a file that is publicly available.
 | input | `FollowInput!` |  |
 ---
 
-### attachFileToLead
+### unFollowLead
 
-**Retorno:** `Lead!`
+**Retorno:** `Boolean`
 
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
-| id        | `ID!`     |             |
-| params    | `Mixed`   |             |
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
 
 ---
-### attachFilesToLead
+### attachFileToLead
 **Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| file | `[Upload!]!` |  |
+| file | `Upload!` |  |
 | id | `ID!` |  |
 | params | `Mixed` |  |
 ---
 
-### leadWonOrLost
+### attachFilesToLead
 
 **Retorno:** `Lead!`
 
-| Argumento   | Tipo              | Descripción |
-| :---------- | :---------------- | :---------- |
-| id          | `ID!`             |             |
-| status      | `LeadStatusEnum!` |             |
-| reason_lost | `String`          |             |
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| file      | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
 
 ---
-### createLeadReceiver
-**Retorno:** `LeadReceiver!`
+### leadWonOrLost
+**Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadReceiverInput!` |  |
+| id | `ID!` |  |
+| status | `LeadStatusEnum!` |  |
+| reason_lost | `String` |  |
 ---
 
-### updateLeadReceiver
+### createLeadReceiver
 
 **Retorno:** `LeadReceiver!`
 
 | Argumento | Tipo                 | Descripción |
 | :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
 | input     | `LeadReceiverInput!` |             |
 
 ---
+### updateLeadReceiver
+**Retorno:** `LeadReceiver!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadReceiverInput!` |  |
+---
+
 ### deleteLeadReceiver
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createLeadRotation
-
-**Retorno:** `LeadRotation!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `LeadRotationInput!` |             |
-
----
-### updateLeadRotation
-**Retorno:** `LeadRotation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `LeadRotationInput!` |  |
----
-
-### deleteLeadRotation
 
 **Retorno:** `Boolean!`
 
@@ -1962,147 +1756,166 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createLeadSource
-**Retorno:** `LeadSource`
+### createLeadRotation
+**Retorno:** `LeadRotation!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadSourceInput` |  |
+| input | `LeadRotationInput!` |  |
 ---
 
-### updateLeadSource
+### updateLeadRotation
+
+**Retorno:** `LeadRotation!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| id        | `ID!`                |             |
+| input     | `LeadRotationInput!` |             |
+
+---
+### deleteLeadRotation
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createLeadSource
 
 **Retorno:** `LeadSource`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
-| id        | `ID!`             |             |
 | input     | `LeadSourceInput` |             |
 
 ---
-### deleteLeadSource
-**Retorno:** `Boolean`
+### updateLeadSource
+**Retorno:** `LeadSource`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `LeadSourceInput` |  |
 ---
 
+### deleteLeadSource
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createLeadStatus
+**Retorno:** `LeadStatus`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadStatusInput!` |  |
+---
+
+### updateLeadStatus
 
 **Retorno:** `LeadStatus`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
 | input     | `LeadStatusInput!` |             |
 
 ---
-### updateLeadStatus
-**Retorno:** `LeadStatus`
+### deleteLeadStatus
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `LeadStatusInput!` |  |
 ---
 
-### deleteLeadStatus
+### createLeadSubSource
 
-**Retorno:** `Boolean`
+**Retorno:** `LeadSubSource!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `LeadSubSourceInput!` |             |
+
+---
+### updateLeadSubSource
+**Retorno:** `LeadSubSource!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateLeadSubSourceInput!` |  |
+---
+
+### deleteLeadSubSource
+
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
-### createLeadSubSource
-**Retorno:** `LeadSubSource!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadSubSourceInput!` |  |
----
-
-### updateLeadSubSource
-
-**Retorno:** `LeadSubSource!`
-
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `UpdateLeadSubSourceInput!` |             |
-
----
-### deleteLeadSubSource
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createLeadType
+**Retorno:** `LeadType`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadTypeInput!` |  |
+---
+
+### updateLeadType
 
 **Retorno:** `LeadType`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `LeadTypeInput!` |             |
 
 ---
-### updateLeadType
-**Retorno:** `LeadType`
+### deleteLeadType
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `LeadTypeInput!` |  |
 ---
 
-### deleteLeadType
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrganization
-**Retorno:** `Organization`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationInput!` |  |
----
-
-### updateOrganization
 
 **Retorno:** `Organization`
 
 | Argumento | Tipo                 | Descripción |
 | :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
 | input     | `OrganizationInput!` |             |
 
 ---
-### deleteOrganization
-**Retorno:** `Boolean`
+### updateOrganization
+**Retorno:** `Organization`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `OrganizationInput!` |  |
 ---
 
-### restoreOrganization
+### deleteOrganization
 
 **Retorno:** `Boolean`
 
@@ -2111,7 +1924,25 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
+### restoreOrganization
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### addPeopleToOrganization
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `OrganizationPeopleInput!` |             |
+
+---
+### removePeopleFromOrganization
 **Retorno:** `Boolean!`
 
 
@@ -2120,13 +1951,32 @@ Upload a file that is publicly available.
 | input | `OrganizationPeopleInput!` |  |
 ---
 
-### removePeopleFromOrganization
+### createOrganizationType
+
+**Retorno:** `OrganizationType!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `OrganizationTypeInput!` |             |
+
+---
+### updateOrganizationType
+**Retorno:** `OrganizationType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateOrganizationTypeInput!` |  |
+---
+
+### deleteOrganizationType
 
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `OrganizationPeopleInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
 ### createPeople
@@ -4952,68 +4802,258 @@ Upload a file that is publicly available.
 | input     | `UserChatInput!` |             |
 
 ---
-### attachToolToAgent
-**Retorno:** `AgentAi!`
+### aiAgentNeuronChat
+**Retorno:** `String!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `NeuronChatInput!` |  |
+---
+
+### setAgentKanvasModule
+
+**Retorno:** `AgentKanvasModule!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| agent_id         | `ID!`     |             |
+| kanvas_module_id | `ID!`     |             |
+| config           | `Mixed`   |             |
+| is_active        | `Boolean` |             |
+
+---
+### removeAgentKanvasModule
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| tool_id | `ID!` |  |
+| kanvas_module_id | `ID!` |  |
 ---
 
-### detachToolFromAgent
+### agentRuntimeCreateMachine
 
-**Retorno:** `Boolean!`
+**Retorno:** `AgentMachineType!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| agent_id  | `ID!` |             |
-| tool_id   | `ID!` |             |
-
----
-### createAgentSwarm
-**Retorno:** `AgentSwarm!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentSwarmInput!` |  |
----
-
-### updateAgentSwarm
-
-**Retorno:** `AgentSwarm!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| id        | `ID!`                    |             |
-| input     | `UpdateAgentSwarmInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentMachineInput!` |             |
 
 ---
-### deleteAgentSwarm
-**Retorno:** `Boolean!`
+### agentRuntimeUpdateMachine
+**Retorno:** `AgentMachineType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateAgentMachineInput!` |  |
 ---
 
-### addAgentToSwarm
+### agentRuntimeDeleteMachine
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### agentRuntimeUpdateMachineContainers
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| machine_id | `ID!` |  |
+---
+
+### agentRuntimePingMachine
+
+**Retorno:** `AgentMachineType!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
+
+---
+### agentRuntimeBackupAgent
+**Retorno:** `AgentBackupType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| include_workspace | `Boolean` |  |
+---
+
+### agentRuntimeLaunchAgent
+
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
+### agentRuntimeTerminateAgent
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
+### agentRuntimeDeleteDeployment
+
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeRestartContainer
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
+### agentRuntimeContainerLogs
+
+**Retorno:** `String!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+| lines         | `Int` |             |
+
+---
+### agentRuntimeContainerStatus
+**Retorno:** `AgentDeploymentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
+### agentRuntimeCollectUsage
+
+**Retorno:** `AgentUsageSnapshot!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeSetSlackTokens
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID!` |  |
+| slack_bot_token | `String!` |  |
+| slack_app_token | `String!` |  |
+---
+
+### agentRuntimeSetTelegramToken
+
+**Retorno:** `Boolean!`
+
+| Argumento              | Tipo      | Descripción |
+| :--------------------- | :-------- | :---------- |
+| agent_id               | `ID!`     |             |
+| telegram_bot_token     | `String!` |             |
+| telegram_allowed_users | `String`  |             |
+
+---
+### agentRuntimeMigrateAgentWorkspace
+**Retorno:** `AgentDeploymentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `MigrateAgentWorkspaceInput!` |  |
+---
+
+### agentRuntimeMigrateAgentToProvider
+
+**Retorno:** `AgentDeploymentType!`\
+Cross-runtime adoption — replaces the old per-provider migration mutations.
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| input     | `MigrateAgentToProviderInput!` |             |
+
+---
+### agentRuntimeExecCommand
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| command | `String!` |  |
+| session_id | `String!` |  |
+---
+
+### agentRuntimeGetConfig
+
+**Retorno:** `String!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeUpdateConfig
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| config | `String!` |  |
+---
+
+### createAgentSwarm
 
 **Retorno:** `AgentSwarm!`
 
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `AgentSwarmInput!` |             |
 
 ---
-### updateSwarmMember
-**Retorno:** `AgentSwarmMember!`
+### updateAgentSwarm
+**Retorno:** `AgentSwarm!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAgentSwarmInput!` |  |
+---
+
+### deleteAgentSwarm
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### addAgentToSwarm
+**Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5024,14 +5064,38 @@ Upload a file that is publicly available.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### removeAgentFromSwarm
+### updateSwarmMember
 
+**Retorno:** `AgentSwarmMember!`
+
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
+
+---
+### removeAgentFromSwarm
 **Retorno:** `AgentSwarm!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| swarm_id  | `ID!` |             |
-| agent_id  | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| swarm_id | `ID!` |  |
+| agent_id | `ID!` |  |
+---
+
+### setAgentSwarmBudget
+
+**Retorno:** `AgentSwarmBudgetSnapshot!`\
+Create or update the monthly budget for a swarm. Idempotent — one budget per
+(swarm, period).
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| swarm_id  | `ID!`               |             |
+| input     | `SwarmBudgetInput!` |             |
 
 ---
 ### createAgentType
@@ -5140,65 +5204,89 @@ Upload a file that is publicly available.
 | agent_type_id | `ID!` |  |
 ---
 
+### setNervousSystemAgentTool
+
+**Retorno:** `NervousSystemAgentTool!`\
+Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
+agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
+
+| Argumento | Tipo       | Descripción |
+| :-------- | :--------- | :---------- |
+| agent_id  | `ID!`      |             |
+| tool_id   | `ID!`      |             |
+| enabled   | `Boolean!` |             |
+| config    | `Mixed`    |             |
+
+---
+### createNervousSystemToolCategory
+**Retorno:** `NervousSystemToolCategory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateNervousSystemToolCategoryInput!` |  |
+---
+
+### updateNervousSystemToolCategory
+
+**Retorno:** `NervousSystemToolCategory!`
+
+| Argumento | Tipo                                    | Descripción |
+| :-------- | :-------------------------------------- | :---------- |
+| id        | `ID!`                                   |             |
+| input     | `UpdateNervousSystemToolCategoryInput!` |             |
+
+---
 ### createNervousSystemPlan
+**Retorno:** `NervousSystemPlan!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateNervousSystemPlanInput!` |  |
+---
+
+### updateNervousSystemPlan
 
 **Retorno:** `NervousSystemPlan!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| input     | `CreateNervousSystemPlanInput!` |             |
+| id        | `ID!`                           |             |
+| input     | `UpdateNervousSystemPlanInput!` |             |
 
 ---
-### updateNervousSystemPlan
-**Retorno:** `NervousSystemPlan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemPlanInput!` |  |
----
-
 ### approveNervousSystemPlan
-
 **Retorno:** `NervousSystemPlan!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `ApproveNervousSystemPlanInput!` |             |
-
----
-### addTaskToNervousSystemPlan
-**Retorno:** `NervousSystemTask!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| plan_id | `ID!` |  |
-| input | `NervousSystemTaskInput!` |  |
----
-
-### updateNervousSystemTaskStatus
-
-**Retorno:** `NervousSystemTask!`
-
-| Argumento | Tipo                                  | Descripción |
-| :-------- | :------------------------------------ | :---------- |
-| id        | `ID!`                                 |             |
-| input     | `UpdateNervousSystemTaskStatusInput!` |             |
-
----
-### deleteNervousSystemPlan
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ApproveNervousSystemPlanInput!` |  |
 ---
 
-### deleteNervousSystemTask
+### addTaskToNervousSystemPlan
+
+**Retorno:** `NervousSystemTask!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| plan_id   | `ID!`                     |             |
+| input     | `NervousSystemTaskInput!` |             |
+
+---
+### updateNervousSystemTaskStatus
+**Retorno:** `NervousSystemTask!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemTaskStatusInput!` |  |
+---
+
+### deleteNervousSystemPlan
 
 **Retorno:** `Boolean!`
 
@@ -5206,4 +5294,12 @@ Upload a file that is publicly available.
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
+---
+### deleteNervousSystemTask
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---

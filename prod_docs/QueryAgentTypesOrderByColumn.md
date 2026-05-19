@@ -10,3 +10,4 @@ Allowed column names for Query.agentTypes.orderBy.
 | CREATED_AT |             |
 | UPDATED_AT |             |
 | NAME       |             |
+| WEIGHT     |             |

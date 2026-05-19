@@ -12,4 +12,5 @@ Allowed column names for Query.systemModels.where.
 | PARENTS_ID |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
+| MODEL_NAME |             |
 | IS_DELETED |             |

@@ -13,6 +13,7 @@
 | gateway_port      | `Int!`             |             |
 | proxy_port        | `Int!`             |             |
 | container_name    | `String!`          |             |
+| provider          | `String!`          |             |
 | status            | `String!`          |             |
 | launched_at       | `DateTime`         |             |
 | terminated_at     | `DateTime`         |             |

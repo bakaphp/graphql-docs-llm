@@ -8,10 +8,14 @@
 | description      | `String`  |             |
 | provider         | `String`  |             |
 | handler          | `String`  |             |
-| config           | `String!` |             |
+| config           | `String`  |             |
 | is_active        | `Boolean` |             |
-| role             | `String!` |             |
+| role             | `String`  |             |
+| soul             | `String`  |             |
+| instructions     | `String`  |             |
+| output_format    | `String`  |             |
 | is_default       | `Boolean` |             |
 | is_published     | `Boolean` |             |
 | is_multi_agent   | `Boolean` |             |
-| multi_agent_list | `Mixed!`  |             |
+| weight           | `Int`     |             |
+| multi_agent_list | `Mixed`   |             |

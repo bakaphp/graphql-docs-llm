@@ -11,6 +11,10 @@
 | deadline_at             | `DateTime`              |             |
 | input                   | `Mixed`                 |             |
 | output                  | `Mixed`                 |             |
+| impact_summary          | `String`                |             |
+| status_pill             | `String`                |             |
 | confidence_score        | `Float`                 |             |
 | requires_human_approval | `Boolean`               |             |
+| swarm_id                | `Int`                   |             |
+| is_swarm_mission        | `Boolean`               |             |
 | files                   | `[FilesystemInputUrl!]` |             |

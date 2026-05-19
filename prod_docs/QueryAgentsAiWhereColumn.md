@@ -7,6 +7,7 @@ Allowed column names for Query.agentsAi.where.
 | Valor                | Descripción |
 | :------------------- | :---------- |
 | ID                   |             |
+| UUID                 |             |
 | DESCRIPTION          |             |
 | IS_ACTIVE            |             |
 | AGENT_TYPE_ID        |             |

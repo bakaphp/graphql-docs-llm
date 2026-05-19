@@ -9,6 +9,8 @@
 | agent_id                | `Int`                       |             |
 | users_id                | `Int`                       |             |
 | parent_plan_id          | `Int`                       |             |
+| swarm_id                | `Int`                       |             |
+| is_swarm_mission        | `Boolean`                   |             |
 | entity_namespace        | `String`                    |             |
 | entity_id               | `Int`                       |             |
 | description             | `String`                    |             |
@@ -17,6 +19,8 @@
 | deadline_at             | `DateTime`                  |             |
 | input                   | `Mixed`                     |             |
 | output                  | `Mixed`                     |             |
+| impact_summary          | `String`                    |             |
+| status_pill             | `String`                    |             |
 | confidence_score        | `Float`                     |             |
 | requires_human_approval | `Boolean`                   |             |
 | tasks                   | `[NervousSystemTaskInput!]` |             |

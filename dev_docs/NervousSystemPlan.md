@@ -10,6 +10,8 @@
 | parent                  | `NervousSystemPlan`     |             |
 | children                | `[NervousSystemPlan!]!` |             |
 | agent                   | `AgentAi`               |             |
+| swarm                   | `AgentSwarm`            |             |
+| is_swarm_mission        | `Boolean!`              |             |
 | user                    | `User`                  |             |
 | entity_namespace        | `String`                |             |
 | entity_id               | `Int`                   |             |
@@ -22,6 +24,8 @@
 | completion_pct          | `Int!`                  |             |
 | input                   | `Mixed`                 |             |
 | output                  | `Mixed`                 |             |
+| impact_summary          | `String`                |             |
+| status_pill             | `String`                |             |
 | confidence_score        | `Float`                 |             |
 | requires_human_approval | `Boolean!`              |             |
 | approver                | `User`                  |             |

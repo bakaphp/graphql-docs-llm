@@ -2,7 +2,8 @@
 
 ## Estructura
 
-| Campo      | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| agent_id   | `ID!` |             |
-| machine_id | `ID!` |             |
+| Campo      | Tipo            | Descripción |
+| :--------- | :-------------- | :---------- |
+| agent_id   | `ID!`           |             |
+| machine_id | `ID!`           |             |
+| provider   | `AgentProvider` |             |

@@ -11,7 +11,9 @@ Allowed column names for Query.ledgerEvents.where.
 | SOURCE_ENTITY_TYPE |             |
 | SOURCE_ENTITY_ID   |             |
 | STATUS             |             |
+| CATEGORY           |             |
 | CORRELATION_ID     |             |
 | CAUSATION_ID       |             |
 | ACTOR_TYPE         |             |
 | ACTOR_ID           |             |
+| OCCURRED_AT        |             |

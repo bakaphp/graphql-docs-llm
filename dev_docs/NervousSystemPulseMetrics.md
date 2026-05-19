@@ -1,0 +1,14 @@
+# OBJECT: NervousSystemPulseMetrics
+
+## Estructura
+
+| Campo                       | Tipo    | Descripción |
+| :-------------------------- | :------ | :---------- |
+| signals_count               | `Int!`  |             |
+| signals_count_prior         | `Int!`  |             |
+| actions_executed            | `Int!`  |             |
+| actions_executed_prior      | `Int!`  |             |
+| prevented_issues            | `Int!`  |             |
+| prevented_issues_prior      | `Int!`  |             |
+| system_confidence_pct       | `Float` |             |
+| system_confidence_pct_prior | `Float` |             |

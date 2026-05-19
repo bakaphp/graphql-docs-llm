@@ -11,3 +11,4 @@ Allowed column names for Query.agentSwarms.where.
 | SLUG      |             |
 | STATUS    |             |
 | IS_ACTIVE |             |
+| UUID      |             |
