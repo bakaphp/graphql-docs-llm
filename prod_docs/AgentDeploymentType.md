@@ -8,11 +8,11 @@
 | uuid              | `String!`          |             |
 | agent_id          | `ID!`              |             |
 | agent_machine_id  | `ID!`              |             |
-| system_user       | `String!`          |             |
-| home_directory    | `String!`          |             |
-| gateway_port      | `Int!`             |             |
-| proxy_port        | `Int!`             |             |
-| container_name    | `String!`          |             |
+| system_user       | `String`           |             |
+| home_directory    | `String`           |             |
+| gateway_port      | `Int`              |             |
+| proxy_port        | `Int`              |             |
+| container_name    | `String`           |             |
 | provider          | `String!`          |             |
 | status            | `String!`          |             |
 | launched_at       | `DateTime`         |             |

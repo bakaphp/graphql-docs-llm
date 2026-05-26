@@ -9,3 +9,4 @@
 | currency      | `String!` |             |
 | interval      | `String!` |             |
 | is_default    | `Boolean` |             |
+| is_active     | `Boolean` |             |

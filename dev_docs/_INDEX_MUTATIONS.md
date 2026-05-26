@@ -25,6 +25,7 @@
 - [addVariantToWarehouse](./Mutation.md#addvarianttowarehouse)
 - [addWarehouse](./Mutation.md#addwarehouse)
 - [agentRuntimeBackupAgent](./Mutation.md#agentruntimebackupagent)
+- [agentRuntimeCollectSessionTranscripts](./Mutation.md#agentruntimecollectsessiontranscripts)
 - [agentRuntimeCollectUsage](./Mutation.md#agentruntimecollectusage)
 - [agentRuntimeContainerLogs](./Mutation.md#agentruntimecontainerlogs)
 - [agentRuntimeContainerStatus](./Mutation.md#agentruntimecontainerstatus)

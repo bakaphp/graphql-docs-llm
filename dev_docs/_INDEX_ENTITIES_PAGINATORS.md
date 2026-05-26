@@ -3,18 +3,18 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (139)
+## Entidades con paginador (141)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
-AffiliateTier, Agent, AgentAi, AgentAiModel, AgentBackupType,
-AgentDeploymentType, AgentMachineType, AgentSwarm, AgentUsageSnapshot, App,
-Attributes, AttributesType, AttributesValue, Bundle, BundleItem, Category,
-Channel, Cities, Company, CompanyAction, CompanyAddress, CompanyBranch,
-CompanyKanvasModule, CompanyReviewType, CompanySubscription, ContactType,
-Country, Currency, CustomField, Deal, Discount, DiscountType, Engagement,
-EntityInteraction, EntityInteractions, Event, EventCategory, EventClass,
-EventStatus, EventTheme, EventThemeArea, EventType, EventVersion,
+AffiliateTier, Agent, AgentAi, AgentAiModel, AgentBackupType, AgentConversation,
+AgentConversationMessage, AgentDeploymentType, AgentMachineType, AgentSwarm,
+AgentUsageSnapshot, App, Attributes, AttributesType, AttributesValue, Bundle,
+BundleItem, Category, Channel, Cities, Company, CompanyAction, CompanyAddress,
+CompanyBranch, CompanyKanvasModule, CompanyReviewType, CompanySubscription,
+ContactType, Country, Currency, CustomField, Deal, Discount, DiscountType,
+Engagement, EntityInteraction, EntityInteractions, Event, EventCategory,
+EventClass, EventStatus, EventTheme, EventThemeArea, EventType, EventVersion,
 EventVersionParticipant, EventVersionParticipantDate, Facilitator, Filesystem,
 FilesystemImportHistory, FilesystemMapper, FollowUp, FollowUpDay,
 FollowUpTemplate, Following, Integrations, IntegrationsEntityHistory, Invite,

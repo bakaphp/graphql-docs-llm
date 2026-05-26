@@ -9,3 +9,5 @@
 | session_id | `String`    |             |
 | lead_id    | `ID`        |             |
 | images     | `[String!]` |             |
+| files      | `[String!]` |             |
+| uploads    | `[Upload!]` |             |

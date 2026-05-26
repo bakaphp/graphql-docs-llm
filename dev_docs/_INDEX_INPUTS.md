@@ -12,6 +12,8 @@
 - [AffiliateProgramInput](./AffiliateProgramInput.md)
 - [AffiliateTierInput](./AffiliateTierInput.md)
 - [AgentAiInput](./AgentAiInput.md)
+- [AgentConversationMessagesWhereWhereConditionsHasCondition](./AgentConversationMessagesWhereWhereConditionsHasCondition.md)
+- [AgentConversationMessagesWhereWhereConditionsRelation](./AgentConversationMessagesWhereWhereConditionsRelation.md)
 - [AgentMachineInput](./AgentMachineInput.md)
 - [AgentSessionInput](./AgentSessionInput.md)
 - [AgentSwarmInput](./AgentSwarmInput.md)

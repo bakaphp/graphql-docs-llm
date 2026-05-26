@@ -3438,9 +3438,10 @@ Upload a file that is publicly available.
 
 **Retorno:** `ThreeDSChallengeResult!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
+| Argumento | Tipo    | Descripción |
+| :-------- | :------ | :---------- |
+| paymentId | `ID!`   |             |
+| metadata  | `Mixed` |             |
 
 ---
 ### flushUserWallet
@@ -4953,107 +4954,128 @@ Upload a file that is publicly available.
 | deployment_id | `ID!` |             |
 
 ---
+### agentRuntimeCollectSessionTranscripts
+**Retorno:** `Int!`
+Pull conversation transcripts out of the deployment runtime and persist into agent_conversations / agent_conversation_messages. Returns the count of newly persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't support transcript collection throw a clear LogicException.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| since | `DateTime` |  |
+---
+
 ### agentRuntimeSetSlackTokens
+
+**Retorno:** `Boolean!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| agent_id        | `ID!`     |             |
+| slack_bot_token | `String!` |             |
+| slack_app_token | `String!` |             |
+
+---
+### agentRuntimeSetTelegramToken
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| slack_bot_token | `String!` |  |
-| slack_app_token | `String!` |  |
+| telegram_bot_token | `String!` |  |
+| telegram_allowed_users | `String` |  |
 ---
 
-### agentRuntimeSetTelegramToken
-
-**Retorno:** `Boolean!`
-
-| Argumento              | Tipo      | Descripción |
-| :--------------------- | :-------- | :---------- |
-| agent_id               | `ID!`     |             |
-| telegram_bot_token     | `String!` |             |
-| telegram_allowed_users | `String`  |             |
-
----
 ### agentRuntimeMigrateAgentWorkspace
+
 **Retorno:** `AgentDeploymentType!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `MigrateAgentWorkspaceInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MigrateAgentWorkspaceInput!` |  |
 ---
-
 ### agentRuntimeMigrateAgentToProvider
-
-**Retorno:** `AgentDeploymentType!`\
+**Retorno:** `AgentDeploymentType!`
 Cross-runtime adoption — replaces the old per-provider migration mutations.
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| input     | `MigrateAgentToProviderInput!` |             |
-
----
-### agentRuntimeExecCommand
-**Retorno:** `Boolean!`
-
-
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| command | `String!` |  |
-| session_id | `String!` |  |
+| input | `MigrateAgentToProviderInput!` |  |
 ---
 
-### agentRuntimeGetConfig
+### agentRuntimeExecCommand
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| command       | `String!` |             |
+| session_id    | `String!` |             |
+
+---
+### agentRuntimeGetConfig
 **Retorno:** `String!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeUpdateConfig
-**Retorno:** `Boolean!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| config | `String!` |  |
 ---
 
+### agentRuntimeUpdateConfig
+
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| config        | `String!` |             |
+
+---
 ### createAgentSwarm
+**Retorno:** `AgentSwarm!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentSwarmInput!` |  |
+---
+
+### updateAgentSwarm
 
 **Retorno:** `AgentSwarm!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AgentSwarmInput!` |             |
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateAgentSwarmInput!` |             |
 
 ---
-### updateAgentSwarm
-**Retorno:** `AgentSwarm!`
+### deleteAgentSwarm
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateAgentSwarmInput!` |  |
 ---
 
-### deleteAgentSwarm
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### addAgentToSwarm
+
 **Retorno:** `AgentSwarm!`
+
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
+
+---
+### updateSwarmMember
+**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5064,60 +5086,130 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### updateSwarmMember
-
-**Retorno:** `AgentSwarmMember!`
-
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
-
----
 ### removeAgentFromSwarm
+
 **Retorno:** `AgentSwarm!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| swarm_id  | `ID!` |             |
+| agent_id  | `ID!` |             |
+
+---
+### setAgentSwarmBudget
+**Retorno:** `AgentSwarmBudgetSnapshot!`
+Create or update the monthly budget for a swarm. Idempotent — one budget per (swarm, period).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | swarm_id | `ID!` |  |
-| agent_id | `ID!` |  |
+| input | `SwarmBudgetInput!` |  |
 ---
 
-### setAgentSwarmBudget
-
-**Retorno:** `AgentSwarmBudgetSnapshot!`\
-Create or update the monthly budget for a swarm. Idempotent — one budget per
-(swarm, period).
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| swarm_id  | `ID!`               |             |
-| input     | `SwarmBudgetInput!` |             |
-
----
 ### createAgentType
-**Retorno:** `agentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentTypeInput!` |  |
----
-
-### updateAgentType
 
 **Retorno:** `agentType!`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
-| id        | `ID!`             |             |
 | input     | `AgentTypeInput!` |             |
 
 ---
+### updateAgentType
+**Retorno:** `agentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `AgentTypeInput!` |  |
+---
+
 ### deleteAgentType
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createFollowUp
+**Retorno:** `FollowUp!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowUpInput!` |  |
+---
+
+### updateFollowUp
+
+**Retorno:** `FollowUp!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `UpdateFollowUpInput!` |             |
+
+---
+### deleteFollowUp
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createFollowUpDay
+
+**Retorno:** `FollowUpDay!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `FollowUpDayInput!` |             |
+
+---
+### updateFollowUpDay
+**Retorno:** `FollowUpDay!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpDayInput!` |  |
+---
+
+### deleteFollowUpDay
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createFollowUpTemplate
+**Retorno:** `FollowUpTemplate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowUpTemplateInput!` |  |
+---
+
+### updateFollowUpTemplate
+
+**Retorno:** `FollowUpTemplate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateFollowUpTemplateInput!` |             |
+
+---
+### deleteFollowUpTemplate
 **Retorno:** `Boolean!`
 
 

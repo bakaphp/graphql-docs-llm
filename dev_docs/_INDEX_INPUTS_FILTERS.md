@@ -14,24 +14,24 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (190)
+## Queries con filtros (193)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
-AffiliatePrograms, AffiliateTiers, Affiliates, AgentBackups, AgentDeployments,
-AgentMachines, AgentModels, AgentSwarms, AgentTypes, AgentUsageSnapshots,
-Agents, AgentsAi, AppAdmins, AppSetting, AppUsers, Apps, AttributeValues,
-Attributes, AttributesTypes, BlockedUsers, Branches, Bundles, Categories,
-ChannelMessages, ChannelProducts, ChannelVariants,
-ChannelVariantsFilterByAttributes, Channels, Cities, Comments, Companies,
-CompanyActions, CompanyAddresses, CompanyBranchCustomFields, CompanyBranchUsers,
-CompanyCustomFields, CompanyKanvasModules, CompanyReviewTypes,
-CompanySubscriptions, CompanyUsers, CompanyUsersUserRole, ContactType,
-CountUserReaction, Countries, Currencies, CustomFeedMessages, Deals,
-DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
-EventCategories, EventClasses, EventStatus, EventThemeAreas, EventThemes,
-EventTypes, EventVersionParticipants, EventVersions, EventVersionsEventStatus,
-Events, EventsStatus, ExportOrderTransitionHistory,
+AffiliatePrograms, AffiliateTiers, Affiliates, AgentBackups,
+AgentConversationMessages, AgentConversations, AgentDeployments, AgentMachines,
+AgentModels, AgentSwarms, AgentTypes, AgentUsageSnapshots, Agents, AgentsAi,
+AppAdmins, AppSetting, AppUsers, Apps, AttributeValues, Attributes,
+AttributesTypes, BlockedUsers, Branches, Bundles, Categories, ChannelMessages,
+ChannelProducts, ChannelVariants, ChannelVariantsFilterByAttributes, Channels,
+Cities, Comments, Companies, CompanyActions, CompanyAddresses,
+CompanyBranchCustomFields, CompanyBranchUsers, CompanyCustomFields,
+CompanyKanvasModules, CompanyReviewTypes, CompanySubscriptions, CompanyUsers,
+CompanyUsersUserRole, ContactType, CountUserReaction, Countries, Currencies,
+CustomFeedMessages, Deals, DiscountTypes, Discounts, Engagements, EntityFiles,
+EntityInteractions, EventCategories, EventClasses, EventStatus, EventThemeAreas,
+EventThemes, EventTypes, EventVersionParticipants, EventVersions,
+EventVersionsEventStatus, Events, EventsStatus, ExportOrderTransitionHistory,
 ExportOrderTransitionHistoryFromStatus, ExportOrderTransitionHistoryOrderType,
 ExportOrderTransitionHistoryToStatus, ExportOrders, ExportOrdersOrderStatus,
 ExportOrdersOrderType, Facilitators, FilesystemImportHistory, FilesystemMappers,
@@ -39,9 +39,9 @@ FollowUpDays, FollowUpTemplates, FollowUps, FollowingFeedMessages,
 ForYouMessages, GetActivityLog, GetAppSettings, GetCompanyWalletTransactions,
 GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels, Integrations,
-IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
-Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MechanicOrders,
-MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
+IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources,
+LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents,
+MechanicOrders, MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
 MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
 NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
 NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
@@ -64,6 +64,8 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 ## Filtros adicionales
 
+- [AgentConversationMessagesOrderByOrderByClause](./AgentConversationMessagesOrderByOrderByClause.md)
+- [AgentConversationMessagesWhereWhereConditions](./AgentConversationMessagesWhereWhereConditions.md)
 - [CompanyBranchCustomFieldsOrderByOrderByClause](./CompanyBranchCustomFieldsOrderByOrderByClause.md)
 - [CompanyCustomFieldsOrderByOrderByClause](./CompanyCustomFieldsOrderByOrderByClause.md)
 - [OrderByClause](./OrderByClause.md)

@@ -1591,10 +1591,12 @@ Single swarm lookup by id, scoped to the requester's app + company.
 
 **Retorno:** `LeadStatusPaginator!`
 
-| Argumento | Tipo   | Descripción                               |
-| :-------- | :----- | :---------------------------------------- |
-| first     | `Int!` | Limits number of fetched items.           |
-| page      | `Int`  | The offset from which items are returned. |
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| where     | `QueryLeadStatusesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryLeadStatusesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
 
 ---
 ### subSources
@@ -2872,177 +2874,192 @@ Single swarm lookup by id, scoped to the requester's app + company.
 | page      | `Int`                                     | The offset from which items are returned. |
 
 ---
+### agentConversations
+**Retorno:** `AgentConversationPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID` |  |
+| search | `String` |  |
+| where | `QueryAgentConversationsWhereWhereConditions` |  |
+| orderBy | `[QueryAgentConversationsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
 ### agentUsageSnapshots
+
 **Retorno:** `AgentUsageSnapshotPaginator!`
 
+| Argumento | Tipo                                              | Descripción                               |
+| :-------- | :------------------------------------------------ | :---------------------------------------- |
+| search    | `String`                                          |                                           |
+| where     | `QueryAgentUsageSnapshotsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                            | Limits number of fetched items.           |
+| page      | `Int`                                             | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentUsageSnapshotsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentUsageSnapshotsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### agentMachines
-
 **Retorno:** `AgentMachineTypePaginator!`
 
-| Argumento | Tipo                                        | Descripción                               |
-| :-------- | :------------------------------------------ | :---------------------------------------- |
-| search    | `String`                                    |                                           |
-| where     | `QueryAgentMachinesWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryAgentMachinesOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                      | Limits number of fetched items.           |
-| page      | `Int`                                       | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryAgentMachinesWhereWhereConditions` |  |
+| orderBy | `[QueryAgentMachinesOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---
+
 ### agentDeployments
+
 **Retorno:** `AgentDeploymentTypePaginator!`
 
+| Argumento | Tipo                                           | Descripción                               |
+| :-------- | :--------------------------------------------- | :---------------------------------------- |
+| search    | `String`                                       |                                           |
+| where     | `QueryAgentDeploymentsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentDeploymentsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                         | Limits number of fetched items.           |
+| page      | `Int`                                          | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryAgentDeploymentsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentDeploymentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### agentBackups
-
 **Retorno:** `AgentBackupTypePaginator!`
 
-| Argumento | Tipo                                       | Descripción                               |
-| :-------- | :----------------------------------------- | :---------------------------------------- |
-| where     | `QueryAgentBackupsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryAgentBackupsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                     | Limits number of fetched items.           |
-| page      | `Int`                                      | The offset from which items are returned. |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryAgentBackupsWhereWhereConditions` |  |
+| orderBy | `[QueryAgentBackupsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### agentSwarms
+
+**Retorno:** `AgentSwarmPaginator!`
+
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| search    | `String`                                  |                                           |
+| where     | `QueryAgentSwarmsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryAgentSwarmsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
 
 ---
-### agentSwarms
-**Retorno:** `AgentSwarmPaginator!`
+### agentTypes
+**Retorno:** `agentTypePaginator!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | search | `String` |  |
-| where | `QueryAgentSwarmsWhereWhereConditions` |  |
-| orderBy | `[QueryAgentSwarmsOrderByOrderByClause!]` |  |
+| where | `QueryAgentTypesWhereWhereConditions` |  |
+| orderBy | `[QueryAgentTypesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
 
-### agentTypes
-
-**Retorno:** `agentTypePaginator!`
-
-| Argumento | Tipo                                     | Descripción                               |
-| :-------- | :--------------------------------------- | :---------------------------------------- |
-| search    | `String`                                 |                                           |
-| where     | `QueryAgentTypesWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryAgentTypesOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                   | Limits number of fetched items.           |
-| page      | `Int`                                    | The offset from which items are returned. |
-
----
 ### followUps
+
 **Retorno:** `FollowUpPaginator!`
 
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| where     | `QueryFollowUpsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryFollowUpsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryFollowUpsWhereWhereConditions` |  |
-| orderBy | `[QueryFollowUpsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### followUpDays
-
 **Retorno:** `FollowUpDayPaginator!`
 
-| Argumento | Tipo                                       | Descripción                               |
-| :-------- | :----------------------------------------- | :---------------------------------------- |
-| where     | `QueryFollowUpDaysWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryFollowUpDaysOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                     | Limits number of fetched items.           |
-| page      | `Int`                                      | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryFollowUpDaysWhereWhereConditions` |  |
+| orderBy | `[QueryFollowUpDaysOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---
+
 ### followUpTemplates
+
 **Retorno:** `FollowUpTemplatePaginator!`
 
+| Argumento | Tipo                                            | Descripción                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------- |
+| where     | `QueryFollowUpTemplatesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryFollowUpTemplatesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                          | Limits number of fetched items.           |
+| page      | `Int`                                           | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryFollowUpTemplatesWhereWhereConditions` |  |
-| orderBy | `[QueryFollowUpTemplatesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### ledgerEvents
-
 **Retorno:** `LedgerEventPaginator!`
 
-| Argumento | Tipo                                       | Descripción                               |
-| :-------- | :----------------------------------------- | :---------------------------------------- |
-| where     | `QueryLedgerEventsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryLedgerEventsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                     | Limits number of fetched items.           |
-| page      | `Int`                                      | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryLedgerEventsWhereWhereConditions` |  |
+| orderBy | `[QueryLedgerEventsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---
+
 ### nervousSystemSkills
+
 **Retorno:** `NervousSystemSkillPaginator!`
 
+| Argumento | Tipo                                              | Descripción                               |
+| :-------- | :------------------------------------------------ | :---------------------------------------- |
+| where     | `QueryNervousSystemSkillsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryNervousSystemSkillsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                            | Limits number of fetched items.           |
+| page      | `Int`                                             | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryNervousSystemSkillsWhereWhereConditions` |  |
-| orderBy | `[QueryNervousSystemSkillsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### nervousSystemTools
-
 **Retorno:** `NervousSystemToolPaginator!`
 
-| Argumento | Tipo                                             | Descripción                               |
-| :-------- | :----------------------------------------------- | :---------------------------------------- |
-| framework | `String`                                         |                                           |
-| where     | `QueryNervousSystemToolsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryNervousSystemToolsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                           | Limits number of fetched items.           |
-| page      | `Int`                                            | The offset from which items are returned. |
-
----
-### nervousSystemToolCategories
-**Retorno:** `NervousSystemToolCategoryPaginator!`
-Tool categories visible to the current app (platform-seeded apps_id=0 + this app's custom ones).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| where | `QueryNervousSystemToolCategoriesWhereWhereConditions` |  |
-| orderBy | `[QueryNervousSystemToolCategoriesOrderByOrderByClause!]` |  |
+| framework | `String` |  |
+| where | `QueryNervousSystemToolsWhereWhereConditions` |  |
+| orderBy | `[QueryNervousSystemToolsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
 
-### nervousSystemPlans
+### nervousSystemToolCategories
 
+**Retorno:** `NervousSystemToolCategoryPaginator!`\
+Tool categories visible to the current app (platform-seeded apps_id=0 + this
+app's custom ones).
+
+| Argumento | Tipo                                                      | Descripción                               |
+| :-------- | :-------------------------------------------------------- | :---------------------------------------- |
+| where     | `QueryNervousSystemToolCategoriesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryNervousSystemToolCategoriesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                                    | Limits number of fetched items.           |
+| page      | `Int`                                                     | The offset from which items are returned. |
+
+---
+### nervousSystemPlans
 **Retorno:** `NervousSystemPlanPaginator!`
 
-| Argumento | Tipo                                             | Descripción                               |
-| :-------- | :----------------------------------------------- | :---------------------------------------- |
-| where     | `QueryNervousSystemPlansWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryNervousSystemPlansOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                           | Limits number of fetched items.           |
-| page      | `Int`                                            | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryNervousSystemPlansWhereWhereConditions` |  |
+| orderBy | `[QueryNervousSystemPlansOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---

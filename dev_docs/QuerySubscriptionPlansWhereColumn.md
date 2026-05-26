@@ -10,3 +10,4 @@ Allowed column names for Query.subscriptionPlans.where.
 | NAME        |             |
 | DESCRIPTION |             |
 | IS_DEFAULT  |             |
+| IS_ACTIVE   |             |

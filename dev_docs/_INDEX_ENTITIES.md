@@ -21,6 +21,8 @@
 - [AgentAiModel](./AgentAiModel.md)
 - [AgentAnalytics](./AgentAnalytics.md)
 - [AgentBackupType](./AgentBackupType.md)
+- [AgentConversation](./AgentConversation.md)
+- [AgentConversationMessage](./AgentConversationMessage.md)
 - [AgentDailyCycle](./AgentDailyCycle.md)
 - [AgentDeploymentEvent](./AgentDeploymentEvent.md)
 - [AgentDeploymentType](./AgentDeploymentType.md)

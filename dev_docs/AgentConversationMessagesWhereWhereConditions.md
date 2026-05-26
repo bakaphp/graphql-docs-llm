@@ -1,0 +1,14 @@
+# INPUT_OBJECT: AgentConversationMessagesWhereWhereConditions
+
+Dynamic WHERE conditions for the `where` argument of the query `messages`.
+
+## Estructura
+
+| Campo    | Tipo                                                    | Descripción                                                                           |
+| :------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------ |
+| column   | `AgentConversationMessagesWhereColumn`                  | The column that is used for the condition.                                            |
+| operator | `SQLOperator`                                           | The operator that is used for the condition.                                          |
+| value    | `Mixed`                                                 | The value that is used for the condition.                                             |
+| AND      | `[AgentConversationMessagesWhereWhereConditions!]`      | A set of conditions that requires all conditions to match.                            |
+| OR       | `[AgentConversationMessagesWhereWhereConditions!]`      | A set of conditions that requires at least one condition to match.                    |
+| HAS      | `AgentConversationMessagesWhereWhereConditionsRelation` | Check whether a relation exists. Extra conditions or a minimum amount can be applied. |

@@ -13,6 +13,7 @@
 | user                | `User!`         |             |
 | payment_method      | `PaymentMethod` |             |
 | payment_method_type | `String`        |             |
+| payment_intent_id   | `String`        |             |
 | order               | `Order`         |             |
 | payment_date        | `String!`       |             |
 | concept             | `String!`       |             |

@@ -9,3 +9,4 @@
 | prices           | `[PriceInput!]` |             |
 | free_trial_dates | `Int`           |             |
 | is_default       | `Boolean`       |             |
+| is_active        | `Boolean`       |             |

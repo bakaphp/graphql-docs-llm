@@ -8,3 +8,5 @@
 | session_id | `String!`   |             |
 | message    | `String!`   |             |
 | images     | `[String!]` |             |
+| files      | `[String!]` |             |
+| uploads    | `[Upload!]` |             |

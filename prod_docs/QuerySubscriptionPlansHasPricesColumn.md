@@ -11,3 +11,4 @@ Allowed column names for Query.subscriptionPlans.hasPrices.
 | AMOUNT    |             |
 | CURRENCY  |             |
 | INTERVAL  |             |
+| IS_ACTIVE |             |

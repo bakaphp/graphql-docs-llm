@@ -17,6 +17,7 @@
 - [affiliateTiers](./Query.md#affiliatetiers)
 - [agentAnalytics](./Query.md#agentanalytics)
 - [agentBackups](./Query.md#agentbackups)
+- [agentConversations](./Query.md#agentconversations)
 - [agentCurrentTelemetry](./Query.md#agentcurrenttelemetry)
 - [agentDeploymentEvents](./Query.md#agentdeploymentevents)
 - [agentDeploymentLogs](./Query.md#agentdeploymentlogs)
