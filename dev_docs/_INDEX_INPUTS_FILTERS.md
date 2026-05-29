@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (193)
+## Queries con filtros (194)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -41,26 +41,27 @@ GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels, Integrations,
 IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources,
 LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents,
-MechanicOrders, MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
-MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
-NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
-NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
-OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatus,
-OrderTransitionHistoryOrderType, OrderTransitionHistoryToStatus,
-OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
-OrdersByUserCustomFieldOrderStatus, OrdersByUserCustomFieldOrderType,
-OrdersOrderStatus, OrdersOrderType, OrganizationTypes, Organizations,
-ParticipantPassMotives, ParticipantTypes, Participants, PaymentMethods,
-Payments, PaymentsOrderType, PeopleRelationships, PeopleTypes, Peoples,
-Pipelines, ProductTypes, Products, ProviderOrders, ProviderOrdersOrderStatus,
-ProviderOrdersOrderType, ProviderPayments, ProviderPaymentsOrderType, Reactions,
-ReceiverWebhooks, ReferralCodeUsages, Regions, Roles, RuleTypes, Rules,
-ScheduleExceptions, ScheduleHistory, ScheduleRules, ScheduleRulesResourceType,
-SearchUsersLists, SocialChannels, States, Status, SubSources, SubscriptionPlans,
-SystemModels, TagChildren, Tags, TaskListItems, TaskLists, Templates, TimeSlots,
-TimeSlotsResourceType, Topics, UserCustomFields, UserReactions, Users,
-UsersInvites, Variants, VariantsByStatus, ViewMessageHistory, WarehouseVariants,
-Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
+MechanicOrders, MechanicOrdersOrderStatus, Mechanics, MessageChildren,
+MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser,
+NervousSystemPlans, NervousSystemSkills, NervousSystemToolCategories,
+NervousSystemTools, NotificationChannels, NotificationSettings,
+NotificationTypes, Notifications, OrderStatus, OrderTransitionHistory,
+OrderTransitionHistoryFromStatus, OrderTransitionHistoryOrderType,
+OrderTransitionHistoryToStatus, OrderTypeStatuses, OrderTypes, Orders,
+OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatus,
+OrdersByUserCustomFieldOrderType, OrdersOrderStatus, OrdersOrderType,
+OrganizationTypes, Organizations, ParticipantPassMotives, ParticipantTypes,
+Participants, PaymentMethods, Payments, PaymentsOrderType, PeopleRelationships,
+PeopleTypes, Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
+ProviderOrdersOrderStatus, ProviderOrdersOrderType, ProviderPayments,
+ProviderPaymentsOrderType, Reactions, ReceiverWebhooks, ReferralCodeUsages,
+Regions, Roles, RuleTypes, Rules, ScheduleExceptions, ScheduleHistory,
+ScheduleRules, ScheduleRulesResourceType, SearchUsersLists, SocialChannels,
+States, Status, SubSources, SubscriptionPlans, SystemModels, TagChildren, Tags,
+TaskListItems, TaskLists, Templates, TimeSlots, TimeSlotsResourceType, Topics,
+UserCustomFields, UserReactions, Users, UsersInvites, Variants,
+VariantsByStatus, ViewMessageHistory, WarehouseVariants, Warehouses,
+WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 ## Filtros adicionales
 
@@ -68,6 +69,7 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 - [AgentConversationMessagesWhereWhereConditions](./AgentConversationMessagesWhereWhereConditions.md)
 - [CompanyBranchCustomFieldsOrderByOrderByClause](./CompanyBranchCustomFieldsOrderByOrderByClause.md)
 - [CompanyCustomFieldsOrderByOrderByClause](./CompanyCustomFieldsOrderByOrderByClause.md)
+- [MessageChildrenOrderByOrderByClause](./MessageChildrenOrderByOrderByClause.md)
 - [OrderByClause](./OrderByClause.md)
 - [OrderTypeStatusesOrderByOrderByClause](./OrderTypeStatusesOrderByOrderByClause.md)
 - [TagChildrenOrderByOrderByClause](./TagChildrenOrderByOrderByClause.md)

@@ -7,4 +7,5 @@ Allowed column names for AgentConversation.messages.orderBy.
 | Valor      | Descripción |
 | :--------- | :---------- |
 | CREATED_AT |             |
+| UPDATED_AT |             |
 | ID         |             |

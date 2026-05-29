@@ -351,7 +351,7 @@
 - [processOrderPayment](./Mutation.md#processorderpayment)
 - [processPayment](./Mutation.md#processpayment)
 - [publishProduct](./Mutation.md#publishproduct)
-- [reactiveSubscription](./Mutation.md#reactivesubscription)
+- [reactivateSubscription](./Mutation.md#reactivatesubscription)
 - [reactToEntity](./Mutation.md#reacttoentity)
 - [readAllNotifications](./Mutation.md#readallnotifications)
 - [refreshToken](./Mutation.md#refreshtoken)

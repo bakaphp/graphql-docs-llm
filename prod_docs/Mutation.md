@@ -4111,7 +4111,7 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### reactiveSubscription
+### reactivateSubscription
 
 **Retorno:** `Boolean!`
 

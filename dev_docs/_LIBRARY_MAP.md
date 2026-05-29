@@ -12,9 +12,9 @@ Esquema GraphQL completo. Navega: Mapa → Índice → Archivo de tipo.
 
 ## Auto-Generados (solo si necesario)
 
-- [Filter Inputs](./_INDEX_INPUTS_FILTERS.md) — 939 tipos WHERE/OrderBy de
+- [Filter Inputs](./_INDEX_INPUTS_FILTERS.md) — 943 tipos WHERE/OrderBy de
   queries
-- [Column Enums](./_INDEX_CONSTANTS_COLUMNS.md) — 402 enums de columnas
+- [Column Enums](./_INDEX_CONSTANTS_COLUMNS.md) — 404 enums de columnas
   permitidas
 - [Paginators](./_INDEX_ENTITIES_PAGINATORS.md) — 141 wrappers de paginación
 

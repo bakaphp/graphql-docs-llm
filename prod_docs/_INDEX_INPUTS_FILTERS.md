@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (192)
+## Queries con filtros (193)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -41,7 +41,7 @@ GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels, Integrations,
 IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
 Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MechanicOrders,
-MechanicOrdersOrderStatus, Mechanics, MessageTypes, Messages,
+MechanicOrdersOrderStatus, Mechanics, MessageChildren, MessageTypes, Messages,
 MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
 NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
 NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
@@ -68,6 +68,7 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 - [AgentConversationMessagesWhereWhereConditions](./AgentConversationMessagesWhereWhereConditions.md)
 - [CompanyBranchCustomFieldsOrderByOrderByClause](./CompanyBranchCustomFieldsOrderByOrderByClause.md)
 - [CompanyCustomFieldsOrderByOrderByClause](./CompanyCustomFieldsOrderByOrderByClause.md)
+- [MessageChildrenOrderByOrderByClause](./MessageChildrenOrderByOrderByClause.md)
 - [OrderByClause](./OrderByClause.md)
 - [OrderTypeStatusesOrderByOrderByClause](./OrderTypeStatusesOrderByOrderByClause.md)
 - [TagChildrenOrderByOrderByClause](./TagChildrenOrderByOrderByClause.md)

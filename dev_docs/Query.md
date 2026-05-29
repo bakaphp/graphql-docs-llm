@@ -1287,6 +1287,7 @@ Single swarm lookup by id, scoped to the requester's app + company.
 | :---------------------- | :--------------------------------------------------- | :---------------------------------------- |
 | search                  | `String`                                             |                                           |
 | variantAttributeValue   | `String`                                             |                                           |
+| withAttributeSlug       | `String`                                             |                                           |
 | variantAttributeOrderBy | `ProductAttributeOrderBy`                            |                                           |
 | attributeOrderBy        | `ProductAttributeOrderBy`                            |                                           |
 | nearByLocation          | `NearByLocationInput`                                |                                           |
@@ -1294,6 +1295,7 @@ Single swarm lookup by id, scoped to the requester's app + company.
 | where                   | `QueryProductsWhereWhereConditions`                  |                                           |
 | hasVariants             | `QueryProductsHasVariantsWhereHasConditions`         |                                           |
 | hasCategories           | `QueryProductsHasCategoriesWhereHasConditions`       |                                           |
+| hasProductsTypes        | `QueryProductsHasProductsTypesWhereHasConditions`    |                                           |
 | hasWarehouses           | `QueryProductsHasWarehousesWhereHasConditions`       |                                           |
 | hasChannels             | `QueryProductsHasChannelsWhereHasConditions`         |                                           |
 | hasAttributes           | `QueryProductsHasAttributesWhereHasConditions`       |                                           |
