@@ -23,3 +23,4 @@
 | communication_channels | `[CommunicationChannelPivot!]` |             |
 | swarm_ids              | `[ID!]`                        |             |
 | tool_ids               | `[ID!]`                        |             |
+| is_sub_agent           | `Boolean`                      |             |

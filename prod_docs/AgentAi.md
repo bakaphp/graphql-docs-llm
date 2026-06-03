@@ -30,6 +30,7 @@
 | agent_model_id        | `ID`                    |             |
 | parent_id             | `ID`                    |             |
 | is_active             | `Boolean!`              |             |
+| is_sub_agent          | `Boolean!`              |             |
 | selectedTools         | `[NervousSystemTool!]!` |             |
 | kanvasModules         | `[AgentKanvasModule!]!` |             |
 | awake_state           | `String`                |             |

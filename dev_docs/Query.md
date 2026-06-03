@@ -3033,6 +3033,7 @@ Single swarm lookup by id, scoped to the requester's app + company.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
+| agent_type_id | `ID` |  |
 | framework | `String` |  |
 | where | `QueryNervousSystemToolsWhereWhereConditions` |  |
 | orderBy | `[QueryNervousSystemToolsOrderByOrderByClause!]` |  |
@@ -3042,16 +3043,16 @@ Single swarm lookup by id, scoped to the requester's app + company.
 
 ### nervousSystemToolCategories
 
-**Retorno:** `NervousSystemToolCategoryPaginator!`\
-Tool categories visible to the current app (platform-seeded apps_id=0 + this
-app's custom ones).
+**Retorno:** `NervousSystemToolCategoryPaginator!`
 
-| Argumento | Tipo                                                      | Descripción                               |
-| :-------- | :-------------------------------------------------------- | :---------------------------------------- |
-| where     | `QueryNervousSystemToolCategoriesWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryNervousSystemToolCategoriesOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                                    | Limits number of fetched items.           |
-| page      | `Int`                                                     | The offset from which items are returned. |
+| Argumento     | Tipo                                                      | Descripción                               |
+| :------------ | :-------------------------------------------------------- | :---------------------------------------- |
+| agent_type_id | `ID`                                                      |                                           |
+| framework     | `String`                                                  |                                           |
+| where         | `QueryNervousSystemToolCategoriesWhereWhereConditions`    |                                           |
+| orderBy       | `[QueryNervousSystemToolCategoriesOrderByOrderByClause!]` |                                           |
+| first         | `Int!`                                                    | Limits number of fetched items.           |
+| page          | `Int`                                                     | The offset from which items are returned. |
 
 ---
 ### nervousSystemPlans

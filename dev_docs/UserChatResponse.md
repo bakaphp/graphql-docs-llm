@@ -2,7 +2,9 @@
 
 ## Estructura
 
-| Campo      | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| response   | `Mixed!`  |             |
-| session_id | `String!` |             |
+| Campo      | Tipo             | Descripción |
+| :--------- | :--------------- | :---------- |
+| response   | `Mixed!`         |             |
+| session_id | `String!`        |             |
+| message    | `Message!`       |             |
+| channel    | `SocialChannel!` |             |

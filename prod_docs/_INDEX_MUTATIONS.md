@@ -405,6 +405,7 @@
 - [sendNotificationByMessage](./Mutation.md#sendnotificationbymessage)
 - [sendOrderEmail](./Mutation.md#sendorderemail)
 - [sendVerificationCode](./Mutation.md#sendverificationcode)
+- [setAgentIntegrationConfig](./Mutation.md#setagentintegrationconfig)
 - [setAgentKanvasModule](./Mutation.md#setagentkanvasmodule)
 - [setAgentSwarmBudget](./Mutation.md#setagentswarmbudget)
 - [setAppSetting](./Mutation.md#setappsetting)

@@ -5,7 +5,7 @@
 | Campo      | Tipo       | Descripción |
 | :--------- | :--------- | :---------- |
 | id         | `ID!`      |             |
-| payment    | `Payment!` |             |
+| payment    | `Payment`  |             |
 | company    | `Company!` |             |
 | user       | `User!`    |             |
 | status     | `String`   |             |

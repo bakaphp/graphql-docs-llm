@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (191)
+## Queries con enums de columnas (192)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -30,13 +30,14 @@ FollowUps, FollowingFeedMessages, ForYouMessages, GetActivityLog,
 GetAppSettings, GetCompanyWalletTransactions, GetUserInteractions,
 GetUserWalletTransactions, GetUsersLists, GetUsersListsEntities,
 GetWalletTransactions, GlobalSystemModels, Integrations,
-IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources, LeadTypes,
-Leads, LeadsDashboard, LeadsRotations, LedgerEvents, Mechanic, MechanicOrders,
-MechanicOrdersOrderStatusColumn, Mechanics, MessageChildren, MessageTypes,
-Messages, MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
-NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
-NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
-OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
+IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources,
+LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents,
+Mechanic, MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics,
+MessageChildren, MessageTypes, Messages, MessagesGroupByDate,
+MessagesLikedByUser, NervousSystemPlans, NervousSystemSkills,
+NervousSystemToolCategories, NervousSystemTools, NotificationChannels,
+NotificationSettings, NotificationTypes, Notifications, OrderStatus,
+OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
 OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
 OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatusColumn,

@@ -4812,48 +4812,262 @@ Upload a file that is publicly available.
 | input | `NeuronChatInput!` |  |
 ---
 
-### setAgentKanvasModule
+### setAgentIntegrationConfig
 
-**Retorno:** `AgentKanvasModule!`
+**Retorno:** `AgentAi!`
 
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| agent_id         | `ID!`     |             |
-| kanvas_module_id | `ID!`     |             |
-| config           | `Mixed`   |             |
-| is_active        | `Boolean` |             |
+| Argumento | Tipo                              | Descripción |
+| :-------- | :-------------------------------- | :---------- |
+| input     | `SetAgentIntegrationConfigInput!` |             |
 
 ---
-### removeAgentKanvasModule
-**Retorno:** `Boolean!`
+### setAgentKanvasModule
+**Retorno:** `AgentKanvasModule!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
 | kanvas_module_id | `ID!` |  |
+| config | `Mixed` |  |
+| is_active | `Boolean` |  |
 ---
 
+### removeAgentKanvasModule
+
+**Retorno:** `Boolean!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| agent_id         | `ID!` |             |
+| kanvas_module_id | `ID!` |             |
+
+---
 ### agentRuntimeCreateMachine
-
-**Retorno:** `AgentMachineType!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `AgentMachineInput!` |             |
-
----
-### agentRuntimeUpdateMachine
 **Retorno:** `AgentMachineType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentMachineInput!` |  |
+| input | `AgentMachineInput!` |  |
 ---
 
+### agentRuntimeUpdateMachine
+
+**Retorno:** `AgentMachineType!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `UpdateAgentMachineInput!` |             |
+
+---
 ### agentRuntimeDeleteMachine
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### agentRuntimeUpdateMachineContainers
+
+**Retorno:** `Boolean!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
+
+---
+### agentRuntimePingMachine
+**Retorno:** `AgentMachineType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| machine_id | `ID!` |  |
+---
+
+### agentRuntimeBackupAgent
+
+**Retorno:** `AgentBackupType!`
+
+| Argumento         | Tipo      | Descripción |
+| :---------------- | :-------- | :---------- |
+| deployment_id     | `ID!`     |             |
+| include_workspace | `Boolean` |             |
+
+---
+### agentRuntimeLaunchAgent
+**Retorno:** `AgentDeploymentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LaunchAgentInput!` |  |
+---
+
+### agentRuntimeTerminateAgent
+
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeDeleteDeployment
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
+### agentRuntimeRestartContainer
+
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeContainerLogs
+**Retorno:** `String!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| lines | `Int` |  |
+---
+
+### agentRuntimeContainerStatus
+
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeCollectUsage
+**Retorno:** `AgentUsageSnapshot!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
+### agentRuntimeCollectSessionTranscripts
+
+**Retorno:** `Int!`\
+Pull conversation transcripts out of the deployment runtime and persist into
+agent_conversations / agent_conversation_messages. Returns the count of newly
+persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't
+support transcript collection throw a clear LogicException.
+
+| Argumento     | Tipo       | Descripción |
+| :------------ | :--------- | :---------- |
+| deployment_id | `ID!`      |             |
+| since         | `DateTime` |             |
+
+---
+### agentRuntimeSetSlackTokens
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID!` |  |
+| slack_bot_token | `String!` |  |
+| slack_app_token | `String!` |  |
+---
+
+### agentRuntimeSetTelegramToken
+
+**Retorno:** `Boolean!`
+
+| Argumento              | Tipo      | Descripción |
+| :--------------------- | :-------- | :---------- |
+| agent_id               | `ID!`     |             |
+| telegram_bot_token     | `String!` |             |
+| telegram_allowed_users | `String`  |             |
+
+---
+### agentRuntimeMigrateAgentWorkspace
+**Retorno:** `AgentDeploymentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `MigrateAgentWorkspaceInput!` |  |
+---
+
+### agentRuntimeMigrateAgentToProvider
+
+**Retorno:** `AgentDeploymentType!`\
+Cross-runtime adoption — replaces the old per-provider migration mutations.
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| input     | `MigrateAgentToProviderInput!` |             |
+
+---
+### agentRuntimeExecCommand
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| command | `String!` |  |
+| session_id | `String!` |  |
+---
+
+### agentRuntimeGetConfig
+
+**Retorno:** `String!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeUpdateConfig
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| config | `String!` |  |
+---
+
+### createAgentSwarm
+
+**Retorno:** `AgentSwarm!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `AgentSwarmInput!` |             |
+
+---
+### updateAgentSwarm
+**Retorno:** `AgentSwarm!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAgentSwarmInput!` |  |
+---
+
+### deleteAgentSwarm
 
 **Retorno:** `Boolean!`
 
@@ -4862,220 +5076,8 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### agentRuntimeUpdateMachineContainers
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| machine_id | `ID!` |  |
----
-
-### agentRuntimePingMachine
-
-**Retorno:** `AgentMachineType!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
-
----
-### agentRuntimeBackupAgent
-**Retorno:** `AgentBackupType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| include_workspace | `Boolean` |  |
----
-
-### agentRuntimeLaunchAgent
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `LaunchAgentInput!` |             |
-
----
-### agentRuntimeTerminateAgent
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeDeleteDeployment
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeRestartContainer
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeContainerLogs
-
-**Retorno:** `String!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-| lines         | `Int` |             |
-
----
-### agentRuntimeContainerStatus
-**Retorno:** `AgentDeploymentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeCollectUsage
-
-**Retorno:** `AgentUsageSnapshot!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeCollectSessionTranscripts
-**Retorno:** `Int!`
-Pull conversation transcripts out of the deployment runtime and persist into agent_conversations / agent_conversation_messages. Returns the count of newly persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't support transcript collection throw a clear LogicException.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| since | `DateTime` |  |
----
-
-### agentRuntimeSetSlackTokens
-
-**Retorno:** `Boolean!`
-
-| Argumento       | Tipo      | Descripción |
-| :-------------- | :-------- | :---------- |
-| agent_id        | `ID!`     |             |
-| slack_bot_token | `String!` |             |
-| slack_app_token | `String!` |             |
-
----
-### agentRuntimeSetTelegramToken
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| agent_id | `ID!` |  |
-| telegram_bot_token | `String!` |  |
-| telegram_allowed_users | `String` |  |
----
-
-### agentRuntimeMigrateAgentWorkspace
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `MigrateAgentWorkspaceInput!` |             |
-
----
-### agentRuntimeMigrateAgentToProvider
-**Retorno:** `AgentDeploymentType!`
-Cross-runtime adoption — replaces the old per-provider migration mutations.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MigrateAgentToProviderInput!` |  |
----
-
-### agentRuntimeExecCommand
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo      | Descripción |
-| :------------ | :-------- | :---------- |
-| deployment_id | `ID!`     |             |
-| command       | `String!` |             |
-| session_id    | `String!` |             |
-
----
-### agentRuntimeGetConfig
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeUpdateConfig
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo      | Descripción |
-| :------------ | :-------- | :---------- |
-| deployment_id | `ID!`     |             |
-| config        | `String!` |             |
-
----
-### createAgentSwarm
-**Retorno:** `AgentSwarm!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentSwarmInput!` |  |
----
-
-### updateAgentSwarm
-
-**Retorno:** `AgentSwarm!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| id        | `ID!`                    |             |
-| input     | `UpdateAgentSwarmInput!` |             |
-
----
-### deleteAgentSwarm
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### addAgentToSwarm
-
 **Retorno:** `AgentSwarm!`
-
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
-
----
-### updateSwarmMember
-**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5086,102 +5088,88 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### removeAgentFromSwarm
+### updateSwarmMember
 
-**Retorno:** `AgentSwarm!`
+**Retorno:** `AgentSwarmMember!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| swarm_id  | `ID!` |             |
-| agent_id  | `ID!` |             |
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
 
 ---
-### setAgentSwarmBudget
-**Retorno:** `AgentSwarmBudgetSnapshot!`
-Create or update the monthly budget for a swarm. Idempotent — one budget per (swarm, period).
+### removeAgentFromSwarm
+**Retorno:** `AgentSwarm!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | swarm_id | `ID!` |  |
-| input | `SwarmBudgetInput!` |  |
+| agent_id | `ID!` |  |
 ---
 
+### setAgentSwarmBudget
+
+**Retorno:** `AgentSwarmBudgetSnapshot!`\
+Create or update the monthly budget for a swarm. Idempotent — one budget per
+(swarm, period).
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| swarm_id  | `ID!`               |             |
+| input     | `SwarmBudgetInput!` |             |
+
+---
 ### createAgentType
+**Retorno:** `agentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentTypeInput!` |  |
+---
+
+### updateAgentType
 
 **Retorno:** `agentType!`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
+| id        | `ID!`             |             |
 | input     | `AgentTypeInput!` |             |
 
 ---
-### updateAgentType
-**Retorno:** `agentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `AgentTypeInput!` |  |
----
-
 ### deleteAgentType
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createFollowUp
+
 **Retorno:** `FollowUp!`
 
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `FollowUpInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowUpInput!` |  |
 ---
-
 ### updateFollowUp
-
 **Retorno:** `FollowUp!`
 
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| id        | `ID!`                  |             |
-| input     | `UpdateFollowUpInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpInput!` |  |
 ---
+
 ### deleteFollowUp
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createFollowUpDay
-
-**Retorno:** `FollowUpDay!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `FollowUpDayInput!` |             |
-
----
-### updateFollowUpDay
-**Retorno:** `FollowUpDay!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateFollowUpDayInput!` |  |
----
-
-### deleteFollowUpDay
 
 **Retorno:** `Boolean!`
 
@@ -5190,26 +5178,26 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per (
 | id        | `ID!` |             |
 
 ---
-### createFollowUpTemplate
-**Retorno:** `FollowUpTemplate!`
+### createFollowUpDay
+**Retorno:** `FollowUpDay!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `FollowUpTemplateInput!` |  |
+| input | `FollowUpDayInput!` |  |
 ---
 
-### updateFollowUpTemplate
+### updateFollowUpDay
 
-**Retorno:** `FollowUpTemplate!`
+**Retorno:** `FollowUpDay!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| id        | `ID!`                          |             |
-| input     | `UpdateFollowUpTemplateInput!` |             |
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `UpdateFollowUpDayInput!` |             |
 
 ---
-### deleteFollowUpTemplate
+### deleteFollowUpDay
 **Retorno:** `Boolean!`
 
 
@@ -5218,76 +5206,94 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per (
 | id | `ID!` |  |
 ---
 
+### createFollowUpTemplate
+
+**Retorno:** `FollowUpTemplate!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `FollowUpTemplateInput!` |             |
+
+---
+### updateFollowUpTemplate
+**Retorno:** `FollowUpTemplate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpTemplateInput!` |  |
+---
+
+### deleteFollowUpTemplate
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createNervousSystemSkill
+**Retorno:** `NervousSystemSkill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateNervousSystemSkillInput!` |  |
+---
+
+### updateNervousSystemSkill
 
 **Retorno:** `NervousSystemSkill!`
 
 | Argumento | Tipo                             | Descripción |
 | :-------- | :------------------------------- | :---------- |
-| input     | `CreateNervousSystemSkillInput!` |             |
+| id        | `ID!`                            |             |
+| input     | `UpdateNervousSystemSkillInput!` |             |
 
 ---
-### updateNervousSystemSkill
-**Retorno:** `NervousSystemSkill!`
+### createNervousSystemTool
+**Retorno:** `NervousSystemTool!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemSkillInput!` |  |
+| input | `CreateNervousSystemToolInput!` |  |
 ---
 
-### createNervousSystemTool
+### updateNervousSystemTool
 
 **Retorno:** `NervousSystemTool!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| input     | `CreateNervousSystemToolInput!` |             |
+| id        | `ID!`                           |             |
+| input     | `UpdateNervousSystemToolInput!` |             |
 
 ---
-### updateNervousSystemTool
-**Retorno:** `NervousSystemTool!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemToolInput!` |  |
----
-
 ### grantNervousSystemSkill
-
-**Retorno:** `NervousSystemAgentSkill!`
-
-| Argumento | Tipo                                 | Descripción |
-| :-------- | :----------------------------------- | :---------- |
-| skill_id  | `ID!`                                |             |
-| input     | `GrantNervousSystemCapabilityInput!` |             |
-
----
-### revokeNervousSystemSkill
 **Retorno:** `NervousSystemAgentSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| grant_id | `ID!` |  |
-| reason | `String` |  |
+| skill_id | `ID!` |  |
+| input | `GrantNervousSystemCapabilityInput!` |  |
 ---
 
+### revokeNervousSystemSkill
+
+**Retorno:** `NervousSystemAgentSkill!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| grant_id  | `ID!`    |             |
+| reason    | `String` |             |
+
+---
 ### attachNervousSystemToolToAgentType
-
 **Retorno:** `NervousSystemTool!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| tool_id       | `ID!` |             |
-| agent_type_id | `ID!` |             |
-
----
-### detachNervousSystemToolFromAgentType
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5296,89 +5302,106 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per (
 | agent_type_id | `ID!` |  |
 ---
 
-### setNervousSystemAgentTool
+### detachNervousSystemToolFromAgentType
 
-**Retorno:** `NervousSystemAgentTool!`\
-Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
-agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo       | Descripción |
-| :-------- | :--------- | :---------- |
-| agent_id  | `ID!`      |             |
-| tool_id   | `ID!`      |             |
-| enabled   | `Boolean!` |             |
-| config    | `Mixed`    |             |
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| tool_id       | `ID!` |             |
+| agent_type_id | `ID!` |             |
 
 ---
-### createNervousSystemToolCategory
-**Retorno:** `NervousSystemToolCategory!`
-
+### setNervousSystemAgentTool
+**Retorno:** `NervousSystemAgentTool`
+Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemToolCategoryInput!` |  |
+| agent_id | `ID!` |  |
+| tool_id | `ID!` |  |
+| enabled | `Boolean!` |  |
+| config | `Mixed` |  |
 ---
 
-### updateNervousSystemToolCategory
+### createNervousSystemToolCategory
 
 **Retorno:** `NervousSystemToolCategory!`
 
 | Argumento | Tipo                                    | Descripción |
 | :-------- | :-------------------------------------- | :---------- |
-| id        | `ID!`                                   |             |
-| input     | `UpdateNervousSystemToolCategoryInput!` |             |
+| input     | `CreateNervousSystemToolCategoryInput!` |             |
 
 ---
-### createNervousSystemPlan
-**Retorno:** `NervousSystemPlan!`
+### updateNervousSystemToolCategory
+**Retorno:** `NervousSystemToolCategory!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemPlanInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemToolCategoryInput!` |  |
 ---
 
-### updateNervousSystemPlan
+### createNervousSystemPlan
 
 **Retorno:** `NervousSystemPlan!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| id        | `ID!`                           |             |
-| input     | `UpdateNervousSystemPlanInput!` |             |
+| input     | `CreateNervousSystemPlanInput!` |             |
 
 ---
-### approveNervousSystemPlan
+### updateNervousSystemPlan
 **Retorno:** `NervousSystemPlan!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ApproveNervousSystemPlanInput!` |  |
+| input | `UpdateNervousSystemPlanInput!` |  |
 ---
 
+### approveNervousSystemPlan
+
+**Retorno:** `NervousSystemPlan!`
+
+| Argumento | Tipo                             | Descripción |
+| :-------- | :------------------------------- | :---------- |
+| id        | `ID!`                            |             |
+| input     | `ApproveNervousSystemPlanInput!` |             |
+
+---
 ### addTaskToNervousSystemPlan
-
-**Retorno:** `NervousSystemTask!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| plan_id   | `ID!`                     |             |
-| input     | `NervousSystemTaskInput!` |             |
-
----
-### updateNervousSystemTaskStatus
 **Retorno:** `NervousSystemTask!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemTaskStatusInput!` |  |
+| plan_id | `ID!` |  |
+| input | `NervousSystemTaskInput!` |  |
 ---
 
+### updateNervousSystemTaskStatus
+
+**Retorno:** `NervousSystemTask!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `UpdateNervousSystemTaskStatusInput!` |             |
+
+---
 ### deleteNervousSystemPlan
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### deleteNervousSystemTask
 
 **Retorno:** `Boolean!`
 
@@ -5386,12 +5409,4 @@ agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
----
-### deleteNervousSystemTask
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---

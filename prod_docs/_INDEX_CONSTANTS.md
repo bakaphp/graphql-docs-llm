@@ -4,6 +4,7 @@
 - [AffiliatePayoutStatusEnum](./AffiliatePayoutStatusEnum.md)
 - [AffiliateStatusEnum](./AffiliateStatusEnum.md)
 - [AffiliateTypeEnum](./AffiliateTypeEnum.md)
+- [AgentIntegrationConfigKey](./AgentIntegrationConfigKey.md)
 - [AgentProvider](./AgentProvider.md)
 - [AgentStatusEnum](./AgentStatusEnum.md)
 - [AnalyticsBucket](./AnalyticsBucket.md)

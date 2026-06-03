@@ -17,6 +17,7 @@
 | frameworks          | `Mixed!`                    |             |
 | version             | `String!`                   |             |
 | is_active           | `Boolean!`                  |             |
+| agent               | `AgentAi`                   |             |
 | agentTypes          | `[agentType!]!`             |             |
 | created_at          | `DateTime!`                 |             |
 | updated_at          | `DateTime`                  |             |
