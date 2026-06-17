@@ -7,6 +7,7 @@
 | id             | `ID!`                |             |
 | uuid           | `String!`            |             |
 | plan           | `NervousSystemPlan!` |             |
+| agent          | `AgentAi`            |             |
 | sequence       | `Int!`               |             |
 | title          | `String!`            |             |
 | description    | `String`             |             |

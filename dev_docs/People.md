@@ -22,6 +22,8 @@
 | address                 | `[Address!]!`                 |             |
 | created_at              | `DateTime!`                   |             |
 | updated_at              | `DateTime`                    |             |
+| first_message_at        | `DateTime`                    |             |
+| last_message_at         | `DateTime`                    |             |
 | photo                   | `Filesystem`                  |             |
 | employment_history      | `[PeopleEmploymentHistory!]`  |             |
 | files                   | `FilesystemPaginator!`        |             |

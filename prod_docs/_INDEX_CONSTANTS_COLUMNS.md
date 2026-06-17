@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (192)
+## Queries con enums de columnas (195)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -21,6 +21,7 @@ Deals, DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
 EventCategories, EventClasses, EventStatus, EventThemeAreas, EventThemes,
 EventTypes, EventVersionParticipants, EventVersions,
 EventVersionsEventStatusColumn, Events, EventsStatusColumn,
+ExportMechanicOrders, ExportMechanicOrdersOrderStatusColumn, ExportMechanics,
 ExportOrderTransitionHistory, ExportOrderTransitionHistoryFromStatusColumn,
 ExportOrderTransitionHistoryOrderTypeColumn,
 ExportOrderTransitionHistoryToStatusColumn, ExportOrders,

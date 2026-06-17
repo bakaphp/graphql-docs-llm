@@ -22,4 +22,5 @@ Allowed column names for Query.leads.where.
 | PEOPLE_ID             |             |
 | LEAD_TYPES_ID         |             |
 | STATUS                |             |
+| IS_PUBLISHED          |             |
 | CREATED_AT            |             |

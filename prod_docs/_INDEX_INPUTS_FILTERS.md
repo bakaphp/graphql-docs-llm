@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (194)
+## Queries con filtros (197)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -31,7 +31,8 @@ CompanyUsersUserRole, ContactType, CountUserReaction, Countries, Currencies,
 CustomFeedMessages, Deals, DiscountTypes, Discounts, Engagements, EntityFiles,
 EntityInteractions, EventCategories, EventClasses, EventStatus, EventThemeAreas,
 EventThemes, EventTypes, EventVersionParticipants, EventVersions,
-EventVersionsEventStatus, Events, EventsStatus, ExportOrderTransitionHistory,
+EventVersionsEventStatus, Events, EventsStatus, ExportMechanicOrders,
+ExportMechanicOrdersOrderStatus, ExportMechanics, ExportOrderTransitionHistory,
 ExportOrderTransitionHistoryFromStatus, ExportOrderTransitionHistoryOrderType,
 ExportOrderTransitionHistoryToStatus, ExportOrders, ExportOrdersOrderStatus,
 ExportOrdersOrderType, Facilitators, FilesystemImportHistory, FilesystemMappers,

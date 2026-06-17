@@ -10,3 +10,4 @@
 | status         | `String`  |             |
 | result         | `Mixed`   |             |
 | blocked_reason | `String`  |             |
+| agent_id       | `Int`     |             |

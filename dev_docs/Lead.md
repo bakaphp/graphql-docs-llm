@@ -31,6 +31,7 @@
 | systemModule  | `SystemModule`             |             |
 | events        | `[Event!]!`                |             |
 | channel_files | `LeadChannelFilesViewer!`  |             |
+| is_published  | `Boolean!`                 |             |
 | created_at    | `DateTime!`                |             |
 | updated_at    | `DateTime!`                |             |
 | ai_session    | `AIAgentSessionPaginator!` |             |

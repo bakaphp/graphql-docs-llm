@@ -37,6 +37,7 @@
 | last_state_changed_at | `DateTime`              |             |
 | latestDailyCycle      | `AgentDailyCycle`       |             |
 | dailyCycles           | `[AgentDailyCycle!]!`   |             |
+| monthly_usage         | `AgentMonthlyUsage!`    |             |
 | created_at            | `DateTime!`             |             |
 | updated_at            | `DateTime!`             |             |
 | files                 | `FilesystemPaginator!`  |             |
