@@ -10,6 +10,6 @@
 | name            | `String!`   |             |
 | verb            | `String!`   |             |
 | template        | `Mixed`     |             |
-| templates_plura | `String`    |             |
+| templates_plura | `Mixed`     |             |
 | created_at      | `DateTime!` |             |
 | updated_at      | `DateTime`  |             |

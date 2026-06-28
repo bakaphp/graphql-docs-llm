@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (141)
+## Entidades con paginador (158)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -27,7 +27,11 @@ OrderTransitionHistory, OrderType, Organization, OrganizationType, Participant,
 ParticipantPassMotive, ParticipantType, Payment, PaymentMethod, People,
 PeopleRelationship, PeopleType, Plan, Product, ProductType, Reaction,
 ReferralRedemption, Region, Role, ScheduleException, ScheduleHistory,
-ScheduleRules, SocialChannel, States, Status, SystemModule, Tag, TaskList,
+ScheduleRules, ScribeAccount, ScribeApprovalQueueItem, ScribeBankAccount,
+ScribeBill, ScribeDocumentSequence, ScribeExpense, ScribeFiscalPeriod,
+ScribeFxRate, ScribeInvoice, ScribeItem, ScribeJournalEntry, ScribePayment,
+ScribePaymentTerm, ScribePdfIngestLog, ScribeQuote, ScribeSalesReceipt,
+ScribeTaxCode, SocialChannel, States, Status, SystemModule, Tag, TaskList,
 TaskListItem, Template, TimeSlots, Topic, User, UserInteraction, UserList,
 UserReaction, Variant, VariantChannel, WalletTransaction, Warehouse,
 WorkflowAction, WorkflowIntegrationsHistory, WorkflowReceiver,

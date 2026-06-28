@@ -51,6 +51,7 @@
 | region                      | `Region`                    |             |
 | channel                     | `Channel`                   |             |
 | parent                      | `Order`                     |             |
+| children                    | `[Order!]!`                 |             |
 | order_status                | `OrderStatus`               |             |
 | payment_status              | `String`                    |             |
 | payments                    | `[Payment!]`                |             |

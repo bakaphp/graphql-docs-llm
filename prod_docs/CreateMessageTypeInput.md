@@ -8,4 +8,4 @@
 | name            | `String!` |             |
 | verb            | `String!` |             |
 | template        | `Mixed`   |             |
-| templates_plura | `String`  |             |
+| templates_plura | `Mixed`   |             |

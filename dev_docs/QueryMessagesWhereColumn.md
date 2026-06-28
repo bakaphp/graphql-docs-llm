@@ -24,3 +24,4 @@ Allowed column names for Query.messages.where.
 | TOTAL_VIEW       |             |
 | TOTAL_SHARED     |             |
 | IS_PUBLIC        |             |
+| IS_LOCKED        |             |
