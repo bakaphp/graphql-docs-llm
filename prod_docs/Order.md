@@ -44,6 +44,8 @@
 | metadata                    | `Mixed`                     |             |
 | reference                   | `String`                    |             |
 | private_metadata            | `Mixed`                     |             |
+| is_duplicate                | `Boolean!`                  |             |
+| duplicate_of_order_number   | `String`                    |             |
 | is_deleted                  | `Boolean!`                  |             |
 | created_at                  | `String!`                   |             |
 | updated_at                  | `String`                    |             |
@@ -63,6 +65,7 @@
 | shipping_address            | `Address`                   |             |
 | affiliate_conversion        | `[AffiliateConversion!]`    |             |
 | provider_companies          | `[Company!]!`               |             |
+| activityLogs                | `ActivityLogPaginator!`     |             |
 | custom_fields               | `CustomFieldPaginator!`     |             |
 | tags                        | `TagPaginator!`             |             |
 | files                       | `FilesystemPaginator!`      |             |

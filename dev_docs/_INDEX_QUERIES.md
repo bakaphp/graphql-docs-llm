@@ -81,6 +81,7 @@
 - [deals](./Query.md#deals)
 - [discounts](./Query.md#discounts)
 - [discountTypes](./Query.md#discounttypes)
+- [duplicateOrders](./Query.md#duplicateorders)
 - [engagementByFilter](./Query.md#engagementbyfilter)
 - [engagements](./Query.md#engagements)
 - [entityFiles](./Query.md#entityfiles)

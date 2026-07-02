@@ -267,6 +267,7 @@
 - [ReferralRedemption](./ReferralRedemption.md)
 - [ReferredUser](./ReferredUser.md)
 - [Region](./Region.md)
+- [RegionSettings](./RegionSettings.md)
 - [RegisterResponse](./RegisterResponse.md)
 - [RelatedEntity](./RelatedEntity.md)
 - [ResourceBookingDeleteResult](./ResourceBookingDeleteResult.md)

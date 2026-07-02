@@ -1340,107 +1340,127 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### createStatus
-**Retorno:** `Status!`
+### setDefaultRegion
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `StatusInput!` |  |
+| region_id | `ID!` |  |
 ---
 
-### updateStatus
+### createStatus
 
 **Retorno:** `Status!`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
 | input     | `StatusInput!` |             |
 
 ---
-### updateStatusTranslations
+### updateStatus
 **Retorno:** `Status!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `TranslationInput!` |  |
-| code | `String!` |  |
+| input | `StatusInput!` |  |
 ---
 
-### deleteStatus
+### updateStatusTranslations
 
+**Retorno:** `Status!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `TranslationInput!` |             |
+| code      | `String!`           |             |
+
+---
+### deleteStatus
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createVariant
+
+**Retorno:** `Variant`
+
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `VariantsInput!` |             |
 
 ---
-### createVariant
+### updateVariant
 **Retorno:** `Variant`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `VariantsInput!` |  |
+| input | `VariantsUpdateInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updateVariant
-
-**Retorno:** `Variant`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `VariantsUpdateInput!` |             |
-| id        | `ID!`                  |             |
-
----
 ### updateVariantTranslations
+
 **Retorno:** `Variant!`
 
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `VariantTranslationInput!` |             |
+| code      | `String`                   |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `VariantTranslationInput!` |  |
-| code | `String` |  |
 ---
-
 ### updateVariantAttributeTranslations
-
 **Retorno:** `VariantAttributesValue!`
 
-| Argumento    | Tipo      | Descripción |
-| :----------- | :-------- | :---------- |
-| variant_id   | `ID!`     |             |
-| attribute_id | `ID!`     |             |
-| code         | `String!` |             |
-| value        | `Mixed`   |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| variant_id | `ID!` |  |
+| attribute_id | `ID!` |  |
+| code | `String!` |  |
+| value | `Mixed` |  |
+---
+
+### uploadFileToVariant
+
+**Retorno:** `Product!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| file      | `Upload!` |             |
 
 ---
-### uploadFileToVariant
-**Retorno:** `Product!`
+### deleteVariant
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| file | `Upload!` |  |
 ---
 
-### deleteVariant
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### addAttributeToVariant
+
+**Retorno:** `Variant`
+
+| Argumento     | Tipo                       | Descripción |
+| :------------ | :------------------------- | :---------- |
+| id            | `ID!`                      |             |
+| attributes_id | `ID!`                      |             |
+| input         | `VariantsAttributesInput!` |             |
+
+---
+### removeAttributeToVariant
 **Retorno:** `Variant`
 
 
@@ -1448,32 +1468,9 @@ Upload a file that is publicly available.
 | :--- | :--- | :--- |
 | id | `ID!` |  |
 | attributes_id | `ID!` |  |
-| input | `VariantsAttributesInput!` |  |
 ---
 
-### removeAttributeToVariant
-
-**Retorno:** `Variant`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| id            | `ID!` |             |
-| attributes_id | `ID!` |             |
-
----
 ### addVariantToChannel
-**Retorno:** `Variant`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| variants_id | `ID!` |  |
-| channels_id | `ID!` |  |
-| warehouses_id | `ID!` |  |
-| input | `VariantChannelInput!` |  |
----
-
-### updateVariantInChannel
 
 **Retorno:** `Variant`
 
@@ -1485,7 +1482,7 @@ Upload a file that is publicly available.
 | input         | `VariantChannelInput!` |             |
 
 ---
-### removeVariantChannel
+### updateVariantInChannel
 **Retorno:** `Variant`
 
 
@@ -1494,19 +1491,21 @@ Upload a file that is publicly available.
 | variants_id | `ID!` |  |
 | channels_id | `ID!` |  |
 | warehouses_id | `ID!` |  |
+| input | `VariantChannelInput!` |  |
 ---
 
-### addVariantToWarehouse
+### removeVariantChannel
 
 **Retorno:** `Variant`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `WarehouseReferenceInput!` |             |
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| variants_id   | `ID!` |             |
+| channels_id   | `ID!` |             |
+| warehouses_id | `ID!` |             |
 
 ---
-### updateVariantInWarehouse
+### addVariantToWarehouse
 **Retorno:** `Variant`
 
 
@@ -1516,82 +1515,46 @@ Upload a file that is publicly available.
 | input | `WarehouseReferenceInput!` |  |
 ---
 
-### removeVariantToWarehouse
+### updateVariantInWarehouse
 
 **Retorno:** `Variant`
 
-| Argumento    | Tipo  | Descripción |
-| :----------- | :---- | :---------- |
-| id           | `ID!` |             |
-| warehouse_id | `ID!` |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `WarehouseReferenceInput!` |             |
 
 ---
+### removeVariantToWarehouse
+**Retorno:** `Variant`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| warehouse_id | `ID!` |  |
+---
+
 ### createWarehouse
+
 **Retorno:** `Warehouse!`
 
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `WarehouseInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `WarehouseInput!` |  |
 ---
-
 ### updateWarehouse
-
 **Retorno:** `Warehouse!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `WarehouseInputUpdate!` |             |
-| id        | `ID!`                   |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `WarehouseInputUpdate!` |  |
+| id | `ID!` |  |
 ---
+
 ### deleteWarehouse
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### enableCorporateMode
-
-**Retorno:** `CorporateOnboardingResult!`
-
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| input     | `CorporateOnboardingInput!` |             |
-
----
-### shopifySetup
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ShopifySetupInput!` |  |
----
-
-### createDeal
-
-**Retorno:** `Deal!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| input     | `DealInput!` |             |
-
----
-### updateDeal
-**Retorno:** `Deal!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateDealInput!` |  |
----
-
-### deleteDeal
 
 **Retorno:** `Boolean!`
 
@@ -1600,49 +1563,45 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### attachFileToDeal
+### enableCorporateMode
+**Retorno:** `CorporateOnboardingResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CorporateOnboardingInput!` |  |
+---
+
+### shopifySetup
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ShopifySetupInput!` |             |
+
+---
+### createDeal
 **Retorno:** `Deal!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| file | `Upload!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
+| input | `DealInput!` |  |
 ---
 
-### attachFilesToDeal
+### updateDeal
 
 **Retorno:** `Deal!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| file      | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
-
----
-### createLead
-**Retorno:** `Lead!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadInput!` |  |
----
-
-### updateLead
-
-**Retorno:** `Lead!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `LeadUpdateInput!` |             |
+| input     | `UpdateDealInput!` |             |
 
 ---
-### deleteLead
-**Retorno:** `Boolean`
+### deleteDeal
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1650,7 +1609,48 @@ Upload a file that is publicly available.
 | id | `ID!` |  |
 ---
 
-### restoreLead
+### attachFileToDeal
+
+**Retorno:** `Deal!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
+
+---
+### attachFilesToDeal
+**Retorno:** `Deal!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `[Upload!]!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### createLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `LeadInput!` |             |
+
+---
+### updateLead
+**Retorno:** `Lead!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadUpdateInput!` |  |
+---
+
+### deleteLead
 
 **Retorno:** `Boolean`
 
@@ -1659,16 +1659,16 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### addLeadParticipant
-**Retorno:** `Boolean!`
+### restoreLead
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LeadsParticipantsInput!` |  |
+| id | `ID!` |  |
 ---
 
-### removeLeadParticipant
+### addLeadParticipant
 
 **Retorno:** `Boolean!`
 
@@ -1677,16 +1677,16 @@ Upload a file that is publicly available.
 | input     | `LeadsParticipantsInput!` |             |
 
 ---
-### followLead
-**Retorno:** `Boolean`
+### removeLeadParticipant
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `FollowInput!` |  |
+| input | `LeadsParticipantsInput!` |  |
 ---
 
-### unFollowLead
+### followLead
 
 **Retorno:** `Boolean`
 
@@ -1695,37 +1695,55 @@ Upload a file that is publicly available.
 | input     | `FollowInput!` |             |
 
 ---
+### unFollowLead
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
 ### attachFileToLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
+
+---
+### attachFilesToLead
 **Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| file | `Upload!` |  |
+| file | `[Upload!]!` |  |
 | id | `ID!` |  |
 | params | `Mixed` |  |
 ---
 
-### attachFilesToLead
+### leadWonOrLost
 
 **Retorno:** `Lead!`
 
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| file      | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
+| Argumento   | Tipo              | Descripción |
+| :---------- | :---------------- | :---------- |
+| id          | `ID!`             |             |
+| status      | `LeadStatusEnum!` |             |
+| reason_lost | `String`          |             |
 
 ---
-### leadWonOrLost
-**Retorno:** `Lead!`
+### addMessageToLeadChannel
+**Retorno:** `Message!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| status | `LeadStatusEnum!` |  |
-| reason_lost | `String` |  |
+| input | `LeadMessageInput!` |  |
 ---
 
 ### createLeadReceiver
@@ -3070,25 +3088,29 @@ auto-resolve-vendor PDF-ingest flow.
 **Retorno:** `Boolean!`
 
 ---
-### createOrder
-**Retorno:** `Mixed!`
+### amendOrder
+**Retorno:** `Order!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `OrderInput!` |  |
+| order_id | `ID!` |  |
+| correction_type | `String!` |  |
+| reason | `String!` |  |
+| evidence_urls | `[String!]` |  |
+| data | `Mixed` |  |
 ---
 
+### createOrder
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo          | Descripción |
+| :-------- | :------------ | :---------- |
+| input     | `OrderInput!` |             |
+
+---
 ### createOrderFromCart
-
-**Retorno:** `OrderResult!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `OrderCartInput!` |             |
-
----
-### createOrderFromWalletCart
 **Retorno:** `OrderResult!`
 
 
@@ -3097,282 +3119,300 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `OrderCartInput!` |  |
 ---
 
-### createDraftOrder
+### createOrderFromWalletCart
 
-**Retorno:** `Order!`
+**Retorno:** `OrderResult!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `DraftOrderInput!` |             |
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `OrderCartInput!` |             |
 
 ---
-### updateDraftOrderStatus
+### createDraftOrder
 **Retorno:** `Order!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| order_id | `ID!` |  |
-| status | `OrderStatusEnum!` |  |
+| input | `DraftOrderInput!` |  |
 ---
 
+### updateDraftOrderStatus
+
+**Retorno:** `Order!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| order_id  | `ID!`              |             |
+| status    | `OrderStatusEnum!` |             |
+
+---
 ### updateOrder
+**Retorno:** `OrderResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateOrderInput!` |  |
+---
+
+### extendOrder
 
 **Retorno:** `OrderResult!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | id        | `ID!`               |             |
-| input     | `UpdateOrderInput!` |             |
+| input     | `ExtendOrderInput!` |             |
 
 ---
-### extendOrder
-**Retorno:** `OrderResult!`
+### deleteOrder
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ExtendOrderInput!` |  |
 ---
 
-### deleteOrder
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderFromAppleInAppPurchase
+
 **Retorno:** `Order!`
 
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `AppleInAppPurchaseReceipt!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AppleInAppPurchaseReceipt!` |  |
 ---
-
 ### createOrderFromGooglePlayInAppPurchase
-
 **Retorno:** `Order!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `GooglePlayInAppPurchaseReceipt!` |             |
-
----
-### processOrderPayment
-**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ProcessPaymentInput!` |  |
+| input | `GooglePlayInAppPurchaseReceipt!` |  |
 ---
 
-### importOrderCsv
+### processOrderPayment
 
-**Retorno:** `ImportOrderCsvResult!`
+**Retorno:** `PaymentResult!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `ImportOrderCsvInput!` |             |
+| input     | `ProcessPaymentInput!` |             |
 
 ---
+### importOrderCsv
+**Retorno:** `ImportOrderCsvResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ImportOrderCsvInput!` |  |
+---
+
 ### generateOrderPaymentIntent
+
+**Retorno:** `GeneratePaymentIntentResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| amount    | `Money!` |             |
+
+---
+### generatePaymentIntentFromOrder
 **Retorno:** `GeneratePaymentIntentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| amount | `Money!` |  |
+| orderId | `ID!` |  |
+| stripeVersion | `String` |  |
 ---
 
-### generatePaymentIntentFromOrder
-
-**Retorno:** `GeneratePaymentIntentResult!`
-
-| Argumento     | Tipo     | Descripción |
-| :------------ | :------- | :---------- |
-| orderId       | `ID!`    |             |
-| stripeVersion | `String` |             |
-
----
 ### transitionOrderStatus
+
 **Retorno:** `OrderStatusTransitionResult!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `TransitionOrderStatusInput!` |             |
+
+---
+### createOrderStatus
+**Retorno:** `OrderStatus!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TransitionOrderStatusInput!` |  |
+| input | `CreateOrderStatusInput!` |  |
 ---
 
-### createOrderStatus
+### updateOrderStatus
 
 **Retorno:** `OrderStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
-| input     | `CreateOrderStatusInput!` |             |
+| id        | `ID!`                     |             |
+| input     | `UpdateOrderStatusInput!` |             |
 
 ---
-### updateOrderStatus
-**Retorno:** `OrderStatus!`
+### deleteOrderStatus
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateOrderStatusInput!` |  |
 ---
 
-### deleteOrderStatus
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderType
-**Retorno:** `OrderType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateOrderTypeInput!` |  |
----
-
-### updateOrderType
 
 **Retorno:** `OrderType!`
 
 | Argumento | Tipo                    | Descripción |
 | :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `UpdateOrderTypeInput!` |             |
+| input     | `CreateOrderTypeInput!` |             |
 
 ---
-### deleteOrderType
-**Retorno:** `Boolean!`
+### updateOrderType
+**Retorno:** `OrderType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateOrderTypeInput!` |  |
 ---
 
-### generateCheckoutSession
+### deleteOrderType
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### generateCheckoutSession
 **Retorno:** `PaymentLinkResult!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| order_id  | `ID!`                     |             |
-| options   | `PaymentLinkOptionsInput` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| order_id | `ID!` |  |
+| options | `PaymentLinkOptionsInput` |  |
+---
+
+### sendOrderEmail
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| order_id  | `ID!`    |             |
+| template  | `String` |             |
 
 ---
-### sendOrderEmail
+### orderChangeCustomer
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | order_id | `ID!` |  |
-| template | `String` |  |
+| customer_id | `ID!` |  |
 ---
 
-### orderChangeCustomer
-
-**Retorno:** `Boolean!`
-
-| Argumento   | Tipo  | Descripción |
-| :---------- | :---- | :---------- |
-| order_id    | `ID!` |             |
-| customer_id | `ID!` |             |
-
----
 ### updateReferralCode
+
 **Retorno:** `ReferralCode!`
 
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `UpdateReferralCodeInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateReferralCodeInput!` |  |
 ---
-
 ### createPaymentMethod
-
-**Retorno:** `PaymentMethod!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `PaymentMethodInput!` |             |
-
----
-### updatePaymentMethod
 **Retorno:** `PaymentMethod!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PaymentMethodUpdateInput!` |  |
+| input | `PaymentMethodInput!` |  |
 ---
 
-### deletePaymentMethod
+### updatePaymentMethod
 
+**Retorno:** `PaymentMethod!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `PaymentMethodUpdateInput!` |             |
+
+---
+### deletePaymentMethod
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### activatePaymentMethod
-**Retorno:** `PaymentMethod!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| activation_code | `String!` |  |
 ---
 
+### activatePaymentMethod
+
+**Retorno:** `PaymentMethod!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| id              | `ID!`     |             |
+| activation_code | `String!` |             |
+
+---
 ### makePaymentIntent
+**Retorno:** `PaymentIntentResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentID | `ID!` |  |
+---
+
+### makePaymentIntentFromOrder
 
 **Retorno:** `PaymentIntentResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentID | `ID!` |             |
+| orderID   | `ID!` |             |
 
 ---
-### makePaymentIntentFromOrder
-**Retorno:** `PaymentIntentResult!`
+### addPaymentToOrder
+**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | orderID | `ID!` |  |
+| input | `PaymentInput!` |  |
 ---
 
-### addPaymentToOrder
-
-**Retorno:** `PaymentResult!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| orderID   | `ID!`           |             |
-| input     | `PaymentInput!` |             |
-
----
 ### initiatePayerAuthentication
+
 **Retorno:** `PayerAuthResponse!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| orderId   | `ID!` |             |
+
+---
+### completeDeviceData
+**Retorno:** `PayerAuthStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -3380,7 +3420,7 @@ auto-resolve-vendor PDF-ingest flow.
 | orderId | `ID!` |  |
 ---
 
-### completeDeviceData
+### validatePayerAuthResult
 
 **Retorno:** `PayerAuthStatus!`
 
@@ -3389,63 +3429,25 @@ auto-resolve-vendor PDF-ingest flow.
 | orderId   | `ID!` |             |
 
 ---
-### validatePayerAuthResult
-**Retorno:** `PayerAuthStatus!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderId | `ID!` |  |
----
-
 ### validatePayment
-
 **Retorno:** `PaymentValidationResult!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
-
----
-### validatePaymentByOrder
-**Retorno:** `PaymentValidationResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderId | `ID!` |  |
----
-
-### capturePayment
-
-**Retorno:** `PaymentActionResult!`
-
-| Argumento | Tipo    | Descripción |
-| :-------- | :------ | :---------- |
-| paymentId | `ID!`   |             |
-| amount    | `Float` |             |
-
----
-### reversePayment
-**Retorno:** `PaymentActionResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | paymentId | `ID!` |  |
-| reason | `String` |  |
 ---
 
-### processPayment
+### validatePaymentByOrder
 
-**Retorno:** `PaymentActionResult!`
+**Retorno:** `PaymentValidationResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
+| orderId   | `ID!` |             |
 
 ---
-### refundPayment
+### capturePayment
 **Retorno:** `PaymentActionResult!`
 
 
@@ -3455,104 +3457,161 @@ auto-resolve-vendor PDF-ingest flow.
 | amount | `Float` |  |
 ---
 
-### voidPayment
+### reversePayment
 
 **Retorno:** `PaymentActionResult!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| paymentId | `ID!`    |             |
+| reason    | `String` |             |
 
 ---
-### verifyPayment
-**Retorno:** `PaymentVerifyResult!`
+### processPayment
+**Retorno:** `PaymentActionResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID` |  |
-| paymentId | `ID` |  |
+| paymentId | `ID!` |  |
 ---
 
-### startPaymentChallenge
+### refundPayment
 
-**Retorno:** `ThreeDSChallengeResult!`
-
-| Argumento   | Tipo               | Descripción |
-| :---------- | :----------------- | :---------- |
-| paymentId   | `ID!`              |             |
-| browserInfo | `BrowserInfoInput` |             |
-
----
-### startPaymentChallengeWithCard
-**Retorno:** `ThreeDSChallengeResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderId | `ID!` |  |
-| paymentData | `StartChallengeCardInput!` |  |
----
-
-### finalizePaymentChallenge
-
-**Retorno:** `ThreeDSChallengeResult!`
+**Retorno:** `PaymentActionResult!`
 
 | Argumento | Tipo    | Descripción |
 | :-------- | :------ | :---------- |
 | paymentId | `ID!`   |             |
-| metadata  | `Mixed` |             |
+| amount    | `Float` |             |
 
 ---
+### voidPayment
+**Retorno:** `PaymentActionResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+---
+
+### verifyPayment
+
+**Retorno:** `PaymentVerifyResult!`
+
+| Argumento | Tipo | Descripción |
+| :-------- | :--- | :---------- |
+| orderId   | `ID` |             |
+| paymentId | `ID` |             |
+
+---
+### startPaymentChallenge
+**Retorno:** `ThreeDSChallengeResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| browserInfo | `BrowserInfoInput` |  |
+---
+
+### startPaymentChallengeWithCard
+
+**Retorno:** `ThreeDSChallengeResult!`
+
+| Argumento   | Tipo                       | Descripción |
+| :---------- | :------------------------- | :---------- |
+| orderId     | `ID!`                      |             |
+| paymentData | `StartChallengeCardInput!` |             |
+
+---
+### finalizePaymentChallenge
+**Retorno:** `ThreeDSChallengeResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| metadata | `Mixed` |  |
+---
+
 ### flushUserWallet
+
+**Retorno:** `WalletResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID!`    |             |
+| tag       | `String` |             |
+
+---
+### flushCompanyWallet
 **Retorno:** `WalletResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| user_id | `ID!` |  |
+| company_id | `ID!` |  |
 | tag | `String` |  |
 ---
 
-### flushCompanyWallet
+### refundOrderToWallet
 
 **Retorno:** `WalletResult!`
 
-| Argumento  | Tipo     | Descripción |
-| :--------- | :------- | :---------- |
-| company_id | `ID!`    |             |
-| tag        | `String` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `WalletRefundInput!` |             |
 
 ---
-### refundOrderToWallet
-**Retorno:** `WalletResult!`
+### createDiscount
+**Retorno:** `Discount!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `WalletRefundInput!` |  |
+| input | `DiscountInput!` |  |
 ---
 
-### createDiscount
+### updateDiscount
 
 **Retorno:** `Discount!`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `DiscountInput!` |             |
 
 ---
-### updateDiscount
-**Retorno:** `Discount!`
+### deleteDiscount
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `DiscountInput!` |  |
 ---
 
-### deleteDiscount
+### createAction
+
+**Retorno:** `Action!`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `ActionInput!` |             |
+
+---
+### updateAction
+**Retorno:** `Action!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateActionInput!` |  |
+---
+
+### deleteAction
 
 **Retorno:** `Boolean!`
 
@@ -3561,72 +3620,35 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
-### createAction
-**Retorno:** `Action!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ActionInput!` |  |
----
-
-### updateAction
-
-**Retorno:** `Action!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `UpdateActionInput!` |             |
-
----
-### deleteAction
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createCompanyAction
+**Retorno:** `CompanyAction!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateCompanyActionInput!` |  |
+---
+
+### updateCompanyAction
 
 **Retorno:** `CompanyAction!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `CreateCompanyActionInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `UpdateCompanyActionInput!` |             |
 
 ---
-### updateCompanyAction
-**Retorno:** `CompanyAction!`
+### deleteCompanyAction
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateCompanyActionInput!` |  |
 ---
 
-### deleteCompanyAction
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### startLeadEngagement
-**Retorno:** `Engagement!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateEngagementInput!` |  |
----
-
-### continueLeadEngagement
 
 **Retorno:** `Engagement!`
 
@@ -3635,92 +3657,73 @@ auto-resolve-vendor PDF-ingest flow.
 | input     | `CreateEngagementInput!` |             |
 
 ---
-### updateEngagement
+### continueLeadEngagement
 **Retorno:** `Engagement!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `ID!` |  |
-| input | `UpdateEngagementInput!` |  |
+| input | `CreateEngagementInput!` |  |
 ---
 
+### updateEngagement
+
+**Retorno:** `Engagement!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| uuid      | `ID!`                    |             |
+| input     | `UpdateEngagementInput!` |             |
+
+---
 ### createActionPipeline
+**Retorno:** `ActionPipeline!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreatePipelineInput!` |  |
+---
+
+### updateActionPipeline
 
 **Retorno:** `ActionPipeline!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `CreatePipelineInput!` |             |
+| id        | `ID!`                  |             |
+| input     | `UpdatePipelineInput!` |             |
 
 ---
-### updateActionPipeline
-**Retorno:** `ActionPipeline!`
+### deleteActionPipeline
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdatePipelineInput!` |  |
 ---
 
-### deleteActionPipeline
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createActionPipelineStage
-**Retorno:** `ActionPipelineStage!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreatePipelineStageInput!` |  |
----
-
-### updateActionPipelineStage
 
 **Retorno:** `ActionPipelineStage!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `UpdatePipelineStageInput!` |             |
+| input     | `CreatePipelineStageInput!` |             |
 
 ---
+### updateActionPipelineStage
+**Retorno:** `ActionPipelineStage!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePipelineStageInput!` |  |
+---
+
 ### deleteActionPipelineStage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createTaskList
-
-**Retorno:** `TaskList!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `TaskListInput!` |             |
-
----
-### updateTaskList
-**Retorno:** `TaskList!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateTaskListInput!` |  |
----
-
-### deleteTaskList
 
 **Retorno:** `Boolean!`
 
@@ -3729,26 +3732,26 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
-### createTaskListItem
-**Retorno:** `TaskListItem!`
+### createTaskList
+**Retorno:** `TaskList!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TaskListItemInput!` |  |
+| input | `TaskListInput!` |  |
 ---
 
-### updateTaskListItem
+### updateTaskList
 
-**Retorno:** `TaskListItem!`
+**Retorno:** `TaskList!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateTaskListItemInput!` |             |
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `UpdateTaskListInput!` |             |
 
 ---
-### deleteTaskListItem
+### deleteTaskList
 **Retorno:** `Boolean!`
 
 
@@ -3757,48 +3760,67 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### changeTaskEngagementItemStatus
+### createTaskListItem
 
-**Retorno:** `Boolean!`
+**Retorno:** `TaskListItem!`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| id         | `ID!`     |             |
-| lead_id    | `ID!`     |             |
-| status     | `String!` |             |
-| message_id | `ID`      |             |
-| config     | `Mixed`   |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `TaskListItemInput!` |             |
 
 ---
-### createApp
-**Retorno:** `App!`
+### updateTaskListItem
+**Retorno:** `TaskListItem!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AppInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateTaskListItemInput!` |  |
 ---
 
-### updateApp
+### deleteTaskListItem
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### changeTaskEngagementItemStatus
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| lead_id | `ID!` |  |
+| status | `String!` |  |
+| message_id | `ID` |  |
+| config | `Mixed` |  |
+---
+
+### createApp
 
 **Retorno:** `App!`
 
 | Argumento | Tipo        | Descripción |
 | :-------- | :---------- | :---------- |
-| id        | `String!`   |             |
 | input     | `AppInput!` |             |
 
 ---
-### deleteApp
+### updateApp
 **Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| input | `AppInput!` |  |
 ---
 
-### restoreApp
+### deleteApp
 
 **Retorno:** `App!`
 
@@ -3807,17 +3829,16 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `String!` |             |
 
 ---
-### assignCompanyToApp
-**Retorno:** `Company!`
+### restoreApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| companyId | `String!` |  |
 ---
 
-### removeCompanyToApp
+### assignCompanyToApp
 
 **Retorno:** `Company!`
 
@@ -3827,16 +3848,17 @@ auto-resolve-vendor PDF-ingest flow.
 | companyId | `String!` |             |
 
 ---
-### activateApp
-**Retorno:** `App!`
+### removeCompanyToApp
+**Retorno:** `Company!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| companyId | `String!` |  |
 ---
 
-### deactivateApp
+### activateApp
 
 **Retorno:** `App!`
 
@@ -3845,104 +3867,86 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `String!` |             |
 
 ---
-### saveAppSettings
-**Retorno:** `Mixed!`
+### deactivateApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `appSettingInput` |  |
 ---
 
+### saveAppSettings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| id        | `String!`         |             |
+| input     | `appSettingInput` |             |
+
+---
 ### addTemplateToApp
-
 **Retorno:** `AppTemplate`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `String!`           |             |
-| input     | `appTemplateInput!` |             |
-
----
-### appUserUpdatePassword
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `String!` |  |
-| password | `String!` |  |
+| id | `String!` |  |
+| input | `appTemplateInput!` |  |
 ---
 
-### appUserUpdateEmail
+### appUserUpdatePassword
 
 **Retorno:** `Boolean!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
 | uuid      | `String!` |             |
-| email     | `Email!`  |             |
+| password  | `String!` |             |
 
 ---
+### appUserUpdateEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
+| email | `Email!` |  |
+---
+
 ### saveS3Settings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `String!`                 |             |
+| input     | `s3FilesystemConfigInput` |             |
+
+---
+### saveGcsSettings
 **Retorno:** `Mixed!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `s3FilesystemConfigInput` |  |
+| input | `gcsFilesystemConfigInput` |  |
 ---
 
-### saveGcsSettings
-
-**Retorno:** `Mixed!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `String!`                  |             |
-| input     | `gcsFilesystemConfigInput` |             |
-
----
 ### updateAppLogo
+
 **Retorno:** `App!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| file      | `Upload!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
 ---
-
 ### setAppSetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteAppSetting
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| key | `String!` |  |
----
-
-### setCompanySetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteCompanySetting
 **Retorno:** `Boolean!`
 
 
@@ -3951,43 +3955,61 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `ModuleConfigInput!` |  |
 ---
 
-### appCreateUser
+### deleteAppSetting
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| key       | `String!` |             |
+
+---
+### setCompanySetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
+### deleteCompanySetting
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
+
+---
+### appCreateUser
 **Retorno:** `User!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| data      | `CreateUserInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `CreateUserInput!` |  |
 ---
+
 ### appDeleteUser
+
 **Retorno:** `Boolean`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| user_id   | `ID` |             |
 
+---
 ### appDeActiveUser
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo | Descripción |
-| :-------- | :--- | :---------- |
-| user_id   | `ID` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| user_id | `ID` |  |
 ---
+
 ### appActivateUser
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
-
-### appRestoreDeletedUser
 
 **Retorno:** `Boolean`
 
@@ -3996,36 +4018,36 @@ auto-resolve-vendor PDF-ingest flow.
 | user_id   | `ID` |             |
 
 ---
-### appResetUserPassword
+### appRestoreDeletedUser
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | user_id | `ID` |  |
-| password | `String` |  |
 ---
 
-### appUpdateUserDisplayname
+### appResetUserPassword
 
 **Retorno:** `Boolean`
 
-| Argumento   | Tipo     | Descripción |
-| :---------- | :------- | :---------- |
-| user_id     | `ID`     |             |
-| displayname | `String` |             |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID`     |             |
+| password  | `String` |             |
 
 ---
-### setUserSetting
-**Retorno:** `Boolean!`
+### appUpdateUserDisplayname
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ModuleConfigInput!` |  |
+| user_id | `ID` |  |
+| displayname | `String` |  |
 ---
 
-### deleteUserSetting
+### setUserSetting
 
 **Retorno:** `Boolean!`
 
@@ -4034,62 +4056,25 @@ auto-resolve-vendor PDF-ingest flow.
 | input     | `ModuleConfigInput!` |             |
 
 ---
+### deleteUserSetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
 ### integrationCompany
+
 **Retorno:** `IntegrationsCompanies!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationsCompaniesInput!` |  |
----
-
-### removeIntegrationCompany
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### integrationCompanyIsActive
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationCompanyActive!` |  |
----
-
-### integrationWorkflowRetry
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createReceiverWebhook
-**Retorno:** `WorkflowReceiver!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ReceiverWebhookInput!` |  |
----
-
-### updateReceiverWebhook
-
-**Retorno:** `WorkflowReceiver!`
 
 | Argumento | Tipo                          | Descripción |
 | :-------- | :---------------------------- | :---------- |
-| id        | `ID!`                         |             |
-| input     | `UpdateReceiverWebhookInput!` |             |
+| input     | `IntegrationsCompaniesInput!` |             |
 
 ---
-### deleteReceiverWebhook
+### removeIntegrationCompany
 **Retorno:** `Boolean!`
 
 
@@ -4098,7 +4083,44 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### retryWebhookCall
+### integrationCompanyIsActive
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `IntegrationCompanyActive!` |             |
+
+---
+### integrationWorkflowRetry
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createReceiverWebhook
+
+**Retorno:** `WorkflowReceiver!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ReceiverWebhookInput!` |             |
+
+---
+### updateReceiverWebhook
+**Retorno:** `WorkflowReceiver!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateReceiverWebhookInput!` |  |
+---
+
+### deleteReceiverWebhook
 
 **Retorno:** `Boolean!`
 
@@ -4107,99 +4129,44 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
+### retryWebhookCall
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### runWorkflowFromEntity
+
 **Retorno:** `Mixed`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `runWorkflowEntityInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `runWorkflowEntityInput!` |  |
 ---
-
 ### createRule
-
 **Retorno:** `WorkflowRule!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `CreateRuleInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateRuleInput!` |  |
 ---
+
 ### updateRule
+
 **Retorno:** `WorkflowRule!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateRuleInput!` |  |
----
-
-### deleteRule
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createSubscription
-**Retorno:** `CompanySubscription!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SubscriptionInput!` |  |
----
-
-### updateSubscription
-
-**Retorno:** `CompanySubscription!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `SubscriptionUpdateInput!` |             |
-
----
-### cancelSubscription
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### reactivateSubscription
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createPlan
-**Retorno:** `Plan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PlanInput!` |  |
----
-
-### updatePlan
-
-**Retorno:** `Plan!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `PlanUpdateInput!` |             |
+| input     | `UpdateRuleInput!` |             |
 
 ---
-### deletePlan
+### deleteRule
 **Retorno:** `Boolean!`
 
 
@@ -4208,45 +4175,25 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### createPrice
+### createSubscription
 
-**Retorno:** `Price!`
+**Retorno:** `CompanySubscription!`
 
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `PriceInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `SubscriptionInput!` |             |
 
 ---
-### updatePrice
-**Retorno:** `Price!`
+### updateSubscription
+**Retorno:** `CompanySubscription!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PriceUpdateInput!` |  |
+| input | `SubscriptionUpdateInput!` |  |
 ---
 
-### createEvent
-
-**Retorno:** `Event!`
-
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `EventInput!` |             |
-
----
-### updateEvent
-**Retorno:** `Event!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventUpdateInput!` |  |
----
-
-### deleteEvent
+### cancelSubscription
 
 **Retorno:** `Boolean!`
 
@@ -4255,44 +4202,7 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
-### followEvent
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowInput!` |  |
----
-
-### unFollowEvent
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `FollowInput!` |             |
-
----
-### createEventVersion
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventVersionInput!` |  |
----
-
-### updateEventVersion
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `EventVersionUpdateInput!` |             |
-
----
-### deleteEventVersion
+### reactivateSubscription
 **Retorno:** `Boolean!`
 
 
@@ -4301,7 +4211,82 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### followEventVersion
+### createPlan
+
+**Retorno:** `Plan!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `PlanInput!` |             |
+
+---
+### updatePlan
+**Retorno:** `Plan!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `PlanUpdateInput!` |  |
+---
+
+### deletePlan
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createPrice
+**Retorno:** `Price!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PriceInput!` |  |
+---
+
+### updatePrice
+
+**Retorno:** `Price!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `PriceUpdateInput!` |             |
+
+---
+### createEvent
+**Retorno:** `Event!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventInput!` |  |
+---
+
+### updateEvent
+
+**Retorno:** `Event!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `EventUpdateInput!` |             |
+
+---
+### deleteEvent
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### followEvent
 
 **Retorno:** `Boolean`
 
@@ -4310,7 +4295,7 @@ auto-resolve-vendor PDF-ingest flow.
 | input     | `FollowInput!` |             |
 
 ---
-### unFollowEventVersion
+### unFollowEvent
 **Retorno:** `Boolean`
 
 
@@ -4319,194 +4304,212 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `FollowInput!` |  |
 ---
 
+### createEventVersion
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `EventVersionInput!` |             |
+
+---
+### updateEventVersion
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventVersionUpdateInput!` |  |
+---
+
+### deleteEventVersion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### followEventVersion
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### unFollowEventVersion
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
 ### addEventVersionDate
+**Retorno:** `EventVersionDate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AddEventVersionDateInput!` |  |
+---
+
+### updateEventVersionDate
 
 **Retorno:** `EventVersionDate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateEventVersionDateInput!` |             |
+
+---
+### deleteEventVersionDate
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateEventVersionParticipant
+
+**Retorno:** `EventVersionParticipant!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `EventVersionParticipantUpdateInput!` |             |
+
+---
+### deleteEventVersionParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### bookTimeSlot
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `TimeSlotBookingInput!` |             |
+
+---
+### updateTimeSlotBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TimeSlotBookingUpdateInput!` |  |
+---
+
+### bookResource
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ResourceBookingInput!` |             |
+
+---
+### updateResourceBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceBookingUpdateInput!` |  |
+---
+
+### deleteResourceBooking
+
+**Retorno:** `ResourceBookingDeleteResult!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| event_version_id | `ID!` |             |
+
+---
+### createEventCategory
+**Retorno:** `EventCategory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventCategoryInput!` |  |
+---
+
+### updateEventCategory
+
+**Retorno:** `EventCategory!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `AddEventVersionDateInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `EventCategoryUpdateInput!` |             |
 
 ---
-### updateEventVersionDate
-**Retorno:** `EventVersionDate!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateEventVersionDateInput!` |  |
----
-
-### deleteEventVersionDate
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateEventVersionParticipant
-**Retorno:** `EventVersionParticipant!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventVersionParticipantUpdateInput!` |  |
----
-
-### deleteEventVersionParticipant
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### bookTimeSlot
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `TimeSlotBookingInput!` |  |
----
-
-### updateTimeSlotBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `TimeSlotBookingUpdateInput!` |             |
-
----
-### bookResource
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ResourceBookingInput!` |  |
----
-
-### updateResourceBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `ResourceBookingUpdateInput!` |             |
-
----
-### deleteResourceBooking
-**Retorno:** `ResourceBookingDeleteResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| event_version_id | `ID!` |  |
----
-
-### createEventCategory
-
-**Retorno:** `EventCategory!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `EventCategoryInput!` |             |
-
----
-### updateEventCategory
-**Retorno:** `EventCategory!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventCategoryUpdateInput!` |  |
----
-
 ### deleteEventCategory
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createEventType
+
 **Retorno:** `EventType!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
 ---
-
 ### updateEventType
-
 **Retorno:** `EventType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
+
 ### deleteEventType
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createEventClass
-
 **Retorno:** `EventClass!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `EventLookupInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
 ---
+
 ### updateEventClass
+
 **Retorno:** `EventClass!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventLookupUpdateInput!` |  |
----
-
-### deleteEventClass
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createEventStatus
-**Retorno:** `EventStatus!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
----
-
-### updateEventStatus
-
-**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -4514,7 +4517,7 @@ auto-resolve-vendor PDF-ingest flow.
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventStatus
+### deleteEventClass
 **Retorno:** `Boolean!`
 
 
@@ -4523,17 +4526,17 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### createEventTheme
+### createEventStatus
 
-**Retorno:** `EventTheme!`
+**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | input     | `EventLookupInput!` |             |
 
 ---
-### updateEventTheme
-**Retorno:** `EventTheme!`
+### updateEventStatus
+**Retorno:** `EventStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4542,7 +4545,7 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteEventTheme
+### deleteEventStatus
 
 **Retorno:** `Boolean!`
 
@@ -4551,8 +4554,8 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
-### createEventThemeArea
-**Retorno:** `EventThemeArea!`
+### createEventTheme
+**Retorno:** `EventTheme!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4560,9 +4563,9 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `EventLookupInput!` |  |
 ---
 
-### updateEventThemeArea
+### updateEventTheme
 
-**Retorno:** `EventThemeArea!`
+**Retorno:** `EventTheme!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -4570,7 +4573,7 @@ auto-resolve-vendor PDF-ingest flow.
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventThemeArea
+### deleteEventTheme
 **Retorno:** `Boolean!`
 
 
@@ -4579,26 +4582,26 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
-### createFacilitator
+### createEventThemeArea
 
-**Retorno:** `Facilitator!`
+**Retorno:** `EventThemeArea!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
-| input     | `FacilitatorInput!` |             |
+| input     | `EventLookupInput!` |             |
 
 ---
-### updateFacilitator
-**Retorno:** `Facilitator!`
+### updateEventThemeArea
+**Retorno:** `EventThemeArea!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `FacilitatorUpdateInput!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteFacilitator
+### deleteEventThemeArea
 
 **Retorno:** `Boolean!`
 
@@ -4607,8 +4610,45 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
+### createFacilitator
+**Retorno:** `Facilitator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FacilitatorInput!` |  |
+---
+
+### updateFacilitator
+
+**Retorno:** `Facilitator!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `FacilitatorUpdateInput!` |             |
+
+---
+### deleteFacilitator
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### attachFacilitatorToEventVersion
+
 **Retorno:** `EventVersionFacilitator!`
+
+| Argumento | Tipo                            | Descripción |
+| :-------- | :------------------------------ | :---------- |
+| input     | `FacilitatorEventVersionInput!` |             |
+
+---
+### detachFacilitatorFromEventVersion
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4616,54 +4656,36 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `FacilitatorEventVersionInput!` |  |
 ---
 
-### detachFacilitatorFromEventVersion
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                            | Descripción |
-| :-------- | :------------------------------ | :---------- |
-| input     | `FacilitatorEventVersionInput!` |             |
-
----
 ### createParticipant
+
 **Retorno:** `Participant!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `ParticipantInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ParticipantInput!` |  |
 ---
-
 ### updateParticipant
-
 **Retorno:** `Participant!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `ParticipantUpdateInput!` |             |
-
----
-### deleteParticipant
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ParticipantUpdateInput!` |  |
 ---
 
-### addPeopleToEventVersion
+### deleteParticipant
 
-**Retorno:** `Participant!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `PeopleEventVersionInput!` |             |
-
----
-### removePeopleInEventVersion
 **Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### addPeopleToEventVersion
+**Retorno:** `Participant!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4671,98 +4693,44 @@ auto-resolve-vendor PDF-ingest flow.
 | input | `PeopleEventVersionInput!` |  |
 ---
 
-### copyParticipantsToEventVersion
+### removePeopleInEventVersion
 
-**Retorno:** `Int!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `CopyParticipantsInput!` |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleEventVersionInput!` |             |
 
 ---
-### createParticipantType
-**Retorno:** `ParticipantType!`
+### copyParticipantsToEventVersion
+**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
+| input | `CopyParticipantsInput!` |  |
 ---
 
-### updateParticipantType
+### createParticipantType
 
 **Retorno:** `ParticipantType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
 ---
-### deleteParticipantType
-**Retorno:** `Boolean!`
+### updateParticipantType
+**Retorno:** `ParticipantType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### issueEventCode
-
-**Retorno:** `IssueCodeResponse!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `IssueEventCodeInput!` |             |
-
----
-### issueParticipantCode
-**Retorno:** `IssueParticipantCodeResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IssueParticipantCodeInput!` |  |
----
-
-### issueAllParticipantCodes
-
-**Retorno:** `IssueAllCodesResponse!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| input     | `IssueAllParticipantCodesInput!` |             |
-
----
-### checkInWithPin
-**Retorno:** `CheckInResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CheckInWithPinInput!` |  |
----
-
-### setResourceSchedule
-
-**Retorno:** `ResourceSchedule!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `ResourceScheduleInput!` |             |
-
----
-### createScheduleException
-**Retorno:** `ScheduleException!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScheduleExceptionInput!` |  |
----
-
-### deleteScheduleException
+### deleteParticipantType
 
 **Retorno:** `Boolean!`
 
@@ -4771,26 +4739,61 @@ auto-resolve-vendor PDF-ingest flow.
 | id        | `ID!` |             |
 
 ---
-### createScheduleRules
-**Retorno:** `ScheduleRules!`
+### issueEventCode
+**Retorno:** `IssueCodeResponse!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScheduleRulesInput!` |  |
+| input | `IssueEventCodeInput!` |  |
 ---
 
-### updateScheduleRules
+### issueParticipantCode
 
-**Retorno:** `ScheduleRules!`
+**Retorno:** `IssueParticipantCodeResponse!`
 
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `ScheduleRulesUpdateInput!` |             |
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `IssueParticipantCodeInput!` |             |
 
 ---
-### deleteScheduleRules
+### issueAllParticipantCodes
+**Retorno:** `IssueAllCodesResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `IssueAllParticipantCodesInput!` |  |
+---
+
+### checkInWithPin
+
+**Retorno:** `CheckInResponse!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `CheckInWithPinInput!` |             |
+
+---
+### setResourceSchedule
+**Retorno:** `ResourceSchedule!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceScheduleInput!` |  |
+---
+
+### createScheduleException
+
+**Retorno:** `ScheduleException!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScheduleExceptionInput!` |             |
+
+---
+### deleteScheduleException
 **Retorno:** `Boolean!`
 
 
@@ -4799,131 +4802,150 @@ auto-resolve-vendor PDF-ingest flow.
 | id | `ID!` |  |
 ---
 
+### createScheduleRules
+
+**Retorno:** `ScheduleRules!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScheduleRulesInput!` |             |
+
+---
+### updateScheduleRules
+**Retorno:** `ScheduleRules!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScheduleRulesUpdateInput!` |  |
+---
+
+### deleteScheduleRules
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createAiAgent
+**Retorno:** `AgentAi!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentAiInput!` |  |
+---
+
+### updateAiAgent
 
 **Retorno:** `AgentAi!`
 
 | Argumento | Tipo            | Descripción |
 | :-------- | :-------------- | :---------- |
+| id        | `ID!`           |             |
 | input     | `AgentAiInput!` |             |
 
 ---
-### updateAiAgent
-**Retorno:** `AgentAi!`
+### deleteAiAgent
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AgentAiInput!` |  |
 ---
 
-### deleteAiAgent
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### aiAgentCreateSession
+
+**Retorno:** `String!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentSessionInput!` |             |
+
+---
+### aiAgentChat
 **Retorno:** `String!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AgentSessionInput!` |  |
+| input | `ChatSimpleInput!` |  |
 ---
 
-### aiAgentChat
-
-**Retorno:** `String!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `ChatSimpleInput!` |             |
-
----
 ### aiAgentUserChat
+
 **Retorno:** `UserChatResponse!`
 
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `UserChatInput!` |             |
+
+---
+### setAgentIntegrationConfig
+**Retorno:** `AgentAi!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `UserChatInput!` |  |
+| input | `SetAgentIntegrationConfigInput!` |  |
 ---
 
-### setAgentIntegrationConfig
-
-**Retorno:** `AgentAi!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `SetAgentIntegrationConfigInput!` |             |
-
----
 ### setAgentKanvasModule
+
 **Retorno:** `AgentKanvasModule!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| agent_id         | `ID!`     |             |
+| kanvas_module_id | `ID!`     |             |
+| config           | `Mixed`   |             |
+| is_active        | `Boolean` |             |
+
+---
+### removeAgentKanvasModule
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
 | kanvas_module_id | `ID!` |  |
-| config | `Mixed` |  |
-| is_active | `Boolean` |  |
 ---
 
-### removeAgentKanvasModule
-
-**Retorno:** `Boolean!`
-
-| Argumento        | Tipo  | Descripción |
-| :--------------- | :---- | :---------- |
-| agent_id         | `ID!` |             |
-| kanvas_module_id | `ID!` |             |
-
----
 ### agentRuntimeCreateMachine
+
 **Retorno:** `AgentMachineType!`
 
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentMachineInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentMachineInput!` |  |
 ---
-
 ### agentRuntimeUpdateMachine
-
 **Retorno:** `AgentMachineType!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateAgentMachineInput!` |             |
-
----
-### agentRuntimeDeleteMachine
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateAgentMachineInput!` |  |
 ---
 
-### agentRuntimeUpdateMachineContainers
+### agentRuntimeDeleteMachine
 
 **Retorno:** `Boolean!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### agentRuntimePingMachine
-**Retorno:** `AgentMachineType!`
+### agentRuntimeUpdateMachineContainers
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4931,35 +4953,35 @@ auto-resolve-vendor PDF-ingest flow.
 | machine_id | `ID!` |  |
 ---
 
-### agentRuntimeBackupAgent
+### agentRuntimePingMachine
 
+**Retorno:** `AgentMachineType!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
+
+---
+### agentRuntimeBackupAgent
 **Retorno:** `AgentBackupType!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| deployment_id     | `ID!`     |             |
-| include_workspace | `Boolean` |             |
-
----
-### agentRuntimeLaunchAgent
-**Retorno:** `AgentDeploymentType!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LaunchAgentInput!` |  |
+| deployment_id | `ID!` |  |
+| include_workspace | `Boolean` |  |
 ---
 
+### agentRuntimeLaunchAgent
+
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
 ### agentRuntimeTerminateAgent
-
-**Retorno:** `Boolean!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeDeleteDeployment
 **Retorno:** `Boolean!`
 
 
@@ -4968,7 +4990,7 @@ auto-resolve-vendor PDF-ingest flow.
 | deployment_id | `ID!` |  |
 ---
 
-### agentRuntimeRestartContainer
+### agentRuntimeDeleteDeployment
 
 **Retorno:** `Boolean!`
 
@@ -4977,169 +4999,167 @@ auto-resolve-vendor PDF-ingest flow.
 | deployment_id | `ID!` |             |
 
 ---
+### agentRuntimeRestartContainer
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
 ### agentRuntimeContainerLogs
+
 **Retorno:** `String!`
 
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+| lines         | `Int` |             |
+
+---
+### agentRuntimeContainerStatus
+**Retorno:** `AgentDeploymentType!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| lines | `Int` |  |
 ---
 
-### agentRuntimeContainerStatus
+### agentRuntimeCollectUsage
 
-**Retorno:** `AgentDeploymentType!`
+**Retorno:** `AgentUsageSnapshot!`
 
 | Argumento     | Tipo  | Descripción |
 | :------------ | :---- | :---------- |
 | deployment_id | `ID!` |             |
 
 ---
-### agentRuntimeCollectUsage
-**Retorno:** `AgentUsageSnapshot!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
 ### agentRuntimeCollectSessionTranscripts
-
-**Retorno:** `Int!`\
-Pull conversation transcripts out of the deployment runtime and persist into
-agent_conversations / agent_conversation_messages. Returns the count of newly
-persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't
-support transcript collection throw a clear LogicException.
-
-| Argumento     | Tipo       | Descripción |
-| :------------ | :--------- | :---------- |
-| deployment_id | `ID!`      |             |
-| since         | `DateTime` |             |
-
----
-### agentRuntimeSyncKanban
-**Retorno:** `Boolean!`
-Mirror the deployment's runtime kanban board into NervousSystem plans/tasks (async). Returns true once the per-deployment sync job is queued. Routes via AgentRuntimeProviderFactory — runtimes without a kanban throw a clear LogicException when the job runs.
+**Retorno:** `Int!`
+Pull conversation transcripts out of the deployment runtime and persist into agent_conversations / agent_conversation_messages. Returns the count of newly persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't support transcript collection throw a clear LogicException.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
+| since | `DateTime` |  |
 ---
 
+### agentRuntimeSyncKanban
+
+**Retorno:** `Boolean!`\
+Mirror the deployment's runtime kanban board into NervousSystem plans/tasks
+(async). Returns true once the per-deployment sync job is queued. Routes via
+AgentRuntimeProviderFactory — runtimes without a kanban throw a clear
+LogicException when the job runs.
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
 ### agentRuntimeSetSlackTokens
-
-**Retorno:** `Boolean!`
-
-| Argumento       | Tipo      | Descripción |
-| :-------------- | :-------- | :---------- |
-| agent_id        | `ID!`     |             |
-| slack_bot_token | `String!` |             |
-| slack_app_token | `String!` |             |
-
----
-### agentRuntimeSetTelegramToken
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| telegram_bot_token | `String!` |  |
-| telegram_allowed_users | `String` |  |
+| slack_bot_token | `String!` |  |
+| slack_app_token | `String!` |  |
 ---
 
-### agentRuntimeMigrateAgentWorkspace
-
-**Retorno:** `AgentDeploymentType!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `MigrateAgentWorkspaceInput!` |             |
-
----
-### agentRuntimeMigrateAgentToProvider
-**Retorno:** `AgentDeploymentType!`
-Cross-runtime adoption — replaces the old per-provider migration mutations.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MigrateAgentToProviderInput!` |  |
----
-
-### agentRuntimeExecCommand
+### agentRuntimeSetTelegramToken
 
 **Retorno:** `Boolean!`
 
-| Argumento     | Tipo      | Descripción |
-| :------------ | :-------- | :---------- |
-| deployment_id | `ID!`     |             |
-| command       | `String!` |             |
-| session_id    | `String!` |             |
+| Argumento              | Tipo      | Descripción |
+| :--------------------- | :-------- | :---------- |
+| agent_id               | `ID!`     |             |
+| telegram_bot_token     | `String!` |             |
+| telegram_allowed_users | `String`  |             |
 
 ---
-### agentRuntimeGetConfig
-**Retorno:** `String!`
+### agentRuntimeMigrateAgentWorkspace
+**Retorno:** `AgentDeploymentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `MigrateAgentWorkspaceInput!` |  |
+---
+
+### agentRuntimeMigrateAgentToProvider
+
+**Retorno:** `AgentDeploymentType!`\
+Cross-runtime adoption — replaces the old per-provider migration mutations.
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| input     | `MigrateAgentToProviderInput!` |             |
+
+---
+### agentRuntimeExecCommand
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
+| command | `String!` |  |
+| session_id | `String!` |  |
 ---
 
+### agentRuntimeGetConfig
+
+**Retorno:** `String!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
 ### agentRuntimeUpdateConfig
-
 **Retorno:** `Boolean!`
-
-| Argumento     | Tipo      | Descripción |
-| :------------ | :-------- | :---------- |
-| deployment_id | `ID!`     |             |
-| config        | `String!` |             |
-
----
-### createAgentSwarm
-**Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AgentSwarmInput!` |  |
+| deployment_id | `ID!` |  |
+| config | `String!` |  |
 ---
 
-### updateAgentSwarm
+### createAgentSwarm
 
 **Retorno:** `AgentSwarm!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| id        | `ID!`                    |             |
-| input     | `UpdateAgentSwarmInput!` |             |
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `AgentSwarmInput!` |             |
 
 ---
-### deleteAgentSwarm
-**Retorno:** `Boolean!`
+### updateAgentSwarm
+**Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateAgentSwarmInput!` |  |
 ---
 
+### deleteAgentSwarm
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### addAgentToSwarm
-
 **Retorno:** `AgentSwarm!`
-
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
-
----
-### updateSwarmMember
-**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5150,102 +5170,88 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### removeAgentFromSwarm
+### updateSwarmMember
 
-**Retorno:** `AgentSwarm!`
+**Retorno:** `AgentSwarmMember!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| swarm_id  | `ID!` |             |
-| agent_id  | `ID!` |             |
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
 
 ---
-### setAgentSwarmBudget
-**Retorno:** `AgentSwarmBudgetSnapshot!`
-Create or update the monthly budget for a swarm. Idempotent — one budget per (swarm, period).
+### removeAgentFromSwarm
+**Retorno:** `AgentSwarm!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | swarm_id | `ID!` |  |
-| input | `SwarmBudgetInput!` |  |
+| agent_id | `ID!` |  |
 ---
 
+### setAgentSwarmBudget
+
+**Retorno:** `AgentSwarmBudgetSnapshot!`\
+Create or update the monthly budget for a swarm. Idempotent — one budget per
+(swarm, period).
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| swarm_id  | `ID!`               |             |
+| input     | `SwarmBudgetInput!` |             |
+
+---
 ### createAgentType
+**Retorno:** `agentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentTypeInput!` |  |
+---
+
+### updateAgentType
 
 **Retorno:** `agentType!`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
+| id        | `ID!`             |             |
 | input     | `AgentTypeInput!` |             |
 
 ---
-### updateAgentType
-**Retorno:** `agentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `AgentTypeInput!` |  |
----
-
 ### deleteAgentType
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createFollowUp
+
 **Retorno:** `FollowUp!`
 
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `FollowUpInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowUpInput!` |  |
 ---
-
 ### updateFollowUp
-
 **Retorno:** `FollowUp!`
 
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| id        | `ID!`                  |             |
-| input     | `UpdateFollowUpInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpInput!` |  |
 ---
+
 ### deleteFollowUp
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createFollowUpDay
-
-**Retorno:** `FollowUpDay!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `FollowUpDayInput!` |             |
-
----
-### updateFollowUpDay
-**Retorno:** `FollowUpDay!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateFollowUpDayInput!` |  |
----
-
-### deleteFollowUpDay
 
 **Retorno:** `Boolean!`
 
@@ -5254,26 +5260,26 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per (
 | id        | `ID!` |             |
 
 ---
-### createFollowUpTemplate
-**Retorno:** `FollowUpTemplate!`
+### createFollowUpDay
+**Retorno:** `FollowUpDay!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `FollowUpTemplateInput!` |  |
+| input | `FollowUpDayInput!` |  |
 ---
 
-### updateFollowUpTemplate
+### updateFollowUpDay
 
-**Retorno:** `FollowUpTemplate!`
+**Retorno:** `FollowUpDay!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| id        | `ID!`                          |             |
-| input     | `UpdateFollowUpTemplateInput!` |             |
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `UpdateFollowUpDayInput!` |             |
 
 ---
-### deleteFollowUpTemplate
+### deleteFollowUpDay
 **Retorno:** `Boolean!`
 
 
@@ -5282,101 +5288,138 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per (
 | id | `ID!` |  |
 ---
 
-### followUpLead
+### createFollowUpTemplate
 
-**Retorno:** `FollowUpLeadOutcome!`\
-Trigger an immediate follow-up for the given lead. Returns the outcome of the
-run so callers can render success/skipped/exhausted/completed.
+**Retorno:** `FollowUpTemplate!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `FollowUpTemplateInput!` |             |
+
+---
+### updateFollowUpTemplate
+**Retorno:** `FollowUpTemplate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpTemplateInput!` |  |
+---
+
+### deleteFollowUpTemplate
+
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| leadId    | `ID!` |             |
+| id        | `ID!` |             |
 
 ---
-### resetLeadFollowUp
-**Retorno:** `Boolean!`
-Full reset of the lead's follow_up_state custom field. Clears count,
-channels_used, last_at, last_template, exhausted_at, exhausted_reason —
-and resets stage_entered_at = now. Use when a lead is stuck after a
-bug or for operator-driven recovery.
+### followUpLead
+**Retorno:** `FollowUpLeadOutcome!`
+Trigger an immediate follow-up for the given lead. Returns the outcome
+of the run so callers can render success/skipped/exhausted/completed.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | leadId | `ID!` |  |
 ---
 
-### resumeLeadFollowUp
+### resetLeadFollowUp
 
 **Retorno:** `Boolean!`\
-Surgical reset: clears exhausted_at/reason + count + last_at, preserves other
-state keys (like stage_entered_at). Mirrors the inbound-reply re-engagement hook
-— use for "treat as if customer just replied".
+Full reset of the lead's follow_up_state custom field. Clears count,
+channels_used, last_at, last_template, exhausted_at, exhausted_reason — and
+resets stage_entered_at = now. Use when a lead is stuck after a bug or for
+operator-driven recovery.
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | leadId    | `ID!` |             |
 
 ---
-### createNervousSystemSkill
-**Retorno:** `NervousSystemSkill!`
-
+### resumeLeadFollowUp
+**Retorno:** `Boolean!`
+Surgical reset: clears exhausted_at/reason + count + last_at, preserves
+other state keys (like stage_entered_at). Mirrors the inbound-reply
+re-engagement hook — use for "treat as if customer just replied".
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemSkillInput!` |  |
+| leadId | `ID!` |  |
 ---
 
-### updateNervousSystemSkill
+### createNervousSystemSkill
 
 **Retorno:** `NervousSystemSkill!`
 
 | Argumento | Tipo                             | Descripción |
 | :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdateNervousSystemSkillInput!` |             |
+| input     | `CreateNervousSystemSkillInput!` |             |
 
 ---
-### createNervousSystemTool
-**Retorno:** `NervousSystemTool!`
+### updateNervousSystemSkill
+**Retorno:** `NervousSystemSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemToolInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemSkillInput!` |  |
 ---
 
-### updateNervousSystemTool
+### createNervousSystemTool
 
 **Retorno:** `NervousSystemTool!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| id        | `ID!`                           |             |
-| input     | `UpdateNervousSystemToolInput!` |             |
+| input     | `CreateNervousSystemToolInput!` |             |
 
 ---
+### updateNervousSystemTool
+**Retorno:** `NervousSystemTool!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemToolInput!` |  |
+---
+
 ### grantNervousSystemSkill
+
+**Retorno:** `NervousSystemAgentSkill!`
+
+| Argumento | Tipo                                 | Descripción |
+| :-------- | :----------------------------------- | :---------- |
+| skill_id  | `ID!`                                |             |
+| input     | `GrantNervousSystemCapabilityInput!` |             |
+
+---
+### revokeNervousSystemSkill
 **Retorno:** `NervousSystemAgentSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| skill_id | `ID!` |  |
-| input | `GrantNervousSystemCapabilityInput!` |  |
+| grant_id | `ID!` |  |
+| reason | `String` |  |
 ---
 
-### revokeNervousSystemSkill
-
-**Retorno:** `NervousSystemAgentSkill!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| grant_id  | `ID!`    |             |
-| reason    | `String` |             |
-
----
 ### attachNervousSystemToolToAgentType
+
 **Retorno:** `NervousSystemTool!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| tool_id       | `ID!` |             |
+| agent_type_id | `ID!` |             |
+
+---
+### detachNervousSystemToolFromAgentType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5385,106 +5428,89 @@ state keys (like stage_entered_at). Mirrors the inbound-reply re-engagement hook
 | agent_type_id | `ID!` |  |
 ---
 
-### detachNervousSystemToolFromAgentType
+### setNervousSystemAgentTool
 
-**Retorno:** `Boolean!`
+**Retorno:** `NervousSystemAgentTool`\
+Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
+agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| tool_id       | `ID!` |             |
-| agent_type_id | `ID!` |             |
+| Argumento | Tipo       | Descripción |
+| :-------- | :--------- | :---------- |
+| agent_id  | `ID!`      |             |
+| tool_id   | `ID!`      |             |
+| enabled   | `Boolean!` |             |
+| config    | `Mixed`    |             |
 
 ---
-### setNervousSystemAgentTool
-**Retorno:** `NervousSystemAgentTool`
-Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
+### createNervousSystemToolCategory
+**Retorno:** `NervousSystemToolCategory!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| agent_id | `ID!` |  |
-| tool_id | `ID!` |  |
-| enabled | `Boolean!` |  |
-| config | `Mixed` |  |
+| input | `CreateNervousSystemToolCategoryInput!` |  |
 ---
 
-### createNervousSystemToolCategory
+### updateNervousSystemToolCategory
 
 **Retorno:** `NervousSystemToolCategory!`
 
 | Argumento | Tipo                                    | Descripción |
 | :-------- | :-------------------------------------- | :---------- |
-| input     | `CreateNervousSystemToolCategoryInput!` |             |
+| id        | `ID!`                                   |             |
+| input     | `UpdateNervousSystemToolCategoryInput!` |             |
 
 ---
-### updateNervousSystemToolCategory
-**Retorno:** `NervousSystemToolCategory!`
+### createNervousSystemPlan
+**Retorno:** `NervousSystemPlan!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemToolCategoryInput!` |  |
+| input | `CreateNervousSystemPlanInput!` |  |
 ---
 
-### createNervousSystemPlan
+### updateNervousSystemPlan
 
 **Retorno:** `NervousSystemPlan!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| input     | `CreateNervousSystemPlanInput!` |             |
+| id        | `ID!`                           |             |
+| input     | `UpdateNervousSystemPlanInput!` |             |
 
 ---
-### updateNervousSystemPlan
-**Retorno:** `NervousSystemPlan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemPlanInput!` |  |
----
-
 ### approveNervousSystemPlan
-
 **Retorno:** `NervousSystemPlan!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `ApproveNervousSystemPlanInput!` |             |
-
----
-### addTaskToNervousSystemPlan
-**Retorno:** `NervousSystemTask!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| plan_id | `ID!` |  |
-| input | `NervousSystemTaskInput!` |  |
----
-
-### updateNervousSystemTaskStatus
-
-**Retorno:** `NervousSystemTask!`
-
-| Argumento | Tipo                                  | Descripción |
-| :-------- | :------------------------------------ | :---------- |
-| id        | `ID!`                                 |             |
-| input     | `UpdateNervousSystemTaskStatusInput!` |             |
-
----
-### deleteNervousSystemPlan
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ApproveNervousSystemPlanInput!` |  |
 ---
 
-### deleteNervousSystemTask
+### addTaskToNervousSystemPlan
+
+**Retorno:** `NervousSystemTask!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| plan_id   | `ID!`                     |             |
+| input     | `NervousSystemTaskInput!` |             |
+
+---
+### updateNervousSystemTaskStatus
+**Retorno:** `NervousSystemTask!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemTaskStatusInput!` |  |
+---
+
+### deleteNervousSystemPlan
 
 **Retorno:** `Boolean!`
 
@@ -5493,343 +5519,361 @@ Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
 | id        | `ID!` |             |
 
 ---
-### createScribeBankAccount
-**Retorno:** `ScribeBankAccount!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeBankAccountInput!` |  |
----
-
-### createScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `ScribeBillInput!` |             |
-
----
-### updateScribeBill
-**Retorno:** `ScribeBill!`
+### deleteNervousSystemTask
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+---
+
+### createScribeBankAccount
+
+**Retorno:** `ScribeBankAccount!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScribeBankAccountInput!` |             |
+
+---
+### createScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
 | input | `ScribeBillInput!` |  |
 ---
 
-### receiveScribeBill
+### updateScribeBill
 
 **Retorno:** `ScribeBill!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### voidScribeBill
-**Retorno:** `ScribeBill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| void_reason_code | `String!` |  |
----
-
-### allocateScribeBillPayment
-
-**Retorno:** `ScribeBillPaymentAllocation!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| id        | `ID!`                         |             |
-| input     | `ScribeAllocatePaymentInput!` |             |
-
----
-### markScribeBillPaid
-**Retorno:** `ScribeBill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `ScribeExpenseInput!` |             |
-
----
-### updateScribeExpense
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeExpenseInput!` |  |
----
-
-### submitScribeExpenseForApproval
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### approveScribeExpense
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### rejectScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| id        | `ID!`    |             |
-| reason    | `String` |             |
-
----
-### voidScribeExpense
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| void_reason_code | `String!` |  |
----
-
-### recordScribeExpenseReimbursement
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento                | Tipo  | Descripción |
-| :----------------------- | :---- | :---------- |
-| id                       | `ID!` |             |
-| reimbursement_payment_id | `Int` |             |
-
----
-### attachScribeExpenseReceipt
-**Retorno:** `ScribeExpenseReceipt!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAttachExpenseReceiptInput!` |  |
----
-
-### createScribeInvoice
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `ScribeInvoiceInput!` |             |
-
----
-### updateScribeInvoice
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeInvoiceInput!` |  |
----
-
-### issueScribeInvoice
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### voidScribeInvoice
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| void_reason_code | `String!` |  |
----
-
-### allocateScribeInvoicePayment
-
-**Retorno:** `ScribeInvoicePaymentAllocation!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| id        | `ID!`                         |             |
-| input     | `ScribeAllocatePaymentInput!` |             |
-
----
-### markScribeInvoicePaid
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeMarkInvoicePaidInput` |  |
----
-
-### issueScribeCreditNote
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento         | Tipo                  | Descripción |
-| :---------------- | :-------------------- | :---------- |
-| parent_invoice_id | `ID!`                 |             |
-| input             | `ScribeInvoiceInput!` |             |
-
----
-### amendScribeInvoice
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAmendInvoiceInput!` |  |
----
-
-### createScribeAccount
-
-**Retorno:** `ScribeAccount!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `ScribeAccountInput!` |             |
-
----
-### updateScribeAccount
-**Retorno:** `ScribeAccount!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAccountInput!` |  |
----
-
-### openScribeFiscalPeriod
-
-**Retorno:** `ScribeFiscalPeriod!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `ScribeFiscalPeriodInput!` |             |
-
----
-### closeScribeFiscalPeriod
-**Retorno:** `ScribeFiscalPeriod!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| hard | `Boolean` |  |
-| close_notes | `String` |  |
----
-
-### reopenScribeFiscalPeriod
-
-**Retorno:** `ScribeFiscalPeriod!`
-
-| Argumento    | Tipo     | Descripción |
-| :----------- | :------- | :---------- |
-| id           | `ID!`    |             |
-| reopen_notes | `String` |             |
-
----
-### createScribeItem
-**Retorno:** `ScribeItem!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeItemInput!` |  |
----
-
-### updateScribeItem
-
-**Retorno:** `ScribeItem!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `ScribeItemInput!` |             |
+| input     | `ScribeBillInput!` |             |
 
 ---
-### createScribeTaxCode
-**Retorno:** `ScribeTaxCode!`
+### receiveScribeBill
+**Retorno:** `ScribeBill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeTaxCodeInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updateScribeTaxCode
+### voidScribeBill
+
+**Retorno:** `ScribeBill!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| id               | `ID!`     |             |
+| void_reason_code | `String!` |             |
+
+---
+### allocateScribeBillPayment
+**Retorno:** `ScribeBillPaymentAllocation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeAllocatePaymentInput!` |  |
+---
+
+### markScribeBillPaid
+
+**Retorno:** `ScribeBill!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeExpenseInput!` |  |
+---
+
+### updateScribeExpense
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `ScribeExpenseInput!` |             |
+
+---
+### submitScribeExpenseForApproval
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### approveScribeExpense
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### rejectScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| reason | `String` |  |
+---
+
+### voidScribeExpense
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| id               | `ID!`     |             |
+| void_reason_code | `String!` |             |
+
+---
+### recordScribeExpenseReimbursement
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| reimbursement_payment_id | `Int` |  |
+---
+
+### attachScribeExpenseReceipt
+
+**Retorno:** `ScribeExpenseReceipt!`
+
+| Argumento | Tipo                               | Descripción |
+| :-------- | :--------------------------------- | :---------- |
+| id        | `ID!`                              |             |
+| input     | `ScribeAttachExpenseReceiptInput!` |             |
+
+---
+### createScribeInvoice
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeInvoiceInput!` |  |
+---
+
+### updateScribeInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `ScribeInvoiceInput!` |             |
+
+---
+### issueScribeInvoice
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### voidScribeInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| id               | `ID!`     |             |
+| void_reason_code | `String!` |             |
+
+---
+### allocateScribeInvoicePayment
+**Retorno:** `ScribeInvoicePaymentAllocation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeAllocatePaymentInput!` |  |
+---
+
+### markScribeInvoicePaid
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| id        | `ID!`                        |             |
+| input     | `ScribeMarkInvoicePaidInput` |             |
+
+---
+### issueScribeCreditNote
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| parent_invoice_id | `ID!` |  |
+| input | `ScribeInvoiceInput!` |  |
+---
+
+### amendScribeInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `ScribeAmendInvoiceInput!` |             |
+
+---
+### createScribeAccount
+**Retorno:** `ScribeAccount!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeAccountInput!` |  |
+---
+
+### updateScribeAccount
+
+**Retorno:** `ScribeAccount!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `ScribeAccountInput!` |             |
+
+---
+### openScribeFiscalPeriod
+**Retorno:** `ScribeFiscalPeriod!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeFiscalPeriodInput!` |  |
+---
+
+### closeScribeFiscalPeriod
+
+**Retorno:** `ScribeFiscalPeriod!`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| id          | `ID!`     |             |
+| hard        | `Boolean` |             |
+| close_notes | `String`  |             |
+
+---
+### reopenScribeFiscalPeriod
+**Retorno:** `ScribeFiscalPeriod!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| reopen_notes | `String` |  |
+---
+
+### createScribeItem
+
+**Retorno:** `ScribeItem!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `ScribeItemInput!` |             |
+
+---
+### updateScribeItem
+**Retorno:** `ScribeItem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeItemInput!` |  |
+---
+
+### createScribeTaxCode
 
 **Retorno:** `ScribeTaxCode!`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `ScribeTaxCodeInput!` |             |
 
 ---
-### createScribePaymentTerm
-**Retorno:** `ScribePaymentTerm!`
+### updateScribeTaxCode
+**Retorno:** `ScribeTaxCode!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribePaymentTermInput!` |  |
+| id | `ID!` |  |
+| input | `ScribeTaxCodeInput!` |  |
 ---
 
-### updateScribePaymentTerm
+### createScribePaymentTerm
 
 **Retorno:** `ScribePaymentTerm!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
 | input     | `ScribePaymentTermInput!` |             |
 
 ---
+### updateScribePaymentTerm
+**Retorno:** `ScribePaymentTerm!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribePaymentTermInput!` |  |
+---
+
 ### createScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `ScribeQuoteInput!` |             |
+
+---
+### sendScribeQuote
 **Retorno:** `ScribeQuote!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeQuoteInput!` |  |
+| id | `ID!` |  |
 ---
 
-### sendScribeQuote
+### acceptScribeQuote
 
 **Retorno:** `ScribeQuote!`
 
@@ -5838,68 +5882,60 @@ Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
 | id        | `ID!` |             |
 
 ---
-### acceptScribeQuote
-**Retorno:** `ScribeQuote!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### rejectScribeQuote
-
-**Retorno:** `ScribeQuote!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| id        | `ID!`    |             |
-| reason    | `String` |             |
-
----
-### expireScribeQuote
 **Retorno:** `ScribeQuote!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| reason | `String` |  |
 ---
 
-### createScribeQuoteRevision
+### expireScribeQuote
 
 **Retorno:** `ScribeQuote!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `ScribeQuoteInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
+### createScribeQuoteRevision
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeQuoteInput!` |  |
+---
+
 ### convertScribeQuoteToInvoice
+
 **Retorno:** `ScribeInvoice!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createScribeSalesReceipt
-
-**Retorno:** `ScribeSalesReceipt!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `ScribeSalesReceiptInput!` |             |
-
----
-### voidScribeSalesReceipt
 **Retorno:** `ScribeSalesReceipt!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| void_reason_code | `String!` |  |
+| input | `ScribeSalesReceiptInput!` |  |
+---
+
+### voidScribeSalesReceipt
+
+**Retorno:** `ScribeSalesReceipt!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| id               | `ID!`     |             |
+| void_reason_code | `String!` |             |
+
 ---

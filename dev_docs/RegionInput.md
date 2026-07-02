@@ -11,3 +11,5 @@
 | short_slug   | `String!` |             |
 | settings     | `String`  |             |
 | is_default   | `Int!`    |             |
+| lat          | `Float`   |             |
+| lng          | `Float`   |             |

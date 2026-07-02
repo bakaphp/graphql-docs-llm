@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (213)
+## Queries con enums de columnas (215)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -17,9 +17,9 @@ Cities, Comments, Companies, CompanyActions, CompanyBranchCustomFields,
 CompanyBranchUsers, CompanyCustomFields, CompanyKanvasModules,
 CompanyReviewTypes, CompanySubscriptions, CompanyUsersUserRoleColumn,
 ContactType, CountUserReaction, Countries, Currencies, CustomFeedMessages,
-Deals, DiscountTypes, Discounts, Engagements, EntityFiles, EntityInteractions,
-EventCategories, EventClasses, EventStatus, EventThemeAreas, EventThemes,
-EventTypes, EventVersionParticipants, EventVersions,
+Deals, DiscountTypes, Discounts, DuplicateOrders, Engagements, EntityFiles,
+EntityInteractions, EventCategories, EventClasses, EventStatus, EventThemeAreas,
+EventThemes, EventTypes, EventVersionParticipants, EventVersions,
 EventVersionsEventStatusColumn, Events, EventsStatusColumn,
 ExportMechanicOrders, ExportMechanicOrdersOrderStatusColumn, ExportMechanics,
 ExportOrderTransitionHistory, ExportOrderTransitionHistoryFromStatusColumn,
@@ -37,8 +37,8 @@ Mechanic, MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics,
 MessageChildren, MessageTypes, Messages, MessagesGroupByDate,
 MessagesLikedByUser, NervousSystemPlans, NervousSystemSkills,
 NervousSystemToolCategories, NervousSystemTools, NotificationChannels,
-NotificationSettings, NotificationTypes, Notifications, OrderStatus,
-OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
+NotificationSettings, NotificationTypes, Notifications, OrderActivityLogs,
+OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
 OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
 OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatusColumn,
@@ -69,6 +69,8 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 - [CompanyCustomFieldsOrderByColumn](./CompanyCustomFieldsOrderByColumn.md)
 - [MechanicWhereColumn](./MechanicWhereColumn.md)
 - [MessageChildrenOrderByColumn](./MessageChildrenOrderByColumn.md)
+- [OrderActivityLogsOrderByColumn](./OrderActivityLogsOrderByColumn.md)
+- [OrderActivityLogsWhereColumn](./OrderActivityLogsWhereColumn.md)
 - [OrderTypeStatusesOrderByColumn](./OrderTypeStatusesOrderByColumn.md)
 - [TagChildrenOrderByColumn](./TagChildrenOrderByColumn.md)
 - [UserCustomFieldsOrderByColumn](./UserCustomFieldsOrderByColumn.md)

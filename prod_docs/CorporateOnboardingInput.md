@@ -11,3 +11,4 @@
 | contact_role    | `String`  |             |
 | contact_email   | `String!` |             |
 | contact_phone   | `String`  |             |
+| region_id       | `ID`      |             |

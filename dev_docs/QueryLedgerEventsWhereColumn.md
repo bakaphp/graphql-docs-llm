@@ -4,16 +4,18 @@ Allowed column names for Query.ledgerEvents.where.
 
 ## Valores
 
-| Valor              | Descripción |
-| :----------------- | :---------- |
-| SOURCE_DOMAIN      |             |
-| EVENT_TYPE         |             |
-| SOURCE_ENTITY_TYPE |             |
-| SOURCE_ENTITY_ID   |             |
-| STATUS             |             |
-| CATEGORY           |             |
-| CORRELATION_ID     |             |
-| CAUSATION_ID       |             |
-| ACTOR_TYPE         |             |
-| ACTOR_ID           |             |
-| OCCURRED_AT        |             |
+| Valor                 | Descripción |
+| :-------------------- | :---------- |
+| SOURCE_DOMAIN         |             |
+| EVENT_TYPE            |             |
+| SOURCE_ENTITY_TYPE    |             |
+| SOURCE_ENTITY_ID      |             |
+| STATUS                |             |
+| CATEGORY              |             |
+| CORRELATION_ID        |             |
+| CAUSATION_ID          |             |
+| ACTOR_TYPE            |             |
+| ACTOR_ID              |             |
+| OCCURRED_AT           |             |
+| CHANGE_COUNT          |             |
+| MATERIAL_CHANGE_COUNT |             |
