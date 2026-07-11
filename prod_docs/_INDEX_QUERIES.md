@@ -284,6 +284,7 @@
 - [warehouses](./Query.md#warehouses)
 - [warehousesByChannel](./Query.md#warehousesbychannel)
 - [warehouseVariants](./Query.md#warehousevariants)
+- [whatsappConnectionStatus](./Query.md#whatsappconnectionstatus)
 - [workflowIntegrationsHistory](./Query.md#workflowintegrationshistory)
 - [workflowReceiverHistory](./Query.md#workflowreceiverhistory)
 - [workflowStatus](./Query.md#workflowstatus)

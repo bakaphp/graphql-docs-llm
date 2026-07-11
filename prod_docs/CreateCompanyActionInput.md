@@ -9,6 +9,7 @@
 | description  | `String`  |             |
 | form_config  | `Mixed`   |             |
 | config       | `Mixed`   |             |
+| pdf_config   | `Mixed`   |             |
 | is_active    | `Boolean` |             |
 | is_published | `Boolean` |             |
 | weight       | `Float`   |             |

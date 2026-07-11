@@ -11,5 +11,6 @@
 | event        | `String`    |             |
 | entity_id    | `Int`       |             |
 | causer_id    | `Int!`      |             |
+| user         | `User`      |             |
 | properties   | `Mixed`     |             |
 | created_at   | `DateTime!` |             |

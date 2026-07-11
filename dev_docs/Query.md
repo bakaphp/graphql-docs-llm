@@ -250,35 +250,30 @@
 | orderBy | `[QueryExportMechanicsOrderByOrderByClause!]` |  |
 ---
 
-### productAdminDashboard
+### whatsappConnectionStatus
 
-**Retorno:** `adminProductDashboard!`
+**Retorno:** `String!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| session_id | `ID!` |             |
 
 ---
+### productAdminDashboard
+**Retorno:** `adminProductDashboard!`
+---
+
 ### deal
+
 **Retorno:** `Deal`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| id        | `ID` |             |
 
+---
 ### dealAnalytics
-
 **Retorno:** `DealAnalytics!`
-
-| Argumento   | Tipo              | Descripción |
-| :---------- | :---------------- | :---------- |
-| from        | `Date`            |             |
-| to          | `Date`            |             |
-| bucket      | `AnalyticsBucket` |             |
-| timezone    | `String`          |             |
-| pipeline_id | `ID`              |             |
-
----
-### leadAnalytics
-**Retorno:** `LeadAnalytics!`
 
 
 | Argumento | Tipo | Descripción |
@@ -290,49 +285,53 @@
 | pipeline_id | `ID` |  |
 ---
 
-### findGuildOrganizationDuplicates
+### leadAnalytics
 
-**Retorno:** `[GuildOrganizationDuplicateGroup!]!`\
+**Retorno:** `LeadAnalytics!`
+
+| Argumento   | Tipo              | Descripción |
+| :---------- | :---------------- | :---------- |
+| from        | `Date`            |             |
+| to          | `Date`            |             |
+| bucket      | `AnalyticsBucket` |             |
+| timezone    | `String`          |             |
+| pipeline_id | `ID`              |             |
+
+---
+### findGuildOrganizationDuplicates
+**Retorno:** `[GuildOrganizationDuplicateGroup!]!`
 List clusters of likely-duplicate Organizations for review + bulk merge.
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| max_groups | `Int` |             |
-
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
 ---
+
 ### peopleCount
-**Retorno:** `Int`
----
 
+**Retorno:** `Int`
+
+---
 ### peopleCountByTag
-
-**Retorno:** `Int`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| tag       | `String!` |             |
-
----
-### peopleCountBySubscriptionType
 **Retorno:** `Int`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| type | `String!` |  |
+| tag | `String!` |  |
 ---
 
+### peopleCountBySubscriptionType
+
+**Retorno:** `Int`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| type      | `String!` |             |
+
+---
 ### isFollowing
-
 **Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| user_id   | `ID!` |             |
-
----
-### getTotalFollowers
-**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
@@ -340,39 +339,38 @@ List clusters of likely-duplicate Organizations for review + bulk merge.
 | user_id | `ID!` |  |
 ---
 
-### messageSearchSuggestions
+### getTotalFollowers
 
-**Retorno:** `Mixed!`
+**Retorno:** `Int!`
 
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| search    | `String` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| user_id   | `ID!` |             |
 
 ---
-### messageAnalytics
-**Retorno:** `MessageAnalytics!`
+### messageSearchSuggestions
+**Retorno:** `Mixed!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| from | `Date` |  |
-| to | `Date` |  |
-| bucket | `AnalyticsBucket` |  |
-| timezone | `String` |  |
-| message_type_id | `ID` |  |
+| search | `String` |  |
 ---
 
+### messageAnalytics
+
+**Retorno:** `MessageAnalytics!`
+
+| Argumento       | Tipo              | Descripción |
+| :-------------- | :---------------- | :---------- |
+| from            | `Date`            |             |
+| to              | `Date`            |             |
+| bucket          | `AnalyticsBucket` |             |
+| timezone        | `String`          |             |
+| message_type_id | `ID`              |             |
+
+---
 ### userMessageUsageStats
-
-**Retorno:** `MessageUsageStats!`
-
-| Argumento       | Tipo  | Descripción |
-| :-------------- | :---- | :---------- |
-| days            | `Int` |             |
-| message_type_id | `ID`  |             |
-
----
-### companyMessageUsageStats
 **Retorno:** `MessageUsageStats!`
 
 
@@ -382,312 +380,111 @@ List clusters of likely-duplicate Organizations for review + bulk merge.
 | message_type_id | `ID` |  |
 ---
 
-### reaction
+### companyMessageUsageStats
 
+**Retorno:** `MessageUsageStats!`
+
+| Argumento       | Tipo  | Descripción |
+| :-------------- | :---- | :---------- |
+| days            | `Int` |             |
+| message_type_id | `ID`  |             |
+
+---
+### reaction
 **Retorno:** `Reaction`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### countUserReaction
+
 **Retorno:** `Int`
 
+| Argumento | Tipo                                         | Descripción |
+| :-------- | :------------------------------------------- | :---------- |
+| where     | `QueryCountUserReactionWhereWhereConditions` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryCountUserReactionWhereWhereConditions` |  |
 ---
-
 ### getUserReactionGroupByReaction
-
 **Retorno:** `[ReactionsGroupBy!]!`
 
-| Argumento          | Tipo | Descripción |
-| :----------------- | :--- | :---------- |
-| system_module_uuid | `ID` |             |
-| entity_id          | `ID` |             |
-
----
-### getUserInteraction
-**Retorno:** `UserEntityInteraction`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| entity_id | `ID!` |  |
-| entity_namespace | `String!` |  |
+| system_module_uuid | `ID` |  |
+| entity_id | `ID` |  |
 ---
 
+### getUserInteraction
+
+**Retorno:** `UserEntityInteraction`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| entity_id        | `ID!`     |             |
+| entity_namespace | `String!` |             |
+
+---
 ### cart
-
 **Retorno:** `Cart`
+---
+
+### exportOrders
+
+**Retorno:** `OrderExportResult!`
+
+| Argumento        | Tipo                                           | Descripción |
+| :--------------- | :--------------------------------------------- | :---------- |
+| format           | `ExportFormat!`                                |             |
+| search           | `String`                                       |             |
+| field_mapper     | `Mixed`                                        |             |
+| metadata         | `ExportMetadataInput`                          |             |
+| timezone         | `String`                                       |             |
+| whereHasProvider | `ID`                                           |             |
+| where            | `QueryExportOrdersWhereWhereConditions`        |             |
+| orderType        | `QueryExportOrdersOrderTypeWhereConditions`    |             |
+| orderStatus      | `QueryExportOrdersOrderStatusWhereConditions`  |             |
+| hasAddress       | `QueryExportOrdersHasAddressWhereConditions`   |             |
+| hasItems         | `QueryExportOrdersHasItemsWhereHasConditions`  |             |
+| hasPeople        | `QueryExportOrdersHasPeopleWhereHasConditions` |             |
+| orderBy          | `[QueryExportOrdersOrderByOrderByClause!]`     |             |
 
 ---
-### exportOrders
+### exportOrderTransitionHistory
 **Retorno:** `OrderExportResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | format | `ExportFormat!` |  |
-| search | `String` |  |
 | field_mapper | `Mixed` |  |
 | metadata | `ExportMetadataInput` |  |
 | timezone | `String` |  |
-| whereHasProvider | `ID` |  |
-| where | `QueryExportOrdersWhereWhereConditions` |  |
-| orderType | `QueryExportOrdersOrderTypeWhereConditions` |  |
-| orderStatus | `QueryExportOrdersOrderStatusWhereConditions` |  |
-| hasAddress | `QueryExportOrdersHasAddressWhereConditions` |  |
-| hasItems | `QueryExportOrdersHasItemsWhereHasConditions` |  |
-| hasPeople | `QueryExportOrdersHasPeopleWhereHasConditions` |  |
-| orderBy | `[QueryExportOrdersOrderByOrderByClause!]` |  |
+| where | `QueryExportOrderTransitionHistoryWhereWhereConditions` |  |
+| toStatus | `QueryExportOrderTransitionHistoryToStatusWhereConditions` |  |
+| fromStatus | `QueryExportOrderTransitionHistoryFromStatusWhereConditions` |  |
+| hasOrder | `QueryExportOrderTransitionHistoryHasOrderWhereHasConditions` |  |
+| orderType | `QueryExportOrderTransitionHistoryOrderTypeWhereConditions` |  |
+| hasVariant | `QueryExportOrderTransitionHistoryHasVariantWhereConditions` |  |
+| hasProvider | `QueryExportOrderTransitionHistoryHasProviderWhereConditions` |  |
+| paymentMethodType | `PaymentMethodType` |  |
+| orderBy | `[QueryExportOrderTransitionHistoryOrderByOrderByClause!]` |  |
 ---
 
-### exportOrderTransitionHistory
-
-**Retorno:** `OrderExportResult!`
-
-| Argumento         | Tipo                                                          | Descripción |
-| :---------------- | :------------------------------------------------------------ | :---------- |
-| format            | `ExportFormat!`                                               |             |
-| field_mapper      | `Mixed`                                                       |             |
-| metadata          | `ExportMetadataInput`                                         |             |
-| timezone          | `String`                                                      |             |
-| where             | `QueryExportOrderTransitionHistoryWhereWhereConditions`       |             |
-| toStatus          | `QueryExportOrderTransitionHistoryToStatusWhereConditions`    |             |
-| fromStatus        | `QueryExportOrderTransitionHistoryFromStatusWhereConditions`  |             |
-| hasOrder          | `QueryExportOrderTransitionHistoryHasOrderWhereHasConditions` |             |
-| orderType         | `QueryExportOrderTransitionHistoryOrderTypeWhereConditions`   |             |
-| hasVariant        | `QueryExportOrderTransitionHistoryHasVariantWhereConditions`  |             |
-| hasProvider       | `QueryExportOrderTransitionHistoryHasProviderWhereConditions` |             |
-| paymentMethodType | `PaymentMethodType`                                           |             |
-| orderBy           | `[QueryExportOrderTransitionHistoryOrderByOrderByClause!]`    |             |
-
----
 ### orderPipeline
+
 **Retorno:** `OrderPipelineResult!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| order_id  | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| order_id | `ID!` |  |
 ---
-
 ### orderAnalytics
-
 **Retorno:** `OrderAnalytics!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| from      | `Date`            |             |
-| to        | `Date`            |             |
-| bucket    | `AnalyticsBucket` |             |
-| timezone  | `String`          |             |
-| status    | `String`          |             |
-
----
-### orderCommissionStats
-**Retorno:** `OrderCommissionStats!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrderCommissionStatsInput!` |  |
----
-
-### orderStats
-
-**Retorno:** `OrderStats!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `OrderStatsInput` |             |
-
----
-### orderPaymentStats
-**Retorno:** `OrderPaymentStats!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrderPaymentStatsInput` |  |
----
-
-### exportOrderPayments
-
-**Retorno:** `OrderExportResult!`
-
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| input     | `ExportOrderPaymentsInput!` |             |
-| format    | `ExportFormat!`             |             |
-
----
-### myReferralInfo
-**Retorno:** `UserReferralInfo`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
-
-### paymentMethod
-
-**Retorno:** `PaymentMethod!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### getWalletBalance
-**Retorno:** `WalletResult`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tag | `String!` |  |
----
-
-### getUserWallet
-
-**Retorno:** `WalletResult`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| tag       | `String!` |             |
-| userId    | `ID`      |             |
-| metadata  | `Mixed`   |             |
-
----
-### getCompanyWallet
-**Retorno:** `WalletResult`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tag | `String!` |  |
-| company_id | `ID!` |  |
-| metadata | `Mixed` |  |
----
-
-### engagementByFilter
-
-**Retorno:** `Engagement`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| filter    | `EngagementFilterInput!` |             |
-
----
-### getAppSettings
-**Retorno:** `AppSettings`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| key | `String!` |  |
-| orderBy | `[QueryGetAppSettingsOrderByOrderByClause!]` |  |
----
-
-### appSetting
-
-**Retorno:** `AppSettings`
-
-| Argumento | Tipo                                     | Descripción |
-| :-------- | :--------------------------------------- | :---------- |
-| orderBy   | `[QueryAppSettingOrderByOrderByClause!]` |             |
-
----
-### appSettings
-**Retorno:** `[ModuleConfig!]!`
----
-
-### adminAppSettings
-
-**Retorno:** `[ModuleConfig!]!`
-
----
-### adminAppSetting
-**Retorno:** `Mixed`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| key | `String!` |  |
----
-
-### companySetting
-
-**Retorno:** `[ModuleConfig!]!`
-
-| Argumento   | Tipo      | Descripción |
-| :---------- | :-------- | :---------- |
-| entity_uuid | `String!` |             |
-
----
-### adminCompanySettings
-**Retorno:** `[ModuleConfig!]!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
----
-
-### adminCompanySetting
-
-**Retorno:** `Mixed`
-
-| Argumento   | Tipo      | Descripción |
-| :---------- | :-------- | :---------- |
-| entity_uuid | `String!` |             |
-| key         | `String!` |             |
-
----
-### userSettings
-**Retorno:** `[ModuleConfig!]!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
----
-
-### integrationHistoryAnalytics
-
-**Retorno:** `IntegrationHistoryAnalytics!`
-
-| Argumento        | Tipo              | Descripción |
-| :--------------- | :---------------- | :---------- |
-| from             | `Date`            |             |
-| to               | `Date`            |             |
-| bucket           | `AnalyticsBucket` |             |
-| timezone         | `String`          |             |
-| integration_id   | `ID`              |             |
-| status_id        | `ID`              |             |
-| entity_namespace | `String`          |             |
-
----
-### receiverStatus
-**Retorno:** `[WorkflowReceiverStatusEnum!]!`
----
-
-### userSubscription
-
-**Retorno:** `UserSubscription!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### eventAnalytics
-**Retorno:** `EventAnalytics!`
 
 
 | Argumento | Tipo | Descripción |
@@ -696,37 +493,237 @@ List clusters of likely-duplicate Organizations for review + bulk merge.
 | to | `Date` |  |
 | bucket | `AnalyticsBucket` |  |
 | timezone | `String` |  |
-| event_type_id | `ID` |  |
+| status | `String` |  |
 ---
 
-### eventsTracking
+### orderCommissionStats
 
-**Retorno:** `[OpenEventTrackingRow!]!`
+**Retorno:** `OrderCommissionStats!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| weeks_ahead       | `Int`     |             |
-| event_type_id     | `ID`      |             |
-| event_class_id    | `ID`      |             |
-| event_category_id | `ID`      |             |
-| search            | `String`  |             |
-| color             | `String`  |             |
-| has_goal          | `Boolean` |             |
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `OrderCommissionStatsInput!` |             |
 
 ---
-### eventInscriptionsVsObjective
-**Retorno:** `InscriptionsReport!`
+### orderStats
+**Retorno:** `OrderStats!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| event_version_id | `ID!` |  |
-| cumulative | `Boolean` |  |
-| include_types | `[String!]` |  |
-| exclude_types | `[String!]` |  |
+| input | `OrderStatsInput` |  |
 ---
 
-### eventInscriptionsVsHistorical
+### orderPaymentStats
+
+**Retorno:** `OrderPaymentStats!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `OrderPaymentStatsInput` |             |
+
+---
+### exportOrderPayments
+**Retorno:** `OrderExportResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ExportOrderPaymentsInput!` |  |
+| format | `ExportFormat!` |  |
+| metadata | `ExportMetadataInput` |  |
+---
+
+### myReferralInfo
+
+**Retorno:** `UserReferralInfo`
+
+| Argumento | Tipo | Descripción |
+| :-------- | :--- | :---------- |
+| user_id   | `ID` |             |
+
+---
+### paymentMethod
+**Retorno:** `PaymentMethod!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### getWalletBalance
+
+**Retorno:** `WalletResult`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| tag       | `String!` |             |
+
+---
+### getUserWallet
+**Retorno:** `WalletResult`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| tag | `String!` |  |
+| userId | `ID` |  |
+| metadata | `Mixed` |  |
+---
+
+### getCompanyWallet
+
+**Retorno:** `WalletResult`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| tag        | `String!` |             |
+| company_id | `ID!`     |             |
+| metadata   | `Mixed`   |             |
+
+---
+### engagementByFilter
+**Retorno:** `Engagement`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| filter | `EngagementFilterInput!` |  |
+---
+
+### getAppSettings
+
+**Retorno:** `AppSettings`
+
+| Argumento | Tipo                                         | Descripción |
+| :-------- | :------------------------------------------- | :---------- |
+| key       | `String!`                                    |             |
+| orderBy   | `[QueryGetAppSettingsOrderByOrderByClause!]` |             |
+
+---
+### appSetting
+**Retorno:** `AppSettings`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| orderBy | `[QueryAppSettingOrderByOrderByClause!]` |  |
+---
+
+### appSettings
+
+**Retorno:** `[ModuleConfig!]!`
+
+---
+### adminAppSettings
+**Retorno:** `[ModuleConfig!]!`
+---
+
+### adminAppSetting
+
+**Retorno:** `Mixed`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| key       | `String!` |             |
+
+---
+### companySetting
+**Retorno:** `[ModuleConfig!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity_uuid | `String!` |  |
+---
+
+### adminCompanySettings
+
+**Retorno:** `[ModuleConfig!]!`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| entity_uuid | `String!` |             |
+
+---
+### adminCompanySetting
+**Retorno:** `Mixed`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity_uuid | `String!` |  |
+| key | `String!` |  |
+---
+
+### userSettings
+
+**Retorno:** `[ModuleConfig!]!`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| entity_uuid | `String!` |             |
+
+---
+### integrationHistoryAnalytics
+**Retorno:** `IntegrationHistoryAnalytics!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| from | `Date` |  |
+| to | `Date` |  |
+| bucket | `AnalyticsBucket` |  |
+| timezone | `String` |  |
+| integration_id | `ID` |  |
+| status_id | `ID` |  |
+| entity_namespace | `String` |  |
+---
+
+### receiverStatus
+
+**Retorno:** `[WorkflowReceiverStatusEnum!]!`
+
+---
+### userSubscription
+**Retorno:** `UserSubscription!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### eventAnalytics
+
+**Retorno:** `EventAnalytics!`
+
+| Argumento     | Tipo              | Descripción |
+| :------------ | :---------------- | :---------- |
+| from          | `Date`            |             |
+| to            | `Date`            |             |
+| bucket        | `AnalyticsBucket` |             |
+| timezone      | `String`          |             |
+| event_type_id | `ID`              |             |
+
+---
+### eventsTracking
+**Retorno:** `[OpenEventTrackingRow!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| weeks_ahead | `Int` |  |
+| event_type_id | `ID` |  |
+| event_class_id | `ID` |  |
+| event_category_id | `ID` |  |
+| search | `String` |  |
+| color | `String` |  |
+| has_goal | `Boolean` |  |
+---
+
+### eventInscriptionsVsObjective
 
 **Retorno:** `InscriptionsReport!`
 
@@ -738,92 +735,113 @@ List clusters of likely-duplicate Organizations for review + bulk merge.
 | exclude_types    | `[String!]` |             |
 
 ---
-### eventInscriptionTrack
-**Retorno:** `[InscriptionTrack!]!`
+### eventInscriptionsVsHistorical
+**Retorno:** `InscriptionsReport!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | event_version_id | `ID!` |  |
+| cumulative | `Boolean` |  |
+| include_types | `[String!]` |  |
 | exclude_types | `[String!]` |  |
 ---
 
-### eventParticipantConcentration
+### eventInscriptionTrack
 
-**Retorno:** `[CompanyConcentration!]!`
+**Retorno:** `[InscriptionTrack!]!`
 
 | Argumento        | Tipo        | Descripción |
 | :--------------- | :---------- | :---------- |
 | event_version_id | `ID!`       |             |
-| top_n            | `Int`       |             |
-| include_types    | `[String!]` |             |
 | exclude_types    | `[String!]` |             |
 
 ---
-### organizationsEventActivity
-**Retorno:** `[OrganizationEventActivity!]!`
+### eventParticipantConcentration
+**Retorno:** `[CompanyConcentration!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| from_date | `Date` |  |
-| to_date | `Date` |  |
-| activity | `OrgActivityFilter` |  |
-| min_count | `Int` |  |
-| max_count | `Int` |  |
-| event_type_id | `ID` |  |
-| event_category_id | `ID` |  |
-| include_participant_types | `[String!]` |  |
-| exclude_participant_types | `[String!]` |  |
+| event_version_id | `ID!` |  |
 | top_n | `Int` |  |
-| order_by | `OrgActivityOrder` |  |
+| include_types | `[String!]` |  |
+| exclude_types | `[String!]` |  |
 ---
 
+### organizationsEventActivity
+
+**Retorno:** `[OrganizationEventActivity!]!`
+
+| Argumento                 | Tipo                | Descripción |
+| :------------------------ | :------------------ | :---------- |
+| from_date                 | `Date`              |             |
+| to_date                   | `Date`              |             |
+| activity                  | `OrgActivityFilter` |             |
+| min_count                 | `Int`               |             |
+| max_count                 | `Int`               |             |
+| event_type_id             | `ID`                |             |
+| event_category_id         | `ID`                |             |
+| include_participant_types | `[String!]`         |             |
+| exclude_participant_types | `[String!]`         |             |
+| top_n                     | `Int`               |             |
+| order_by                  | `OrgActivityOrder`  |             |
+
+---
 ### resourceSchedule
-
 **Retorno:** `ResourceSchedule!`
-
-| Argumento      | Tipo      | Descripción |
-| :------------- | :-------- | :---------- |
-| resources_id   | `ID!`     |             |
-| resources_type | `String!` |             |
-
----
-### isResourceOpen
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | resources_id | `ID!` |  |
 | resources_type | `String!` |  |
-| datetime | `DateTime` |  |
 ---
 
+### isResourceOpen
+
+**Retorno:** `Boolean!`
+
+| Argumento      | Tipo       | Descripción |
+| :------------- | :--------- | :---------- |
+| resources_id   | `ID!`      |             |
+| resources_type | `String!`  |             |
+| datetime       | `DateTime` |             |
+
+---
 ### followUpPrompt
-
 **Retorno:** `String!`
-
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| lead_id           | `ID!`     |             |
-| pipeline_stage_id | `ID!`     |             |
-| session_id        | `String!` |             |
-| message_template  | `String!` |             |
-| day               | `Float!`  |             |
-
----
-### agentAnalytics
-**Retorno:** `AgentAnalytics!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| from | `Date` |  |
-| to | `Date` |  |
-| bucket | `AnalyticsBucket` |  |
-| timezone | `String` |  |
-| agent_type_id | `ID` |  |
+| lead_id | `ID!` |  |
+| pipeline_stage_id | `ID!` |  |
+| session_id | `String!` |  |
+| message_template | `String!` |  |
+| day | `Float!` |  |
+---
+
+### agentAnalytics
+
+**Retorno:** `AgentAnalytics!`
+
+| Argumento     | Tipo              | Descripción |
+| :------------ | :---------------- | :---------- |
+| from          | `Date`            |             |
+| to            | `Date`            |             |
+| bucket        | `AnalyticsBucket` |             |
+| timezone      | `String`          |             |
+| agent_type_id | `ID`              |             |
+
+---
+### agentDeploymentContainerStatus
+**Retorno:** `AgentDeploymentType!`
+Live SSH-checked container status — poll this to detect state changes made outside Kanvas (e.g. a manual restart on the machine).
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
 ---
 
 ### agentCurrentTelemetry

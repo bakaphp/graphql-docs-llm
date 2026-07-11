@@ -9,6 +9,8 @@
 | company           | `Company!`             |             |
 | user              | `User!`                |             |
 | name              | `String!`              |             |
+| email             | `String`               |             |
+| phone             | `String`               |             |
 | address           | `String`               |             |
 | organization_type | `OrganizationType`     |             |
 | total_employees   | `Int!`                 |             |

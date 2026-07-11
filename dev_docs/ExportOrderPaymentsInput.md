@@ -13,3 +13,4 @@
 | fieldMapper         | `Mixed`     |             |
 | user_email          | `String`    |             |
 | provider_company_id | `[ID!]`     |             |
+| includeSummary      | `Boolean`   |             |

@@ -13,7 +13,8 @@
 | name         | `String!`        |             |
 | slug         | `String!`        |             |
 | short_slug   | `String!`        |             |
-| settings     | `RegionSettings` |             |
+| settings     | `String`         |             |
+| settingsData | `RegionSettings` |             |
 | is_default   | `Boolean!`       |             |
 | lat          | `Float`          |             |
 | lng          | `Float`          |             |

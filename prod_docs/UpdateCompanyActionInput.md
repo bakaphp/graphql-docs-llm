@@ -8,6 +8,7 @@
 | description  | `String`  |             |
 | config       | `Mixed`   |             |
 | form_config  | `Mixed`   |             |
+| pdf_config   | `Mixed`   |             |
 | status       | `String`  |             |
 | is_active    | `Boolean` |             |
 | is_published | `Boolean` |             |
