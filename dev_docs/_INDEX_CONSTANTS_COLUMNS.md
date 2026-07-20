@@ -3,11 +3,11 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (215)
+## Queries con enums de columnas (216)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
-AffiliatePrograms, AffiliateTiers, Affiliates, AgentBackups,
+AffiliatePrograms, AffiliateTiers, Affiliates, AgentBackups, AgentConfigBackups,
 AgentConversationMessages, AgentConversations, AgentDeployments, AgentMachines,
 AgentModels, AgentSwarms, AgentTypes, AgentUsageSnapshots, Agents, AgentsAi,
 AppAdmins, AppSetting, AppUsers, Apps, AttributeValues, Attributes,

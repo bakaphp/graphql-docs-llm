@@ -8,3 +8,4 @@
 | subtitle     | `String`    |             |
 | headerImages | `[String!]` |             |
 | dateField    | `String`    |             |
+| headerColor  | `String`    |             |

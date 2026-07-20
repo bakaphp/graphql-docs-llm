@@ -50,6 +50,7 @@
 - [CompanyBranchInput](./CompanyBranchInput.md)
 - [CompanyInput](./CompanyInput.md)
 - [CompleteInviteInput](./CompleteInviteInput.md)
+- [ConnectSlackAgentInput](./ConnectSlackAgentInput.md)
 - [ContactInput](./ContactInput.md)
 - [CopyParticipantsInput](./CopyParticipantsInput.md)
 - [CorporateOnboardingInput](./CorporateOnboardingInput.md)

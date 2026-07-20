@@ -1,0 +1,28 @@
+# OBJECT: OrganizationAddress
+
+A structured address on an Organization. Own table, but the SAME
+`AddressTypeEnum` and `AddressInput` People uses — Billing is Billing regardless
+of who owns the address.
+
+## Estructura
+
+| Campo        | Tipo            | Descripción                                                                                                                                                                                                    |
+| :----------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id           | `ID!`           |                                                                                                                                                                                                                |
+| organization | `Organization!` |                                                                                                                                                                                                                |
+| address      | `String`        |                                                                                                                                                                                                                |
+| address_2    | `String`        |                                                                                                                                                                                                                |
+| city         | `String`        |                                                                                                                                                                                                                |
+| county       | `String`        |                                                                                                                                                                                                                |
+| state        | `String`        |                                                                                                                                                                                                                |
+| zip          | `String`        |                                                                                                                                                                                                                |
+| latitude     | `Float`         |                                                                                                                                                                                                                |
+| longitude    | `Float`         |                                                                                                                                                                                                                |
+| is_default   | `Boolean!`      |                                                                                                                                                                                                                |
+| type         | `String`        | Billing / Shipping / Home / Other. A plain string — the name `AddressType` is already taken in the Ecosystem schema by an unrelated value object.                                                              |
+| is_complete  | `Boolean!`      | True only when every field an external billing API needs is present. Mercury and Stripe validate an address all-or-nothing, so a partial one is rejected outright — this lets the UI warn before that happens. |
+| country      | `Country`       |                                                                                                                                                                                                                |
+| states       | `States`        |                                                                                                                                                                                                                |
+| cities       | `Cities`        |                                                                                                                                                                                                                |
+| created_at   | `DateTime!`     |                                                                                                                                                                                                                |
+| updated_at   | `DateTime`      |                                                                                                                                                                                                                |

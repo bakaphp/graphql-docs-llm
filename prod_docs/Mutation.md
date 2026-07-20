@@ -1581,6 +1581,26 @@ Upload a file that is publicly available.
 | input     | `ShopifySetupInput!` |             |
 
 ---
+### connectSlackAgent
+**Retorno:** `SlackAgentConnection!`
+Step 2 — bind the installed Slack app to the agent. Validates the token against Slack (auth.test) and reads back the bot user + team.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ConnectSlackAgentInput!` |  |
+---
+
+### disconnectSlackAgent
+
+**Retorno:** `Boolean!`\
+Stop the agent listening on Slack. Keeps the receiver URL so reconnecting
+doesn't need a new Slack app.
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| agent_id  | `ID!` |             |
+
+---
 ### whatsappConnect
 **Retorno:** `WhatsappConnectResult!`
 
@@ -2009,26 +2029,27 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | target_id | `Int!` |  |
 ---
 
-### createOrganizationType
+### addOrganizationAddress
 
-**Retorno:** `OrganizationType!`
+**Retorno:** `OrganizationAddress!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `OrganizationTypeInput!` |             |
+| Argumento       | Tipo            | Descripción |
+| :-------------- | :-------------- | :---------- |
+| organization_id | `ID!`           |             |
+| input           | `AddressInput!` |             |
 
 ---
-### updateOrganizationType
-**Retorno:** `OrganizationType!`
+### updateOrganizationAddress
+**Retorno:** `OrganizationAddress!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateOrganizationTypeInput!` |  |
+| input | `AddressInput!` |  |
 ---
 
-### deleteOrganizationType
+### deleteOrganizationAddress
 
 **Retorno:** `Boolean!`
 
@@ -2037,35 +2058,54 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createPeople
-**Retorno:** `People`
+### createOrganizationType
+**Retorno:** `OrganizationType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PeopleInput!` |  |
+| input | `OrganizationTypeInput!` |  |
 ---
 
-### updatePeople
+### updateOrganizationType
+
+**Retorno:** `OrganizationType!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateOrganizationTypeInput!` |             |
+
+---
+### deleteOrganizationType
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createPeople
 
 **Retorno:** `People`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
 | input     | `PeopleInput!` |             |
 
 ---
-### deletePeople
-**Retorno:** `Boolean`
+### updatePeople
+**Retorno:** `People`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PeopleInput!` |  |
 ---
 
-### restorePeople
+### deletePeople
 
 **Retorno:** `Boolean`
 
@@ -2074,96 +2114,133 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### importPeoples
-**Retorno:** `String!`
+### restorePeople
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `[PeopleInput!]!` |  |
-| companyId | `Int` |  |
+| id | `ID!` |  |
 ---
 
+### importPeoples
+
+**Retorno:** `String!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `[PeopleInput!]!` |             |
+| companyId | `Int`             |             |
+
+---
 ### attachFileToPeople
+**Retorno:** `People!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `Upload!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### attachFilesToPeople
+
+**Retorno:** `People!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
+
+---
+### deletePeopleAddress
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateContact
+
+**Retorno:** `Contact!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `UpdateContactInput!` |             |
+
+---
+### deleteContact
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updatePeoplePhoto
 
 **Retorno:** `People!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
 | id        | `ID!`     |             |
-| params    | `Mixed`   |             |
+| file      | `Upload!` |             |
 
 ---
-### attachFilesToPeople
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| files | `[Upload!]!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### deletePeopleAddress
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateContact
-**Retorno:** `Contact!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateContactInput!` |  |
----
-
-### deleteContact
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updatePeoplePhoto
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
----
-
 ### createPeopleEmploymentHistory
+**Retorno:** `PeopleEmploymentHistory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EmploymentPeopleHistoryInput!` |  |
+---
+
+### updatePeopleEmploymentHistory
 
 **Retorno:** `PeopleEmploymentHistory!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
+| id        | `ID!`                           |             |
 | input     | `EmploymentPeopleHistoryInput!` |             |
 
 ---
-### updatePeopleEmploymentHistory
-**Retorno:** `PeopleEmploymentHistory!`
+### deletePeopleEmploymentHistory
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `EmploymentPeopleHistoryInput!` |  |
 ---
 
-### deletePeopleEmploymentHistory
+### createPeopleRelationship
+
+**Retorno:** `PeopleRelationship!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleRelationshipInput!` |             |
+
+---
+### updatePeopleRelationship
+**Retorno:** `PeopleRelationship!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePeopleRelationshipInput!` |  |
+---
+
+### deletePeopleRelationship
 
 **Retorno:** `Boolean!`
 
@@ -2172,91 +2249,54 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createPeopleRelationship
-**Retorno:** `PeopleRelationship!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PeopleRelationshipInput!` |  |
----
-
-### updatePeopleRelationship
-
-**Retorno:** `PeopleRelationship!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdatePeopleRelationshipInput!` |             |
-
----
-### deletePeopleRelationship
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createPeopleType
+**Retorno:** `PeopleType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PeopleTypeInput!` |  |
+---
+
+### updatePeopleType
 
 **Retorno:** `PeopleType!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
 | input     | `PeopleTypeInput!` |             |
 
 ---
-### updatePeopleType
-**Retorno:** `PeopleType!`
+### deletePeopleType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `PeopleTypeInput!` |  |
 ---
 
-### deletePeopleType
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createPipeline
-**Retorno:** `LeadPipeline`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PipelineInput!` |  |
----
-
-### updatePipeline
 
 **Retorno:** `LeadPipeline`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
-| id        | `ID!`            |             |
 | input     | `PipelineInput!` |             |
 
 ---
-### deletePipeline
-**Retorno:** `Boolean`
+### updatePipeline
+**Retorno:** `LeadPipeline`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineInput!` |  |
 ---
 
-### restorePipeline
+### deletePipeline
 
 **Retorno:** `Boolean`
 
@@ -2265,35 +2305,35 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createPipelineStage
-**Retorno:** `LeadPipelineStage`
+### restorePipeline
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PipelineStageInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updatePipelineStage
+### createPipelineStage
 
 **Retorno:** `LeadPipelineStage`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `PipelineStageInput!` |             |
 
 ---
-### deletePipelineStage
-**Retorno:** `Boolean`
+### updatePipelineStage
+**Retorno:** `LeadPipelineStage`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineStageInput!` |  |
 ---
 
-### restorePipelineStage
+### deletePipelineStage
 
 **Retorno:** `Boolean`
 
@@ -2302,27 +2342,8 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createSocialChannel
-**Retorno:** `SocialChannel`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SocialChannelInput!` |  |
----
-
-### updateSocialChannel
-
-**Retorno:** `SocialChannel`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `SocialChannelInput!` |             |
-
----
-### deleteSocialChannel
-**Retorno:** `SocialChannel`
+### restorePipelineStage
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
@@ -2330,44 +2351,63 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### attachUserToSocialChannel
+### createSocialChannel
 
 **Retorno:** `SocialChannel`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AttachUserInput!` |             |
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `SocialChannelInput!` |             |
 
 ---
-### detachUserToSocialChannel
+### updateSocialChannel
 **Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `SocialChannelInput!` |  |
+---
+
+### deleteSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### attachUserToSocialChannel
+**Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AttachUserInput!` |  |
+---
+
+### detachUserToSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| channel_id | `ID!` |             |
+| user_id    | `ID!` |             |
+
+---
+### clearSocialChannelMessages
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | channel_id | `ID!` |  |
-| user_id | `ID!` |  |
 ---
 
-### clearSocialChannelMessages
-
-**Retorno:** `Boolean!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| channel_id | `ID!` |             |
-
----
 ### userFollow
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID!` |  |
----
-
-### userUnFollow
 
 **Retorno:** `Boolean!`
 
@@ -2376,16 +2416,16 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | user_id   | `ID!` |             |
 
 ---
-### likeEntity
+### userUnFollow
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LikeEntityInput!` |  |
+| user_id | `ID!` |  |
 ---
 
-### unLikeEntity
+### likeEntity
 
 **Retorno:** `Boolean!`
 
@@ -2394,7 +2434,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `LikeEntityInput!` |             |
 
 ---
-### disLikeEntity
+### unLikeEntity
 **Retorno:** `Boolean!`
 
 
@@ -2403,86 +2443,85 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `LikeEntityInput!` |  |
 ---
 
-### getInteractionByEntity
+### disLikeEntity
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `LikeEntityInput!` |             |
+
+---
+### getInteractionByEntity
 **Retorno:** `Interactions!`
 
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LikeEntityInput!` |  |
+---
+
+### createMessage
+
+**Retorno:** `Message`
+
+| Argumento | Tipo            | Descripción |
+| :-------- | :-------------- | :---------- |
+| input     | `MessageInput!` |             |
+
+---
+### updateMessage
+**Retorno:** `Message`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `MessageUpdateInput!` |  |
+---
+
+### deleteMessage
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### restoreMessage
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### deleteMultipleMessages
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| ids       | `[ID!]!` |             |
+
+---
+### deleteAllMessages
+**Retorno:** `Boolean!`
+---
+
+### interactionMessage
+
+**Retorno:** `Message`
+
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
-| input     | `LikeEntityInput!` |             |
+| id        | `ID!`              |             |
+| type      | `InteractionType!` |             |
 
 ---
-### createMessage
-**Retorno:** `Message`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MessageInput!` |  |
----
-
-### updateMessage
-
-**Retorno:** `Message`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `MessageUpdateInput!` |             |
-
----
-### deleteMessage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### restoreMessage
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### deleteMultipleMessages
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| ids | `[ID!]!` |  |
----
-
-### deleteAllMessages
-
-**Retorno:** `Boolean!`
-
----
-### interactionMessage
-**Retorno:** `Message`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| type | `InteractionType!` |  |
----
-
 ### likeMessage
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### disLikeMessage
 **Retorno:** `Boolean!`
 
 
@@ -2491,35 +2530,34 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### shareMessage
+### disLikeMessage
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### shareMessage
 **Retorno:** `String!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### viewMessage
-**Retorno:** `Int!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
 ---
 
-### attachTopicToMessage
+### viewMessage
 
-**Retorno:** `Message`
+**Retorno:** `Int!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| message_id | `ID!` |             |
-| topic_id   | `ID!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### detachTopicToMessage
+### attachTopicToMessage
 **Retorno:** `Message`
 
 
@@ -2529,17 +2567,17 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | topic_id | `ID!` |  |
 ---
 
-### attachFileToMessage
+### detachTopicToMessage
 
-**Retorno:** `Message!`
+**Retorno:** `Message`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| message_id | `ID!`     |             |
-| file       | `Upload!` |             |
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| message_id | `ID!` |             |
+| topic_id   | `ID!` |             |
 
 ---
-### uploadFileToMessage
+### attachFileToMessage
 **Retorno:** `Message!`
 
 
@@ -2549,45 +2587,27 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | file | `Upload!` |  |
 ---
 
-### approveAgentMessage
+### uploadFileToMessage
 
 **Retorno:** `Message!`
 
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| id        | `ID!`    |             |
-| message   | `String` |             |
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| message_id | `ID!`     |             |
+| file       | `Upload!` |             |
 
 ---
+### approveAgentMessage
+**Retorno:** `Message!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| message | `String` |  |
+---
+
 ### rejectAgentMessage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### addComment
-
-**Retorno:** `MessageComments!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| input     | `CommentInput!` |             |
-
----
-### updateComment
-**Retorno:** `MessageComments!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `CommentUpdateInput!` |  |
----
-
-### deleteComment
 
 **Retorno:** `Boolean!`
 
@@ -2596,26 +2616,26 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createMessageType
-**Retorno:** `MessageType!`
+### addComment
+**Retorno:** `MessageComments!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateMessageTypeInput!` |  |
+| input | `CommentInput!` |  |
 ---
 
-### updateMessageType
+### updateComment
 
-**Retorno:** `MessageType!`
+**Retorno:** `MessageComments!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| id        | `Int!`                   |             |
-| input     | `CreateMessageTypeInput` |             |
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `CommentUpdateInput!` |             |
 
 ---
-### deleteMessageType
+### deleteComment
 **Retorno:** `Boolean!`
 
 
@@ -2624,63 +2644,100 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
+### createMessageType
+
+**Retorno:** `MessageType!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `CreateMessageTypeInput!` |             |
+
+---
+### updateMessageType
+**Retorno:** `MessageType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `Int!` |  |
+| input | `CreateMessageTypeInput` |  |
+---
+
+### deleteMessageType
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createReaction
+**Retorno:** `Reaction`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ReactionInput!` |  |
+---
+
+### updateReaction
 
 **Retorno:** `Reaction`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `ReactionInput!` |             |
 
 ---
-### updateReaction
-**Retorno:** `Reaction`
+### deleteReaction
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ReactionInput!` |  |
 ---
 
-### deleteReaction
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### reactToEntity
+
 **Retorno:** `Boolean`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `UserReactionInput!` |             |
+
+---
+### createTag
+**Retorno:** `Tag`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `UserReactionInput!` |  |
+| input | `TagInput!` |  |
 ---
 
-### createTag
+### updateTag
 
 **Retorno:** `Tag`
 
 | Argumento | Tipo        | Descripción |
 | :-------- | :---------- | :---------- |
+| id        | `ID!`       |             |
 | input     | `TagInput!` |             |
 
 ---
-### updateTag
-**Retorno:** `Tag`
+### deleteTag
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `TagInput!` |  |
 ---
 
-### deleteTag
+### followTag
 
 **Retorno:** `Boolean`
 
@@ -2689,25 +2746,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### followTag
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### attachTagToEntity
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `AttachTagEntityInput!` |             |
-
----
-### detachTagFromEntity
 **Retorno:** `Boolean`
 
 
@@ -2716,44 +2755,44 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `AttachTagEntityInput!` |  |
 ---
 
+### detachTagFromEntity
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `AttachTagEntityInput!` |             |
+
+---
 ### createTopic
+**Retorno:** `Topic`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TopicInput!` |  |
+---
+
+### updateTopic
 
 **Retorno:** `Topic`
 
 | Argumento | Tipo          | Descripción |
 | :-------- | :------------ | :---------- |
+| id        | `ID!`         |             |
 | input     | `TopicInput!` |             |
 
 ---
-### updateTopic
-**Retorno:** `Topic`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `TopicInput!` |  |
----
-
 ### followTopic
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### unFollowTopic
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### blockUser
 
 **Retorno:** `Boolean`
 
@@ -2762,7 +2801,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### unBlockUser
+### blockUser
 **Retorno:** `Boolean`
 
 
@@ -2771,45 +2810,44 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
+### unBlockUser
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createUserList
+**Retorno:** `UserList`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `UserListInput!` |  |
+---
+
+### updateUserList
 
 **Retorno:** `UserList`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `UserListInput!` |             |
 
 ---
-### updateUserList
-**Retorno:** `UserList`
+### deleteUserList
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UserListInput!` |  |
 ---
 
-### deleteUserList
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### addToUserList
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| users_lists_id | `ID!` |  |
-| messages_id | `ID!` |  |
----
-
-### removeFromUserList
 
 **Retorno:** `Boolean`
 
@@ -2819,16 +2857,17 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | messages_id    | `ID!` |             |
 
 ---
-### addEntityToUserList
+### removeFromUserList
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| entity | `EntityInput!` |  |
+| users_lists_id | `ID!` |  |
+| messages_id | `ID!` |  |
 ---
 
-### removeEntityFromUserList
+### addEntityToUserList
 
 **Retorno:** `Boolean`
 
@@ -2837,34 +2876,34 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | entity    | `EntityInput!` |             |
 
 ---
+### removeEntityFromUserList
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity | `EntityInput!` |  |
+---
+
 ### createUserRating
+
 **Retorno:** `UserRating`
 
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `UserRatingInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `UserRatingInput!` |  |
 ---
-
 ### userLikeEntity
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `UserInteractionInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `UserInteractionInput!` |  |
 ---
+
 ### userViewEntity
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `UserInteractionInput!` |  |
----
-
-### userUnLikeEntity
 
 **Retorno:** `Boolean!`
 
@@ -2873,7 +2912,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `UserInteractionInput!` |             |
 
 ---
-### userDisLikeEntity
+### userUnLikeEntity
 **Retorno:** `Boolean!`
 
 
@@ -2882,175 +2921,156 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `UserInteractionInput!` |  |
 ---
 
-### shareUser
+### userDisLikeEntity
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `UserInteractionInput!` |             |
+
+---
+### shareUser
 **Retorno:** `String!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliateProgram
+
 **Retorno:** `AffiliateProgram!`
 
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `AffiliateProgramInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateProgramInput!` |  |
 ---
-
 ### updateAffiliateProgram
-
 **Retorno:** `AffiliateProgram!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| id        | `ID!`                          |             |
-| input     | `UpdateAffiliateProgramInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateProgramInput!` |  |
 ---
+
 ### deleteAffiliateProgram
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createAffiliateTier
-
 **Retorno:** `AffiliateTier!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `AffiliateTierInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AffiliateTierInput!` |  |
 ---
+
 ### updateAffiliateTier
+
 **Retorno:** `AffiliateTier!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateAffiliateTierInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateTierInput!` |  |
 ---
-
 ### deleteAffiliateTier
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliate
+
 **Retorno:** `Affiliate!`
 
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `AffiliateInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateInput!` |  |
 ---
-
 ### updateAffiliate
-
 **Retorno:** `Affiliate!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `UpdateAffiliateInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateInput!` |  |
 ---
+
 ### deleteAffiliate
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createAffiliateLink
-
 **Retorno:** `AffiliateLink!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `AffiliateLinkInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AffiliateLinkInput!` |  |
 ---
+
 ### updateAffiliateLink
+
 **Retorno:** `AffiliateLink!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateAffiliateLinkInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateLinkInput!` |  |
 ---
-
 ### deleteAffiliateLink
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliateConversion
+
 **Retorno:** `AffiliateConversion!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `AffiliateConversionInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateConversionInput!` |  |
 ---
-
 ### updateAffiliateConversion
-
 **Retorno:** `AffiliateConversion!`
 
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| id        | `ID!`                             |             |
-| input     | `UpdateAffiliateConversionInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateConversionInput!` |  |
 ---
+
 ### deleteAffiliateConversion
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createAffiliateCommissionPayout
-
-**Retorno:** `AffiliateCommissionPayout!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `AffiliateCommissionPayoutInput!` |             |
-
----
-### updateAffiliateCommissionPayout
-**Retorno:** `AffiliateCommissionPayout!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateCommissionPayoutInput!` |  |
----
-
-### deleteAffiliateCommissionPayout
 
 **Retorno:** `Boolean!`
 
@@ -3059,95 +3079,114 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### addToCart
-**Retorno:** `[CartItem!]!`
+### createAffiliateCommissionPayout
+**Retorno:** `AffiliateCommissionPayout!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| items | `[CartItemInput!]!` |  |
+| input | `AffiliateCommissionPayoutInput!` |  |
 ---
 
-### updateCart
+### updateAffiliateCommissionPayout
+
+**Retorno:** `AffiliateCommissionPayout!`
+
+| Argumento | Tipo                                    | Descripción |
+| :-------- | :-------------------------------------- | :---------- |
+| id        | `ID!`                                   |             |
+| input     | `UpdateAffiliateCommissionPayoutInput!` |             |
+
+---
+### deleteAffiliateCommissionPayout
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addToCart
 
 **Retorno:** `[CartItem!]!`
 
-| Argumento  | Tipo    | Descripción |
-| :--------- | :------ | :---------- |
-| variant_id | `ID!`   |             |
-| quantity   | `Int!`  |             |
-| attributes | `Mixed` |             |
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| items     | `[CartItemInput!]!` |             |
 
 ---
-### removeFromCart
+### updateCart
 **Retorno:** `[CartItem!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | variant_id | `ID!` |  |
+| quantity | `Int!` |  |
+| attributes | `Mixed` |  |
 ---
 
+### removeFromCart
+
+**Retorno:** `[CartItem!]!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| variant_id | `ID!` |             |
+
+---
 ### cartDiscountCodesUpdate
-
-**Retorno:** `Cart!`
-
-| Argumento     | Tipo         | Descripción |
-| :------------ | :----------- | :---------- |
-| discountCodes | `[String!]!` |             |
-
----
-### applyWalletCreditToCart
 **Retorno:** `Cart!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| amount | `Float` |  |
-| tag | `String` |  |
+| discountCodes | `[String!]!` |  |
 ---
 
-### removeWalletCreditFromCart
+### applyWalletCreditToCart
 
 **Retorno:** `Cart!`
 
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| amount    | `Float`  |             |
+| tag       | `String` |             |
+
 ---
+### removeWalletCreditFromCart
+**Retorno:** `Cart!`
+---
+
 ### clearCart
+
 **Retorno:** `Boolean!`
+
 ---
-
 ### amendOrder
-
 **Retorno:** `Order!`
 
-| Argumento       | Tipo        | Descripción |
-| :-------------- | :---------- | :---------- |
-| order_id        | `ID!`       |             |
-| correction_type | `String!`   |             |
-| reason          | `String!`   |             |
-| evidence_urls   | `[String!]` |             |
-| data            | `Mixed`     |             |
-
----
-### createOrder
-**Retorno:** `Mixed!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `OrderInput!` |  |
+| order_id | `ID!` |  |
+| correction_type | `String!` |  |
+| reason | `String!` |  |
+| evidence_urls | `[String!]` |  |
+| data | `Mixed` |  |
 ---
 
+### createOrder
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo          | Descripción |
+| :-------- | :------------ | :---------- |
+| input     | `OrderInput!` |             |
+
+---
 ### createOrderFromCart
-
-**Retorno:** `OrderResult!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `OrderCartInput!` |             |
-
----
-### createOrderFromWalletCart
 **Retorno:** `OrderResult!`
 
 
@@ -3156,282 +3195,300 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `OrderCartInput!` |  |
 ---
 
-### createDraftOrder
+### createOrderFromWalletCart
 
-**Retorno:** `Order!`
+**Retorno:** `OrderResult!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `DraftOrderInput!` |             |
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `OrderCartInput!` |             |
 
 ---
-### updateDraftOrderStatus
+### createDraftOrder
 **Retorno:** `Order!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| order_id | `ID!` |  |
-| status | `OrderStatusEnum!` |  |
+| input | `DraftOrderInput!` |  |
 ---
 
+### updateDraftOrderStatus
+
+**Retorno:** `Order!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| order_id  | `ID!`              |             |
+| status    | `OrderStatusEnum!` |             |
+
+---
 ### updateOrder
+**Retorno:** `OrderResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateOrderInput!` |  |
+---
+
+### extendOrder
 
 **Retorno:** `OrderResult!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | id        | `ID!`               |             |
-| input     | `UpdateOrderInput!` |             |
+| input     | `ExtendOrderInput!` |             |
 
 ---
-### extendOrder
-**Retorno:** `OrderResult!`
+### deleteOrder
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ExtendOrderInput!` |  |
 ---
 
-### deleteOrder
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderFromAppleInAppPurchase
+
 **Retorno:** `Order!`
 
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `AppleInAppPurchaseReceipt!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AppleInAppPurchaseReceipt!` |  |
 ---
-
 ### createOrderFromGooglePlayInAppPurchase
-
 **Retorno:** `Order!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `GooglePlayInAppPurchaseReceipt!` |             |
-
----
-### processOrderPayment
-**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ProcessPaymentInput!` |  |
+| input | `GooglePlayInAppPurchaseReceipt!` |  |
 ---
 
-### importOrderCsv
+### processOrderPayment
 
-**Retorno:** `ImportOrderCsvResult!`
+**Retorno:** `PaymentResult!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `ImportOrderCsvInput!` |             |
+| input     | `ProcessPaymentInput!` |             |
 
 ---
+### importOrderCsv
+**Retorno:** `ImportOrderCsvResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ImportOrderCsvInput!` |  |
+---
+
 ### generateOrderPaymentIntent
+
+**Retorno:** `GeneratePaymentIntentResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| amount    | `Money!` |             |
+
+---
+### generatePaymentIntentFromOrder
 **Retorno:** `GeneratePaymentIntentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| amount | `Money!` |  |
+| orderId | `ID!` |  |
+| stripeVersion | `String` |  |
 ---
 
-### generatePaymentIntentFromOrder
-
-**Retorno:** `GeneratePaymentIntentResult!`
-
-| Argumento     | Tipo     | Descripción |
-| :------------ | :------- | :---------- |
-| orderId       | `ID!`    |             |
-| stripeVersion | `String` |             |
-
----
 ### transitionOrderStatus
+
 **Retorno:** `OrderStatusTransitionResult!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `TransitionOrderStatusInput!` |             |
+
+---
+### createOrderStatus
+**Retorno:** `OrderStatus!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TransitionOrderStatusInput!` |  |
+| input | `CreateOrderStatusInput!` |  |
 ---
 
-### createOrderStatus
+### updateOrderStatus
 
 **Retorno:** `OrderStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
-| input     | `CreateOrderStatusInput!` |             |
+| id        | `ID!`                     |             |
+| input     | `UpdateOrderStatusInput!` |             |
 
 ---
-### updateOrderStatus
-**Retorno:** `OrderStatus!`
+### deleteOrderStatus
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateOrderStatusInput!` |  |
 ---
 
-### deleteOrderStatus
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderType
-**Retorno:** `OrderType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateOrderTypeInput!` |  |
----
-
-### updateOrderType
 
 **Retorno:** `OrderType!`
 
 | Argumento | Tipo                    | Descripción |
 | :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `UpdateOrderTypeInput!` |             |
+| input     | `CreateOrderTypeInput!` |             |
 
 ---
-### deleteOrderType
-**Retorno:** `Boolean!`
+### updateOrderType
+**Retorno:** `OrderType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateOrderTypeInput!` |  |
 ---
 
-### generateCheckoutSession
+### deleteOrderType
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### generateCheckoutSession
 **Retorno:** `PaymentLinkResult!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| order_id  | `ID!`                     |             |
-| options   | `PaymentLinkOptionsInput` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| order_id | `ID!` |  |
+| options | `PaymentLinkOptionsInput` |  |
+---
+
+### sendOrderEmail
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| order_id  | `ID!`    |             |
+| template  | `String` |             |
 
 ---
-### sendOrderEmail
+### orderChangeCustomer
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | order_id | `ID!` |  |
-| template | `String` |  |
+| customer_id | `ID!` |  |
 ---
 
-### orderChangeCustomer
-
-**Retorno:** `Boolean!`
-
-| Argumento   | Tipo  | Descripción |
-| :---------- | :---- | :---------- |
-| order_id    | `ID!` |             |
-| customer_id | `ID!` |             |
-
----
 ### updateReferralCode
+
 **Retorno:** `ReferralCode!`
 
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| id        | `ID!`                      |             |
+| input     | `UpdateReferralCodeInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateReferralCodeInput!` |  |
 ---
-
 ### createPaymentMethod
-
-**Retorno:** `PaymentMethod!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `PaymentMethodInput!` |             |
-
----
-### updatePaymentMethod
 **Retorno:** `PaymentMethod!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PaymentMethodUpdateInput!` |  |
+| input | `PaymentMethodInput!` |  |
 ---
 
-### deletePaymentMethod
+### updatePaymentMethod
 
+**Retorno:** `PaymentMethod!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `PaymentMethodUpdateInput!` |             |
+
+---
+### deletePaymentMethod
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### activatePaymentMethod
-**Retorno:** `PaymentMethod!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| activation_code | `String!` |  |
 ---
 
+### activatePaymentMethod
+
+**Retorno:** `PaymentMethod!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| id              | `ID!`     |             |
+| activation_code | `String!` |             |
+
+---
 ### makePaymentIntent
+**Retorno:** `PaymentIntentResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentID | `ID!` |  |
+---
+
+### makePaymentIntentFromOrder
 
 **Retorno:** `PaymentIntentResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentID | `ID!` |             |
+| orderID   | `ID!` |             |
 
 ---
-### makePaymentIntentFromOrder
-**Retorno:** `PaymentIntentResult!`
+### addPaymentToOrder
+**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | orderID | `ID!` |  |
+| input | `PaymentInput!` |  |
 ---
 
-### addPaymentToOrder
-
-**Retorno:** `PaymentResult!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| orderID   | `ID!`           |             |
-| input     | `PaymentInput!` |             |
-
----
 ### initiatePayerAuthentication
+
 **Retorno:** `PayerAuthResponse!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| orderId   | `ID!` |             |
+
+---
+### completeDeviceData
+**Retorno:** `PayerAuthStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -3439,7 +3496,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | orderId | `ID!` |  |
 ---
 
-### completeDeviceData
+### validatePayerAuthResult
 
 **Retorno:** `PayerAuthStatus!`
 
@@ -3448,34 +3505,55 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | orderId   | `ID!` |             |
 
 ---
-### validatePayerAuthResult
-**Retorno:** `PayerAuthStatus!`
+### validatePayment
+**Retorno:** `PaymentValidationResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
+| paymentId | `ID!` |  |
 ---
 
-### validatePayment
+### validatePaymentByOrder
 
 **Retorno:** `PaymentValidationResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
+| orderId   | `ID!` |             |
 
 ---
-### validatePaymentByOrder
-**Retorno:** `PaymentValidationResult!`
+### capturePayment
+**Retorno:** `PaymentActionResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
+| paymentId | `ID!` |  |
+| amount | `Float` |  |
 ---
 
-### capturePayment
+### reversePayment
+
+**Retorno:** `PaymentActionResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| paymentId | `ID!`    |             |
+| reason    | `String` |             |
+
+---
+### processPayment
+**Retorno:** `PaymentActionResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| use_hold | `Boolean` |  |
+---
+
+### refundPayment
 
 **Retorno:** `PaymentActionResult!`
 
@@ -3485,133 +3563,132 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | amount    | `Float` |             |
 
 ---
-### reversePayment
-**Retorno:** `PaymentActionResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| paymentId | `ID!` |  |
-| reason | `String` |  |
----
-
-### processPayment
-
-**Retorno:** `PaymentActionResult!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
-
----
-### refundPayment
-**Retorno:** `PaymentActionResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| paymentId | `ID!` |  |
-| amount | `Float` |  |
----
-
 ### voidPayment
-
 **Retorno:** `PaymentActionResult!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
 ---
+
 ### verifyPayment
+
 **Retorno:** `PaymentVerifyResult!`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderId | `ID` |  |
-| paymentId | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| orderId   | `ID` |             |
+| paymentId | `ID` |             |
 
+---
 ### startPaymentChallenge
-
-**Retorno:** `ThreeDSChallengeResult!`
-
-| Argumento   | Tipo               | Descripción |
-| :---------- | :----------------- | :---------- |
-| paymentId   | `ID!`              |             |
-| browserInfo | `BrowserInfoInput` |             |
-
----
-### startPaymentChallengeWithCard
 **Retorno:** `ThreeDSChallengeResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
-| paymentData | `StartChallengeCardInput!` |  |
+| paymentId | `ID!` |  |
+| browserInfo | `BrowserInfoInput` |  |
 ---
 
-### finalizePaymentChallenge
+### startPaymentChallengeWithCard
 
 **Retorno:** `ThreeDSChallengeResult!`
 
-| Argumento | Tipo    | Descripción |
-| :-------- | :------ | :---------- |
-| paymentId | `ID!`   |             |
-| metadata  | `Mixed` |             |
+| Argumento   | Tipo                       | Descripción |
+| :---------- | :------------------------- | :---------- |
+| orderId     | `ID!`                      |             |
+| paymentData | `StartChallengeCardInput!` |             |
 
 ---
+### finalizePaymentChallenge
+**Retorno:** `ThreeDSChallengeResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| metadata | `Mixed` |  |
+---
+
 ### flushUserWallet
+
+**Retorno:** `WalletResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID!`    |             |
+| tag       | `String` |             |
+
+---
+### flushCompanyWallet
 **Retorno:** `WalletResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| user_id | `ID!` |  |
+| company_id | `ID!` |  |
 | tag | `String` |  |
 ---
 
-### flushCompanyWallet
+### refundOrderToWallet
 
 **Retorno:** `WalletResult!`
 
-| Argumento  | Tipo     | Descripción |
-| :--------- | :------- | :---------- |
-| company_id | `ID!`    |             |
-| tag        | `String` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `WalletRefundInput!` |             |
 
 ---
-### refundOrderToWallet
-**Retorno:** `WalletResult!`
+### createDiscount
+**Retorno:** `Discount!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `WalletRefundInput!` |  |
+| input | `DiscountInput!` |  |
 ---
 
-### createDiscount
+### updateDiscount
 
 **Retorno:** `Discount!`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `DiscountInput!` |             |
 
 ---
-### updateDiscount
-**Retorno:** `Discount!`
+### deleteDiscount
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `DiscountInput!` |  |
 ---
 
-### deleteDiscount
+### createAction
+
+**Retorno:** `Action!`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `ActionInput!` |             |
+
+---
+### updateAction
+**Retorno:** `Action!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateActionInput!` |  |
+---
+
+### deleteAction
 
 **Retorno:** `Boolean!`
 
@@ -3620,72 +3697,35 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createAction
-**Retorno:** `Action!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ActionInput!` |  |
----
-
-### updateAction
-
-**Retorno:** `Action!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `UpdateActionInput!` |             |
-
----
-### deleteAction
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createCompanyAction
+**Retorno:** `CompanyAction!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateCompanyActionInput!` |  |
+---
+
+### updateCompanyAction
 
 **Retorno:** `CompanyAction!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `CreateCompanyActionInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `UpdateCompanyActionInput!` |             |
 
 ---
-### updateCompanyAction
-**Retorno:** `CompanyAction!`
+### deleteCompanyAction
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateCompanyActionInput!` |  |
 ---
 
-### deleteCompanyAction
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### startLeadEngagement
-**Retorno:** `Engagement!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateEngagementInput!` |  |
----
-
-### continueLeadEngagement
 
 **Retorno:** `Engagement!`
 
@@ -3694,92 +3734,73 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `CreateEngagementInput!` |             |
 
 ---
-### updateEngagement
+### continueLeadEngagement
 **Retorno:** `Engagement!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `ID!` |  |
-| input | `UpdateEngagementInput!` |  |
+| input | `CreateEngagementInput!` |  |
 ---
 
+### updateEngagement
+
+**Retorno:** `Engagement!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| uuid      | `ID!`                    |             |
+| input     | `UpdateEngagementInput!` |             |
+
+---
 ### createActionPipeline
+**Retorno:** `ActionPipeline!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreatePipelineInput!` |  |
+---
+
+### updateActionPipeline
 
 **Retorno:** `ActionPipeline!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `CreatePipelineInput!` |             |
+| id        | `ID!`                  |             |
+| input     | `UpdatePipelineInput!` |             |
 
 ---
-### updateActionPipeline
-**Retorno:** `ActionPipeline!`
+### deleteActionPipeline
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdatePipelineInput!` |  |
 ---
 
-### deleteActionPipeline
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createActionPipelineStage
-**Retorno:** `ActionPipelineStage!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreatePipelineStageInput!` |  |
----
-
-### updateActionPipelineStage
 
 **Retorno:** `ActionPipelineStage!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `UpdatePipelineStageInput!` |             |
+| input     | `CreatePipelineStageInput!` |             |
 
 ---
+### updateActionPipelineStage
+**Retorno:** `ActionPipelineStage!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePipelineStageInput!` |  |
+---
+
 ### deleteActionPipelineStage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createTaskList
-
-**Retorno:** `TaskList!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `TaskListInput!` |             |
-
----
-### updateTaskList
-**Retorno:** `TaskList!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateTaskListInput!` |  |
----
-
-### deleteTaskList
 
 **Retorno:** `Boolean!`
 
@@ -3788,26 +3809,26 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createTaskListItem
-**Retorno:** `TaskListItem!`
+### createTaskList
+**Retorno:** `TaskList!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TaskListItemInput!` |  |
+| input | `TaskListInput!` |  |
 ---
 
-### updateTaskListItem
+### updateTaskList
 
-**Retorno:** `TaskListItem!`
+**Retorno:** `TaskList!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateTaskListItemInput!` |             |
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `UpdateTaskListInput!` |             |
 
 ---
-### deleteTaskListItem
+### deleteTaskList
 **Retorno:** `Boolean!`
 
 
@@ -3816,48 +3837,67 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### changeTaskEngagementItemStatus
+### createTaskListItem
 
-**Retorno:** `Boolean!`
+**Retorno:** `TaskListItem!`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| id         | `ID!`     |             |
-| lead_id    | `ID!`     |             |
-| status     | `String!` |             |
-| message_id | `ID`      |             |
-| config     | `Mixed`   |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `TaskListItemInput!` |             |
 
 ---
-### createApp
-**Retorno:** `App!`
+### updateTaskListItem
+**Retorno:** `TaskListItem!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AppInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateTaskListItemInput!` |  |
 ---
 
-### updateApp
+### deleteTaskListItem
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### changeTaskEngagementItemStatus
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| lead_id | `ID!` |  |
+| status | `String!` |  |
+| message_id | `ID` |  |
+| config | `Mixed` |  |
+---
+
+### createApp
 
 **Retorno:** `App!`
 
 | Argumento | Tipo        | Descripción |
 | :-------- | :---------- | :---------- |
-| id        | `String!`   |             |
 | input     | `AppInput!` |             |
 
 ---
-### deleteApp
+### updateApp
 **Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| input | `AppInput!` |  |
 ---
 
-### restoreApp
+### deleteApp
 
 **Retorno:** `App!`
 
@@ -3866,17 +3906,16 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `String!` |             |
 
 ---
-### assignCompanyToApp
-**Retorno:** `Company!`
+### restoreApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| companyId | `String!` |  |
 ---
 
-### removeCompanyToApp
+### assignCompanyToApp
 
 **Retorno:** `Company!`
 
@@ -3886,16 +3925,17 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | companyId | `String!` |             |
 
 ---
-### activateApp
-**Retorno:** `App!`
+### removeCompanyToApp
+**Retorno:** `Company!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| companyId | `String!` |  |
 ---
 
-### deactivateApp
+### activateApp
 
 **Retorno:** `App!`
 
@@ -3904,104 +3944,86 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `String!` |             |
 
 ---
-### saveAppSettings
-**Retorno:** `Mixed!`
+### deactivateApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `appSettingInput` |  |
 ---
 
+### saveAppSettings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| id        | `String!`         |             |
+| input     | `appSettingInput` |             |
+
+---
 ### addTemplateToApp
-
 **Retorno:** `AppTemplate`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `String!`           |             |
-| input     | `appTemplateInput!` |             |
-
----
-### appUserUpdatePassword
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `String!` |  |
-| password | `String!` |  |
+| id | `String!` |  |
+| input | `appTemplateInput!` |  |
 ---
 
-### appUserUpdateEmail
+### appUserUpdatePassword
 
 **Retorno:** `Boolean!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
 | uuid      | `String!` |             |
-| email     | `Email!`  |             |
+| password  | `String!` |             |
 
 ---
+### appUserUpdateEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
+| email | `Email!` |  |
+---
+
 ### saveS3Settings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `String!`                 |             |
+| input     | `s3FilesystemConfigInput` |             |
+
+---
+### saveGcsSettings
 **Retorno:** `Mixed!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `s3FilesystemConfigInput` |  |
+| input | `gcsFilesystemConfigInput` |  |
 ---
 
-### saveGcsSettings
-
-**Retorno:** `Mixed!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `String!`                  |             |
-| input     | `gcsFilesystemConfigInput` |             |
-
----
 ### updateAppLogo
+
 **Retorno:** `App!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| file      | `Upload!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
 ---
-
 ### setAppSetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteAppSetting
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| key | `String!` |  |
----
-
-### setCompanySetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteCompanySetting
 **Retorno:** `Boolean!`
 
 
@@ -4010,43 +4032,61 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `ModuleConfigInput!` |  |
 ---
 
-### appCreateUser
+### deleteAppSetting
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| key       | `String!` |             |
+
+---
+### setCompanySetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
+### deleteCompanySetting
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
+
+---
+### appCreateUser
 **Retorno:** `User!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| data      | `CreateUserInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `CreateUserInput!` |  |
 ---
+
 ### appDeleteUser
+
 **Retorno:** `Boolean`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| user_id   | `ID` |             |
 
+---
 ### appDeActiveUser
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo | Descripción |
-| :-------- | :--- | :---------- |
-| user_id   | `ID` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| user_id | `ID` |  |
 ---
+
 ### appActivateUser
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
-
-### appRestoreDeletedUser
 
 **Retorno:** `Boolean`
 
@@ -4055,36 +4095,36 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | user_id   | `ID` |             |
 
 ---
-### appResetUserPassword
+### appRestoreDeletedUser
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | user_id | `ID` |  |
-| password | `String` |  |
 ---
 
-### appUpdateUserDisplayname
+### appResetUserPassword
 
 **Retorno:** `Boolean`
 
-| Argumento   | Tipo     | Descripción |
-| :---------- | :------- | :---------- |
-| user_id     | `ID`     |             |
-| displayname | `String` |             |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID`     |             |
+| password  | `String` |             |
 
 ---
-### setUserSetting
-**Retorno:** `Boolean!`
+### appUpdateUserDisplayname
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ModuleConfigInput!` |  |
+| user_id | `ID` |  |
+| displayname | `String` |  |
 ---
 
-### deleteUserSetting
+### setUserSetting
 
 **Retorno:** `Boolean!`
 
@@ -4093,62 +4133,25 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `ModuleConfigInput!` |             |
 
 ---
+### deleteUserSetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
 ### integrationCompany
+
 **Retorno:** `IntegrationsCompanies!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationsCompaniesInput!` |  |
----
-
-### removeIntegrationCompany
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### integrationCompanyIsActive
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationCompanyActive!` |  |
----
-
-### integrationWorkflowRetry
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createReceiverWebhook
-**Retorno:** `WorkflowReceiver!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ReceiverWebhookInput!` |  |
----
-
-### updateReceiverWebhook
-
-**Retorno:** `WorkflowReceiver!`
 
 | Argumento | Tipo                          | Descripción |
 | :-------- | :---------------------------- | :---------- |
-| id        | `ID!`                         |             |
-| input     | `UpdateReceiverWebhookInput!` |             |
+| input     | `IntegrationsCompaniesInput!` |             |
 
 ---
-### deleteReceiverWebhook
+### removeIntegrationCompany
 **Retorno:** `Boolean!`
 
 
@@ -4157,7 +4160,44 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### retryWebhookCall
+### integrationCompanyIsActive
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `IntegrationCompanyActive!` |             |
+
+---
+### integrationWorkflowRetry
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createReceiverWebhook
+
+**Retorno:** `WorkflowReceiver!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ReceiverWebhookInput!` |             |
+
+---
+### updateReceiverWebhook
+**Retorno:** `WorkflowReceiver!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateReceiverWebhookInput!` |  |
+---
+
+### deleteReceiverWebhook
 
 **Retorno:** `Boolean!`
 
@@ -4166,99 +4206,44 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
+### retryWebhookCall
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### runWorkflowFromEntity
+
 **Retorno:** `Mixed`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `runWorkflowEntityInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `runWorkflowEntityInput!` |  |
 ---
-
 ### createRule
-
 **Retorno:** `WorkflowRule!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `CreateRuleInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateRuleInput!` |  |
 ---
+
 ### updateRule
+
 **Retorno:** `WorkflowRule!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateRuleInput!` |  |
----
-
-### deleteRule
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createSubscription
-**Retorno:** `CompanySubscription!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SubscriptionInput!` |  |
----
-
-### updateSubscription
-
-**Retorno:** `CompanySubscription!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `SubscriptionUpdateInput!` |             |
-
----
-### cancelSubscription
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### reactivateSubscription
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createPlan
-**Retorno:** `Plan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PlanInput!` |  |
----
-
-### updatePlan
-
-**Retorno:** `Plan!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `PlanUpdateInput!` |             |
+| input     | `UpdateRuleInput!` |             |
 
 ---
-### deletePlan
+### deleteRule
 **Retorno:** `Boolean!`
 
 
@@ -4267,45 +4252,25 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### createPrice
+### createSubscription
 
-**Retorno:** `Price!`
+**Retorno:** `CompanySubscription!`
 
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `PriceInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `SubscriptionInput!` |             |
 
 ---
-### updatePrice
-**Retorno:** `Price!`
+### updateSubscription
+**Retorno:** `CompanySubscription!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PriceUpdateInput!` |  |
+| input | `SubscriptionUpdateInput!` |  |
 ---
 
-### createEvent
-
-**Retorno:** `Event!`
-
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `EventInput!` |             |
-
----
-### updateEvent
-**Retorno:** `Event!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventUpdateInput!` |  |
----
-
-### deleteEvent
+### cancelSubscription
 
 **Retorno:** `Boolean!`
 
@@ -4314,44 +4279,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### followEvent
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowInput!` |  |
----
-
-### unFollowEvent
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `FollowInput!` |             |
-
----
-### createEventVersion
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventVersionInput!` |  |
----
-
-### updateEventVersion
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `EventVersionUpdateInput!` |             |
-
----
-### deleteEventVersion
+### reactivateSubscription
 **Retorno:** `Boolean!`
 
 
@@ -4360,7 +4288,82 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### followEventVersion
+### createPlan
+
+**Retorno:** `Plan!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `PlanInput!` |             |
+
+---
+### updatePlan
+**Retorno:** `Plan!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `PlanUpdateInput!` |  |
+---
+
+### deletePlan
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createPrice
+**Retorno:** `Price!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PriceInput!` |  |
+---
+
+### updatePrice
+
+**Retorno:** `Price!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `PriceUpdateInput!` |             |
+
+---
+### createEvent
+**Retorno:** `Event!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventInput!` |  |
+---
+
+### updateEvent
+
+**Retorno:** `Event!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `EventUpdateInput!` |             |
+
+---
+### deleteEvent
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### followEvent
 
 **Retorno:** `Boolean`
 
@@ -4369,7 +4372,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `FollowInput!` |             |
 
 ---
-### unFollowEventVersion
+### unFollowEvent
 **Retorno:** `Boolean`
 
 
@@ -4378,194 +4381,212 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `FollowInput!` |  |
 ---
 
+### createEventVersion
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `EventVersionInput!` |             |
+
+---
+### updateEventVersion
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventVersionUpdateInput!` |  |
+---
+
+### deleteEventVersion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### followEventVersion
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### unFollowEventVersion
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
 ### addEventVersionDate
+**Retorno:** `EventVersionDate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AddEventVersionDateInput!` |  |
+---
+
+### updateEventVersionDate
 
 **Retorno:** `EventVersionDate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateEventVersionDateInput!` |             |
+
+---
+### deleteEventVersionDate
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateEventVersionParticipant
+
+**Retorno:** `EventVersionParticipant!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `EventVersionParticipantUpdateInput!` |             |
+
+---
+### deleteEventVersionParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### bookTimeSlot
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `TimeSlotBookingInput!` |             |
+
+---
+### updateTimeSlotBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TimeSlotBookingUpdateInput!` |  |
+---
+
+### bookResource
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ResourceBookingInput!` |             |
+
+---
+### updateResourceBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceBookingUpdateInput!` |  |
+---
+
+### deleteResourceBooking
+
+**Retorno:** `ResourceBookingDeleteResult!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| event_version_id | `ID!` |             |
+
+---
+### createEventCategory
+**Retorno:** `EventCategory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventCategoryInput!` |  |
+---
+
+### updateEventCategory
+
+**Retorno:** `EventCategory!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `AddEventVersionDateInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `EventCategoryUpdateInput!` |             |
 
 ---
-### updateEventVersionDate
-**Retorno:** `EventVersionDate!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateEventVersionDateInput!` |  |
----
-
-### deleteEventVersionDate
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateEventVersionParticipant
-**Retorno:** `EventVersionParticipant!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventVersionParticipantUpdateInput!` |  |
----
-
-### deleteEventVersionParticipant
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### bookTimeSlot
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `TimeSlotBookingInput!` |  |
----
-
-### updateTimeSlotBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `TimeSlotBookingUpdateInput!` |             |
-
----
-### bookResource
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ResourceBookingInput!` |  |
----
-
-### updateResourceBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `ResourceBookingUpdateInput!` |             |
-
----
-### deleteResourceBooking
-**Retorno:** `ResourceBookingDeleteResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| event_version_id | `ID!` |  |
----
-
-### createEventCategory
-
-**Retorno:** `EventCategory!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `EventCategoryInput!` |             |
-
----
-### updateEventCategory
-**Retorno:** `EventCategory!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventCategoryUpdateInput!` |  |
----
-
 ### deleteEventCategory
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createEventType
+
 **Retorno:** `EventType!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
 ---
-
 ### updateEventType
-
 **Retorno:** `EventType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
+
 ### deleteEventType
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createEventClass
-
 **Retorno:** `EventClass!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `EventLookupInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
 ---
+
 ### updateEventClass
+
 **Retorno:** `EventClass!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventLookupUpdateInput!` |  |
----
-
-### deleteEventClass
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createEventStatus
-**Retorno:** `EventStatus!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
----
-
-### updateEventStatus
-
-**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -4573,7 +4594,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventStatus
+### deleteEventClass
 **Retorno:** `Boolean!`
 
 
@@ -4582,17 +4603,17 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### createEventTheme
+### createEventStatus
 
-**Retorno:** `EventTheme!`
+**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | input     | `EventLookupInput!` |             |
 
 ---
-### updateEventTheme
-**Retorno:** `EventTheme!`
+### updateEventStatus
+**Retorno:** `EventStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4601,7 +4622,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteEventTheme
+### deleteEventStatus
 
 **Retorno:** `Boolean!`
 
@@ -4610,8 +4631,8 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createEventThemeArea
-**Retorno:** `EventThemeArea!`
+### createEventTheme
+**Retorno:** `EventTheme!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4619,9 +4640,9 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `EventLookupInput!` |  |
 ---
 
-### updateEventThemeArea
+### updateEventTheme
 
-**Retorno:** `EventThemeArea!`
+**Retorno:** `EventTheme!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -4629,7 +4650,7 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventThemeArea
+### deleteEventTheme
 **Retorno:** `Boolean!`
 
 
@@ -4638,26 +4659,26 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
-### createFacilitator
+### createEventThemeArea
 
-**Retorno:** `Facilitator!`
+**Retorno:** `EventThemeArea!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
-| input     | `FacilitatorInput!` |             |
+| input     | `EventLookupInput!` |             |
 
 ---
-### updateFacilitator
-**Retorno:** `Facilitator!`
+### updateEventThemeArea
+**Retorno:** `EventThemeArea!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `FacilitatorUpdateInput!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteFacilitator
+### deleteEventThemeArea
 
 **Retorno:** `Boolean!`
 
@@ -4666,8 +4687,45 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
+### createFacilitator
+**Retorno:** `Facilitator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FacilitatorInput!` |  |
+---
+
+### updateFacilitator
+
+**Retorno:** `Facilitator!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `FacilitatorUpdateInput!` |             |
+
+---
+### deleteFacilitator
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### attachFacilitatorToEventVersion
+
 **Retorno:** `EventVersionFacilitator!`
+
+| Argumento | Tipo                            | Descripción |
+| :-------- | :------------------------------ | :---------- |
+| input     | `FacilitatorEventVersionInput!` |             |
+
+---
+### detachFacilitatorFromEventVersion
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4675,54 +4733,36 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `FacilitatorEventVersionInput!` |  |
 ---
 
-### detachFacilitatorFromEventVersion
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                            | Descripción |
-| :-------- | :------------------------------ | :---------- |
-| input     | `FacilitatorEventVersionInput!` |             |
-
----
 ### createParticipant
+
 **Retorno:** `Participant!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `ParticipantInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ParticipantInput!` |  |
 ---
-
 ### updateParticipant
-
 **Retorno:** `Participant!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `ParticipantUpdateInput!` |             |
-
----
-### deleteParticipant
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ParticipantUpdateInput!` |  |
 ---
 
-### addPeopleToEventVersion
+### deleteParticipant
 
-**Retorno:** `Participant!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `PeopleEventVersionInput!` |             |
-
----
-### removePeopleInEventVersion
 **Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### addPeopleToEventVersion
+**Retorno:** `Participant!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4730,98 +4770,44 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `PeopleEventVersionInput!` |  |
 ---
 
-### copyParticipantsToEventVersion
+### removePeopleInEventVersion
 
-**Retorno:** `Int!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `CopyParticipantsInput!` |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleEventVersionInput!` |             |
 
 ---
-### createParticipantType
-**Retorno:** `ParticipantType!`
+### copyParticipantsToEventVersion
+**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
+| input | `CopyParticipantsInput!` |  |
 ---
 
-### updateParticipantType
+### createParticipantType
 
 **Retorno:** `ParticipantType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
 ---
-### deleteParticipantType
-**Retorno:** `Boolean!`
+### updateParticipantType
+**Retorno:** `ParticipantType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### issueEventCode
-
-**Retorno:** `IssueCodeResponse!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `IssueEventCodeInput!` |             |
-
----
-### issueParticipantCode
-**Retorno:** `IssueParticipantCodeResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IssueParticipantCodeInput!` |  |
----
-
-### issueAllParticipantCodes
-
-**Retorno:** `IssueAllCodesResponse!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| input     | `IssueAllParticipantCodesInput!` |             |
-
----
-### checkInWithPin
-**Retorno:** `CheckInResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CheckInWithPinInput!` |  |
----
-
-### setResourceSchedule
-
-**Retorno:** `ResourceSchedule!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `ResourceScheduleInput!` |             |
-
----
-### createScheduleException
-**Retorno:** `ScheduleException!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScheduleExceptionInput!` |  |
----
-
-### deleteScheduleException
+### deleteParticipantType
 
 **Retorno:** `Boolean!`
 
@@ -4830,26 +4816,61 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id        | `ID!` |             |
 
 ---
-### createScheduleRules
-**Retorno:** `ScheduleRules!`
+### issueEventCode
+**Retorno:** `IssueCodeResponse!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScheduleRulesInput!` |  |
+| input | `IssueEventCodeInput!` |  |
 ---
 
-### updateScheduleRules
+### issueParticipantCode
 
-**Retorno:** `ScheduleRules!`
+**Retorno:** `IssueParticipantCodeResponse!`
 
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `ScheduleRulesUpdateInput!` |             |
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `IssueParticipantCodeInput!` |             |
 
 ---
-### deleteScheduleRules
+### issueAllParticipantCodes
+**Retorno:** `IssueAllCodesResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `IssueAllParticipantCodesInput!` |  |
+---
+
+### checkInWithPin
+
+**Retorno:** `CheckInResponse!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `CheckInWithPinInput!` |             |
+
+---
+### setResourceSchedule
+**Retorno:** `ResourceSchedule!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceScheduleInput!` |  |
+---
+
+### createScheduleException
+
+**Retorno:** `ScheduleException!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScheduleExceptionInput!` |             |
+
+---
+### deleteScheduleException
 **Retorno:** `Boolean!`
 
 
@@ -4858,131 +4879,150 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | id | `ID!` |  |
 ---
 
+### createScheduleRules
+
+**Retorno:** `ScheduleRules!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScheduleRulesInput!` |             |
+
+---
+### updateScheduleRules
+**Retorno:** `ScheduleRules!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScheduleRulesUpdateInput!` |  |
+---
+
+### deleteScheduleRules
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createAiAgent
+**Retorno:** `AgentAi!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentAiInput!` |  |
+---
+
+### updateAiAgent
 
 **Retorno:** `AgentAi!`
 
 | Argumento | Tipo            | Descripción |
 | :-------- | :-------------- | :---------- |
+| id        | `ID!`           |             |
 | input     | `AgentAiInput!` |             |
 
 ---
-### updateAiAgent
-**Retorno:** `AgentAi!`
+### deleteAiAgent
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AgentAiInput!` |  |
 ---
 
-### deleteAiAgent
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### aiAgentCreateSession
+
+**Retorno:** `String!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentSessionInput!` |             |
+
+---
+### aiAgentChat
 **Retorno:** `String!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AgentSessionInput!` |  |
+| input | `ChatSimpleInput!` |  |
 ---
 
-### aiAgentChat
-
-**Retorno:** `String!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `ChatSimpleInput!` |             |
-
----
 ### aiAgentUserChat
+
 **Retorno:** `UserChatResponse!`
 
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `UserChatInput!` |             |
+
+---
+### setAgentIntegrationConfig
+**Retorno:** `AgentAi!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `UserChatInput!` |  |
+| input | `SetAgentIntegrationConfigInput!` |  |
 ---
 
-### setAgentIntegrationConfig
-
-**Retorno:** `AgentAi!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `SetAgentIntegrationConfigInput!` |             |
-
----
 ### setAgentKanvasModule
+
 **Retorno:** `AgentKanvasModule!`
+
+| Argumento        | Tipo      | Descripción |
+| :--------------- | :-------- | :---------- |
+| agent_id         | `ID!`     |             |
+| kanvas_module_id | `ID!`     |             |
+| config           | `Mixed`   |             |
+| is_active        | `Boolean` |             |
+
+---
+### removeAgentKanvasModule
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
 | kanvas_module_id | `ID!` |  |
-| config | `Mixed` |  |
-| is_active | `Boolean` |  |
 ---
 
-### removeAgentKanvasModule
-
-**Retorno:** `Boolean!`
-
-| Argumento        | Tipo  | Descripción |
-| :--------------- | :---- | :---------- |
-| agent_id         | `ID!` |             |
-| kanvas_module_id | `ID!` |             |
-
----
 ### agentRuntimeCreateMachine
+
 **Retorno:** `AgentMachineType!`
 
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentMachineInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentMachineInput!` |  |
 ---
-
 ### agentRuntimeUpdateMachine
-
 **Retorno:** `AgentMachineType!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateAgentMachineInput!` |             |
-
----
-### agentRuntimeDeleteMachine
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateAgentMachineInput!` |  |
 ---
 
-### agentRuntimeUpdateMachineContainers
+### agentRuntimeDeleteMachine
 
 **Retorno:** `Boolean!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### agentRuntimePingMachine
-**Retorno:** `AgentMachineType!`
+### agentRuntimeUpdateMachineContainers
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -4990,23 +5030,41 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | machine_id | `ID!` |  |
 ---
 
-### agentRuntimeBackupAgent
+### agentRuntimePingMachine
 
-**Retorno:** `AgentBackupType!`
+**Retorno:** `AgentMachineType!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| deployment_id     | `ID!`     |             |
-| include_workspace | `Boolean` |             |
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
 
 ---
-### agentRuntimeLaunchAgent
-**Retorno:** `AgentDeploymentType!`
+### agentRuntimeBackupAgent
+**Retorno:** `AgentBackupType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LaunchAgentInput!` |  |
+| deployment_id | `ID!` |  |
+| include_workspace | `Boolean` |  |
+---
+
+### agentRuntimeLaunchAgent
+
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
+### agentRuntimeRetryDeployment
+**Retorno:** `AgentDeploymentType!`
+Retry a failed deployment on the same agent + machine it already targeted.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
 ---
 
 ### agentRuntimeTerminateAgent
@@ -5600,27 +5658,7 @@ agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 | id | `ID!` |  |
 ---
 
-### voidScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
----
-### allocateScribeBillPayment
-**Retorno:** `ScribeBillPaymentAllocation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAllocatePaymentInput!` |  |
----
-
-### markScribeBillPaid
+### submitScribeBillForApproval
 
 **Retorno:** `ScribeBill!`
 
@@ -5629,35 +5667,74 @@ agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 | id        | `ID!` |             |
 
 ---
-### createScribeExpense
-**Retorno:** `ScribeExpense!`
+### approveScribeBill
+**Retorno:** `ScribeBill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeExpenseInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updateScribeExpense
+### rejectScribeBill
+
+**Retorno:** `ScribeBill!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| id        | `ID!`    |             |
+| reason    | `String` |             |
+
+---
+### voidScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
+---
+
+### allocateScribeBillPayment
+
+**Retorno:** `ScribeBillPaymentAllocation!`
+
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| id        | `ID!`                         |             |
+| input     | `ScribeAllocatePaymentInput!` |             |
+
+---
+### markScribeBillPaid
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createScribeExpense
 
 **Retorno:** `ScribeExpense!`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `ScribeExpenseInput!` |             |
 
 ---
-### submitScribeExpenseForApproval
+### updateScribeExpense
 **Retorno:** `ScribeExpense!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ScribeExpenseInput!` |  |
 ---
 
-### approveScribeExpense
+### submitScribeExpenseForApproval
 
 **Retorno:** `ScribeExpense!`
 
@@ -5666,311 +5743,319 @@ agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 | id        | `ID!` |             |
 
 ---
+### approveScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### rejectScribeExpense
+
 **Retorno:** `ScribeExpense!`
 
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| id        | `ID!`    |             |
+| reason    | `String` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| reason | `String` |  |
 ---
-
 ### voidScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
----
-### recordScribeExpenseReimbursement
 **Retorno:** `ScribeExpense!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| reimbursement_payment_id | `Int` |  |
+| void_reason_code | `String!` |  |
 ---
 
-### attachScribeExpenseReceipt
+### recordScribeExpenseReimbursement
 
+**Retorno:** `ScribeExpense!`
+
+| Argumento                | Tipo  | Descripción |
+| :----------------------- | :---- | :---------- |
+| id                       | `ID!` |             |
+| reimbursement_payment_id | `Int` |             |
+
+---
+### attachScribeExpenseReceipt
 **Retorno:** `ScribeExpenseReceipt!`
 
-| Argumento | Tipo                               | Descripción |
-| :-------- | :--------------------------------- | :---------- |
-| id        | `ID!`                              |             |
-| input     | `ScribeAttachExpenseReceiptInput!` |             |
-
----
-### createScribeInvoice
-**Retorno:** `ScribeInvoice!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeInvoiceInput!` |  |
+| id | `ID!` |  |
+| input | `ScribeAttachExpenseReceiptInput!` |  |
 ---
 
-### updateScribeInvoice
+### createScribeInvoice
 
 **Retorno:** `ScribeInvoice!`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `ScribeInvoiceInput!` |             |
 
 ---
-### issueScribeInvoice
+### updateScribeInvoice
 **Retorno:** `ScribeInvoice!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
----
-
-### voidScribeInvoice
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
----
-### allocateScribeInvoicePayment
-**Retorno:** `ScribeInvoicePaymentAllocation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAllocatePaymentInput!` |  |
----
-
-### markScribeInvoicePaid
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo                         | Descripción |
-| :-------- | :--------------------------- | :---------- |
-| id        | `ID!`                        |             |
-| input     | `ScribeMarkInvoicePaidInput` |             |
-
----
-### issueScribeCreditNote
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| parent_invoice_id | `ID!` |  |
 | input | `ScribeInvoiceInput!` |  |
 ---
 
-### amendScribeInvoice
+### issueScribeInvoice
 
 **Retorno:** `ScribeInvoice!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `ScribeAmendInvoiceInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### createScribeAccount
-**Retorno:** `ScribeAccount!`
+### voidScribeInvoice
+**Retorno:** `ScribeInvoice!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeAccountInput!` |  |
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
 ---
 
-### updateScribeAccount
+### allocateScribeInvoicePayment
+
+**Retorno:** `ScribeInvoicePaymentAllocation!`
+
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| id        | `ID!`                         |             |
+| input     | `ScribeAllocatePaymentInput!` |             |
+
+---
+### markScribeInvoicePaid
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeMarkInvoicePaidInput` |  |
+---
+
+### issueScribeCreditNote
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento         | Tipo                  | Descripción |
+| :---------------- | :-------------------- | :---------- |
+| parent_invoice_id | `ID!`                 |             |
+| input             | `ScribeInvoiceInput!` |             |
+
+---
+### amendScribeInvoice
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeAmendInvoiceInput!` |  |
+---
+
+### createScribeAccount
 
 **Retorno:** `ScribeAccount!`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `ScribeAccountInput!` |             |
 
 ---
-### openScribeFiscalPeriod
-**Retorno:** `ScribeFiscalPeriod!`
+### updateScribeAccount
+**Retorno:** `ScribeAccount!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeFiscalPeriodInput!` |  |
+| id | `ID!` |  |
+| input | `ScribeAccountInput!` |  |
 ---
 
-### closeScribeFiscalPeriod
+### openScribeFiscalPeriod
 
 **Retorno:** `ScribeFiscalPeriod!`
 
-| Argumento   | Tipo      | Descripción |
-| :---------- | :-------- | :---------- |
-| id          | `ID!`     |             |
-| hard        | `Boolean` |             |
-| close_notes | `String`  |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `ScribeFiscalPeriodInput!` |             |
 
 ---
-### reopenScribeFiscalPeriod
+### closeScribeFiscalPeriod
 **Retorno:** `ScribeFiscalPeriod!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| reopen_notes | `String` |  |
+| hard | `Boolean` |  |
+| close_notes | `String` |  |
 ---
 
+### reopenScribeFiscalPeriod
+
+**Retorno:** `ScribeFiscalPeriod!`
+
+| Argumento    | Tipo     | Descripción |
+| :----------- | :------- | :---------- |
+| id           | `ID!`    |             |
+| reopen_notes | `String` |             |
+
+---
 ### createScribeItem
+**Retorno:** `ScribeItem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeItemInput!` |  |
+---
+
+### updateScribeItem
 
 **Retorno:** `ScribeItem!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
 | input     | `ScribeItemInput!` |             |
 
 ---
-### updateScribeItem
-**Retorno:** `ScribeItem!`
+### createScribeTaxCode
+**Retorno:** `ScribeTaxCode!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeItemInput!` |  |
+| input | `ScribeTaxCodeInput!` |  |
 ---
 
-### createScribeTaxCode
+### updateScribeTaxCode
 
 **Retorno:** `ScribeTaxCode!`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
 | input     | `ScribeTaxCodeInput!` |             |
 
 ---
-### updateScribeTaxCode
-**Retorno:** `ScribeTaxCode!`
+### createScribePaymentTerm
+**Retorno:** `ScribePaymentTerm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeTaxCodeInput!` |  |
+| input | `ScribePaymentTermInput!` |  |
 ---
 
-### createScribePaymentTerm
+### updateScribePaymentTerm
 
 **Retorno:** `ScribePaymentTerm!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
 | input     | `ScribePaymentTermInput!` |             |
 
 ---
-### updateScribePaymentTerm
-**Retorno:** `ScribePaymentTerm!`
+### createScribeQuote
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeQuoteInput!` |  |
+---
+
+### sendScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### acceptScribeQuote
+**Retorno:** `ScribeQuote!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ScribePaymentTermInput!` |  |
 ---
 
-### createScribeQuote
+### rejectScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| id        | `ID!`    |             |
+| reason    | `String` |             |
+
+---
+### expireScribeQuote
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createScribeQuoteRevision
 
 **Retorno:** `ScribeQuote!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
 | input     | `ScribeQuoteInput!` |             |
 
 ---
-### sendScribeQuote
-**Retorno:** `ScribeQuote!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### acceptScribeQuote
-
-**Retorno:** `ScribeQuote!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### rejectScribeQuote
-**Retorno:** `ScribeQuote!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| reason | `String` |  |
----
-
-### expireScribeQuote
-
-**Retorno:** `ScribeQuote!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createScribeQuoteRevision
-**Retorno:** `ScribeQuote!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeQuoteInput!` |  |
----
-
 ### convertScribeQuoteToInvoice
-
 **Retorno:** `ScribeInvoice!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createScribeSalesReceipt
+
+**Retorno:** `ScribeSalesReceipt!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `ScribeSalesReceiptInput!` |             |
 
 ---
-### createScribeSalesReceipt
+### voidScribeSalesReceipt
 **Retorno:** `ScribeSalesReceipt!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeSalesReceiptInput!` |  |
----
-
-### voidScribeSalesReceipt
-
-**Retorno:** `ScribeSalesReceipt!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
 ---

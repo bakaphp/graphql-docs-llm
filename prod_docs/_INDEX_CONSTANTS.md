@@ -1,5 +1,6 @@
 # Constantes (Enums)
 
+- [AddressTypeEnum](./AddressTypeEnum.md)
 - [AffiliateConversionStatusEnum](./AffiliateConversionStatusEnum.md)
 - [AffiliatePayoutStatusEnum](./AffiliatePayoutStatusEnum.md)
 - [AffiliateStatusEnum](./AffiliateStatusEnum.md)
