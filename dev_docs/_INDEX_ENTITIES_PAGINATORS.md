@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (159)
+## Entidades con paginador (166)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -18,12 +18,14 @@ EntityInteraction, EntityInteractions, Event, EventCategory, EventClass,
 EventStatus, EventTheme, EventThemeArea, EventType, EventVersion,
 EventVersionParticipant, EventVersionParticipantDate, Facilitator, Filesystem,
 FilesystemImportHistory, FilesystemMapper, FollowUp, FollowUpDay,
-FollowUpTemplate, Following, Integrations, IntegrationsEntityHistory, Invite,
-Language, Lead, LeadDashboard, LeadPipeline, LeadReceiver, LeadRotation,
-LeadSource, LeadStatus, LeadSubSource, LeadTaskEngagementItem, LeadType,
-LedgerEvent, Message, MessageComments, MessageType, NervousSystemPlan,
-NervousSystemSkill, NervousSystemTool, NervousSystemToolCategory, Notification,
-NotificationChannel, NotificationSettings, NotificationType, Order, OrderStatus,
+FollowUpTemplate, Following, HrDepartment, HrDepartmentModuleAccess, HrEmployee,
+HrLeaveRequest, HrLeaveType, HrPayBand, HrPosition, Integrations,
+IntegrationsEntityHistory, Invite, Language, Lead, LeadDashboard, LeadPipeline,
+LeadReceiver, LeadRotation, LeadSource, LeadStatus, LeadSubSource,
+LeadTaskEngagementItem, LeadType, LedgerEvent, Message, MessageComments,
+MessageType, NervousSystemPlan, NervousSystemSkill, NervousSystemTool,
+NervousSystemToolCategory, Notification, NotificationChannel,
+NotificationSettings, NotificationType, Order, OrderStatus,
 OrderTransitionHistory, OrderType, Organization, OrganizationType, Participant,
 ParticipantPassMotive, ParticipantType, Payment, PaymentMethod, People,
 PeopleRelationship, PeopleType, Plan, Product, ProductType, Reaction,

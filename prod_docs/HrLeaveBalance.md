@@ -1,0 +1,16 @@
+# OBJECT: HrLeaveBalance
+
+## Estructura
+
+| Campo             | Tipo           | Descripción |
+| :---------------- | :------------- | :---------- |
+| id                | `ID!`          |             |
+| period_year       | `Int!`         |             |
+| entitled_days     | `Float!`       |             |
+| accrued_days      | `Float!`       |             |
+| carried_over_days | `Float!`       |             |
+| used_days         | `Float!`       |             |
+| pending_days      | `Float!`       |             |
+| available_days    | `Float!`       |             |
+| leaveType         | `HrLeaveType!` |             |
+| employee          | `HrEmployee!`  |             |

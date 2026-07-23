@@ -4971,6 +4971,25 @@ Merge `source` Organization into `target` — rewrites Scribe + Guild FKs then s
 | input | `SetAgentIntegrationConfigInput!` |  |
 ---
 
+### createAgentConfigBackup
+
+**Retorno:** `AgentConfigBackupType!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| agent_id  | `ID!`    |             |
+| notes     | `String` |             |
+
+---
+### restoreAgentFromConfigBackup
+**Retorno:** `AgentAi!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| backup_id | `ID!` |  |
+---
+
 ### setAgentKanvasModule
 
 **Retorno:** `AgentKanvasModule!`
@@ -5619,6 +5638,194 @@ agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+---
+
+### setHrDepartmentModuleAccess
+
+**Retorno:** `HrDepartmentModuleAccess!`
+
+| Argumento | Tipo                             | Descripción |
+| :-------- | :------------------------------- | :---------- |
+| input     | `HrDepartmentModuleAccessInput!` |             |
+
+---
+### recordHrCompensation
+**Retorno:** `HrEmployeeCompensation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrCompensationInput!` |  |
+---
+
+### createHrDepartment
+
+**Retorno:** `HrDepartment!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `HrDepartmentInput!` |             |
+
+---
+### updateHrDepartment
+**Retorno:** `HrDepartment!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateHrDepartmentInput!` |  |
+---
+
+### deleteHrDepartment
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createHrEmployee
+**Retorno:** `HrEmployee!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrEmployeeInput!` |  |
+---
+
+### updateHrEmployee
+
+**Retorno:** `HrEmployee!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateHrEmployeeInput!` |             |
+
+---
+### deleteHrEmployee
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### requestHrLeave
+
+**Retorno:** `HrLeaveRequest!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `HrLeaveRequestInput!` |             |
+
+---
+### decideHrLeaveRequest
+**Retorno:** `HrLeaveRequest!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| decision | `HrLeaveDecisionEnum!` |  |
+| note | `String` |  |
+---
+
+### cancelHrLeaveRequest
+
+**Retorno:** `HrLeaveRequest!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createHrLeaveType
+**Retorno:** `HrLeaveType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrLeaveTypeInput!` |  |
+---
+
+### updateHrLeaveType
+
+**Retorno:** `HrLeaveType!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `UpdateHrLeaveTypeInput!` |             |
+
+---
+### createHrPayBand
+**Retorno:** `HrPayBand!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrPayBandInput!` |  |
+---
+
+### updateHrPayBand
+
+**Retorno:** `HrPayBand!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| id        | `ID!`                   |             |
+| input     | `UpdateHrPayBandInput!` |             |
+
+---
+### createHrPosition
+**Retorno:** `HrPosition!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrPositionInput!` |  |
+---
+
+### updateHrPosition
+
+**Retorno:** `HrPosition!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateHrPositionInput!` |             |
+
+---
+### deleteHrPosition
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### assignHrSeat
+
+**Retorno:** `HrSeatAssignment!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `HrSeatAssignmentInput!` |             |
+
+---
+### endHrSeat
+**Retorno:** `HrSeatAssignment!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| effective_to | `Date` |  |
 ---
 
 ### createScribeBankAccount
