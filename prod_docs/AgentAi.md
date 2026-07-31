@@ -10,6 +10,7 @@
 | creator               | `User`                  |             |
 | type                  | `agentType!`            |             |
 | model                 | `AgentAiModel`          |             |
+| llmConfig             | `AgentLlmConfig`        |             |
 | companyTaskList       | `TaskList`              |             |
 | parent                | `AgentAi`               |             |
 | children              | `[AgentAi!]!`           |             |

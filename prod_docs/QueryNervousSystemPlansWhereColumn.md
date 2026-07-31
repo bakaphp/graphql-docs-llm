@@ -18,3 +18,4 @@ Allowed column names for Query.nervousSystemPlans.where.
 | STATUS           |             |
 | PRIORITY         |             |
 | PARENT_PLAN_ID   |             |
+| PROJECT_ID       |             |

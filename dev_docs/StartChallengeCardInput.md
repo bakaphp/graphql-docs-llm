@@ -17,3 +17,4 @@
 | firstname       | `String`           |             |
 | lastname        | `String`           |             |
 | browser_info    | `BrowserInfoInput` |             |
+| save_card       | `Boolean`          |             |

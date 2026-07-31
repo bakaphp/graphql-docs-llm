@@ -10,6 +10,7 @@
 | parent                  | `NervousSystemPlan`     |             |
 | children                | `[NervousSystemPlan!]!` |             |
 | agent                   | `AgentAi`               |             |
+| assignedUser            | `User`                  |             |
 | swarm                   | `AgentSwarm`            |             |
 | is_swarm_mission        | `Boolean!`              |             |
 | user                    | `User`                  |             |

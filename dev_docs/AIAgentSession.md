@@ -5,6 +5,7 @@
 | Campo             | Tipo         | Descripción |
 | :---------------- | :----------- | :---------- |
 | name              | `String`     |             |
+| agent_name        | `String`     |             |
 | user              | `Mixed!`     |             |
 | id                | `ID!`        |             |
 | uuid              | `ID`         |             |

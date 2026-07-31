@@ -5,6 +5,7 @@
 | Campo                   | Tipo                    | Descripción |
 | :---------------------- | :---------------------- | :---------- |
 | title                   | `String`                |             |
+| project_id              | `Int`                   |             |
 | description             | `String`                |             |
 | status                  | `String`                |             |
 | priority                | `Int`                   |             |

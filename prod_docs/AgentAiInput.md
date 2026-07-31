@@ -8,6 +8,7 @@
 | name                   | `String!`                      |             |
 | user_id                | `ID`                           |             |
 | agent_model_id         | `Int`                          |             |
+| agent_llm_config_id    | `ID`                           |             |
 | description            | `String`                       |             |
 | config                 | `Mixed!`                       |             |
 | role                   | `Mixed!`                       |             |

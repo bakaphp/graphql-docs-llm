@@ -8,6 +8,7 @@
 | plan_type               | `String!`                   |             |
 | agent_id                | `Int`                       |             |
 | users_id                | `Int`                       |             |
+| project_id              | `Int`                       |             |
 | parent_plan_id          | `Int`                       |             |
 | swarm_id                | `Int`                       |             |
 | is_swarm_mission        | `Boolean`                   |             |
