@@ -7,7 +7,7 @@
 | id          | `ID!`                  |             |
 | parent_id   | `ID`                   |             |
 | parent      | `Tag`                  |             |
-| user        | `User!`                |             |
+| user        | `User`                 |             |
 | name        | `String!`              |             |
 | slug        | `String`               |             |
 | description | `String`               |             |

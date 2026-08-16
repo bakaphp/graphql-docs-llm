@@ -16,7 +16,7 @@
 | metadata         | `Mixed`              |             |
 | messages         | `[Message!]!`        |             |
 | users            | `[User!]!`           |             |
-| systemModule     | `SystemModule!`      |             |
+| systemModule     | `SystemModule`       |             |
 | created_at       | `DateTime!`          |             |
 | updated_at       | `DateTime`           |             |
 | categories       | `CategoryPaginator!` |             |

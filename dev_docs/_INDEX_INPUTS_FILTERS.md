@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (228)
+## Queries con filtros (229)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -55,15 +55,15 @@ OrderTransitionHistoryFromStatus, OrderTransitionHistoryOrderType,
 OrderTransitionHistoryToStatus, OrderTypeStatuses, OrderTypes, Orders,
 OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatus,
 OrdersByUserCustomFieldOrderType, OrdersOrderStatus, OrdersOrderType,
-OrganizationTypes, Organizations, ParticipantPassMotives, ParticipantTypes,
-Participants, PaymentMethods, Payments, PaymentsOrderType, PeopleRelationships,
-PeopleTypes, Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
-ProviderOrdersOrderStatus, ProviderOrdersOrderType, ProviderPayments,
-ProviderPaymentsOrderType, Reactions, ReceiverWebhooks, ReferralCodeUsages,
-Regions, Roles, RuleTypes, Rules, ScheduleExceptions, ScheduleHistory,
-ScheduleRules, ScheduleRulesResourceType, ScribeAccounts, ScribeApprovalQueue,
-ScribeBankAccounts, ScribeBills, ScribeDocumentSequences, ScribeExpenses,
-ScribeFiscalPeriods, ScribeFxRates, ScribeInvoices, ScribeItems,
+OrganizationTypes, Organizations, ParticipantPassMotives, ParticipantPasses,
+ParticipantTypes, Participants, PaymentMethods, Payments, PaymentsOrderType,
+PeopleRelationships, PeopleTypes, Peoples, Pipelines, ProductTypes, Products,
+ProviderOrders, ProviderOrdersOrderStatus, ProviderOrdersOrderType,
+ProviderPayments, ProviderPaymentsOrderType, Reactions, ReceiverWebhooks,
+ReferralCodeUsages, Regions, Roles, RuleTypes, Rules, ScheduleExceptions,
+ScheduleHistory, ScheduleRules, ScheduleRulesResourceType, ScribeAccounts,
+ScribeApprovalQueue, ScribeBankAccounts, ScribeBills, ScribeDocumentSequences,
+ScribeExpenses, ScribeFiscalPeriods, ScribeFxRates, ScribeInvoices, ScribeItems,
 ScribeJournalEntries, ScribePaymentTerms, ScribePayments, ScribePdfIngestLogs,
 ScribeQuotes, ScribeSalesReceipts, ScribeTaxCodes, SearchUsersLists,
 SocialChannels, States, Status, SubSources, SubscriptionPlans, SystemModels,

@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (226)
+## Queries con enums de columnas (227)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -48,7 +48,7 @@ OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatusColumn,
 OrdersByUserCustomFieldOrderTypeColumn, OrdersOrderStatusColumn,
 OrdersOrderTypeColumn, OrganizationTypes, Organizations, ParticipantPassMotives,
-ParticipantTypes, Participants, PaymentMethods, Payments,
+ParticipantPasses, ParticipantTypes, Participants, PaymentMethods, Payments,
 PaymentsOrderTypeColumn, PeopleRelationships, PeopleTypes, Peoples, Pipelines,
 ProductTypes, Products, ProviderOrders, ProviderOrdersOrderStatusColumn,
 ProviderOrdersOrderTypeColumn, ProviderPayments,

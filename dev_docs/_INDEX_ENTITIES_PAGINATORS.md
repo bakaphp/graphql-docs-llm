@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (169)
+## Entidades con paginador (170)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -27,16 +27,16 @@ MessageType, NervousSystemPlan, NervousSystemProject, NervousSystemSkill,
 NervousSystemTool, NervousSystemToolCategory, NervousSystemWorkspace,
 Notification, NotificationChannel, NotificationSettings, NotificationType,
 Order, OrderStatus, OrderTransitionHistory, OrderType, Organization,
-OrganizationType, Participant, ParticipantPassMotive, ParticipantType, Payment,
-PaymentMethod, People, PeopleRelationship, PeopleType, Plan, Product,
-ProductType, Reaction, ReferralRedemption, Region, Role, ScheduleException,
-ScheduleHistory, ScheduleRules, ScribeAccount, ScribeApprovalQueueItem,
-ScribeBankAccount, ScribeBill, ScribeDocumentSequence, ScribeExpense,
-ScribeFiscalPeriod, ScribeFxRate, ScribeInvoice, ScribeItem, ScribeJournalEntry,
-ScribePayment, ScribePaymentTerm, ScribePdfIngestLog, ScribeQuote,
-ScribeSalesReceipt, ScribeTaxCode, SocialChannel, States, Status, SystemModule,
-Tag, TaskList, TaskListItem, Template, TimeSlots, Topic, User, UserInteraction,
-UserList, UserReaction, Variant, VariantChannel, WalletTransaction, Warehouse,
-WorkflowAction, WorkflowIntegrationsHistory, WorkflowReceiver,
-WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType, WorkflowStatus,
-agentType
+OrganizationType, Participant, ParticipantPass, ParticipantPassMotive,
+ParticipantType, Payment, PaymentMethod, People, PeopleRelationship, PeopleType,
+Plan, Product, ProductType, Reaction, ReferralRedemption, Region, Role,
+ScheduleException, ScheduleHistory, ScheduleRules, ScribeAccount,
+ScribeApprovalQueueItem, ScribeBankAccount, ScribeBill, ScribeDocumentSequence,
+ScribeExpense, ScribeFiscalPeriod, ScribeFxRate, ScribeInvoice, ScribeItem,
+ScribeJournalEntry, ScribePayment, ScribePaymentTerm, ScribePdfIngestLog,
+ScribeQuote, ScribeSalesReceipt, ScribeTaxCode, SocialChannel, States, Status,
+SystemModule, Tag, TaskList, TaskListItem, Template, TimeSlots, Topic, User,
+UserInteraction, UserList, UserReaction, Variant, VariantChannel,
+WalletTransaction, Warehouse, WorkflowAction, WorkflowIntegrationsHistory,
+WorkflowReceiver, WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType,
+WorkflowStatus, agentType

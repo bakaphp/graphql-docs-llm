@@ -6,5 +6,4 @@
 | :----------------- | :------------------- | :---------- |
 | filesystemImported | `JSON`               |             |
 | leadUpdate         | `Lead`               |             |
-| agentChatResponse  | `JSON`               |             |
 | agentTelemetry     | `AgentTelemetryData` |             |

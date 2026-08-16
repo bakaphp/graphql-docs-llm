@@ -1563,6 +1563,25 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
+### provisionAgentMailbox
+**Retorno:** `AgentMailbox!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID!` |  |
+| access | `AgentMailboxAccess` |  |
+---
+
+### disconnectAgentMailbox
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| agent_id  | `ID!` |             |
+
+---
 ### enableCorporateMode
 **Retorno:** `CorporateOnboardingResult!`
 
@@ -2039,55 +2058,36 @@ deletes the session and tears down routing.
 | target_id  | `Int!`    |             |
 
 ---
+### detectOrganizationDuplicates
+**Retorno:** `[OrganizationDuplicateGroup!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
+---
+
 ### addOrganizationAddress
+
+**Retorno:** `OrganizationAddress!`
+
+| Argumento       | Tipo            | Descripción |
+| :-------------- | :-------------- | :---------- |
+| organization_id | `ID!`           |             |
+| input           | `AddressInput!` |             |
+
+---
+### updateOrganizationAddress
 **Retorno:** `OrganizationAddress!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| organization_id | `ID!` |  |
+| id | `ID!` |  |
 | input | `AddressInput!` |  |
 ---
 
-### updateOrganizationAddress
-
-**Retorno:** `OrganizationAddress!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| id        | `ID!`           |             |
-| input     | `AddressInput!` |             |
-
----
 ### deleteOrganizationAddress
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createOrganizationType
-
-**Retorno:** `OrganizationType!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `OrganizationTypeInput!` |             |
-
----
-### updateOrganizationType
-**Retorno:** `OrganizationType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateOrganizationTypeInput!` |  |
----
-
-### deleteOrganizationType
 
 **Retorno:** `Boolean!`
 
@@ -2096,35 +2096,54 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createPeople
-**Retorno:** `People`
+### createOrganizationType
+**Retorno:** `OrganizationType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PeopleInput!` |  |
+| input | `OrganizationTypeInput!` |  |
 ---
 
-### updatePeople
+### updateOrganizationType
+
+**Retorno:** `OrganizationType!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateOrganizationTypeInput!` |             |
+
+---
+### deleteOrganizationType
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createPeople
 
 **Retorno:** `People`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
 | input     | `PeopleInput!` |             |
 
 ---
-### deletePeople
-**Retorno:** `Boolean`
+### updatePeople
+**Retorno:** `People`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PeopleInput!` |  |
 ---
 
-### restorePeople
+### deletePeople
 
 **Retorno:** `Boolean`
 
@@ -2133,112 +2152,130 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### importPeoples
-**Retorno:** `String!`
+### restorePeople
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `[PeopleInput!]!` |  |
-| companyId | `Int` |  |
+| id | `ID!` |  |
 ---
 
+### importPeoples
+
+**Retorno:** `String!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `[PeopleInput!]!` |             |
+| companyId | `Int`             |             |
+
+---
 ### attachFileToPeople
+**Retorno:** `People!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `Upload!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### attachFilesToPeople
+
+**Retorno:** `People!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
+
+---
+### deletePeopleAddress
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateContact
+
+**Retorno:** `Contact!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `UpdateContactInput!` |             |
+
+---
+### deleteContact
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updatePeoplePhoto
 
 **Retorno:** `People!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
 | id        | `ID!`     |             |
-| params    | `Mixed`   |             |
+| file      | `Upload!` |             |
 
 ---
-### attachFilesToPeople
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| files | `[Upload!]!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### deletePeopleAddress
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateContact
-**Retorno:** `Contact!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateContactInput!` |  |
----
-
-### deleteContact
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updatePeoplePhoto
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
----
-
 ### createPeopleEmploymentHistory
+**Retorno:** `PeopleEmploymentHistory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EmploymentPeopleHistoryInput!` |  |
+---
+
+### updatePeopleEmploymentHistory
 
 **Retorno:** `PeopleEmploymentHistory!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
+| id        | `ID!`                           |             |
 | input     | `EmploymentPeopleHistoryInput!` |             |
 
 ---
-### updatePeopleEmploymentHistory
-**Retorno:** `PeopleEmploymentHistory!`
+### deletePeopleEmploymentHistory
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `EmploymentPeopleHistoryInput!` |  |
 ---
 
-### deletePeopleEmploymentHistory
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### mergePeople
+
 **Retorno:** `People!`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| source_ids | `[Int!]!` |             |
+| target_id  | `Int!`    |             |
+
+---
+### detectPeopleDuplicates
+**Retorno:** `[PeopleDuplicateGroup!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| source_ids | `[Int!]!` |  |
-| target_id | `Int!` |  |
+| max_groups | `Int` |  |
 ---
 
 ### createPeopleRelationship
@@ -5283,6 +5320,24 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
 | config | `String!` |  |
+---
+
+### setAgentSetting
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
+
+---
+### deleteAgentSetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
 ---
 
 ### createAgentSwarm

@@ -20,6 +20,7 @@
 | price_per_ticket      | `Money!`                                |             |
 | currency              | `Currency`                              |             |
 | eventStatus           | `EventStatus`                           |             |
+| timeSlot              | `TimeSlots`                             |             |
 | max_capacity          | `Int`                                   |             |
 | created_at            | `DateTime`                              |             |
 | updated_at            | `DateTime`                              |             |

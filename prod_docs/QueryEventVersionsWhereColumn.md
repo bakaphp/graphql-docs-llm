@@ -17,3 +17,4 @@ Allowed column names for Query.eventVersions.where.
 | END_AT          |             |
 | EVENT_STATUS_ID |             |
 | CURRENCY_ID     |             |
+| TIME_SLOT_ID    |             |

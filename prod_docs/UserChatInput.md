@@ -11,3 +11,4 @@
 | images     | `[String!]` |             |
 | files      | `[String!]` |             |
 | uploads    | `[Upload!]` |             |
+| async      | `Boolean`   |             |

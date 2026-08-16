@@ -25,5 +25,6 @@
 | updated_at            | `DateTime`         |             |
 | resource              | `TimeSlotResource` |             |
 | scheduleRule          | `ScheduleRules`    |             |
+| bookings              | `[EventVersion!]!` |             |
 | is_from_schedule_rule | `Boolean!`         |             |
 | is_standalone         | `Boolean!`         |             |

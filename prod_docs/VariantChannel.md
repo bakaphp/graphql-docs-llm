@@ -4,7 +4,7 @@
 
 | Campo             | Tipo                               | Descripción |
 | :---------------- | :--------------------------------- | :---------- |
-| id                | `ID`                               |             |
+| id                | `ID!`                              |             |
 | uuid              | `String!`                          |             |
 | slug              | `String!`                          |             |
 | name              | `String!`                          |             |

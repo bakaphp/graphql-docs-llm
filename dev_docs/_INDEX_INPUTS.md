@@ -279,6 +279,7 @@
 - [TimeSlotBookingInput](./TimeSlotBookingInput.md)
 - [TimeSlotBookingUpdateInput](./TimeSlotBookingUpdateInput.md)
 - [TimeSlotsFilterInput](./TimeSlotsFilterInput.md)
+- [TimeSlotStatsInput](./TimeSlotStatsInput.md)
 - [TopicInput](./TopicInput.md)
 - [TransitionOrderStatusInput](./TransitionOrderStatusInput.md)
 - [TranslationInput](./TranslationInput.md)

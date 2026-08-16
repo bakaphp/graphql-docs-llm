@@ -13,7 +13,7 @@
 | unit_price_gross_amount | `Money!`   |             |
 | is_shipping_required    | `Boolean`  |             |
 | quantity_fulfilled      | `Float`    |             |
-| variant                 | `Variant!` |             |
+| variant                 | `Variant`  |             |
 | order                   | `Order!`   |             |
 | channel                 | `Channel`  |             |
 | tax_rate                | `Money!`   |             |
