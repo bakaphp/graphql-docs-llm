@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (170)
+## Entidades con paginador (171)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -23,20 +23,21 @@ HrLeaveRequest, HrLeaveType, HrPayBand, HrPosition, Integrations,
 IntegrationsEntityHistory, Invite, Language, Lead, LeadDashboard, LeadPipeline,
 LeadReceiver, LeadRotation, LeadSource, LeadStatus, LeadSubSource,
 LeadTaskEngagementItem, LeadType, LedgerEvent, Message, MessageComments,
-MessageType, NervousSystemPlan, NervousSystemProject, NervousSystemSkill,
-NervousSystemTool, NervousSystemToolCategory, NervousSystemWorkspace,
-Notification, NotificationChannel, NotificationSettings, NotificationType,
-Order, OrderStatus, OrderTransitionHistory, OrderType, Organization,
-OrganizationType, Participant, ParticipantPass, ParticipantPassMotive,
-ParticipantType, Payment, PaymentMethod, People, PeopleRelationship, PeopleType,
-Plan, Product, ProductType, Reaction, ReferralRedemption, Region, Role,
-ScheduleException, ScheduleHistory, ScheduleRules, ScribeAccount,
-ScribeApprovalQueueItem, ScribeBankAccount, ScribeBill, ScribeDocumentSequence,
-ScribeExpense, ScribeFiscalPeriod, ScribeFxRate, ScribeInvoice, ScribeItem,
-ScribeJournalEntry, ScribePayment, ScribePaymentTerm, ScribePdfIngestLog,
-ScribeQuote, ScribeSalesReceipt, ScribeTaxCode, SocialChannel, States, Status,
-SystemModule, Tag, TaskList, TaskListItem, Template, TimeSlots, Topic, User,
-UserInteraction, UserList, UserReaction, Variant, VariantChannel,
-WalletTransaction, Warehouse, WorkflowAction, WorkflowIntegrationsHistory,
-WorkflowReceiver, WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType,
-WorkflowStatus, agentType
+MessageType, NervousSystemPlan, NervousSystemProject,
+NervousSystemScheduledAction, NervousSystemSkill, NervousSystemTool,
+NervousSystemToolCategory, NervousSystemWorkspace, Notification,
+NotificationChannel, NotificationSettings, NotificationType, Order, OrderStatus,
+OrderTransitionHistory, OrderType, Organization, OrganizationType, Participant,
+ParticipantPass, ParticipantPassMotive, ParticipantType, Payment, PaymentMethod,
+People, PeopleRelationship, PeopleType, Plan, Product, ProductType, Reaction,
+ReferralRedemption, Region, Role, ScheduleException, ScheduleHistory,
+ScheduleRules, ScribeAccount, ScribeApprovalQueueItem, ScribeBankAccount,
+ScribeBill, ScribeDocumentSequence, ScribeExpense, ScribeFiscalPeriod,
+ScribeFxRate, ScribeInvoice, ScribeItem, ScribeJournalEntry, ScribePayment,
+ScribePaymentTerm, ScribePdfIngestLog, ScribeQuote, ScribeSalesReceipt,
+ScribeTaxCode, SocialChannel, States, Status, SystemModule, Tag, TaskList,
+TaskListItem, Template, TimeSlots, Topic, User, UserInteraction, UserList,
+UserReaction, Variant, VariantChannel, WalletTransaction, Warehouse,
+WorkflowAction, WorkflowIntegrationsHistory, WorkflowReceiver,
+WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType, WorkflowStatus,
+agentType

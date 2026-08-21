@@ -186,138 +186,133 @@
 | orderBy            | `[QueryExportProductsOrderByOrderByClause!]`            |             |
 
 ---
+### discoverProducts
+**Retorno:** `ProductDiscoveryResult!`
+Search the catalog with a natural-language request. Works for a logged-in shopper and, with an app key, for an anonymous storefront visitor — the latter must pass company_id and request_id.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ProductDiscoveryInput!` |  |
+---
+
 ### productStats
+
 **Retorno:** `CapacityStats!`
 
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ProductStatsInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ProductStatsInput!` |  |
 ---
-
 ### apolloCleanupReport
-
 **Retorno:** `ApolloCleanupReport!`
 
-| Argumento    | Tipo     | Descripción |
-| :----------- | :------- | :---------- |
-| from         | `String` |             |
-| to           | `String` |             |
-| topCompanies | `Int`    |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| from | `String` |  |
+| to | `String` |  |
+| topCompanies | `Int` |  |
 ---
+
 ### agentMailbox
+
 **Retorno:** `AgentMailbox`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| agent_id | `ID!` |  |
----
-
-### roadsideAssistanceMetrics
-
-**Retorno:** `RoadsideAssistanceMetrics!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| input     | `RoadsideAssistanceMetricsInput` |             |
-
----
-### exportMechanicOrders
-**Retorno:** `OrderExportResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| format | `ExportFormat!` |  |
-| all | `Boolean` |  |
-| mechanic_id | `ID` |  |
-| mechanic_filter | `MechanicFilterEnum` |  |
-| provider_id | `ID` |  |
-| field_mapper | `Mixed` |  |
-| metadata | `ExportMetadataInput` |  |
-| timezone | `String` |  |
-| where | `QueryExportMechanicOrdersWhereWhereConditions` |  |
-| orderStatus | `QueryExportMechanicOrdersOrderStatusWhereConditions` |  |
-| orderBy | `[QueryExportMechanicOrdersOrderByOrderByClause!]` |  |
----
-
-### exportMechanics
-
-**Retorno:** `OrderExportResult!`
-
-| Argumento    | Tipo                                          | Descripción |
-| :----------- | :-------------------------------------------- | :---------- |
-| format       | `ExportFormat!`                               |             |
-| company_id   | `ID`                                          |             |
-| availability | `MechanicAvailabilityEnum`                    |             |
-| service_type | `String`                                      |             |
-| field_mapper | `Mixed`                                       |             |
-| metadata     | `ExportMetadataInput`                         |             |
-| timezone     | `String`                                      |             |
-| where        | `QueryExportMechanicsWhereWhereConditions`    |             |
-| orderBy      | `[QueryExportMechanicsOrderByOrderByClause!]` |             |
-
----
-### slackAgentManifest
-**Retorno:** `SlackAgentManifest!`
-Step 1 — mint the agent's Slack app manifest + install link. Creates the agent's receiver on first call.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| agent_id | `ID!` |  |
----
-
-### slackAgentConnection
-
-**Retorno:** `SlackAgentConnection`\
-Is this agent currently listening on Slack? null when not connected — use it to
-render the tile on load.
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | agent_id  | `ID!` |             |
 
 ---
+### roadsideAssistanceMetrics
+**Retorno:** `RoadsideAssistanceMetrics!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `RoadsideAssistanceMetricsInput` |  |
+---
+
+### exportMechanicOrders
+
+**Retorno:** `OrderExportResult!`
+
+| Argumento       | Tipo                                                  | Descripción |
+| :-------------- | :---------------------------------------------------- | :---------- |
+| format          | `ExportFormat!`                                       |             |
+| all             | `Boolean`                                             |             |
+| mechanic_id     | `ID`                                                  |             |
+| mechanic_filter | `MechanicFilterEnum`                                  |             |
+| provider_id     | `ID`                                                  |             |
+| field_mapper    | `Mixed`                                               |             |
+| metadata        | `ExportMetadataInput`                                 |             |
+| timezone        | `String`                                              |             |
+| where           | `QueryExportMechanicOrdersWhereWhereConditions`       |             |
+| orderStatus     | `QueryExportMechanicOrdersOrderStatusWhereConditions` |             |
+| orderBy         | `[QueryExportMechanicOrdersOrderByOrderByClause!]`    |             |
+
+---
+### exportMechanics
+**Retorno:** `OrderExportResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| format | `ExportFormat!` |  |
+| company_id | `ID` |  |
+| availability | `MechanicAvailabilityEnum` |  |
+| service_type | `String` |  |
+| field_mapper | `Mixed` |  |
+| metadata | `ExportMetadataInput` |  |
+| timezone | `String` |  |
+| where | `QueryExportMechanicsWhereWhereConditions` |  |
+| orderBy | `[QueryExportMechanicsOrderByOrderByClause!]` |  |
+---
+
+### slackAgentManifest
+
+**Retorno:** `SlackAgentManifest!`\
+Step 1 — mint the agent's Slack app manifest + install link. Creates the agent's
+receiver on first call.
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| agent_id  | `ID!` |             |
+
+---
+### slackAgentConnection
+**Retorno:** `SlackAgentConnection`
+Is this agent currently listening on Slack? null when not connected — use it to render the tile on load.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID!` |  |
+---
+
 ### whatsappConnectionStatus
+
 **Retorno:** `String!`
 
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| session_id | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| session_id | `ID!` |  |
 ---
-
 ### productAdminDashboard
-
 **Retorno:** `adminProductDashboard!`
-
 ---
+
 ### deal
+
 **Retorno:** `Deal`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| id        | `ID` |             |
 
+---
 ### dealAnalytics
-
 **Retorno:** `DealAnalytics!`
-
-| Argumento   | Tipo              | Descripción |
-| :---------- | :---------------- | :---------- |
-| from        | `Date`            |             |
-| to          | `Date`            |             |
-| bucket      | `AnalyticsBucket` |             |
-| timezone    | `String`          |             |
-| pipeline_id | `ID`              |             |
-
----
-### leadAnalytics
-**Retorno:** `LeadAnalytics!`
 
 
 | Argumento | Tipo | Descripción |
@@ -329,48 +324,71 @@ render the tile on load.
 | pipeline_id | `ID` |  |
 ---
 
-### findOrganizationDuplicates
+### leadAnalytics
 
+**Retorno:** `LeadAnalytics!`
+
+| Argumento   | Tipo              | Descripción |
+| :---------- | :---------------- | :---------- |
+| from        | `Date`            |             |
+| to          | `Date`            |             |
+| bucket      | `AnalyticsBucket` |             |
+| timezone    | `String`          |             |
+| pipeline_id | `ID`              |             |
+
+---
+### findOrganizationDuplicates
 **Retorno:** `[OrganizationDuplicateGroup!]!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| max_groups | `Int` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
 ---
+
 ### peopleCount
-**Retorno:** `Int`
----
 
+**Retorno:** `Int`
+
+---
 ### peopleCountByTag
-
-**Retorno:** `Int`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| tag       | `String!` |             |
-
----
-### peopleCountBySubscriptionType
 **Retorno:** `Int`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| type | `String!` |  |
+| tag | `String!` |  |
 ---
 
-### findPeopleDuplicates
+### peopleCountBySubscriptionType
 
+**Retorno:** `Int`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| type      | `String!` |             |
+
+---
+### findPeopleDuplicates
 **Retorno:** `[PeopleDuplicateGroup!]!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| max_groups | `Int` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
+---
+
+### isFollowing
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| user_id   | `ID!` |             |
 
 ---
-### isFollowing
-**Retorno:** `Boolean`
+### getTotalFollowers
+**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
@@ -378,48 +396,29 @@ render the tile on load.
 | user_id | `ID!` |  |
 ---
 
-### getTotalFollowers
-
-**Retorno:** `Int!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| user_id   | `ID!` |             |
-
----
 ### messageSearchSuggestions
+
 **Retorno:** `Mixed!`
 
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| search    | `String` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
 ---
-
 ### messageAnalytics
-
 **Retorno:** `MessageAnalytics!`
 
-| Argumento       | Tipo              | Descripción |
-| :-------------- | :---------------- | :---------- |
-| from            | `Date`            |             |
-| to              | `Date`            |             |
-| bucket          | `AnalyticsBucket` |             |
-| timezone        | `String`          |             |
-| message_type_id | `ID`              |             |
-
----
-### userMessageUsageStats
-**Retorno:** `MessageUsageStats!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| days | `Int` |  |
+| from | `Date` |  |
+| to | `Date` |  |
+| bucket | `AnalyticsBucket` |  |
+| timezone | `String` |  |
 | message_type_id | `ID` |  |
 ---
 
-### companyMessageUsageStats
+### userMessageUsageStats
 
 **Retorno:** `MessageUsageStats!`
 
@@ -429,296 +428,279 @@ render the tile on load.
 | message_type_id | `ID`  |             |
 
 ---
+### companyMessageUsageStats
+**Retorno:** `MessageUsageStats!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| days | `Int` |  |
+| message_type_id | `ID` |  |
+---
+
 ### reaction
+
 **Retorno:** `Reaction`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### countUserReaction
-
-**Retorno:** `Int`
-
-| Argumento | Tipo                                         | Descripción |
-| :-------- | :------------------------------------------- | :---------- |
-| where     | `QueryCountUserReactionWhereWhereConditions` |             |
-
----
-### getUserReactionGroupByReaction
-**Retorno:** `[ReactionsGroupBy!]!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| system_module_uuid | `ID` |  |
-| entity_id | `ID` |  |
----
-
-### getUserInteraction
-
-**Retorno:** `UserEntityInteraction`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| entity_id        | `ID!`     |             |
-| entity_namespace | `String!` |             |
-
----
-### cart
-**Retorno:** `Cart`
----
-
-### exportOrders
-
-**Retorno:** `OrderExportResult!`
-
-| Argumento        | Tipo                                           | Descripción |
-| :--------------- | :--------------------------------------------- | :---------- |
-| format           | `ExportFormat!`                                |             |
-| search           | `String`                                       |             |
-| field_mapper     | `Mixed`                                        |             |
-| metadata         | `ExportMetadataInput`                          |             |
-| timezone         | `String`                                       |             |
-| whereHasProvider | `ID`                                           |             |
-| where            | `QueryExportOrdersWhereWhereConditions`        |             |
-| orderType        | `QueryExportOrdersOrderTypeWhereConditions`    |             |
-| orderStatus      | `QueryExportOrdersOrderStatusWhereConditions`  |             |
-| hasAddress       | `QueryExportOrdersHasAddressWhereConditions`   |             |
-| hasItems         | `QueryExportOrdersHasItemsWhereHasConditions`  |             |
-| hasPeople        | `QueryExportOrdersHasPeopleWhereHasConditions` |             |
-| orderBy          | `[QueryExportOrdersOrderByOrderByClause!]`     |             |
-
----
-### exportOrderTransitionHistory
-**Retorno:** `OrderExportResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| format | `ExportFormat!` |  |
-| field_mapper | `Mixed` |  |
-| metadata | `ExportMetadataInput` |  |
-| timezone | `String` |  |
-| where | `QueryExportOrderTransitionHistoryWhereWhereConditions` |  |
-| toStatus | `QueryExportOrderTransitionHistoryToStatusWhereConditions` |  |
-| fromStatus | `QueryExportOrderTransitionHistoryFromStatusWhereConditions` |  |
-| hasOrder | `QueryExportOrderTransitionHistoryHasOrderWhereHasConditions` |  |
-| orderType | `QueryExportOrderTransitionHistoryOrderTypeWhereConditions` |  |
-| hasVariant | `QueryExportOrderTransitionHistoryHasVariantWhereConditions` |  |
-| hasProvider | `QueryExportOrderTransitionHistoryHasProviderWhereConditions` |  |
-| paymentMethodType | `PaymentMethodType` |  |
-| orderBy | `[QueryExportOrderTransitionHistoryOrderByOrderByClause!]` |  |
----
-
-### orderPipeline
-
-**Retorno:** `OrderPipelineResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| order_id  | `ID!` |             |
+| id        | `ID!` |             |
 
 ---
-### orderAnalytics
-**Retorno:** `OrderAnalytics!`
+### countUserReaction
+**Retorno:** `Int`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| from | `Date` |  |
-| to | `Date` |  |
-| bucket | `AnalyticsBucket` |  |
-| timezone | `String` |  |
-| status | `String` |  |
+| where | `QueryCountUserReactionWhereWhereConditions` |  |
 ---
 
-### orderCommissionStats
+### getUserReactionGroupByReaction
 
-**Retorno:** `OrderCommissionStats!`
+**Retorno:** `[ReactionsGroupBy!]!`
 
-| Argumento | Tipo                         | Descripción |
-| :-------- | :--------------------------- | :---------- |
-| input     | `OrderCommissionStatsInput!` |             |
+| Argumento          | Tipo | Descripción |
+| :----------------- | :--- | :---------- |
+| system_module_uuid | `ID` |             |
+| entity_id          | `ID` |             |
 
 ---
-### orderStats
-**Retorno:** `OrderStats!`
+### getUserInteraction
+**Retorno:** `UserEntityInteraction`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `OrderStatsInput` |  |
+| entity_id | `ID!` |  |
+| entity_namespace | `String!` |  |
 ---
 
-### orderPaymentStats
+### cart
 
-**Retorno:** `OrderPaymentStats!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `OrderPaymentStatsInput` |             |
+**Retorno:** `Cart`
 
 ---
-### exportOrderPayments
+### exportOrders
 **Retorno:** `OrderExportResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ExportOrderPaymentsInput!` |  |
 | format | `ExportFormat!` |  |
+| search | `String` |  |
+| field_mapper | `Mixed` |  |
 | metadata | `ExportMetadataInput` |  |
+| timezone | `String` |  |
+| whereHasProvider | `ID` |  |
+| where | `QueryExportOrdersWhereWhereConditions` |  |
+| orderType | `QueryExportOrdersOrderTypeWhereConditions` |  |
+| orderStatus | `QueryExportOrdersOrderStatusWhereConditions` |  |
+| hasAddress | `QueryExportOrdersHasAddressWhereConditions` |  |
+| hasItems | `QueryExportOrdersHasItemsWhereHasConditions` |  |
+| hasPeople | `QueryExportOrdersHasPeopleWhereHasConditions` |  |
+| orderBy | `[QueryExportOrdersOrderByOrderByClause!]` |  |
 ---
 
-### myReferralInfo
+### exportOrderTransitionHistory
 
-**Retorno:** `UserReferralInfo`
+**Retorno:** `OrderExportResult!`
 
-| Argumento | Tipo | Descripción |
-| :-------- | :--- | :---------- |
-| user_id   | `ID` |             |
+| Argumento         | Tipo                                                          | Descripción |
+| :---------------- | :------------------------------------------------------------ | :---------- |
+| format            | `ExportFormat!`                                               |             |
+| field_mapper      | `Mixed`                                                       |             |
+| metadata          | `ExportMetadataInput`                                         |             |
+| timezone          | `String`                                                      |             |
+| where             | `QueryExportOrderTransitionHistoryWhereWhereConditions`       |             |
+| toStatus          | `QueryExportOrderTransitionHistoryToStatusWhereConditions`    |             |
+| fromStatus        | `QueryExportOrderTransitionHistoryFromStatusWhereConditions`  |             |
+| hasOrder          | `QueryExportOrderTransitionHistoryHasOrderWhereHasConditions` |             |
+| orderType         | `QueryExportOrderTransitionHistoryOrderTypeWhereConditions`   |             |
+| hasVariant        | `QueryExportOrderTransitionHistoryHasVariantWhereConditions`  |             |
+| hasProvider       | `QueryExportOrderTransitionHistoryHasProviderWhereConditions` |             |
+| paymentMethodType | `PaymentMethodType`                                           |             |
+| orderBy           | `[QueryExportOrderTransitionHistoryOrderByOrderByClause!]`    |             |
 
 ---
-### paymentMethod
-**Retorno:** `PaymentMethod!`
+### orderPipeline
+**Retorno:** `OrderPipelineResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
+| order_id | `ID!` |  |
 ---
 
+### orderAnalytics
+
+**Retorno:** `OrderAnalytics!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| from      | `Date`            |             |
+| to        | `Date`            |             |
+| bucket    | `AnalyticsBucket` |             |
+| timezone  | `String`          |             |
+| status    | `String`          |             |
+
+---
+### orderCommissionStats
+**Retorno:** `OrderCommissionStats!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrderCommissionStatsInput!` |  |
+---
+
+### orderStats
+
+**Retorno:** `OrderStats!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `OrderStatsInput` |             |
+
+---
+### orderPaymentStats
+**Retorno:** `OrderPaymentStats!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrderPaymentStatsInput` |  |
+---
+
+### exportOrderPayments
+
+**Retorno:** `OrderExportResult!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `ExportOrderPaymentsInput!` |             |
+| format    | `ExportFormat!`             |             |
+| metadata  | `ExportMetadataInput`       |             |
+
+---
+### myReferralInfo
+**Retorno:** `UserReferralInfo`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| user_id | `ID` |  |
+---
+
+### paymentMethod
+
+**Retorno:** `PaymentMethod!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### getWalletBalance
-
-**Retorno:** `WalletResult`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| tag       | `String!` |             |
-
----
-### getUserWallet
 **Retorno:** `WalletResult`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | tag | `String!` |  |
-| userId | `ID` |  |
-| metadata | `Mixed` |  |
 ---
 
-### getCompanyWallet
+### getUserWallet
 
 **Retorno:** `WalletResult`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| tag        | `String!` |             |
-| company_id | `ID!`     |             |
-| metadata   | `Mixed`   |             |
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| tag       | `String!` |             |
+| userId    | `ID`      |             |
+| metadata  | `Mixed`   |             |
 
 ---
-### insuranceCatalog
-**Retorno:** `Mixed`
+### getCompanyWallet
+**Retorno:** `WalletResult`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| catalog | `String!` |  |
-| params | `Mixed` |  |
-| provider | `String` |  |
+| tag | `String!` |  |
+| company_id | `ID!` |  |
+| metadata | `Mixed` |  |
 ---
 
-### insuranceQuote
+### insuranceCatalog
 
-**Retorno:** `InsuranceQuoteResult!`
+**Retorno:** `Mixed`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
-| product   | `String!` |             |
-| input     | `Mixed!`  |             |
+| catalog   | `String!` |             |
+| params    | `Mixed`   |             |
 | provider  | `String`  |             |
 
 ---
+### insuranceQuote
+**Retorno:** `InsuranceQuoteResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| product | `String!` |  |
+| input | `Mixed!` |  |
+| provider | `String` |  |
+---
+
 ### engagementByFilter
+
 **Retorno:** `Engagement`
 
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| filter    | `EngagementFilterInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| filter | `EngagementFilterInput!` |  |
 ---
-
 ### getAppSettings
-
 **Retorno:** `AppSettings`
 
-| Argumento | Tipo                                         | Descripción |
-| :-------- | :------------------------------------------- | :---------- |
-| key       | `String!`                                    |             |
-| orderBy   | `[QueryGetAppSettingsOrderByOrderByClause!]` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| key | `String!` |  |
+| orderBy | `[QueryGetAppSettingsOrderByOrderByClause!]` |  |
 ---
+
 ### appSetting
+
 **Retorno:** `AppSettings`
 
+| Argumento | Tipo                                     | Descripción |
+| :-------- | :--------------------------------------- | :---------- |
+| orderBy   | `[QueryAppSettingOrderByOrderByClause!]` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderBy | `[QueryAppSettingOrderByOrderByClause!]` |  |
 ---
-
 ### appSettings
-
 **Retorno:** `[ModuleConfig!]!`
-
 ---
+
 ### adminAppSettings
-**Retorno:** `[ModuleConfig!]!`
----
 
+**Retorno:** `[ModuleConfig!]!`
+
+---
 ### adminAppSetting
-
-**Retorno:** `Mixed`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| key       | `String!` |             |
-
----
-### companySetting
-**Retorno:** `[ModuleConfig!]!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
----
-
-### adminCompanySettings
-
-**Retorno:** `[ModuleConfig!]!`
-
-| Argumento   | Tipo      | Descripción |
-| :---------- | :-------- | :---------- |
-| entity_uuid | `String!` |             |
-
----
-### adminCompanySetting
 **Retorno:** `Mixed`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| entity_uuid | `String!` |  |
 | key | `String!` |  |
 ---
 
-### userSettings
+### companySetting
 
 **Retorno:** `[ModuleConfig!]!`
 
@@ -727,8 +709,64 @@ render the tile on load.
 | entity_uuid | `String!` |             |
 
 ---
+### adminCompanySettings
+**Retorno:** `[ModuleConfig!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity_uuid | `String!` |  |
+---
+
+### adminCompanySetting
+
+**Retorno:** `Mixed`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| entity_uuid | `String!` |             |
+| key         | `String!` |             |
+
+---
+### userSettings
+**Retorno:** `[ModuleConfig!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity_uuid | `String!` |  |
+---
+
 ### integrationHistoryAnalytics
+
 **Retorno:** `IntegrationHistoryAnalytics!`
+
+| Argumento        | Tipo              | Descripción |
+| :--------------- | :---------------- | :---------- |
+| from             | `Date`            |             |
+| to               | `Date`            |             |
+| bucket           | `AnalyticsBucket` |             |
+| timezone         | `String`          |             |
+| integration_id   | `ID`              |             |
+| status_id        | `ID`              |             |
+| entity_namespace | `String`          |             |
+
+---
+### receiverStatus
+**Retorno:** `[WorkflowReceiverStatusEnum!]!`
+---
+
+### userSubscription
+
+**Retorno:** `UserSubscription!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### eventAnalytics
+**Retorno:** `EventAnalytics!`
 
 
 | Argumento | Tipo | Descripción |
@@ -737,77 +775,38 @@ render the tile on load.
 | to | `Date` |  |
 | bucket | `AnalyticsBucket` |  |
 | timezone | `String` |  |
-| integration_id | `ID` |  |
-| status_id | `ID` |  |
-| entity_namespace | `String` |  |
+| event_type_id | `ID` |  |
 ---
 
-### receiverStatus
-
-**Retorno:** `[WorkflowReceiverStatusEnum!]!`
-
----
-### userSubscription
-**Retorno:** `UserSubscription!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### eventAnalytics
-
-**Retorno:** `EventAnalytics!`
-
-| Argumento     | Tipo              | Descripción |
-| :------------ | :---------------- | :---------- |
-| from          | `Date`            |             |
-| to            | `Date`            |             |
-| bucket        | `AnalyticsBucket` |             |
-| timezone      | `String`          |             |
-| event_type_id | `ID`              |             |
-
----
 ### participantStats
-**Retorno:** `ParticipantStats!`
-Activity per player (participant), not per booker — one person books for the whole foursome.
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| from_date | `Date` |  |
-| to_date | `Date` |  |
-| top_n | `Int` |  |
+**Retorno:** `ParticipantStats!`\
+Activity per player (participant), not per booker — one person books for the
+whole foursome.
+
+| Argumento | Tipo   | Descripción |
+| :-------- | :----- | :---------- |
+| from_date | `Date` |             |
+| to_date   | `Date` |             |
+| top_n     | `Int`  |             |
+
 ---
-
 ### eventsTracking
-
 **Retorno:** `[OpenEventTrackingRow!]!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| weeks_ahead       | `Int`     |             |
-| event_type_id     | `ID`      |             |
-| event_class_id    | `ID`      |             |
-| event_category_id | `ID`      |             |
-| search            | `String`  |             |
-| color             | `String`  |             |
-| has_goal          | `Boolean` |             |
-
----
-### eventInscriptionsVsObjective
-**Retorno:** `InscriptionsReport!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| event_version_id | `ID!` |  |
-| cumulative | `Boolean` |  |
-| include_types | `[String!]` |  |
-| exclude_types | `[String!]` |  |
+| weeks_ahead | `Int` |  |
+| event_type_id | `ID` |  |
+| event_class_id | `ID` |  |
+| event_category_id | `ID` |  |
+| search | `String` |  |
+| color | `String` |  |
+| has_goal | `Boolean` |  |
 ---
 
-### eventInscriptionsVsHistorical
+### eventInscriptionsVsObjective
 
 **Retorno:** `InscriptionsReport!`
 
@@ -819,123 +818,147 @@ Activity per player (participant), not per booker — one person books for the w
 | exclude_types    | `[String!]` |             |
 
 ---
-### eventInscriptionTrack
-**Retorno:** `[InscriptionTrack!]!`
+### eventInscriptionsVsHistorical
+**Retorno:** `InscriptionsReport!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | event_version_id | `ID!` |  |
+| cumulative | `Boolean` |  |
+| include_types | `[String!]` |  |
 | exclude_types | `[String!]` |  |
 ---
 
-### eventParticipantConcentration
+### eventInscriptionTrack
 
-**Retorno:** `[CompanyConcentration!]!`
+**Retorno:** `[InscriptionTrack!]!`
 
 | Argumento        | Tipo        | Descripción |
 | :--------------- | :---------- | :---------- |
 | event_version_id | `ID!`       |             |
-| top_n            | `Int`       |             |
-| include_types    | `[String!]` |             |
 | exclude_types    | `[String!]` |             |
 
 ---
-### organizationsEventActivity
-**Retorno:** `[OrganizationEventActivity!]!`
+### eventParticipantConcentration
+**Retorno:** `[CompanyConcentration!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| from_date | `Date` |  |
-| to_date | `Date` |  |
-| activity | `OrgActivityFilter` |  |
-| min_count | `Int` |  |
-| max_count | `Int` |  |
-| event_type_id | `ID` |  |
-| event_category_id | `ID` |  |
-| include_participant_types | `[String!]` |  |
-| exclude_participant_types | `[String!]` |  |
+| event_version_id | `ID!` |  |
 | top_n | `Int` |  |
-| order_by | `OrgActivityOrder` |  |
+| include_types | `[String!]` |  |
+| exclude_types | `[String!]` |  |
 ---
 
+### organizationsEventActivity
+
+**Retorno:** `[OrganizationEventActivity!]!`
+
+| Argumento                 | Tipo                | Descripción |
+| :------------------------ | :------------------ | :---------- |
+| from_date                 | `Date`              |             |
+| to_date                   | `Date`              |             |
+| activity                  | `OrgActivityFilter` |             |
+| min_count                 | `Int`               |             |
+| max_count                 | `Int`               |             |
+| event_type_id             | `ID`                |             |
+| event_category_id         | `ID`                |             |
+| include_participant_types | `[String!]`         |             |
+| exclude_participant_types | `[String!]`         |             |
+| top_n                     | `Int`               |             |
+| order_by                  | `OrgActivityOrder`  |             |
+
+---
 ### resourceSchedule
-
 **Retorno:** `ResourceSchedule!`
-
-| Argumento      | Tipo      | Descripción |
-| :------------- | :-------- | :---------- |
-| resources_id   | `ID!`     |             |
-| resources_type | `String!` |             |
-
----
-### isResourceOpen
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | resources_id | `ID!` |  |
 | resources_type | `String!` |  |
-| datetime | `DateTime` |  |
 ---
 
-### timeSlotStats
+### isResourceOpen
 
+**Retorno:** `Boolean!`
+
+| Argumento      | Tipo       | Descripción |
+| :------------- | :--------- | :---------- |
+| resources_id   | `ID!`      |             |
+| resources_type | `String!`  |             |
+| datetime       | `DateTime` |             |
+
+---
+### timeSlotStats
 **Retorno:** `TimeSlotStats!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `TimeSlotStatsInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TimeSlotStatsInput!` |  |
 ---
+
 ### followUpPrompt
+
 **Retorno:** `String!`
 
+| Argumento         | Tipo      | Descripción |
+| :---------------- | :-------- | :---------- |
+| lead_id           | `ID!`     |             |
+| pipeline_stage_id | `ID!`     |             |
+| session_id        | `String!` |             |
+| message_template  | `String!` |             |
+| day               | `Float!`  |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| lead_id | `ID!` |  |
-| pipeline_stage_id | `ID!` |  |
-| session_id | `String!` |  |
-| message_template | `String!` |  |
-| day | `Float!` |  |
 ---
-
 ### agentAnalytics
-
 **Retorno:** `AgentAnalytics!`
 
-| Argumento     | Tipo              | Descripción |
-| :------------ | :---------------- | :---------- |
-| from          | `Date`            |             |
-| to            | `Date`            |             |
-| bucket        | `AnalyticsBucket` |             |
-| timezone      | `String`          |             |
-| agent_type_id | `ID`              |             |
-
----
-### agentDeploymentContainerStatus
-**Retorno:** `AgentDeploymentType!`
-Live SSH-checked container status — poll this to detect state changes made outside Kanvas (e.g. a manual restart on the machine).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
+| from | `Date` |  |
+| to | `Date` |  |
+| bucket | `AnalyticsBucket` |  |
+| timezone | `String` |  |
+| agent_type_id | `ID` |  |
 ---
 
-### agentCurrentTelemetry
+### agentDeploymentContainerStatus
 
-**Retorno:** `AgentTelemetryData`
+**Retorno:** `AgentDeploymentType!`\
+Live SSH-checked container status — poll this to detect state changes made
+outside Kanvas (e.g. a manual restart on the machine).
 
 | Argumento     | Tipo  | Descripción |
 | :------------ | :---- | :---------- |
 | deployment_id | `ID!` |             |
 
 ---
+### agentCurrentTelemetry
+**Retorno:** `AgentTelemetryData`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
 ### agentDeploymentLogs
+
 **Retorno:** `[AgentLogEntry!]!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+| limit         | `Int` |             |
+
+---
+### agentDeploymentEvents
+**Retorno:** `[AgentDeploymentEvent!]!`
 
 
 | Argumento | Tipo | Descripción |
@@ -944,41 +967,41 @@ Live SSH-checked container status — poll this to detect state changes made out
 | limit | `Int` |  |
 ---
 
-### agentDeploymentEvents
-
-**Retorno:** `[AgentDeploymentEvent!]!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-| limit         | `Int` |             |
-
----
 ### agentSwarm
-**Retorno:** `AgentSwarm`
+
+**Retorno:** `AgentSwarm`\
 Single swarm lookup by id, scoped to the requester's app + company.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### aiAgentSession
-
-**Retorno:** `AIAgentSession!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
-### voiceAgentSpec
-**Retorno:** `VoiceAgentSpec!`
+### aiAgentSession
+**Retorno:** `AIAgentSession!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `String!` |  |
+| id | `ID!` |  |
+---
+
+### voiceAgentSpec
+
+**Retorno:** `VoiceAgentSpec!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| uuid      | `String!` |             |
+
+---
+### voiceAgentByNumber
+**Retorno:** `VoiceAgentByNumber`
+Inbound routing: which agent owns this dialed number? Null if none.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| phone_number | `String!` |  |
 ---
 
 ### nervousSystemDashboardMetrics
@@ -3407,293 +3430,304 @@ Single swarm lookup by id, scoped to the requester's app + company.
 | page      | `Int`                                               | The offset from which items are returned. |
 
 ---
+### nervousSystemScheduledActions
+**Retorno:** `NervousSystemScheduledActionPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryNervousSystemScheduledActionsWhereWhereConditions` |  |
+| orderBy | `[QueryNervousSystemScheduledActionsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
 ### hrDepartmentModuleAccess
+
 **Retorno:** `HrDepartmentModuleAccessPaginator!`
 
+| Argumento | Tipo                                                | Descripción                               |
+| :-------- | :-------------------------------------------------- | :---------------------------------------- |
+| where     | `QueryHrDepartmentModuleAccessWhereWhereConditions` |                                           |
+| first     | `Int!`                                              | Limits number of fetched items.           |
+| page      | `Int`                                               | The offset from which items are returned. |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryHrDepartmentModuleAccessWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
 ---
-
 ### hrDepartments
-
 **Retorno:** `HrDepartmentPaginator!`
 
-| Argumento | Tipo                                        | Descripción                               |
-| :-------- | :------------------------------------------ | :---------------------------------------- |
-| search    | `String`                                    |                                           |
-| where     | `QueryHrDepartmentsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryHrDepartmentsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                      | Limits number of fetched items.           |
-| page      | `Int`                                       | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryHrDepartmentsWhereWhereConditions` |  |
+| orderBy | `[QueryHrDepartmentsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---
+
 ### hrEmployees
+
 **Retorno:** `HrEmployeePaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryHrEmployeesWhereWhereConditions` |  |
-| orderBy | `[QueryHrEmployeesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### hrLeaveRequests
-
-**Retorno:** `HrLeaveRequestPaginator!`
-
-| Argumento | Tipo                                          | Descripción                               |
-| :-------- | :-------------------------------------------- | :---------------------------------------- |
-| where     | `QueryHrLeaveRequestsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryHrLeaveRequestsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                        | Limits number of fetched items.           |
-| page      | `Int`                                         | The offset from which items are returned. |
-
----
-### hrLeaveTypes
-**Retorno:** `HrLeaveTypePaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryHrLeaveTypesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### hrPayBands
-
-**Retorno:** `HrPayBandPaginator!`
-
-| Argumento | Tipo                                  | Descripción                               |
-| :-------- | :------------------------------------ | :---------------------------------------- |
-| where     | `QueryHrPayBandsWhereWhereConditions` |                                           |
-| first     | `Int!`                                | Limits number of fetched items.           |
-| page      | `Int`                                 | The offset from which items are returned. |
-
----
-### hrPositions
-**Retorno:** `HrPositionPaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| search | `String` |  |
-| where | `QueryHrPositionsWhereWhereConditions` |  |
-| orderBy | `[QueryHrPositionsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribeApprovalQueue
-
-**Retorno:** `ScribeApprovalQueueItemPaginator!`
-
-| Argumento | Tipo                                              | Descripción                               |
-| :-------- | :------------------------------------------------ | :---------------------------------------- |
-| where     | `QueryScribeApprovalQueueWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeApprovalQueueOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                            | Limits number of fetched items.           |
-| page      | `Int`                                             | The offset from which items are returned. |
-
----
-### scribeBankAccounts
-**Retorno:** `ScribeBankAccountPaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribeBankAccountsWhereWhereConditions` |  |
-| orderBy | `[QueryScribeBankAccountsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribeBills
-
-**Retorno:** `ScribeBillPaginator!`
 
 | Argumento | Tipo                                      | Descripción                               |
 | :-------- | :---------------------------------------- | :---------------------------------------- |
 | search    | `String`                                  |                                           |
-| where     | `QueryScribeBillsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeBillsOrderByOrderByClause!]` |                                           |
+| where     | `QueryHrEmployeesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryHrEmployeesOrderByOrderByClause!]` |                                           |
 | first     | `Int!`                                    | Limits number of fetched items.           |
 | page      | `Int`                                     | The offset from which items are returned. |
 
 ---
-### scribeExpenses
-**Retorno:** `ScribeExpensePaginator!`
+### hrLeaveRequests
+**Retorno:** `HrLeaveRequestPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryHrLeaveRequestsWhereWhereConditions` |  |
+| orderBy | `[QueryHrLeaveRequestsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### hrLeaveTypes
+
+**Retorno:** `HrLeaveTypePaginator!`
+
+| Argumento | Tipo                                    | Descripción                               |
+| :-------- | :-------------------------------------- | :---------------------------------------- |
+| where     | `QueryHrLeaveTypesWhereWhereConditions` |                                           |
+| first     | `Int!`                                  | Limits number of fetched items.           |
+| page      | `Int`                                   | The offset from which items are returned. |
+
+---
+### hrPayBands
+**Retorno:** `HrPayBandPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryHrPayBandsWhereWhereConditions` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### hrPositions
+
+**Retorno:** `HrPositionPaginator!`
+
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| search    | `String`                                  |                                           |
+| where     | `QueryHrPositionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryHrPositionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
+
+---
+### scribeApprovalQueue
+**Retorno:** `ScribeApprovalQueueItemPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribeApprovalQueueWhereWhereConditions` |  |
+| orderBy | `[QueryScribeApprovalQueueOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribeBankAccounts
+
+**Retorno:** `ScribeBankAccountPaginator!`
+
+| Argumento | Tipo                                             | Descripción                               |
+| :-------- | :----------------------------------------------- | :---------------------------------------- |
+| where     | `QueryScribeBankAccountsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeBankAccountsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                           | Limits number of fetched items.           |
+| page      | `Int`                                            | The offset from which items are returned. |
+
+---
+### scribeBills
+**Retorno:** `ScribeBillPaginator!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | search | `String` |  |
-| where | `QueryScribeExpensesWhereWhereConditions` |  |
-| orderBy | `[QueryScribeExpensesOrderByOrderByClause!]` |  |
+| where | `QueryScribeBillsWhereWhereConditions` |  |
+| orderBy | `[QueryScribeBillsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
 
-### scribeInvoices
+### scribeExpenses
 
-**Retorno:** `ScribeInvoicePaginator!`
+**Retorno:** `ScribeExpensePaginator!`
 
 | Argumento | Tipo                                         | Descripción                               |
 | :-------- | :------------------------------------------- | :---------------------------------------- |
 | search    | `String`                                     |                                           |
-| where     | `QueryScribeInvoicesWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeInvoicesOrderByOrderByClause!]` |                                           |
+| where     | `QueryScribeExpensesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeExpensesOrderByOrderByClause!]` |                                           |
 | first     | `Int!`                                       | Limits number of fetched items.           |
 | page      | `Int`                                        | The offset from which items are returned. |
 
 ---
-### scribeAccounts
-**Retorno:** `ScribeAccountPaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribeAccountsWhereWhereConditions` |  |
-| orderBy | `[QueryScribeAccountsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribeFiscalPeriods
-
-**Retorno:** `ScribeFiscalPeriodPaginator!`
-
-| Argumento | Tipo                                              | Descripción                               |
-| :-------- | :------------------------------------------------ | :---------------------------------------- |
-| where     | `QueryScribeFiscalPeriodsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeFiscalPeriodsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                            | Limits number of fetched items.           |
-| page      | `Int`                                             | The offset from which items are returned. |
-
----
-### scribeJournalEntries
-**Retorno:** `ScribeJournalEntryPaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribeJournalEntriesWhereWhereConditions` |  |
-| orderBy | `[QueryScribeJournalEntriesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribeDocumentSequences
-
-**Retorno:** `ScribeDocumentSequencePaginator!`
-
-| Argumento | Tipo                                               | Descripción                               |
-| :-------- | :------------------------------------------------- | :---------------------------------------- |
-| where     | `QueryScribeDocumentSequencesWhereWhereConditions` |                                           |
-| first     | `Int!`                                             | Limits number of fetched items.           |
-| page      | `Int`                                              | The offset from which items are returned. |
-
----
-### scribeFxRates
-**Retorno:** `ScribeFxRatePaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribeFxRatesWhereWhereConditions` |  |
-| orderBy | `[QueryScribeFxRatesOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribeItems
-
-**Retorno:** `ScribeItemPaginator!`
-
-| Argumento | Tipo                                      | Descripción                               |
-| :-------- | :---------------------------------------- | :---------------------------------------- |
-| where     | `QueryScribeItemsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeItemsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                    | Limits number of fetched items.           |
-| page      | `Int`                                     | The offset from which items are returned. |
-
----
-### scribeTaxCodes
-**Retorno:** `ScribeTaxCodePaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribeTaxCodesWhereWhereConditions` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribePaymentTerms
-
-**Retorno:** `ScribePaymentTermPaginator!`
-
-| Argumento | Tipo                                          | Descripción                               |
-| :-------- | :-------------------------------------------- | :---------------------------------------- |
-| where     | `QueryScribePaymentTermsWhereWhereConditions` |                                           |
-| first     | `Int!`                                        | Limits number of fetched items.           |
-| page      | `Int`                                         | The offset from which items are returned. |
-
----
-### scribePayments
-**Retorno:** `ScribePaymentPaginator!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| where | `QueryScribePaymentsWhereWhereConditions` |  |
-| orderBy | `[QueryScribePaymentsOrderByOrderByClause!]` |  |
-| first | `Int!` | Limits number of fetched items. |
-| page | `Int` | The offset from which items are returned. |
----
-
-### scribePdfIngestLogs
-
-**Retorno:** `ScribePdfIngestLogPaginator!`
-
-| Argumento | Tipo                                              | Descripción                               |
-| :-------- | :------------------------------------------------ | :---------------------------------------- |
-| where     | `QueryScribePdfIngestLogsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribePdfIngestLogsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                            | Limits number of fetched items.           |
-| page      | `Int`                                             | The offset from which items are returned. |
-
----
-### scribeQuotes
-**Retorno:** `ScribeQuotePaginator!`
+### scribeInvoices
+**Retorno:** `ScribeInvoicePaginator!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | search | `String` |  |
-| where | `QueryScribeQuotesWhereWhereConditions` |  |
-| orderBy | `[QueryScribeQuotesOrderByOrderByClause!]` |  |
+| where | `QueryScribeInvoicesWhereWhereConditions` |  |
+| orderBy | `[QueryScribeInvoicesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
 
-### scribeSalesReceipts
+### scribeAccounts
 
+**Retorno:** `ScribeAccountPaginator!`
+
+| Argumento | Tipo                                         | Descripción                               |
+| :-------- | :------------------------------------------- | :---------------------------------------- |
+| where     | `QueryScribeAccountsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeAccountsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                       | Limits number of fetched items.           |
+| page      | `Int`                                        | The offset from which items are returned. |
+
+---
+### scribeFiscalPeriods
+**Retorno:** `ScribeFiscalPeriodPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribeFiscalPeriodsWhereWhereConditions` |  |
+| orderBy | `[QueryScribeFiscalPeriodsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribeJournalEntries
+
+**Retorno:** `ScribeJournalEntryPaginator!`
+
+| Argumento | Tipo                                               | Descripción                               |
+| :-------- | :------------------------------------------------- | :---------------------------------------- |
+| where     | `QueryScribeJournalEntriesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeJournalEntriesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                             | Limits number of fetched items.           |
+| page      | `Int`                                              | The offset from which items are returned. |
+
+---
+### scribeDocumentSequences
+**Retorno:** `ScribeDocumentSequencePaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribeDocumentSequencesWhereWhereConditions` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribeFxRates
+
+**Retorno:** `ScribeFxRatePaginator!`
+
+| Argumento | Tipo                                        | Descripción                               |
+| :-------- | :------------------------------------------ | :---------------------------------------- |
+| where     | `QueryScribeFxRatesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeFxRatesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                      | Limits number of fetched items.           |
+| page      | `Int`                                       | The offset from which items are returned. |
+
+---
+### scribeItems
+**Retorno:** `ScribeItemPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribeItemsWhereWhereConditions` |  |
+| orderBy | `[QueryScribeItemsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribeTaxCodes
+
+**Retorno:** `ScribeTaxCodePaginator!`
+
+| Argumento | Tipo                                      | Descripción                               |
+| :-------- | :---------------------------------------- | :---------------------------------------- |
+| where     | `QueryScribeTaxCodesWhereWhereConditions` |                                           |
+| first     | `Int!`                                    | Limits number of fetched items.           |
+| page      | `Int`                                     | The offset from which items are returned. |
+
+---
+### scribePaymentTerms
+**Retorno:** `ScribePaymentTermPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribePaymentTermsWhereWhereConditions` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribePayments
+
+**Retorno:** `ScribePaymentPaginator!`
+
+| Argumento | Tipo                                         | Descripción                               |
+| :-------- | :------------------------------------------- | :---------------------------------------- |
+| where     | `QueryScribePaymentsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribePaymentsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                       | Limits number of fetched items.           |
+| page      | `Int`                                        | The offset from which items are returned. |
+
+---
+### scribePdfIngestLogs
+**Retorno:** `ScribePdfIngestLogPaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryScribePdfIngestLogsWhereWhereConditions` |  |
+| orderBy | `[QueryScribePdfIngestLogsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### scribeQuotes
+
+**Retorno:** `ScribeQuotePaginator!`
+
+| Argumento | Tipo                                       | Descripción                               |
+| :-------- | :----------------------------------------- | :---------------------------------------- |
+| search    | `String`                                   |                                           |
+| where     | `QueryScribeQuotesWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryScribeQuotesOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                     | Limits number of fetched items.           |
+| page      | `Int`                                      | The offset from which items are returned. |
+
+---
+### scribeSalesReceipts
 **Retorno:** `ScribeSalesReceiptPaginator!`
 
-| Argumento | Tipo                                              | Descripción                               |
-| :-------- | :------------------------------------------------ | :---------------------------------------- |
-| search    | `String`                                          |                                           |
-| where     | `QueryScribeSalesReceiptsWhereWhereConditions`    |                                           |
-| orderBy   | `[QueryScribeSalesReceiptsOrderByOrderByClause!]` |                                           |
-| first     | `Int!`                                            | Limits number of fetched items.           |
-| page      | `Int`                                             | The offset from which items are returned. |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| search | `String` |  |
+| where | `QueryScribeSalesReceiptsWhereWhereConditions` |  |
+| orderBy | `[QueryScribeSalesReceiptsOrderByOrderByClause!]` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
 ---

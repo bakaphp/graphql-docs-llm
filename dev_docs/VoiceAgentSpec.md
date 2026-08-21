@@ -11,3 +11,4 @@
 | models         | `VoiceAgentModels!`          |             |
 | telephony      | `VoiceAgentTelephony`        |             |
 | context_schema | `[VoiceAgentContextField!]!` |             |
+| tools          | `[VoiceAgentTool!]!`         |             |

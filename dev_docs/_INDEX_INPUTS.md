@@ -205,6 +205,7 @@
 - [ProductAttributeOrderBy](./ProductAttributeOrderBy.md)
 - [ProductAttributesInput](./ProductAttributesInput.md)
 - [ProductCategoriesReferenceInput](./ProductCategoriesReferenceInput.md)
+- [ProductDiscoveryInput](./ProductDiscoveryInput.md)
 - [ProductInput](./ProductInput.md)
 - [ProductInputUpdate](./ProductInputUpdate.md)
 - [ProductSimpleInput](./ProductSimpleInput.md)

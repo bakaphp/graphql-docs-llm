@@ -20,7 +20,7 @@
 | completed_at               | `DateTime`                       |             |
 | workspace                  | `NervousSystemWorkspace`         |             |
 | owner                      | `User!`                          |             |
-| pmAgent                    | `AgentAi!`                       |             |
+| pmAgent                    | `AgentAi`                        |             |
 | swarm                      | `AgentSwarm`                     |             |
 | parent                     | `NervousSystemProject`           |             |
 | children                   | `[NervousSystemProject!]!`       |             |
