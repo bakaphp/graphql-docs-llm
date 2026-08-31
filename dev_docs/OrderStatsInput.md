@@ -8,6 +8,7 @@
 | finalStates         | `[String!]`             |             |
 | currentCountStates  | `[String!]`             |             |
 | productId           | `Int`                   |             |
+| variantId           | `Int`                   |             |
 | productTypeSlugs    | `[String!]`             |             |
 | orderTypeNames      | `[String!]`             |             |
 | date                | `String`                |             |

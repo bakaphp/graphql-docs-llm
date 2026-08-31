@@ -4,6 +4,6 @@
 
 | Campo  | Tipo                   | Descripción |
 | :----- | :--------------------- | :---------- |
-| name   | `String`               |             |
+| name   | `String!`              |             |
 | sort   | `String`               |             |
 | format | `FormatSortAttribute!` |             |

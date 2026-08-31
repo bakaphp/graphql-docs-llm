@@ -16,6 +16,7 @@
 | dob                     | `Date`                        |             |
 | license_number          | `String`                      |             |
 | license_expiration_date | `Date`                        |             |
+| license_state           | `String`                      |             |
 | people_type             | `PeopleType`                  |             |
 | organizations           | `[Organization!]`             |             |
 | contacts                | `[Contact!]!`                 |             |
@@ -24,6 +25,7 @@
 | updated_at              | `DateTime`                    |             |
 | first_message_at        | `DateTime`                    |             |
 | last_message_at         | `DateTime`                    |             |
+| active_leads_count      | `Int!`                        |             |
 | photo                   | `Filesystem`                  |             |
 | employment_history      | `[PeopleEmploymentHistory!]`  |             |
 | files                   | `FilesystemPaginator!`        |             |

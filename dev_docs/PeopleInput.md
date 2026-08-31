@@ -14,6 +14,7 @@
 | google_contact_id       | `String`                          |             |
 | license_number          | `String`                          |             |
 | license_expiration_date | `Date`                            |             |
+| license_state           | `String`                          |             |
 | dob                     | `String`                          |             |
 | contacts                | `[ContactInput!]`                 |             |
 | address                 | `[AddressInput!]`                 |             |

@@ -6,8 +6,9 @@ attribute_id or slug (or both).
 
 ## Estructura
 
-| Campo        | Tipo     | Descripción |
-| :----------- | :------- | :---------- |
-| attribute_id | `ID`     |             |
-| slug         | `String` |             |
-| value        | `Mixed`  |             |
+| Campo        | Tipo                             | Descripción |
+| :----------- | :------------------------------- | :---------- |
+| attribute_id | `ID`                             |             |
+| slug         | `String`                         |             |
+| value        | `Mixed`                          |             |
+| operator     | `ProductAttributeFilterOperator` |             |

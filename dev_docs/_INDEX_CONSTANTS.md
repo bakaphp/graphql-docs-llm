@@ -55,6 +55,7 @@
 - [PayoutFrequencyEnum](./PayoutFrequencyEnum.md)
 - [PayoutMethodEnum](./PayoutMethodEnum.md)
 - [PeriodType](./PeriodType.md)
+- [ProductAttributeFilterOperator](./ProductAttributeFilterOperator.md)
 - [RuleConditionOperator](./RuleConditionOperator.md)
 - [ScheduleExceptionKind](./ScheduleExceptionKind.md)
 - [ScheduleType](./ScheduleType.md)

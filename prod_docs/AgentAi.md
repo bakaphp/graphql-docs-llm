@@ -5,7 +5,7 @@
 | Campo                 | Tipo                    | Descripción |
 | :-------------------- | :---------------------- | :---------- |
 | id                    | `ID!`                   |             |
-| company               | `[Company!]!`           |             |
+| company               | `Company`               |             |
 | user                  | `User`                  |             |
 | creator               | `User`                  |             |
 | type                  | `agentType!`            |             |

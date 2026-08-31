@@ -26,3 +26,4 @@
 | warehouses        | `[WarehouseReferenceInput!]`      |             |
 | channels          | `[VariantChannelReferenceInput!]` |             |
 | custom_fields     | `[CustomFieldEntityInput!]`       |             |
+| tags              | `[TagInput!]`                     |             |
