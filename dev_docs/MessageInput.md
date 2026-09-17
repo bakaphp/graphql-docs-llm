@@ -11,6 +11,7 @@
 | is_public         | `Int`                       |             |
 | entity_id         | `Mixed`                     |             |
 | channel_slug      | `String`                    |             |
+| channel_uuid      | `String`                    |             |
 | distribution      | `DistributionInput`         |             |
 | tags              | `[TagInput!]`               |             |
 | categories        | `[CategoryInput!]`          |             |

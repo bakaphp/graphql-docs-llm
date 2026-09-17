@@ -7,7 +7,7 @@
 | id            | `ID!`                   |             |
 | companies_id  | `Int!`                  |             |
 | users_id      | `Int!`                  |             |
-| companies     | `Company!`              |             |
+| companies     | `Company`               |             |
 | regions       | `[Region]!`             |             |
 | users         | `User`                  |             |
 | name          | `String!`               |             |

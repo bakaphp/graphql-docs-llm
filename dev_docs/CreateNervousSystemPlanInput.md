@@ -16,6 +16,7 @@
 | entity_id               | `Int`                       |             |
 | description             | `String`                    |             |
 | status                  | `String`                    |             |
+| board_column_key        | `String`                    |             |
 | priority                | `Int`                       |             |
 | deadline_at             | `DateTime`                  |             |
 | input                   | `Mixed`                     |             |

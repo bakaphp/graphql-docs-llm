@@ -16,6 +16,7 @@ Allowed column names for Query.nervousSystemPlans.where.
 | ENTITY_ID        |             |
 | PLAN_TYPE        |             |
 | STATUS           |             |
+| BOARD_COLUMN_KEY |             |
 | PRIORITY         |             |
 | PARENT_PLAN_ID   |             |
 | PROJECT_ID       |             |

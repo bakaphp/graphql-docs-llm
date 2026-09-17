@@ -46,3 +46,4 @@
 | parent_quote           | `ScribeQuote`               |             |
 | created_at             | `DateTime!`                 |             |
 | updated_at             | `DateTime!`                 |             |
+| files                  | `FilesystemPaginator!`      |             |

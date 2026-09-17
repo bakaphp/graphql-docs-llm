@@ -4,7 +4,7 @@
 
 | Campo  | Tipo      | Descripción |
 | :----- | :-------- | :---------- |
-| code   | `String!` |             |
+| code   | `String`  |             |
 | amount | `Money!`  |             |
 | value  | `Float!`  |             |
 | type   | `String!` |             |

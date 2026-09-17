@@ -28,6 +28,9 @@
 | active_leads_count      | `Int!`                        |             |
 | photo                   | `Filesystem`                  |             |
 | employment_history      | `[PeopleEmploymentHistory!]`  |             |
+| notes                   | `SocialChannel`               |             |
+| events                  | `[Event!]!`                   |             |
+| channels                | `[SocialChannel!]!`           |             |
 | files                   | `FilesystemPaginator!`        |             |
 | custom_fields           | `CustomFieldPaginator!`       |             |
 | interactions            | `EntityInteractionPaginator!` |             |

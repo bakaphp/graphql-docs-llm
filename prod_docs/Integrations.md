@@ -7,6 +7,7 @@
 | id           | `ID!`                       |             |
 | name         | `String!`                   |             |
 | uuid         | `String!`                   |             |
+| type         | `String!`                   |             |
 | status       | `Status`                    |             |
 | integrations | `[IntegrationsCompanies!]!` |             |
 | config       | `Mixed`                     |             |

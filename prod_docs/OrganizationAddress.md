@@ -1,9 +1,5 @@
 # OBJECT: OrganizationAddress
 
-A structured address on an Organization. Own table, but the SAME
-`AddressTypeEnum` and `AddressInput` People uses — Billing is Billing regardless
-of who owns the address.
-
 ## Estructura
 
 | Campo        | Tipo            | Descripción                                                                                                                                                                                                    |

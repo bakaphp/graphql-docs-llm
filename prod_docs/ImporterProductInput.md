@@ -24,3 +24,4 @@
 | categories        | `[CategoryInput!]`          |             |
 | attributes        | `[ProductAttributesInput!]` |             |
 | customFields      | `[CustomFieldEntityInput!]` |             |
+| tags              | `[TagInput!]`               |             |

@@ -64,3 +64,4 @@
 | credit_notes              | `[ScribeInvoice!]!`                  |             |
 | created_at                | `DateTime!`                          |             |
 | updated_at                | `DateTime!`                          |             |
+| files                     | `FilesystemPaginator!`               |             |

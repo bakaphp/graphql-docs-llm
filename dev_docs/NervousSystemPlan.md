@@ -20,6 +20,7 @@
 | title                   | `String!`               |             |
 | description             | `String`                |             |
 | status                  | `String!`               |             |
+| board_column_key        | `String`                |             |
 | priority                | `Int!`                  |             |
 | deadline_at             | `DateTime`              |             |
 | completion_pct          | `Int!`                  |             |

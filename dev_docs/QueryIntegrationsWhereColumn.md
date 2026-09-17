@@ -8,3 +8,4 @@ Allowed column names for Query.integrations.where.
 | :---- | :---------- |
 | ID    |             |
 | NAME  |             |
+| TYPE  |             |
