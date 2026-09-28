@@ -18,6 +18,7 @@
 | system_module     | `SystemModule!`                   |             |
 | total_variants    | `Int`                             |             |
 | status            | `Status`                          |             |
+| photos_count      | `Int!`                            |             |
 | is_published      | `Boolean`                         |             |
 | created_at        | `DateTime!`                       |             |
 | message           | `[Message]`                       |             |
@@ -29,6 +30,7 @@
 | integrations      | `[IntegrationsEntityReference!]!` |             |
 | productsTypes     | `ProductType`                     |             |
 | companies         | `Company!`                        |             |
+| leadReceivers     | `[LeadReceiver!]!`                |             |
 | usersRatings      | `[UserRating!]`                   |             |
 | rating            | `Float`                           |             |
 | weight            | `Float`                           |             |

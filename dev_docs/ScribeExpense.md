@@ -50,6 +50,7 @@
 | user                  | `User`                              |             |
 | lines                 | `[ScribeExpenseLine!]!`             |             |
 | receipts              | `[ScribeExpenseReceipt!]!`          |             |
+| approvalRequests      | `[ApprovalRequest!]!`               |             |
 | created_at            | `DateTime!`                         |             |
 | updated_at            | `DateTime!`                         |             |
 | files                 | `FilesystemPaginator!`              |             |

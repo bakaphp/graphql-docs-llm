@@ -7,6 +7,7 @@ Allowed column names for Query.agentUsageSnapshots.where.
 | Valor               | Descripción |
 | :------------------ | :---------- |
 | ID                  |             |
+| AGENT_ID            |             |
 | AGENT_DEPLOYMENT_ID |             |
 | SNAPSHOT_DATE       |             |
 | SOURCE              |             |

@@ -17,4 +17,4 @@
 | company         | `Company`                   |             |
 | apps_id         | `ID!`                       |             |
 | created_at      | `DateTime!`                 |             |
-| updated_at      | `DateTime!`                 |             |
+| updated_at      | `DateTime`                  |             |

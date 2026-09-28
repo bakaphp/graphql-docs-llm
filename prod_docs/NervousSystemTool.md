@@ -19,6 +19,7 @@
 | is_active           | `Boolean!`                    |             |
 | agent               | `AgentAi`                     |             |
 | agentTypes          | `[agentType!]!`               |             |
+| integration         | `Integrations`                |             |
 | mcp                 | `NervousSystemMcpServerState` |             |
 | created_at          | `DateTime!`                   |             |
 | updated_at          | `DateTime`                    |             |

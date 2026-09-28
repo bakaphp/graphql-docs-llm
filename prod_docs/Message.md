@@ -30,6 +30,7 @@
 | messageType      | `MessageType!`              |             |
 | appModuleMessage | `AppModuleMessage`          |             |
 | myInteraction    | `myInteraction`             |             |
+| approvalRequests | `[ApprovalRequest!]!`       |             |
 | additional_field | `Mixed`                     |             |
 | created_at       | `DateTime!`                 |             |
 | channels         | `[SocialChannel!]`          |             |

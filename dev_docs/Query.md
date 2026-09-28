@@ -151,6 +151,20 @@
 | id        | `Int!` |             |
 
 ---
+### importTemplates
+**Retorno:** `[ImportTemplate!]!`
+---
+
+### checkImportTemplateHeader
+
+**Retorno:** `ImportTemplateHeaderCheck!`
+
+| Argumento     | Tipo                 | Descripción |
+| :------------ | :------------------- | :---------- |
+| template      | `ImportTemplateKey!` |             |
+| filesystem_id | `ID!`                |             |
+
+---
 ### productDashboard
 **Retorno:** `productDashboard!`
 ---
@@ -1500,6 +1514,30 @@ integrations page.
 | :--- | :--- | :--- |
 | entity | `SystemModuleEntityInput!` |  |
 | where | `QueryEntityFilesWhereWhereConditions` |  |
+| first | `Int!` | Limits number of fetched items. |
+| page | `Int` | The offset from which items are returned. |
+---
+
+### importConnections
+
+**Retorno:** `ImportConnectionPaginator!`
+
+| Argumento | Tipo                                            | Descripción                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------- |
+| where     | `QueryImportConnectionsWhereWhereConditions`    |                                           |
+| orderBy   | `[QueryImportConnectionsOrderByOrderByClause!]` |                                           |
+| first     | `Int!`                                          | Limits number of fetched items.           |
+| page      | `Int`                                           | The offset from which items are returned. |
+
+---
+### importSources
+**Retorno:** `ImportSourcePaginator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| where | `QueryImportSourcesWhereWhereConditions` |  |
+| orderBy | `[QueryImportSourcesOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---

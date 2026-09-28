@@ -21,6 +21,7 @@
 | organizations           | `[Organization!]`             |             |
 | contacts                | `[Contact!]!`                 |             |
 | address                 | `[Address!]!`                 |             |
+| approvalRequests        | `[ApprovalRequest!]!`         |             |
 | created_at              | `DateTime!`                   |             |
 | updated_at              | `DateTime`                    |             |
 | first_message_at        | `DateTime`                    |             |

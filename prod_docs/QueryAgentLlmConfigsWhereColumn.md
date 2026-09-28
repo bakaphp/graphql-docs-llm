@@ -4,10 +4,11 @@ Allowed column names for Query.agentLlmConfigs.where.
 
 ## Valores
 
-| Valor     | Descripción |
-| :-------- | :---------- |
-| ID        |             |
-| NAME      |             |
-| SLUG      |             |
-| PROVIDER  |             |
-| IS_ACTIVE |             |
+| Valor              | Descripción |
+| :----------------- | :---------- |
+| ID                 |             |
+| NAME               |             |
+| SLUG               |             |
+| PROVIDER           |             |
+| IS_ACTIVE          |             |
+| IS_ROUTING_ENABLED |             |

@@ -62,6 +62,7 @@
 | allocations               | `[ScribeInvoicePaymentAllocation!]!` |             |
 | parent_invoice            | `ScribeInvoice`                      |             |
 | credit_notes              | `[ScribeInvoice!]!`                  |             |
+| approvalRequests          | `[ApprovalRequest!]!`                |             |
 | created_at                | `DateTime!`                          |             |
 | updated_at                | `DateTime!`                          |             |
 | files                     | `FilesystemPaginator!`               |             |

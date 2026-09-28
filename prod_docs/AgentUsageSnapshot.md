@@ -20,4 +20,5 @@
 | raw_output          | `String!`             |             |
 | parsed_data         | `JSON`                |             |
 | created_at          | `DateTime!`           |             |
+| agent               | `AgentAi`             |             |
 | deployment          | `AgentDeploymentType` |             |

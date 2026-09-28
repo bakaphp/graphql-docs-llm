@@ -13,3 +13,4 @@
 | config       | `Mixed`                     |             |
 | created_at   | `DateTime`                  |             |
 | updated_at   | `DateTime`                  |             |
+| files        | `FilesystemPaginator!`      |             |

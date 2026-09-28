@@ -29,6 +29,7 @@
 | warehouses         | `[WarehouseVariantRelationship!]!` |             |
 | attributes         | `[VariantsAttributes!]!`           |             |
 | companies          | `Company!`                         |             |
+| leadReceivers      | `[LeadReceiver!]!`                 |             |
 | channels           | `[VariantChannelRelationship!]!`   |             |
 | channel            | `VariantPricingInfo`               |             |
 | metadata           | `Mixed`                            |             |

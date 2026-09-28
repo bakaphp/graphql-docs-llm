@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (235)
+## Queries con filtros (237)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -43,16 +43,16 @@ GetActivityLog, GetAppSettings, GetCompanyWalletTransactions,
 GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels,
 HrDepartmentModuleAccess, HrDepartments, HrEmployees, HrLeaveRequests,
-HrLeaveTypes, HrPayBands, HrPositions, Integrations,
-IntegrationsByEntityHistory, Languages, LeadReceivers, LeadSources,
-LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents,
-MechanicOrders, MechanicOrdersOrderStatus, Mechanics, MessageChildren,
-MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser,
-NervousSystemPlans, NervousSystemProjects, NervousSystemScheduledActions,
-NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
-NervousSystemWorkspaces, NotificationChannels, NotificationSettings,
-NotificationTypes, Notifications, OrderActivityLogs, OrderStatus,
-OrderTransitionHistory, OrderTransitionHistoryFromStatus,
+HrLeaveTypes, HrPayBands, HrPositions, ImportConnections, ImportSources,
+Integrations, IntegrationsByEntityHistory, Languages, LeadReceivers,
+LeadSources, LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations,
+LedgerEvents, MechanicOrders, MechanicOrdersOrderStatus, Mechanics,
+MessageChildren, MessageTypes, Messages, MessagesGroupByDate,
+MessagesLikedByUser, NervousSystemPlans, NervousSystemProjects,
+NervousSystemScheduledActions, NervousSystemSkills, NervousSystemToolCategories,
+NervousSystemTools, NervousSystemWorkspaces, NotificationChannels,
+NotificationSettings, NotificationTypes, Notifications, OrderActivityLogs,
+OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatus,
 OrderTransitionHistoryOrderType, OrderTransitionHistoryToStatus,
 OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatus, OrdersByUserCustomFieldOrderType,

@@ -58,6 +58,7 @@
 | lines                   | `[ScribeBillLine!]!`              |             |
 | tax_lines               | `[ScribeBillTaxLine!]!`           |             |
 | allocations             | `[ScribeBillPaymentAllocation!]!` |             |
+| approvalRequests        | `[ApprovalRequest!]!`             |             |
 | created_at              | `DateTime!`                       |             |
 | updated_at              | `DateTime!`                       |             |
 | files                   | `FilesystemPaginator!`            |             |

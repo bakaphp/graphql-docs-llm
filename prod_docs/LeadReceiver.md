@@ -15,8 +15,12 @@
 | notification_email | `String`         |             |
 | is_default         | `Boolean!`       |             |
 | template           | `Mixed`          |             |
+| total_leads        | `Int!`           |             |
 | leadSource         | `LeadSource`     |             |
 | leadType           | `LeadType`       |             |
 | leadRotation       | `LeadRotation`   |             |
+| source             | `LeadSource`     |             |
+| type               | `LeadType`       |             |
+| rotation           | `Rotation`       |             |
 | created_at         | `DateTime!`      |             |
 | updated_at         | `DateTime`       |             |
