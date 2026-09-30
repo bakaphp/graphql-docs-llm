@@ -272,6 +272,7 @@
 - [ScribeTaxCodeInput](./ScribeTaxCodeInput.md)
 - [ScribeTaxRateInput](./ScribeTaxRateInput.md)
 - [SetAgentIntegrationConfigInput](./SetAgentIntegrationConfigInput.md)
+- [ShippingDestinationInput](./ShippingDestinationInput.md)
 - [ShopifySetupInput](./ShopifySetupInput.md)
 - [SocialChannelInput](./SocialChannelInput.md)
 - [SocialLoginInput](./SocialLoginInput.md)

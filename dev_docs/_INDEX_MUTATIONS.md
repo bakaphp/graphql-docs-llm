@@ -65,6 +65,7 @@
 - [appCreateUser](./Mutation.md#appcreateuser)
 - [appDeActiveUser](./Mutation.md#appdeactiveuser)
 - [appDeleteUser](./Mutation.md#appdeleteuser)
+- [applyShippingQuote](./Mutation.md#applyshippingquote)
 - [applyWalletCreditToCart](./Mutation.md#applywalletcredittocart)
 - [appResetUserPassword](./Mutation.md#appresetuserpassword)
 - [appRestoreDeletedUser](./Mutation.md#apprestoredeleteduser)

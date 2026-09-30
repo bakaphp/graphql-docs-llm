@@ -294,6 +294,7 @@
 - [scribeTaxCodes](./Query.md#scribetaxcodes)
 - [scribeTrialBalance](./Query.md#scribetrialbalance)
 - [searchUsersLists](./Query.md#searchuserslists)
+- [shippingQuotes](./Query.md#shippingquotes)
 - [slackAgentConnection](./Query.md#slackagentconnection)
 - [slackAgentManifest](./Query.md#slackagentmanifest)
 - [slackWorkspaceListenerManifest](./Query.md#slackworkspacelistenermanifest)

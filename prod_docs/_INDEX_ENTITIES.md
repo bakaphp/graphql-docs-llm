@@ -50,6 +50,7 @@
 - [App](./App.md)
 - [AppKey](./AppKey.md)
 - [AppModuleMessage](./AppModuleMessage.md)
+- [ApprovableEntity](./ApprovableEntity.md)
 - [ApprovalPolicy](./ApprovalPolicy.md)
 - [ApprovalRequest](./ApprovalRequest.md)
 - [ApprovalRequestApprover](./ApprovalRequestApprover.md)
