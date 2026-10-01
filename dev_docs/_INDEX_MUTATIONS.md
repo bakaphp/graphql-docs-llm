@@ -393,6 +393,7 @@
 - [forgotPassword](./Mutation.md#forgotpassword)
 - [generateCheckoutSession](./Mutation.md#generatecheckoutsession)
 - [generateOrderPaymentIntent](./Mutation.md#generateorderpaymentintent)
+- [generateOrderReceipt](./Mutation.md#generateorderreceipt)
 - [generatePaymentIntentFromOrder](./Mutation.md#generatepaymentintentfromorder)
 - [generateScribeInvoicePdf](./Mutation.md#generatescribeinvoicepdf)
 - [generateScribeQuotePdf](./Mutation.md#generatescribequotepdf)

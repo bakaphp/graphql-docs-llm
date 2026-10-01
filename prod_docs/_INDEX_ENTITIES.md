@@ -202,6 +202,7 @@
 - [LeadSubSource](./LeadSubSource.md)
 - [LeadTaskEngagementItem](./LeadTaskEngagementItem.md)
 - [LeadType](./LeadType.md)
+- [LeadVariantInterest](./LeadVariantInterest.md)
 - [LedgerEvent](./LedgerEvent.md)
 - [LoyaltyProgram](./LoyaltyProgram.md)
 - [Message](./Message.md)

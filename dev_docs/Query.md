@@ -283,6 +283,22 @@ Search the catalog with a natural-language request. Works for a logged-in shoppe
 | orderBy | `[QueryExportMechanicsOrderByOrderByClause!]` |  |
 ---
 
+### roadsideAssistanceIntake
+
+**Retorno:** `[RoadsideServiceIntake!]!`\
+The operator intake script: the shared questions plus the per-service block.
+Omit service_type to get every service.
+
+| Argumento    | Tipo                      | Descripción |
+| :----------- | :------------------------ | :---------- |
+| service_type | `RoadsideServiceTypeEnum` |             |
+
+---
+### roadsideAssistanceNotProceedReasons
+**Retorno:** `[RoadsideNotProceedReason!]!`
+Reasons a case can be declined at the authorization gate.
+---
+
 ### salesforceObjects
 
 **Retorno:** `[SalesforceObjectSummary!]!`
