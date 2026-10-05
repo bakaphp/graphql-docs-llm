@@ -236,6 +236,8 @@
 - [RegionInputUpdate](./RegionInputUpdate.md)
 - [RegionReferenceInput](./RegionReferenceInput.md)
 - [RegisterInput](./RegisterInput.md)
+- [ReportAggregateInput](./ReportAggregateInput.md)
+- [ReportFilterInput](./ReportFilterInput.md)
 - [ResetPasswordInput](./ResetPasswordInput.md)
 - [ResourceBookingInput](./ResourceBookingInput.md)
 - [ResourceBookingUpdateInput](./ResourceBookingUpdateInput.md)

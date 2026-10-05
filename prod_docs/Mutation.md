@@ -3700,44 +3700,64 @@ Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true
 | id        | `ID!` |             |
 
 ---
+### generateOrderReceipt
+**Retorno:** `Filesystem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### generateCheckoutSession
+
 **Retorno:** `PaymentLinkResult!`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| order_id  | `ID!`                     |             |
+| options   | `PaymentLinkOptionsInput` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| order_id | `ID!` |  |
-| options | `PaymentLinkOptionsInput` |  |
 ---
-
 ### sendOrderEmail
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| order_id  | `ID!`    |             |
-| template  | `String` |             |
-
----
-### orderChangeCustomer
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | order_id | `ID!` |  |
-| customer_id | `ID!` |  |
+| template | `String` |  |
 ---
 
-### updateReferralCode
+### orderChangeCustomer
 
+**Retorno:** `Boolean!`
+
+| Argumento   | Tipo  | Descripción |
+| :---------- | :---- | :---------- |
+| order_id    | `ID!` |             |
+| customer_id | `ID!` |             |
+
+---
+### updateReferralCode
 **Retorno:** `ReferralCode!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateReferralCodeInput!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateReferralCodeInput!` |  |
+---
+
+### applyShippingQuote
+
+**Retorno:** `Cart!`
+
+| Argumento   | Tipo                        | Descripción |
+| :---------- | :-------------------------- | :---------- |
+| provider    | `String!`                   |             |
+| service     | `String!`                   |             |
+| destination | `ShippingDestinationInput!` |             |
 
 ---
 ### createPaymentMethod

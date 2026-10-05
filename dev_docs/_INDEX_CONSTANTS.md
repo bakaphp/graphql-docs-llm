@@ -59,6 +59,8 @@
 - [PayoutMethodEnum](./PayoutMethodEnum.md)
 - [PeriodType](./PeriodType.md)
 - [ProductAttributeFilterOperator](./ProductAttributeFilterOperator.md)
+- [ReportAggregateFunction](./ReportAggregateFunction.md)
+- [ReportFilterOperator](./ReportFilterOperator.md)
 - [RoadsideServiceTypeEnum](./RoadsideServiceTypeEnum.md)
 - [RuleConditionOperator](./RuleConditionOperator.md)
 - [ScheduleExceptionKind](./ScheduleExceptionKind.md)

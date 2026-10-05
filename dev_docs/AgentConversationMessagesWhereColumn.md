@@ -7,3 +7,4 @@ Allowed column names for AgentConversation.messages.where.
 | Valor      | Descripción |
 | :--------- | :---------- |
 | CREATED_AT |             |
+| STATUS     |             |

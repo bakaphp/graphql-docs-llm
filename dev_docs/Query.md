@@ -935,101 +935,125 @@ Activity per player (participant), not per booker — one person books for the w
 | exclude_types    | `[String!]` |             |
 
 ---
-### organizationsEventActivity
-**Retorno:** `[OrganizationEventActivity!]!`
-
+### organizationEventHistory
+**Retorno:** `[OrganizationEventHistoryEntry!]!`
+A client company's participation history, newest first. Pair it with organizations(where: { column: ID }) for the company itself and peoples(hasOrganization: ...) for its contacts.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
+| organization_id | `ID!` |  |
 | from_date | `Date` |  |
 | to_date | `Date` |  |
-| activity | `OrgActivityFilter` |  |
-| min_count | `Int` |  |
-| max_count | `Int` |  |
-| event_type_id | `ID` |  |
-| event_category_id | `ID` |  |
-| include_participant_types | `[String!]` |  |
-| exclude_participant_types | `[String!]` |  |
-| top_n | `Int` |  |
-| order_by | `OrgActivityOrder` |  |
+| limit | `Int` | Max versions returned. Default 100, cap 500. |
 ---
 
+### organizationsEventActivity
+
+**Retorno:** `[OrganizationEventActivity!]!`
+
+| Argumento                 | Tipo                | Descripción |
+| :------------------------ | :------------------ | :---------- |
+| from_date                 | `Date`              |             |
+| to_date                   | `Date`              |             |
+| activity                  | `OrgActivityFilter` |             |
+| min_count                 | `Int`               |             |
+| max_count                 | `Int`               |             |
+| event_type_id             | `ID`                |             |
+| event_category_id         | `ID`                |             |
+| include_participant_types | `[String!]`         |             |
+| exclude_participant_types | `[String!]`         |             |
+| top_n                     | `Int`               |             |
+| order_by                  | `OrgActivityOrder`  |             |
+
+---
 ### resourceSchedule
-
 **Retorno:** `ResourceSchedule!`
-
-| Argumento      | Tipo      | Descripción |
-| :------------- | :-------- | :---------- |
-| resources_id   | `ID!`     |             |
-| resources_type | `String!` |             |
-
----
-### isResourceOpen
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | resources_id | `ID!` |  |
 | resources_type | `String!` |  |
-| datetime | `DateTime` |  |
 ---
 
-### timeSlotStats
+### isResourceOpen
 
+**Retorno:** `Boolean!`
+
+| Argumento      | Tipo       | Descripción |
+| :------------- | :--------- | :---------- |
+| resources_id   | `ID!`      |             |
+| resources_type | `String!`  |             |
+| datetime       | `DateTime` |             |
+
+---
+### timeSlotStats
 **Retorno:** `TimeSlotStats!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `TimeSlotStatsInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TimeSlotStatsInput!` |  |
 ---
+
 ### followUpPrompt
+
 **Retorno:** `String!`
 
+| Argumento         | Tipo      | Descripción |
+| :---------------- | :-------- | :---------- |
+| lead_id           | `ID!`     |             |
+| pipeline_stage_id | `ID!`     |             |
+| session_id        | `String!` |             |
+| message_template  | `String!` |             |
+| day               | `Float!`  |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| lead_id | `ID!` |  |
-| pipeline_stage_id | `ID!` |  |
-| session_id | `String!` |  |
-| message_template | `String!` |  |
-| day | `Float!` |  |
 ---
-
 ### agentAnalytics
-
 **Retorno:** `AgentAnalytics!`
 
-| Argumento     | Tipo              | Descripción |
-| :------------ | :---------------- | :---------- |
-| from          | `Date`            |             |
-| to            | `Date`            |             |
-| bucket        | `AnalyticsBucket` |             |
-| timezone      | `String`          |             |
-| agent_type_id | `ID`              |             |
-
----
-### agentDeploymentContainerStatus
-**Retorno:** `AgentDeploymentType!`
-Live SSH-checked container status — poll this to detect state changes made outside Kanvas (e.g. a manual restart on the machine).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
+| from | `Date` |  |
+| to | `Date` |  |
+| bucket | `AnalyticsBucket` |  |
+| timezone | `String` |  |
+| agent_type_id | `ID` |  |
 ---
 
-### agentCurrentTelemetry
+### agentDeploymentContainerStatus
 
-**Retorno:** `AgentTelemetryData`
+**Retorno:** `AgentDeploymentType!`\
+Live SSH-checked container status — poll this to detect state changes made
+outside Kanvas (e.g. a manual restart on the machine).
 
 | Argumento     | Tipo  | Descripción |
 | :------------ | :---- | :---------- |
 | deployment_id | `ID!` |             |
 
 ---
+### agentCurrentTelemetry
+**Retorno:** `AgentTelemetryData`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
+
 ### agentDeploymentLogs
+
 **Retorno:** `[AgentLogEntry!]!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+| limit         | `Int` |             |
+
+---
+### agentDeploymentEvents
+**Retorno:** `[AgentDeploymentEvent!]!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1038,87 +1062,71 @@ Live SSH-checked container status — poll this to detect state changes made out
 | limit | `Int` |  |
 ---
 
-### agentDeploymentEvents
-
-**Retorno:** `[AgentDeploymentEvent!]!`
-
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-| limit         | `Int` |             |
-
----
 ### agentSwarm
-**Retorno:** `AgentSwarm`
+
+**Retorno:** `AgentSwarm`\
 Single swarm lookup by id, scoped to the requester's app + company.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### aiAgentSession
-
-**Retorno:** `AIAgentSession!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
+### aiAgentSession
+**Retorno:** `AIAgentSession!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### voiceAgentSpec
+
 **Retorno:** `VoiceAgentSpec!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| uuid      | `String!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| uuid | `String!` |  |
 ---
-
 ### voiceAgentByNumber
-
-**Retorno:** `VoiceAgentByNumber`\
+**Retorno:** `VoiceAgentByNumber`
 Inbound routing: which agent owns this dialed number? Null if none.
 
-| Argumento    | Tipo      | Descripción |
-| :----------- | :-------- | :---------- |
-| phone_number | `String!` |             |
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| phone_number | `String!` |  |
+---
+
+### voiceAgentLeadContext
+
+**Retorno:** `VoiceAgentLeadContext`\
+Outbound: resolve the lead for a dialed number and return compact context. Null
+if none.
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| agent_uuid | `String!` |             |
+| phone      | `String!` |             |
 
 ---
-### voiceAgentLeadContext
-**Retorno:** `VoiceAgentLeadContext`
-Outbound: resolve the lead for a dialed number and return compact context. Null if none.
+### nervousSystemDashboardMetrics
+**Retorno:** `NervousSystemDashboardMetrics!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| agent_uuid | `String!` |  |
-| phone | `String!` |  |
+| period | `NervousSystemDashboardPeriod` |  |
 ---
 
-### nervousSystemDashboardMetrics
-
-**Retorno:** `NervousSystemDashboardMetrics!`
-
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| period    | `NervousSystemDashboardPeriod` |             |
-
----
 ### nervousSystemHealth
+
 **Retorno:** `NervousSystemHealth!`
----
 
+---
 ### nervousSystemAgentSkills
-
 **Retorno:** `[NervousSystemAgentSkill!]!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| agent_id  | `ID!` |             |
-
----
-### nervousSystemAgentTools
-**Retorno:** `[NervousSystemTool!]!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1126,54 +1134,101 @@ Outbound: resolve the lead for a dialed number and return compact context. Null 
 | agent_id | `ID!` |  |
 ---
 
-### nervousSystemAgentCapabilities
+### nervousSystemAgentTools
 
-**Retorno:** `NervousSystemAgentCapabilities!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| agent_id  | `ID!`    |             |
-| framework | `String` |             |
-
----
-### nervousSystemMcpConnections
-**Retorno:** `[NervousSystemMcpConnection!]!`
-Every agent's connection to one MCP server in the current company, for the integrations page.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| tool_id | `ID!` |  |
----
-
-### nervousSystemPlan
-
-**Retorno:** `NervousSystemPlan`
+**Retorno:** `[NervousSystemTool!]!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+| agent_id  | `ID!` |             |
 
 ---
-### nervousSystemProjectBoardColumns
-**Retorno:** `[NervousSystemProjectBoardColumn!]!`
+### nervousSystemAgentCapabilities
+**Retorno:** `NervousSystemAgentCapabilities!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| project_id | `ID!` |  |
+| agent_id | `ID!` |  |
+| framework | `String` |  |
 ---
 
-### nervousSystemPulseMetrics
+### nervousSystemMcpConnections
 
+**Retorno:** `[NervousSystemMcpConnection!]!`\
+Every agent's connection to one MCP server in the current company, for the
+integrations page.
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| tool_id   | `ID!` |             |
+
+---
+### nervousSystemPlan
+**Retorno:** `NervousSystemPlan`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### nervousSystemProjectBoardColumns
+
+**Retorno:** `[NervousSystemProjectBoardColumn!]!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| project_id | `ID!` |             |
+
+---
+### nervousSystemPulseMetrics
 **Retorno:** `NervousSystemPulseMetrics!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| period    | `NervousSystemDashboardPeriod` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| period | `NervousSystemDashboardPeriod` |  |
+---
+
+### myHrProfile
+
+**Retorno:** `HrEmployee`
 
 ---
-### myHrProfile
-**Retorno:** `HrEmployee`
+### reportModels
+**Retorno:** `[ReportModel!]!`
+The report models this app has, with their columns. Empty when no connector provides reporting.
+---
+
+### reportRows
+
+**Retorno:** `ReportRowsResult!`
+
+| Argumento  | Tipo                   | Descripción |
+| :--------- | :--------------------- | :---------- |
+| model      | `String!`              |             |
+| filters    | `[ReportFilterInput!]` |             |
+| select     | `[String!]`            |             |
+| order_by   | `String`               |             |
+| descending | `Boolean`              |             |
+| first      | `Int`                  |             |
+| page       | `Int`                  |             |
+
+---
+### reportAggregate
+**Retorno:** `ReportAggregateResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| model | `String!` |  |
+| filters | `[ReportFilterInput!]` |  |
+| group_by | `[String!]` | Columns, or `column:bucket` for a date (`fecha_inicio:month`). |
+| aggregates | `[ReportAggregateInput!]!` |  |
+| order_by | `String` | An aggregate alias, a grouping, or a column. A date-bucketed result with no order is sorted by the bucket ascending. |
+| descending | `Boolean` |  |
+| limit | `Int` |  |
 ---
 
 ### scribeBalanceSheet

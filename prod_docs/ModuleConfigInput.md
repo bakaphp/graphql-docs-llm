@@ -8,3 +8,4 @@
 | value       | `Mixed!`  |             |
 | entity_uuid | `String`  |             |
 | public      | `Boolean` |             |
+| secret      | `Boolean` |             |
