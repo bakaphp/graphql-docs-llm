@@ -36,3 +36,4 @@
 | files          | `FilesystemPaginator!`     |             |
 | addresses      | `CompanyAddressPaginator!` |             |
 | custom_fields  | `CustomFieldPaginator!`    |             |
+| tags           | `TagPaginator!`            |             |

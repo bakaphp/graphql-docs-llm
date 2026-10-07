@@ -54,6 +54,7 @@
 - [agentRuntimeUpdateConfig](./Mutation.md#agentruntimeupdateconfig)
 - [agentRuntimeUpdateMachine](./Mutation.md#agentruntimeupdatemachine)
 - [agentRuntimeUpdateMachineContainers](./Mutation.md#agentruntimeupdatemachinecontainers)
+- [aiAgentCancelChat](./Mutation.md#aiagentcancelchat)
 - [aiAgentChat](./Mutation.md#aiagentchat)
 - [aiAgentCreateSession](./Mutation.md#aiagentcreatesession)
 - [aiAgentUserChat](./Mutation.md#aiagentuserchat)

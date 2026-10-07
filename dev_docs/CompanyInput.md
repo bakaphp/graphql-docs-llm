@@ -25,3 +25,4 @@
 | state         | `String`                    |             |
 | country       | `String`                    |             |
 | zip           | `String`                    |             |
+| tags          | `[TagInput!]`               |             |

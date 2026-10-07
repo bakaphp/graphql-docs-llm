@@ -5310,76 +5310,113 @@ Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true
 | input     | `UserChatInput!` |             |
 
 ---
-### setAgentIntegrationConfig
-**Retorno:** `AgentAi!`
+### aiAgentCancelChat
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `SetAgentIntegrationConfigInput!` |  |
+| input | `CancelAgentChatInput!` |  |
 ---
 
-### createAgentConfigBackup
+### setAgentIntegrationConfig
 
+**Retorno:** `AgentAi!`
+
+| Argumento | Tipo                              | Descripción |
+| :-------- | :-------------------------------- | :---------- |
+| input     | `SetAgentIntegrationConfigInput!` |             |
+
+---
+### createAgentConfigBackup
 **Retorno:** `AgentConfigBackupType!`
 
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| agent_id  | `ID!`    |             |
-| notes     | `String` |             |
-
----
-### restoreAgentFromConfigBackup
-**Retorno:** `AgentAi!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| backup_id | `ID!` |  |
+| agent_id | `ID!` |  |
+| notes | `String` |  |
 ---
 
+### restoreAgentFromConfigBackup
+
+**Retorno:** `AgentAi!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| backup_id | `ID!` |             |
+
+---
 ### setAgentKanvasModule
-
 **Retorno:** `AgentKanvasModule!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| agent_id         | `ID!`     |             |
-| kanvas_module_id | `ID!`     |             |
-| config           | `Mixed`   |             |
-| is_active        | `Boolean` |             |
-
----
-### removeAgentKanvasModule
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
 | kanvas_module_id | `ID!` |  |
+| config | `Mixed` |  |
+| is_active | `Boolean` |  |
 ---
 
+### removeAgentKanvasModule
+
+**Retorno:** `Boolean!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| agent_id         | `ID!` |             |
+| kanvas_module_id | `ID!` |             |
+
+---
 ### createAgentLlmConfig
-
-**Retorno:** `AgentLlmConfig!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `AgentLlmConfigInput!` |             |
-
----
-### updateAgentLlmConfig
 **Retorno:** `AgentLlmConfig!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentLlmConfigInput!` |  |
+| input | `AgentLlmConfigInput!` |  |
 ---
 
+### updateAgentLlmConfig
+
+**Retorno:** `AgentLlmConfig!`
+
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| id        | `ID!`                        |             |
+| input     | `UpdateAgentLlmConfigInput!` |             |
+
+---
 ### deleteAgentLlmConfig
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### agentRuntimeCreateMachine
+
+**Retorno:** `AgentMachineType!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentMachineInput!` |             |
+
+---
+### agentRuntimeUpdateMachine
+**Retorno:** `AgentMachineType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAgentMachineInput!` |  |
+---
+
+### agentRuntimeDeleteMachine
 
 **Retorno:** `Boolean!`
 
@@ -5388,45 +5425,8 @@ Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true
 | id        | `ID!` |             |
 
 ---
-### agentRuntimeCreateMachine
-**Retorno:** `AgentMachineType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentMachineInput!` |  |
----
-
-### agentRuntimeUpdateMachine
-
-**Retorno:** `AgentMachineType!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateAgentMachineInput!` |             |
-
----
-### agentRuntimeDeleteMachine
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### agentRuntimeUpdateMachineContainers
-
 **Retorno:** `Boolean!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
-
----
-### agentRuntimePingMachine
-**Retorno:** `AgentMachineType!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5434,45 +5434,44 @@ Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true
 | machine_id | `ID!` |  |
 ---
 
-### agentRuntimeBackupAgent
+### agentRuntimePingMachine
 
+**Retorno:** `AgentMachineType!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
+
+---
+### agentRuntimeBackupAgent
 **Retorno:** `AgentBackupType!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| deployment_id     | `ID!`     |             |
-| include_workspace | `Boolean` |             |
-
----
-### agentRuntimeLaunchAgent
-**Retorno:** `AgentDeploymentType!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LaunchAgentInput!` |  |
+| deployment_id | `ID!` |  |
+| include_workspace | `Boolean` |  |
 ---
 
-### agentRuntimeRetryDeployment
+### agentRuntimeLaunchAgent
 
-**Retorno:** `AgentDeploymentType!`\
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
+### agentRuntimeRetryDeployment
+**Retorno:** `AgentDeploymentType!`
 Retry a failed deployment on the same agent + machine it already targeted.
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
 ---
+
 ### agentRuntimeTerminateAgent
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeDeleteDeployment
 
 **Retorno:** `Boolean!`
 
@@ -5481,7 +5480,7 @@ Retry a failed deployment on the same agent + machine it already targeted.
 | deployment_id | `ID!` |             |
 
 ---
-### agentRuntimeRestartContainer
+### agentRuntimeDeleteDeployment
 **Retorno:** `Boolean!`
 
 
@@ -5490,138 +5489,137 @@ Retry a failed deployment on the same agent + machine it already targeted.
 | deployment_id | `ID!` |  |
 ---
 
-### agentRuntimeContainerLogs
+### agentRuntimeRestartContainer
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeContainerLogs
 **Retorno:** `String!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-| lines         | `Int` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| lines | `Int` |  |
 ---
+
 ### agentRuntimeContainerStatus
+
 **Retorno:** `AgentDeploymentType!`
 
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
 ---
-
 ### agentRuntimeCollectUsage
-
 **Retorno:** `AgentUsageSnapshot!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeCollectSessionTranscripts
-**Retorno:** `Int!`
-Pull conversation transcripts out of the deployment runtime and persist into agent_conversations / agent_conversation_messages. Returns the count of newly persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't support transcript collection throw a clear LogicException.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| since | `DateTime` |  |
 ---
 
+### agentRuntimeCollectSessionTranscripts
+
+**Retorno:** `Int!`\
+Pull conversation transcripts out of the deployment runtime and persist into
+agent_conversations / agent_conversation_messages. Returns the count of newly
+persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't
+support transcript collection throw a clear LogicException.
+
+| Argumento     | Tipo       | Descripción |
+| :------------ | :--------- | :---------- |
+| deployment_id | `ID!`      |             |
+| since         | `DateTime` |             |
+
+---
 ### agentRuntimeSyncKanban
+**Retorno:** `Boolean!`
+Mirror the deployment's runtime kanban board into NervousSystem plans/tasks (async). Returns true once the per-deployment sync job is queued. Routes via AgentRuntimeProviderFactory — runtimes without a kanban throw a clear LogicException when the job runs.
 
-**Retorno:** `Boolean!`\
-Mirror the deployment's runtime kanban board into NervousSystem plans/tasks
-(async). Returns true once the per-deployment sync job is queued. Routes via
-AgentRuntimeProviderFactory — runtimes without a kanban throw a clear
-LogicException when the job runs.
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
+### agentRuntimeSetSlackTokens
+
+**Retorno:** `Boolean!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| agent_id        | `ID!`     |             |
+| slack_bot_token | `String!` |             |
+| slack_app_token | `String!` |             |
 
 ---
-### agentRuntimeSetSlackTokens
+### agentRuntimeSetTelegramToken
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| slack_bot_token | `String!` |  |
-| slack_app_token | `String!` |  |
+| telegram_bot_token | `String!` |  |
+| telegram_allowed_users | `String` |  |
 ---
 
-### agentRuntimeSetTelegramToken
-
-**Retorno:** `Boolean!`
-
-| Argumento              | Tipo      | Descripción |
-| :--------------------- | :-------- | :---------- |
-| agent_id               | `ID!`     |             |
-| telegram_bot_token     | `String!` |             |
-| telegram_allowed_users | `String`  |             |
-
----
 ### agentRuntimeMigrateAgentWorkspace
+
 **Retorno:** `AgentDeploymentType!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `MigrateAgentWorkspaceInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MigrateAgentWorkspaceInput!` |  |
 ---
-
 ### agentRuntimeMigrateAgentToProvider
-
-**Retorno:** `AgentDeploymentType!`\
+**Retorno:** `AgentDeploymentType!`
 Cross-runtime adoption — replaces the old per-provider migration mutations.
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| input     | `MigrateAgentToProviderInput!` |             |
-
----
-### agentRuntimeExecCommand
-**Retorno:** `Boolean!`
-
-
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| command | `String!` |  |
-| session_id | `String!` |  |
+| input | `MigrateAgentToProviderInput!` |  |
 ---
 
-### agentRuntimeGetConfig
+### agentRuntimeExecCommand
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| command       | `String!` |             |
+| session_id    | `String!` |             |
+
+---
+### agentRuntimeGetConfig
 **Retorno:** `String!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeUpdateConfig
-**Retorno:** `Boolean!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| config | `String!` |  |
 ---
 
-### setAgentSetting
+### agentRuntimeUpdateConfig
 
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| config        | `String!` |             |
 
 ---
-### deleteAgentSetting
+### setAgentSetting
 **Retorno:** `Boolean!`
 
 
@@ -5630,36 +5628,57 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | input | `ModuleConfigInput!` |  |
 ---
 
-### createAgentSwarm
+### deleteAgentSetting
 
-**Retorno:** `AgentSwarm!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AgentSwarmInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
 
 ---
-### updateAgentSwarm
+### createAgentSwarm
 **Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentSwarmInput!` |  |
+| input | `AgentSwarmInput!` |  |
 ---
 
-### deleteAgentSwarm
+### updateAgentSwarm
 
+**Retorno:** `AgentSwarm!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateAgentSwarmInput!` |             |
+
+---
+### deleteAgentSwarm
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addAgentToSwarm
+
+**Retorno:** `AgentSwarm!`
+
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
 
 ---
-### addAgentToSwarm
-**Retorno:** `AgentSwarm!`
+### updateSwarmMember
+**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5670,144 +5689,102 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### updateSwarmMember
-
-**Retorno:** `AgentSwarmMember!`
-
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
-
----
 ### removeAgentFromSwarm
+
 **Retorno:** `AgentSwarm!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| swarm_id  | `ID!` |             |
+| agent_id  | `ID!` |             |
+
+---
+### setAgentSwarmBudget
+**Retorno:** `AgentSwarmBudgetSnapshot!`
+Create or update the monthly budget for a swarm. Idempotent — one budget per (swarm, period).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | swarm_id | `ID!` |  |
-| agent_id | `ID!` |  |
+| input | `SwarmBudgetInput!` |  |
 ---
 
-### setAgentSwarmBudget
-
-**Retorno:** `AgentSwarmBudgetSnapshot!`\
-Create or update the monthly budget for a swarm. Idempotent — one budget per
-(swarm, period).
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| swarm_id  | `ID!`               |             |
-| input     | `SwarmBudgetInput!` |             |
-
----
 ### createAgentType
-**Retorno:** `agentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentTypeInput!` |  |
----
-
-### updateAgentType
 
 **Retorno:** `agentType!`
 
 | Argumento | Tipo              | Descripción |
 | :-------- | :---------------- | :---------- |
-| id        | `ID!`             |             |
 | input     | `AgentTypeInput!` |             |
 
 ---
+### updateAgentType
+**Retorno:** `agentType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `AgentTypeInput!` |  |
+---
+
 ### deleteAgentType
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createFollowUp
-
 **Retorno:** `FollowUp!`
 
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `FollowUpInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowUpInput!` |  |
 ---
+
 ### updateFollowUp
+
 **Retorno:** `FollowUp!`
 
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `UpdateFollowUpInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateFollowUpInput!` |  |
 ---
-
 ### deleteFollowUp
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createFollowUpDay
+
 **Retorno:** `FollowUpDay!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `FollowUpDayInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowUpDayInput!` |  |
 ---
-
 ### updateFollowUpDay
-
 **Retorno:** `FollowUpDay!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `UpdateFollowUpDayInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateFollowUpDayInput!` |  |
 ---
+
 ### deleteFollowUpDay
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createFollowUpTemplate
-
-**Retorno:** `FollowUpTemplate!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `FollowUpTemplateInput!` |             |
-
----
-### updateFollowUpTemplate
-**Retorno:** `FollowUpTemplate!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateFollowUpTemplateInput!` |  |
----
-
-### deleteFollowUpTemplate
 
 **Retorno:** `Boolean!`
 
@@ -5816,188 +5793,225 @@ Create or update the monthly budget for a swarm. Idempotent — one budget per
 | id        | `ID!` |             |
 
 ---
-### followUpLead
-**Retorno:** `FollowUpLeadOutcome!`
-Trigger an immediate follow-up for the given lead. Returns the outcome
-of the run so callers can render success/skipped/exhausted/completed.
+### createFollowUpTemplate
+**Retorno:** `FollowUpTemplate!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| leadId | `ID!` |  |
+| input | `FollowUpTemplateInput!` |  |
 ---
 
-### resetLeadFollowUp
+### updateFollowUpTemplate
 
-**Retorno:** `Boolean!`\
-Full reset of the lead's follow_up_state custom field. Clears count,
-channels_used, last_at, last_template, exhausted_at, exhausted_reason — and
-resets stage_entered_at = now. Use when a lead is stuck after a bug or for
-operator-driven recovery.
+**Retorno:** `FollowUpTemplate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateFollowUpTemplateInput!` |             |
+
+---
+### deleteFollowUpTemplate
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### followUpLead
+
+**Retorno:** `FollowUpLeadOutcome!`\
+Trigger an immediate follow-up for the given lead. Returns the outcome of the
+run so callers can render success/skipped/exhausted/completed.
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | leadId    | `ID!` |             |
 
 ---
-### resumeLeadFollowUp
+### resetLeadFollowUp
 **Retorno:** `Boolean!`
-Surgical reset: clears exhausted_at/reason + count + last_at, preserves
-other state keys (like stage_entered_at). Mirrors the inbound-reply
-re-engagement hook — use for "treat as if customer just replied".
+Full reset of the lead's follow_up_state custom field. Clears count,
+channels_used, last_at, last_template, exhausted_at, exhausted_reason —
+and resets stage_entered_at = now. Use when a lead is stuck after a
+bug or for operator-driven recovery.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | leadId | `ID!` |  |
 ---
 
-### publicAgentChat
+### resumeLeadFollowUp
 
-**Retorno:** `PublicAgentChatResult!`
+**Retorno:** `Boolean!`\
+Surgical reset: clears exhausted_at/reason + count + last_at, preserves other
+state keys (like stage_entered_at). Mirrors the inbound-reply re-engagement hook
+— use for "treat as if customer just replied".
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `PublicAgentChatInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| leadId    | `ID!` |             |
 
 ---
+### publicAgentChat
+**Retorno:** `PublicAgentChatResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PublicAgentChatInput!` |  |
+---
+
 ### sendVoiceAgentTestCall
-**Retorno:** `VoiceAgentCallResult!`
+
+**Retorno:** `VoiceAgentCallResult!`\
 Place a one-off test call for an agent via the external voice runtime.
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| to_number | `String!` |             |
+
+---
+### configureVoiceAgentInboundWebhook
+**Retorno:** `VoiceAgentInboundWebhookResult!`
+Re-run inbound-webhook wiring for an agent's Twilio number (admin retry). Returns the resulting status.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| to_number | `String!` |  |
 ---
 
-### configureVoiceAgentInboundWebhook
-
-**Retorno:** `VoiceAgentInboundWebhookResult!`\
-Re-run inbound-webhook wiring for an agent's Twilio number (admin retry).
-Returns the resulting status.
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### runVoiceAgentTool
+
+**Retorno:** `Mixed`\
+Data plane: execute one of an agent's tools (called by the voice runtime on an
+LLM function call). Returns the tool's JSON result.
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| agent_uuid | `String!` |             |
+| tool_name  | `String!` |             |
+| arguments  | `Mixed`   |             |
+
+---
+### captureVoiceLead
 **Retorno:** `Mixed`
-Data plane: execute one of an agent's tools (called by the voice runtime on an LLM function call). Returns the tool's JSON result.
+Data plane: capture the caller behind a phone as a contact, promoting to a lead on repeat or clear intent (outbound requires intent). Phone/direction come from the runtime, not the LLM.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_uuid | `String!` |  |
-| tool_name | `String!` |  |
-| arguments | `Mixed` |  |
+| phone | `String!` |  |
+| name | `String` |  |
+| interest | `String` |  |
+| interested | `Boolean` |  |
+| direction | `String` |  |
+| summary | `String` |  |
+| wants_appointment | `Boolean` |  |
+| appointment_preference | `String` |  |
 ---
 
-### captureVoiceLead
-
-**Retorno:** `Mixed`\
-Data plane: capture the caller behind a phone as a contact, promoting to a lead
-on repeat or clear intent (outbound requires intent). Phone/direction come from
-the runtime, not the LLM.
-
-| Argumento              | Tipo      | Descripción |
-| :--------------------- | :-------- | :---------- |
-| agent_uuid             | `String!` |             |
-| phone                  | `String!` |             |
-| name                   | `String`  |             |
-| interest               | `String`  |             |
-| interested             | `Boolean` |             |
-| direction              | `String`  |             |
-| summary                | `String`  |             |
-| wants_appointment      | `Boolean` |             |
-| appointment_preference | `String`  |             |
-
----
 ### refreshNervousSystemMcpTools
-**Retorno:** `Boolean!`
-Force a re-read of an MCP server's tool list for one agent — the escape hatch after a change on the vendor side, since the list is cached for hours.
+
+**Retorno:** `Boolean!`\
+Force a re-read of an MCP server's tool list for one agent — the escape hatch
+after a change on the vendor side, since the list is cached for hours.
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| tool_id   | `ID!` |             |
+| agent_id  | `ID!` |             |
+
+---
+### connectNervousSystemMcpServer
+**Retorno:** `NervousSystemMcpConnectResult!`
+Connect an MCP server for one agent — connecting also turns the tool on for that agent. Pass `token`
+to connect immediately; omit it on an OAuth server to get back a consent URL instead. `redirect_url`
+is where the browser lands after consent, with `?status=success` or `?status=error&message=…` appended.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | tool_id | `ID!` |  |
 | agent_id | `ID!` |  |
+| token | `String` |  |
+| server_url | `String` | Required when the server's `url_per_connection` is true (https only); a reconnect may omit it to keep the stored one. |
+| redirect_url | `String` |  |
 ---
 
-### connectNervousSystemMcpServer
-
-**Retorno:** `NervousSystemMcpConnectResult!`\
-Connect an MCP server for one agent — connecting also turns the tool on for that
-agent. Pass `token` to connect immediately; omit it on an OAuth server to get
-back a consent URL instead. `redirect_url` is where the browser lands after
-consent, with `?status=success` or `?status=error&message=…` appended.
-
-| Argumento    | Tipo     | Descripción                                                                                                           |
-| :----------- | :------- | :-------------------------------------------------------------------------------------------------------------------- |
-| tool_id      | `ID!`    |                                                                                                                       |
-| agent_id     | `ID!`    |                                                                                                                       |
-| token        | `String` |                                                                                                                       |
-| server_url   | `String` | Required when the server's `url_per_connection` is true (https only); a reconnect may omit it to keep the stored one. |
-| redirect_url | `String` |                                                                                                                       |
-
----
 ### createNervousSystemSkill
-**Retorno:** `NervousSystemSkill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateNervousSystemSkillInput!` |  |
----
-
-### updateNervousSystemSkill
 
 **Retorno:** `NervousSystemSkill!`
 
 | Argumento | Tipo                             | Descripción |
 | :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdateNervousSystemSkillInput!` |             |
+| input     | `CreateNervousSystemSkillInput!` |             |
 
 ---
-### createNervousSystemTool
-**Retorno:** `NervousSystemTool!`
+### updateNervousSystemSkill
+**Retorno:** `NervousSystemSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemToolInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemSkillInput!` |  |
 ---
 
-### updateNervousSystemTool
+### createNervousSystemTool
 
 **Retorno:** `NervousSystemTool!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| id        | `ID!`                           |             |
-| input     | `UpdateNervousSystemToolInput!` |             |
+| input     | `CreateNervousSystemToolInput!` |             |
 
 ---
+### updateNervousSystemTool
+**Retorno:** `NervousSystemTool!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemToolInput!` |  |
+---
+
 ### grantNervousSystemSkill
+
+**Retorno:** `NervousSystemAgentSkill!`
+
+| Argumento | Tipo                                 | Descripción |
+| :-------- | :----------------------------------- | :---------- |
+| skill_id  | `ID!`                                |             |
+| input     | `GrantNervousSystemCapabilityInput!` |             |
+
+---
+### revokeNervousSystemSkill
 **Retorno:** `NervousSystemAgentSkill!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| skill_id | `ID!` |  |
-| input | `GrantNervousSystemCapabilityInput!` |  |
+| grant_id | `ID!` |  |
+| reason | `String` |  |
 ---
 
-### revokeNervousSystemSkill
-
-**Retorno:** `NervousSystemAgentSkill!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| grant_id  | `ID!`    |             |
-| reason    | `String` |             |
-
----
 ### attachNervousSystemToolToAgentType
+
 **Retorno:** `NervousSystemTool!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| tool_id       | `ID!` |             |
+| agent_type_id | `ID!` |             |
+
+---
+### detachNervousSystemToolFromAgentType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -6006,106 +6020,89 @@ consent, with `?status=success` or `?status=error&message=…` appended.
 | agent_type_id | `ID!` |  |
 ---
 
-### detachNervousSystemToolFromAgentType
+### setNervousSystemAgentTool
 
-**Retorno:** `Boolean!`
+**Retorno:** `NervousSystemAgentTool`\
+Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
+agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| tool_id       | `ID!` |             |
-| agent_type_id | `ID!` |             |
+| Argumento | Tipo       | Descripción |
+| :-------- | :--------- | :---------- |
+| agent_id  | `ID!`      |             |
+| tool_id   | `ID!`      |             |
+| enabled   | `Boolean!` |             |
+| config    | `Mixed`    |             |
 
 ---
-### setNervousSystemAgentTool
-**Retorno:** `NervousSystemAgentTool`
-Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the agent; enabled=false revokes it. Returns the resulting AgentTool grant row.
+### createNervousSystemToolCategory
+**Retorno:** `NervousSystemToolCategory!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| agent_id | `ID!` |  |
-| tool_id | `ID!` |  |
-| enabled | `Boolean!` |  |
-| config | `Mixed` |  |
+| input | `CreateNervousSystemToolCategoryInput!` |  |
 ---
 
-### createNervousSystemToolCategory
+### updateNervousSystemToolCategory
 
 **Retorno:** `NervousSystemToolCategory!`
 
 | Argumento | Tipo                                    | Descripción |
 | :-------- | :-------------------------------------- | :---------- |
-| input     | `CreateNervousSystemToolCategoryInput!` |             |
+| id        | `ID!`                                   |             |
+| input     | `UpdateNervousSystemToolCategoryInput!` |             |
 
 ---
-### updateNervousSystemToolCategory
-**Retorno:** `NervousSystemToolCategory!`
+### createNervousSystemPlan
+**Retorno:** `NervousSystemPlan!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemToolCategoryInput!` |  |
+| input | `CreateNervousSystemPlanInput!` |  |
 ---
 
-### createNervousSystemPlan
+### updateNervousSystemPlan
 
 **Retorno:** `NervousSystemPlan!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
-| input     | `CreateNervousSystemPlanInput!` |             |
+| id        | `ID!`                           |             |
+| input     | `UpdateNervousSystemPlanInput!` |             |
 
 ---
-### updateNervousSystemPlan
-**Retorno:** `NervousSystemPlan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemPlanInput!` |  |
----
-
 ### approveNervousSystemPlan
-
 **Retorno:** `NervousSystemPlan!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `ApproveNervousSystemPlanInput!` |             |
-
----
-### addTaskToNervousSystemPlan
-**Retorno:** `NervousSystemTask!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| plan_id | `ID!` |  |
-| input | `NervousSystemTaskInput!` |  |
----
-
-### updateNervousSystemTaskStatus
-
-**Retorno:** `NervousSystemTask!`
-
-| Argumento | Tipo                                  | Descripción |
-| :-------- | :------------------------------------ | :---------- |
-| id        | `ID!`                                 |             |
-| input     | `UpdateNervousSystemTaskStatusInput!` |             |
-
----
-### deleteNervousSystemPlan
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ApproveNervousSystemPlanInput!` |  |
 ---
 
-### deleteNervousSystemTask
+### addTaskToNervousSystemPlan
+
+**Retorno:** `NervousSystemTask!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| plan_id   | `ID!`                     |             |
+| input     | `NervousSystemTaskInput!` |             |
+
+---
+### updateNervousSystemTaskStatus
+**Retorno:** `NervousSystemTask!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemTaskStatusInput!` |  |
+---
+
+### deleteNervousSystemPlan
 
 **Retorno:** `Boolean!`
 
@@ -6114,540 +6111,64 @@ Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
 | id        | `ID!` |             |
 
 ---
-### createNervousSystemWorkspace
-**Retorno:** `NervousSystemWorkspace!`
+### deleteNervousSystemTask
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `CreateNervousSystemWorkspaceInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updateNervousSystemWorkspace
+### createNervousSystemWorkspace
 
 **Retorno:** `NervousSystemWorkspace!`
 
 | Argumento | Tipo                                 | Descripción |
 | :-------- | :----------------------------------- | :---------- |
-| id        | `ID!`                                |             |
-| input     | `UpdateNervousSystemWorkspaceInput!` |             |
+| input     | `CreateNervousSystemWorkspaceInput!` |             |
 
 ---
+### updateNervousSystemWorkspace
+**Retorno:** `NervousSystemWorkspace!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateNervousSystemWorkspaceInput!` |  |
+---
+
 ### deleteNervousSystemWorkspace
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createNervousSystemProject
-
 **Retorno:** `NervousSystemProject!`
 
-| Argumento | Tipo                               | Descripción |
-| :-------- | :--------------------------------- | :---------- |
-| input     | `CreateNervousSystemProjectInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateNervousSystemProjectInput!` |  |
 ---
+
 ### updateNervousSystemProject
+
 **Retorno:** `NervousSystemProject!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateNervousSystemProjectInput!` |  |
----
-
-### deleteNervousSystemProject
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### attachMessageToProject
-**Retorno:** `Message!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| project_id | `ID!` |  |
-| content | `String!` |  |
-| type | `String` |  |
----
-
-### createNervousSystemProjectBoardColumn
-
-**Retorno:** `NervousSystemProjectBoardColumn!`
-
-| Argumento  | Tipo                                          | Descripción |
-| :--------- | :-------------------------------------------- | :---------- |
-| project_id | `ID!`                                         |             |
-| input      | `CreateNervousSystemProjectBoardColumnInput!` |             |
-
----
-### renameNervousSystemProjectBoardColumn
-**Retorno:** `NervousSystemProjectBoardColumn!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| project_id | `ID!` |  |
-| key | `String!` |  |
-| name | `String!` |  |
----
-
-### reorderNervousSystemProjectBoardColumns
-
-**Retorno:** `[NervousSystemProjectBoardColumn!]!`
-
-| Argumento  | Tipo         | Descripción |
-| :--------- | :----------- | :---------- |
-| project_id | `ID!`        |             |
-| keys       | `[String!]!` |             |
-
----
-### addNervousSystemProjectMember
-**Retorno:** `NervousSystemProjectMember!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| project_id | `ID!` |  |
-| input | `AddNervousSystemProjectMemberInput!` |  |
----
-
-### updateNervousSystemProjectMemberRole
-
-**Retorno:** `NervousSystemProjectMember!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
-| role      | `String!` |             |
-
----
-### removeNervousSystemProjectMember
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### pauseNervousSystemScheduledAction
-
-**Retorno:** `NervousSystemScheduledAction!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### resumeNervousSystemScheduledAction
-**Retorno:** `NervousSystemScheduledAction!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### cancelNervousSystemScheduledAction
-
-**Retorno:** `NervousSystemScheduledAction!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### setHrDepartmentModuleAccess
-**Retorno:** `HrDepartmentModuleAccess!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `HrDepartmentModuleAccessInput!` |  |
----
-
-### recordHrCompensation
-
-**Retorno:** `HrEmployeeCompensation!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `HrCompensationInput!` |             |
-
----
-### createHrDepartment
-**Retorno:** `HrDepartment!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `HrDepartmentInput!` |  |
----
-
-### updateHrDepartment
-
-**Retorno:** `HrDepartment!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateHrDepartmentInput!` |             |
-
----
-### deleteHrDepartment
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createHrEmployee
-
-**Retorno:** `HrEmployee!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `HrEmployeeInput!` |             |
-
----
-### updateHrEmployee
-**Retorno:** `HrEmployee!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateHrEmployeeInput!` |  |
----
-
-### deleteHrEmployee
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### requestHrLeave
-**Retorno:** `HrLeaveRequest!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `HrLeaveRequestInput!` |  |
----
-
-### decideHrLeaveRequest
-
-**Retorno:** `HrLeaveRequest!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| id        | `ID!`                  |             |
-| decision  | `HrLeaveDecisionEnum!` |             |
-| note      | `String`               |             |
-
----
-### cancelHrLeaveRequest
-**Retorno:** `HrLeaveRequest!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createHrLeaveType
-
-**Retorno:** `HrLeaveType!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `HrLeaveTypeInput!` |             |
-
----
-### updateHrLeaveType
-**Retorno:** `HrLeaveType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateHrLeaveTypeInput!` |  |
----
-
-### createHrPayBand
-
-**Retorno:** `HrPayBand!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `HrPayBandInput!` |             |
-
----
-### updateHrPayBand
-**Retorno:** `HrPayBand!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateHrPayBandInput!` |  |
----
-
-### createHrPosition
-
-**Retorno:** `HrPosition!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `HrPositionInput!` |             |
-
----
-### updateHrPosition
-**Retorno:** `HrPosition!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateHrPositionInput!` |  |
----
-
-### deleteHrPosition
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### assignHrSeat
-**Retorno:** `HrSeatAssignment!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `HrSeatAssignmentInput!` |  |
----
-
-### endHrSeat
-
-**Retorno:** `HrSeatAssignment!`
-
-| Argumento    | Tipo   | Descripción |
-| :----------- | :----- | :---------- |
-| id           | `ID!`  |             |
-| effective_to | `Date` |             |
-
----
-### createScribeBankAccount
-**Retorno:** `ScribeBankAccount!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeBankAccountInput!` |  |
----
-
-### createScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `ScribeBillInput!` |             |
-
----
-### updateScribeBill
-**Retorno:** `ScribeBill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeBillInput!` |  |
----
-
-### receiveScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### submitScribeBillForApproval
-**Retorno:** `ScribeBill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### approveScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### rejectScribeBill
-**Retorno:** `ScribeBill!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| reason | `String` |  |
----
-
-### voidScribeBill
-
-**Retorno:** `ScribeBill!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
----
-### allocateScribeBillPayment
-**Retorno:** `ScribeBillPaymentAllocation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAllocatePaymentInput!` |  |
----
-
-### markScribeBillPaid
-
-**Retorno:** `ScribeBill!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createScribeExpense
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeExpenseInput!` |  |
----
-
-### updateScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `ScribeExpenseInput!` |             |
-
----
-### submitScribeExpenseForApproval
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### approveScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### rejectScribeExpense
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| reason | `String` |  |
----
-
-### voidScribeExpense
-
-**Retorno:** `ScribeExpense!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
----
-### recordScribeExpenseReimbursement
-**Retorno:** `ScribeExpense!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| reimbursement_payment_id | `Int` |  |
----
-
-### attachScribeExpenseReceipt
-
-**Retorno:** `ScribeExpenseReceipt!`
 
 | Argumento | Tipo                               | Descripción |
 | :-------- | :--------------------------------- | :---------- |
 | id        | `ID!`                              |             |
-| input     | `ScribeAttachExpenseReceiptInput!` |             |
+| input     | `UpdateNervousSystemProjectInput!` |             |
 
 ---
-### createScribeInvoice
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeInvoiceInput!` |  |
----
-
-### updateScribeInvoice
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `ScribeInvoiceInput!` |             |
-
----
-### issueScribeInvoice
-**Retorno:** `ScribeInvoice!`
+### deleteNervousSystemProject
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -6655,192 +6176,79 @@ Idempotent per-agent toggle. enabled=true grants or reactivates the tool for the
 | id | `ID!` |  |
 ---
 
-### voidScribeInvoice
+### attachMessageToProject
 
-**Retorno:** `ScribeInvoice!`
+**Retorno:** `Message!`
 
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| project_id | `ID!`     |             |
+| content    | `String!` |             |
+| type       | `String`  |             |
 
 ---
-### allocateScribeInvoicePayment
-**Retorno:** `ScribeInvoicePaymentAllocation!`
+### createNervousSystemProjectBoardColumn
+**Retorno:** `NervousSystemProjectBoardColumn!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| project_id | `ID!` |  |
+| input | `CreateNervousSystemProjectBoardColumnInput!` |  |
+---
+
+### renameNervousSystemProjectBoardColumn
+
+**Retorno:** `NervousSystemProjectBoardColumn!`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| project_id | `ID!`     |             |
+| key        | `String!` |             |
+| name       | `String!` |             |
+
+---
+### reorderNervousSystemProjectBoardColumns
+**Retorno:** `[NervousSystemProjectBoardColumn!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| project_id | `ID!` |  |
+| keys | `[String!]!` |  |
+---
+
+### addNervousSystemProjectMember
+
+**Retorno:** `NervousSystemProjectMember!`
+
+| Argumento  | Tipo                                  | Descripción |
+| :--------- | :------------------------------------ | :---------- |
+| project_id | `ID!`                                 |             |
+| input      | `AddNervousSystemProjectMemberInput!` |             |
+
+---
+### updateNervousSystemProjectMemberRole
+**Retorno:** `NervousSystemProjectMember!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ScribeAllocatePaymentInput!` |  |
+| role | `String!` |  |
 ---
 
-### markScribeInvoicePaid
+### removeNervousSystemProjectMember
 
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo                         | Descripción |
-| :-------- | :--------------------------- | :---------- |
-| id        | `ID!`                        |             |
-| input     | `ScribeMarkInvoicePaidInput` |             |
-
----
-### issueScribeCreditNote
-**Retorno:** `ScribeInvoice!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| parent_invoice_id | `ID!` |  |
-| input | `ScribeInvoiceInput!` |  |
----
-
-### amendScribeInvoice
-
-**Retorno:** `ScribeInvoice!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `ScribeAmendInvoiceInput!` |             |
-
----
-### generateScribeInvoicePdf
-**Retorno:** `Filesystem!`
-Renders the invoice as a PDF and attaches it to the invoice. template_name overrides the default layout.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| template_name | `String` |  |
----
-
-### createScribeAccount
-
-**Retorno:** `ScribeAccount!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `ScribeAccountInput!` |             |
-
----
-### updateScribeAccount
-**Retorno:** `ScribeAccount!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `ScribeAccountInput!` |  |
----
-
-### openScribeFiscalPeriod
-
-**Retorno:** `ScribeFiscalPeriod!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `ScribeFiscalPeriodInput!` |             |
-
----
-### closeScribeFiscalPeriod
-**Retorno:** `ScribeFiscalPeriod!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| hard | `Boolean` |  |
-| close_notes | `String` |  |
----
-
-### reopenScribeFiscalPeriod
-
-**Retorno:** `ScribeFiscalPeriod!`
-
-| Argumento    | Tipo     | Descripción |
-| :----------- | :------- | :---------- |
-| id           | `ID!`    |             |
-| reopen_notes | `String` |             |
-
----
-### createScribeItem
-**Retorno:** `ScribeItem!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeItemInput!` |  |
----
-
-### updateScribeItem
-
-**Retorno:** `ScribeItem!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| id        | `ID!`              |             |
-| input     | `ScribeItemInput!` |             |
-
----
-### createScribeTaxCode
-**Retorno:** `ScribeTaxCode!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeTaxCodeInput!` |  |
----
-
-### updateScribeTaxCode
-
-**Retorno:** `ScribeTaxCode!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `ScribeTaxCodeInput!` |             |
-
----
-### createScribePaymentTerm
-**Retorno:** `ScribePaymentTerm!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribePaymentTermInput!` |  |
----
-
-### updateScribePaymentTerm
-
-**Retorno:** `ScribePaymentTerm!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `ScribePaymentTermInput!` |             |
-
----
-### createScribeQuote
-**Retorno:** `ScribeQuote!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScribeQuoteInput!` |  |
----
-
-### sendScribeQuote
-
-**Retorno:** `ScribeQuote!`
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
-### acceptScribeQuote
-**Retorno:** `ScribeQuote!`
+### pauseNervousSystemScheduledAction
+**Retorno:** `NervousSystemScheduledAction!`
 
 
 | Argumento | Tipo | Descripción |
@@ -6848,9 +6256,270 @@ Renders the invoice as a PDF and attaches it to the invoice. template_name overr
 | id | `ID!` |  |
 ---
 
-### rejectScribeQuote
+### resumeNervousSystemScheduledAction
 
-**Retorno:** `ScribeQuote!`
+**Retorno:** `NervousSystemScheduledAction!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### cancelNervousSystemScheduledAction
+**Retorno:** `NervousSystemScheduledAction!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### setHrDepartmentModuleAccess
+
+**Retorno:** `HrDepartmentModuleAccess!`
+
+| Argumento | Tipo                             | Descripción |
+| :-------- | :------------------------------- | :---------- |
+| input     | `HrDepartmentModuleAccessInput!` |             |
+
+---
+### recordHrCompensation
+**Retorno:** `HrEmployeeCompensation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrCompensationInput!` |  |
+---
+
+### createHrDepartment
+
+**Retorno:** `HrDepartment!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `HrDepartmentInput!` |             |
+
+---
+### updateHrDepartment
+**Retorno:** `HrDepartment!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateHrDepartmentInput!` |  |
+---
+
+### deleteHrDepartment
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createHrEmployee
+**Retorno:** `HrEmployee!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrEmployeeInput!` |  |
+---
+
+### updateHrEmployee
+
+**Retorno:** `HrEmployee!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateHrEmployeeInput!` |             |
+
+---
+### deleteHrEmployee
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### requestHrLeave
+
+**Retorno:** `HrLeaveRequest!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `HrLeaveRequestInput!` |             |
+
+---
+### decideHrLeaveRequest
+**Retorno:** `HrLeaveRequest!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| decision | `HrLeaveDecisionEnum!` |  |
+| note | `String` |  |
+---
+
+### cancelHrLeaveRequest
+
+**Retorno:** `HrLeaveRequest!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createHrLeaveType
+**Retorno:** `HrLeaveType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrLeaveTypeInput!` |  |
+---
+
+### updateHrLeaveType
+
+**Retorno:** `HrLeaveType!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `UpdateHrLeaveTypeInput!` |             |
+
+---
+### createHrPayBand
+**Retorno:** `HrPayBand!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrPayBandInput!` |  |
+---
+
+### updateHrPayBand
+
+**Retorno:** `HrPayBand!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| id        | `ID!`                   |             |
+| input     | `UpdateHrPayBandInput!` |             |
+
+---
+### createHrPosition
+**Retorno:** `HrPosition!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `HrPositionInput!` |  |
+---
+
+### updateHrPosition
+
+**Retorno:** `HrPosition!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateHrPositionInput!` |             |
+
+---
+### deleteHrPosition
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### assignHrSeat
+
+**Retorno:** `HrSeatAssignment!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `HrSeatAssignmentInput!` |             |
+
+---
+### endHrSeat
+**Retorno:** `HrSeatAssignment!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| effective_to | `Date` |  |
+---
+
+### createScribeBankAccount
+
+**Retorno:** `ScribeBankAccount!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScribeBankAccountInput!` |             |
+
+---
+### createScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeBillInput!` |  |
+---
+
+### updateScribeBill
+
+**Retorno:** `ScribeBill!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
+| input     | `ScribeBillInput!` |             |
+
+---
+### receiveScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### submitScribeBillForApproval
+
+**Retorno:** `ScribeBill!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### approveScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### rejectScribeBill
+
+**Retorno:** `ScribeBill!`
 
 | Argumento | Tipo     | Descripción |
 | :-------- | :------- | :---------- |
@@ -6858,8 +6527,28 @@ Renders the invoice as a PDF and attaches it to the invoice. template_name overr
 | reason    | `String` |             |
 
 ---
-### expireScribeQuote
-**Retorno:** `ScribeQuote!`
+### voidScribeBill
+**Retorno:** `ScribeBill!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
+---
+
+### allocateScribeBillPayment
+
+**Retorno:** `ScribeBillPaymentAllocation!`
+
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| id        | `ID!`                         |             |
+| input     | `ScribeAllocatePaymentInput!` |             |
+
+---
+### markScribeBillPaid
+**Retorno:** `ScribeBill!`
 
 
 | Argumento | Tipo | Descripción |
@@ -6867,30 +6556,166 @@ Renders the invoice as a PDF and attaches it to the invoice. template_name overr
 | id | `ID!` |  |
 ---
 
-### createScribeQuoteRevision
+### createScribeExpense
 
-**Retorno:** `ScribeQuote!`
+**Retorno:** `ScribeExpense!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `ScribeQuoteInput!` |             |
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScribeExpenseInput!` |             |
 
 ---
-### convertScribeQuoteToInvoice
+### updateScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeExpenseInput!` |  |
+---
+
+### submitScribeExpenseForApproval
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### approveScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### rejectScribeExpense
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| id        | `ID!`    |             |
+| reason    | `String` |             |
+
+---
+### voidScribeExpense
+**Retorno:** `ScribeExpense!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
+---
+
+### recordScribeExpenseReimbursement
+
+**Retorno:** `ScribeExpense!`
+
+| Argumento                | Tipo  | Descripción |
+| :----------------------- | :---- | :---------- |
+| id                       | `ID!` |             |
+| reimbursement_payment_id | `Int` |             |
+
+---
+### attachScribeExpenseReceipt
+**Retorno:** `ScribeExpenseReceipt!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeAttachExpenseReceiptInput!` |  |
+---
+
+### createScribeInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScribeInvoiceInput!` |             |
+
+---
+### updateScribeInvoice
 **Retorno:** `ScribeInvoice!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ScribeInvoiceInput!` |  |
 ---
 
-### generateScribeQuotePdf
+### issueScribeInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### voidScribeInvoice
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
+---
+
+### allocateScribeInvoicePayment
+
+**Retorno:** `ScribeInvoicePaymentAllocation!`
+
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| id        | `ID!`                         |             |
+| input     | `ScribeAllocatePaymentInput!` |             |
+
+---
+### markScribeInvoicePaid
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeMarkInvoicePaidInput` |  |
+---
+
+### issueScribeCreditNote
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento         | Tipo                  | Descripción |
+| :---------------- | :-------------------- | :---------- |
+| parent_invoice_id | `ID!`                 |             |
+| input             | `ScribeInvoiceInput!` |             |
+
+---
+### amendScribeInvoice
+**Retorno:** `ScribeInvoice!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeAmendInvoiceInput!` |  |
+---
+
+### generateScribeInvoicePdf
 
 **Retorno:** `Filesystem!`\
-Renders the quote as a PDF and attaches it to the quote. template_name overrides
-the default layout.
+Renders the invoice as a PDF and attaches it to the invoice. template_name
+overrides the default layout.
 
 | Argumento     | Tipo     | Descripción |
 | :------------ | :------- | :---------- |
@@ -6898,22 +6723,202 @@ the default layout.
 | template_name | `String` |             |
 
 ---
+### createScribeAccount
+**Retorno:** `ScribeAccount!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeAccountInput!` |  |
+---
+
+### updateScribeAccount
+
+**Retorno:** `ScribeAccount!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `ScribeAccountInput!` |             |
+
+---
+### openScribeFiscalPeriod
+**Retorno:** `ScribeFiscalPeriod!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ScribeFiscalPeriodInput!` |  |
+---
+
+### closeScribeFiscalPeriod
+
+**Retorno:** `ScribeFiscalPeriod!`
+
+| Argumento   | Tipo      | Descripción |
+| :---------- | :-------- | :---------- |
+| id          | `ID!`     |             |
+| hard        | `Boolean` |             |
+| close_notes | `String`  |             |
+
+---
+### reopenScribeFiscalPeriod
+**Retorno:** `ScribeFiscalPeriod!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| reopen_notes | `String` |  |
+---
+
+### createScribeItem
+
+**Retorno:** `ScribeItem!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `ScribeItemInput!` |             |
+
+---
+### updateScribeItem
+**Retorno:** `ScribeItem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeItemInput!` |  |
+---
+
+### createScribeTaxCode
+
+**Retorno:** `ScribeTaxCode!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScribeTaxCodeInput!` |             |
+
+---
+### updateScribeTaxCode
+**Retorno:** `ScribeTaxCode!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeTaxCodeInput!` |  |
+---
+
+### createScribePaymentTerm
+
+**Retorno:** `ScribePaymentTerm!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScribePaymentTermInput!` |             |
+
+---
+### updateScribePaymentTerm
+**Retorno:** `ScribePaymentTerm!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribePaymentTermInput!` |  |
+---
+
+### createScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `ScribeQuoteInput!` |             |
+
+---
+### sendScribeQuote
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### acceptScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### rejectScribeQuote
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| reason | `String` |  |
+---
+
+### expireScribeQuote
+
+**Retorno:** `ScribeQuote!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createScribeQuoteRevision
+**Retorno:** `ScribeQuote!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScribeQuoteInput!` |  |
+---
+
+### convertScribeQuoteToInvoice
+
+**Retorno:** `ScribeInvoice!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### generateScribeQuotePdf
+**Retorno:** `Filesystem!`
+Renders the quote as a PDF and attaches it to the quote. template_name overrides the default layout.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| template_name | `String` |  |
+---
+
 ### createScribeSalesReceipt
+
+**Retorno:** `ScribeSalesReceipt!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `ScribeSalesReceiptInput!` |             |
+
+---
+### voidScribeSalesReceipt
 **Retorno:** `ScribeSalesReceipt!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScribeSalesReceiptInput!` |  |
----
-
-### voidScribeSalesReceipt
-
-**Retorno:** `ScribeSalesReceipt!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| id               | `ID!`     |             |
-| void_reason_code | `String!` |             |
-
+| id | `ID!` |  |
+| void_reason_code | `String!` |  |
 ---

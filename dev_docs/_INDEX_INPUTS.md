@@ -41,6 +41,7 @@
 - [BrowserInfoInput](./BrowserInfoInput.md)
 - [BundleInput](./BundleInput.md)
 - [BundleVariantInput](./BundleVariantInput.md)
+- [CancelAgentChatInput](./CancelAgentChatInput.md)
 - [CartItemInput](./CartItemInput.md)
 - [CartOrderInput](./CartOrderInput.md)
 - [CategoryInput](./CategoryInput.md)

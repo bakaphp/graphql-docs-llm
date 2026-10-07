@@ -24,3 +24,4 @@
 | files                 | `[FilesystemInputUrl!]`     |             |
 | role_ids              | `[ID!]`                     |             |
 | addresses             | `[AddressInput!]`           |             |
+| tags                  | `[TagInput!]`               |             |

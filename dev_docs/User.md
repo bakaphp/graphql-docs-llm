@@ -43,3 +43,4 @@
 | pivot                       | `SocialChannelPivot`    |             |
 | files                       | `FilesystemPaginator!`  |             |
 | custom_fields               | `CustomFieldPaginator!` |             |
+| tags                        | `TagPaginator!`         |             |
