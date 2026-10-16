@@ -12,3 +12,4 @@ Allowed column names for Query.orderStatus.where.
 | SLUG           |             |
 | ORDER_TYPES_ID |             |
 | SEQUENCE       |             |
+| IS_DEFAULT     |             |

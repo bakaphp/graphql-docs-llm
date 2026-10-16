@@ -4,8 +4,8 @@ Allowed column names for Query.scribePaymentTerms.where.
 
 ## Valores
 
-| Valor     | Descripción |
-| :-------- | :---------- |
-| NAME      |             |
-| NET_DAYS  |             |
-| IS_ACTIVE |             |
+| Valor      | Descripción |
+| :--------- | :---------- |
+| NAME       |             |
+| NET_DAYS   |             |
+| IS_DEFAULT |             |

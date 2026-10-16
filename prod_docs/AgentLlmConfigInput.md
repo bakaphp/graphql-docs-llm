@@ -9,6 +9,6 @@
 | base_uri           | `String`  |             |
 | api_key            | `String`  |             |
 | model              | `String`  |             |
-| config             | `JSON`    |             |
+| config             | `Mixed`   |             |
 | is_active          | `Boolean` |             |
 | is_routing_enabled | `Boolean` |             |

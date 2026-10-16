@@ -11,3 +11,4 @@ Allowed column names for Query.channels.orderBy.
 | SLUG       |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
+| IS_DEFAULT |             |

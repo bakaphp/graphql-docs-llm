@@ -10,3 +10,4 @@ Allowed column names for OrderType.statuses.orderBy.
 | SEQUENCE   |             |
 | NAME       |             |
 | CREATED_AT |             |
+| IS_DEFAULT |             |

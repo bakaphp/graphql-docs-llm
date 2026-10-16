@@ -11,3 +11,4 @@ Allowed column names for Query.channels.where.
 | UUID         |             |
 | IS_PUBLISHED |             |
 | SLUG         |             |
+| IS_DEFAULT   |             |

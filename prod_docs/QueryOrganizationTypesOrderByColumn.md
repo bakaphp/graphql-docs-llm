@@ -10,3 +10,4 @@ Allowed column names for Query.organizationTypes.orderBy.
 | NAME       |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
+| IS_DEFAULT |             |

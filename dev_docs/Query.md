@@ -2067,6 +2067,7 @@ The report models this app has, with their columns. Empty when no connector prov
 | :--- | :--- | :--- |
 | search | `String` |  |
 | where | `QueryLeadReceiversWhereWhereConditions` |  |
+| orderBy | `[QueryLeadReceiversOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---
@@ -3937,6 +3938,7 @@ The report models this app has, with their columns. Empty when no connector prov
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | where | `QueryScribePaymentTermsWhereWhereConditions` |  |
+| orderBy | `[QueryScribePaymentTermsOrderByOrderByClause!]` |  |
 | first | `Int!` | Limits number of fetched items. |
 | page | `Int` | The offset from which items are returned. |
 ---

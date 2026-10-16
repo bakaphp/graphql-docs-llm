@@ -9,3 +9,4 @@ Allowed column names for Query.getUsersLists.orderBy.
 | CREATED_AT |             |
 | UPDATED_AT |             |
 | ID         |             |
+| IS_DEFAULT |             |

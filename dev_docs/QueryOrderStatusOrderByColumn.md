@@ -11,3 +11,4 @@ Allowed column names for Query.orderStatus.orderBy.
 | UPDATED_AT |             |
 | NAME       |             |
 | SEQUENCE   |             |
+| IS_DEFAULT |             |

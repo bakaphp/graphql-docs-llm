@@ -10,3 +10,4 @@ Allowed column names for Query.attributesTypes.orderBy.
 | CREATED_AT |             |
 | UPDATED_AT |             |
 | NAME       |             |
+| IS_DEFAULT |             |

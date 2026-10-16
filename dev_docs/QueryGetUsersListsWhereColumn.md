@@ -10,3 +10,4 @@ Allowed column names for Query.getUsersLists.where.
 | COMPANY_ID  |             |
 | NAME        |             |
 | DESCRIPTION |             |
+| IS_DEFAULT  |             |

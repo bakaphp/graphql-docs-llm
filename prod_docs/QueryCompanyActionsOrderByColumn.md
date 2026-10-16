@@ -11,4 +11,3 @@ Allowed column names for Query.companyActions.orderBy.
 | UPDATED_AT |             |
 | WEIGHT     |             |
 | NAME       |             |
-| IS_DEFAULT |             |

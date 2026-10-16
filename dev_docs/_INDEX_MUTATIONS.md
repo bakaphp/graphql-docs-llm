@@ -383,6 +383,7 @@
 - [extendOrder](./Mutation.md#extendorder)
 - [filesystemImport](./Mutation.md#filesystemimport)
 - [finalizePaymentChallenge](./Mutation.md#finalizepaymentchallenge)
+- [finishProductImport](./Mutation.md#finishproductimport)
 - [flushCompanyWallet](./Mutation.md#flushcompanywallet)
 - [flushUserWallet](./Mutation.md#flushuserwallet)
 - [followEvent](./Mutation.md#followevent)

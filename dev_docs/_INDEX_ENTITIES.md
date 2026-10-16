@@ -313,6 +313,7 @@
 - [productDashboard](./productDashboard.md)
 - [ProductDiscoveryMatch](./ProductDiscoveryMatch.md)
 - [ProductDiscoveryResult](./ProductDiscoveryResult.md)
+- [ProductImportRun](./ProductImportRun.md)
 - [productStatusDashboard](./productStatusDashboard.md)
 - [ProductTranslation](./ProductTranslation.md)
 - [ProductType](./ProductType.md)

@@ -10,3 +10,4 @@ Allowed column names for Query.peopleTypes.orderBy.
 | NAME       |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
+| IS_DEFAULT |             |
