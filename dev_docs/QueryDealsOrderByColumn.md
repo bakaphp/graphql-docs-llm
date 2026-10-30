@@ -9,4 +9,5 @@ Allowed column names for Query.deals.orderBy.
 | ID         |             |
 | CREATED_AT |             |
 | UPDATED_AT |             |
+| CLOSED_AT  |             |
 | TITLE      |             |

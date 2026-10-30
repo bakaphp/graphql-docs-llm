@@ -258,6 +258,47 @@
 | address_id | `ID!` |  |
 ---
 
+### uploadCompanyKnowledge
+
+**Retorno:** `[Filesystem!]!`\
+Company knowledge for the internal agents: the regular upload flow, attached to
+the company under a knowledge marker, indexed company-wide by a queued job.
+Works during onboarding or any time after.
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+
+---
+### deleteCompanyKnowledgeDocument
+**Retorno:** `Boolean!`
+Removes one knowledge document and its chunks. Refuses a file that is not company knowledge.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
+---
+
+### addCompanyKnowledgeUrl
+
+**Retorno:** `CompanyKnowledgeUrl!`\
+Adds one public page as company knowledge; it is fetched and indexed in the
+background.
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| url       | `String!` |             |
+
+---
+### removeCompanyKnowledgeUrl
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| url | `String!` |  |
+---
+
 ### approveCorporateApplication
 
 **Retorno:** `CorporateApplicationDecision!`
@@ -467,65 +508,130 @@
 | channels | `[NotificationChannels!]!` |  |
 ---
 
-### createRole
+### startOnboarding
 
-**Retorno:** `Role`
+**Retorno:** `OnboardingWorkspace!`\
+Platform app only: creates the app with its owner company and the onboarding row
+inside it.
 
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| input     | `RoleInput!` |             |
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `StartOnboardingInput!` |             |
 
 ---
-### updateRole
+### updateOnboardingProfile
+**Retorno:** `CompanyOnboarding!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OnboardingProfileInput!` |  |
+---
+
+### selectOnboardingAreas
+
+**Retorno:** `CompanyOnboarding!`
+
+| Argumento  | Tipo         | Descripción |
+| :--------- | :----------- | :---------- |
+| areas      | `[String!]!` |             |
+| first_area | `String`     |             |
+
+---
+### setOnboardingStep
+**Retorno:** `CompanyOnboarding!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| step | `String!` |  |
+---
+
+### skipOnboarding
+
+**Retorno:** `CompanyOnboarding!`
+
+---
+### researchCompanyWebsite
+**Retorno:** `CompanyResearch!`
+Queues the website background check; a run less than 24 h after a successful one needs force.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| website | `String!` |  |
+| force | `Boolean` |  |
+---
+
+### provisionOnboardingItems
+
+**Retorno:** `CompanyOnboarding!`
+
+---
+### resolveOnboardingRequirement
+**Retorno:** `OnboardingRequirement!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResolveOnboardingRequirementInput!` |  |
+---
+
+### completeOnboarding
+
+**Retorno:** `CompanyOnboarding!`\
+Creates the setup plan for the first area on Ginny, opens her session and queues
+her opening turn.
+
+---
+### createRole
 **Retorno:** `Role`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `RoleInput!` |  |
+---
+
+### updateRole
+
+**Retorno:** `Role`
+
+| Argumento | Tipo        | Descripción |
+| :-------- | :---------- | :---------- |
+| id        | `ID!`       |             |
+| input     | `RoleInput` |             |
+
+---
+### deleteRole
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `RoleInput` |  |
 ---
 
-### deleteRole
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### assignRoleToUser
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| userId | `ID!` |  |
-| roleIds | `[ID!]!` |  |
----
-
-### removeRole
 
 **Retorno:** `Boolean`
 
 | Argumento | Tipo     | Descripción |
 | :-------- | :------- | :---------- |
 | userId    | `ID!`    |             |
-| role      | `Mixed!` |             |
+| roleIds   | `[ID!]!` |             |
 
 ---
-### givePermissionToUser
+### removeRole
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | userId | `ID!` |  |
-| permission | `String!` |  |
+| role | `Mixed!` |  |
 ---
 
-### removePermissionToUser
+### givePermissionToUser
 
 **Retorno:** `Boolean`
 
@@ -535,18 +641,17 @@
 | permission | `String!` |             |
 
 ---
-### givePermissionToRole
+### removePermissionToUser
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| role | `String!` |  |
+| userId | `ID!` |  |
 | permission | `String!` |  |
-| systemModule | `String!` |  |
 ---
 
-### removePermissionToRole
+### givePermissionToRole
 
 **Retorno:** `Boolean`
 
@@ -557,18 +662,18 @@
 | systemModule | `String!` |             |
 
 ---
-### giveModulePermissionToRole
+### removePermissionToRole
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | role | `String!` |  |
-| moduleId | `Int!` |  |
 | permission | `String!` |  |
+| systemModule | `String!` |  |
 ---
 
-### removeModulePermissionFromRole
+### giveModulePermissionToRole
 
 **Retorno:** `Boolean`
 
@@ -579,210 +684,211 @@
 | permission | `String!` |             |
 
 ---
-### createState
-**Retorno:** `States`
+### removeModulePermissionFromRole
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| countries_id | `Int!` |  |
-| name | `String!` |  |
-| code | `String!` |  |
+| role | `String!` |  |
+| moduleId | `Int!` |  |
+| permission | `String!` |  |
 ---
 
-### updateState
+### createState
 
 **Retorno:** `States`
 
 | Argumento    | Tipo      | Descripción |
 | :----------- | :-------- | :---------- |
-| id           | `Int!`    |             |
 | countries_id | `Int!`    |             |
 | name         | `String!` |             |
-| code         | `String`  |             |
+| code         | `String!` |             |
 
 ---
-### deleteState
+### updateState
 **Retorno:** `States`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `Int!` |  |
+| countries_id | `Int!` |  |
+| name | `String!` |  |
+| code | `String` |  |
 ---
 
+### deleteState
+
+**Retorno:** `States`
+
+| Argumento | Tipo   | Descripción |
+| :-------- | :----- | :---------- |
+| id        | `Int!` |             |
+
+---
 ### createTemplate
-
-**Retorno:** `Template!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `TemplateInput!` |             |
-
----
-### updateTemplate
 **Retorno:** `Template!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
 | input | `TemplateInput!` |  |
 ---
 
-### deleteTemplate
+### updateTemplate
 
+**Retorno:** `Template!`
+
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
+| input     | `TemplateInput!` |             |
+
+---
+### deleteTemplate
 **Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### login
+
+**Retorno:** `TokenResponse!`
+
+| Argumento | Tipo          | Descripción |
+| :-------- | :------------ | :---------- |
+| data      | `LoginInput!` |             |
+
+---
+### logout
+**Retorno:** `Boolean!`
+---
+
+### logoutFromAllDevices
+
+**Retorno:** `Boolean!`
+
+---
+### register
+**Retorno:** `RegisterResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `RegisterInput!` |  |
+---
+
+### refreshToken
+
+**Retorno:** `TokenResponse!`
+
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| refresh_token | `String!` |             |
+
+---
+### changePassword
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| current_password | `String!` |  |
+| new_password | `String!` |  |
+| new_password_confirmation | `String` |  |
+---
+
+### forgotPassword
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| data      | `ForgotPasswordInput!` |             |
+
+---
+### resetPassword
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `ResetPasswordInput!` |  |
+---
+
+### verifyEmail
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| token     | `String!` |             |
+
+---
+### resendVerificationEmail
+**Retorno:** `Boolean!`
+---
+
+### updateUser
+
+**Retorno:** `User!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
+| data      | `UpdateUserInput!` |             |
+
+---
+### updateEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| email | `String!` |  |
+---
+
+### deleteUserAddress
+
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
 | id        | `ID!` |             |
 
 ---
-### login
-**Retorno:** `TokenResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| data | `LoginInput!` |  |
----
-
-### logout
-
-**Retorno:** `Boolean!`
-
----
-### logoutFromAllDevices
-**Retorno:** `Boolean!`
----
-
-### register
-
-**Retorno:** `RegisterResponse!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| data      | `RegisterInput!` |             |
-
----
-### refreshToken
-**Retorno:** `TokenResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| refresh_token | `String!` |  |
----
-
-### changePassword
-
-**Retorno:** `Boolean!`
-
-| Argumento                 | Tipo      | Descripción |
-| :------------------------ | :-------- | :---------- |
-| current_password          | `String!` |             |
-| new_password              | `String!` |             |
-| new_password_confirmation | `String`  |             |
-
----
-### forgotPassword
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| data | `ForgotPasswordInput!` |  |
----
-
-### resetPassword
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| data      | `ResetPasswordInput!` |             |
-
----
-### verifyEmail
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| token | `String!` |  |
----
-
-### resendVerificationEmail
-
-**Retorno:** `Boolean!`
-
----
-### updateUser
-**Retorno:** `User!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| data | `UpdateUserInput!` |  |
----
-
-### updateEmail
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| email     | `String!` |             |
-
----
-### deleteUserAddress
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### updateDisplayname
-
-**Retorno:** `Boolean!`
-
-| Argumento   | Tipo      | Descripción |
-| :---------- | :-------- | :---------- |
-| displayname | `String!` |             |
-
----
-### switchCompanyBranch
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| company_branch_id | `Int!` |  |
+| displayname | `String!` |  |
 ---
 
-### socialLogin
+### switchCompanyBranch
 
+**Retorno:** `Boolean!`
+
+| Argumento         | Tipo   | Descripción |
+| :---------------- | :----- | :---------- |
+| company_branch_id | `Int!` |             |
+
+---
+### socialLogin
 **Retorno:** `TokenResponse!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| data      | `SocialLoginInput!` |             |
-
----
-### linkDevice
-**Retorno:** `Boolean!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| data | `DeviceInput!` |  |
+| data | `SocialLoginInput!` |  |
 ---
 
-### unLinkDevice
+### linkDevice
 
 **Retorno:** `Boolean!`
 
@@ -791,192 +897,252 @@
 | data      | `DeviceInput!` |             |
 
 ---
+### unLinkDevice
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `DeviceInput!` |  |
+---
+
 ### sendVerificationCode
-**Retorno:** `Boolean!`
----
 
+**Retorno:** `Boolean!`
+
+---
 ### verifyCode
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| code      | `String!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| code | `String!` |  |
 ---
+
 ### updatePhotoProfile
+
 **Retorno:** `User!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| user_id   | `ID!`     |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
-| user_id | `ID!` |  |
 ---
-
 ### uploadFileToUser
-
 **Retorno:** `User!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
-| file      | `Upload!` |             |
-
----
-### setToggleTwoFactorAuthIn30Days
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| active | `Boolean!` |  |
----
-
-### requestDeleteAccount
-
-**Retorno:** `Boolean!`
-
----
-### checkUsersContactsMatch
-**Retorno:** `UserContactsMatchesFindings!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| contacts | `[UserContactInput!]!` |  |
----
-
-### saveUserAppPreferences
-
-**Retorno:** `Boolean!`
-
-| Argumento   | Tipo     | Descripción |
-| :---------- | :------- | :---------- |
-| preferences | `Mixed!` |             |
-
----
-### upload
-**Retorno:** `Filesystem!`
-Upload a file that is publicly available.
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
----
-
-### createFileSystem
-
-**Retorno:** `Filesystem!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `FilesystemInputUrl!` |             |
-
----
-### multiUpload
-**Retorno:** `[Filesystem!]!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| files | `[Upload!]!` |  |
----
-
-### attachFile
-
-**Retorno:** `String!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `FilesystemAttachInput!` |             |
-
----
-### deAttachFile
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| uuid | `String!` |  |
----
-
-### deAttachFiles
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| uuids     | `[String!]!` |             |
-
----
-### deleteFile
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| uuid | `String!` |  |
----
-
-### uploadCsv
-
-**Retorno:** `Mixed!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| file      | `Upload!` |             |
-
----
-### mergeFiles
-**Retorno:** `Filesystem`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| files | `[ID!]!` |  |
----
-
-### renameFile
-
-**Retorno:** `Filesystem!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
-| name      | `String!` |             |
-
----
-### editFile
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| uuid | `String!` |  |
-| input | `FilesystemEntityUpdateInput!` |  |
----
-
-### createImportConnection
-
-**Retorno:** `ImportConnection!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `ImportConnectionInput!` |             |
-
----
-### updateImportConnection
-**Retorno:** `ImportConnection!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| file | `Upload!` |  |
+---
+
+### setToggleTwoFactorAuthIn30Days
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo       | Descripción |
+| :-------- | :--------- | :---------- |
+| active    | `Boolean!` |             |
+
+---
+### requestDeleteAccount
+**Retorno:** `Boolean!`
+---
+
+### checkUsersContactsMatch
+
+**Retorno:** `UserContactsMatchesFindings!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| contacts  | `[UserContactInput!]!` |             |
+
+---
+### saveUserAppPreferences
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| preferences | `Mixed!` |  |
+---
+
+### upload
+
+**Retorno:** `Filesystem!`\
+Upload a file that is publicly available.
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+
+---
+### createFileSystem
+**Retorno:** `Filesystem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FilesystemInputUrl!` |  |
+---
+
+### multiUpload
+
+**Retorno:** `[Filesystem!]!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+
+---
+### attachFile
+**Retorno:** `String!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FilesystemAttachInput!` |  |
+---
+
+### deAttachFile
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| uuid      | `String!` |             |
+
+---
+### deAttachFiles
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuids | `[String!]!` |  |
+---
+
+### deleteFile
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| uuid      | `String!` |             |
+
+---
+### uploadCsv
+**Retorno:** `Mixed!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `Upload!` |  |
+---
+
+### mergeFiles
+
+**Retorno:** `Filesystem`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| files     | `[ID!]!` |             |
+
+---
+### renameFile
+**Retorno:** `Filesystem!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| name | `String!` |  |
+---
+
+### editFile
+
+**Retorno:** `String!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| uuid      | `String!`                      |             |
+| input     | `FilesystemEntityUpdateInput!` |             |
+
+---
+### createImportConnection
+**Retorno:** `ImportConnection!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
 | input | `ImportConnectionInput!` |  |
 ---
 
+### updateImportConnection
+
+**Retorno:** `ImportConnection!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `ImportConnectionInput!` |             |
+
+---
 ### deleteImportConnection
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### testImportConnection
+
+**Retorno:** `ImportConnectionTest!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| id        | `ID`                    |             |
+| input     | `ImportConnectionInput` |             |
+| root      | `String`                |             |
+
+---
+### createImportSource
+**Retorno:** `ImportSource!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ImportSourceInput!` |  |
+---
+
+### createImportSourceFromTemplate
+
+**Retorno:** `ImportSource!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| template  | `ImportTemplateKey!` |             |
+| options   | `Mixed`              |             |
+| input     | `ImportSourceInput!` |             |
+
+---
+### updateImportSource
+**Retorno:** `ImportSource!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ImportSourceInput!` |  |
+---
+
+### deleteImportSource
 
 **Retorno:** `Boolean!`
 
@@ -985,231 +1151,95 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### testImportConnection
-**Retorno:** `ImportConnectionTest!`
+### dryRunImportSource
+**Retorno:** `ImportRunResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID` |  |
-| input | `ImportConnectionInput` |  |
-| root | `String` |  |
+| id | `ID!` |  |
+| limit | `Int` |  |
 ---
 
-### createImportSource
+### runImportSource
 
 **Retorno:** `ImportSource!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ImportSourceInput!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### createImportSourceFromTemplate
-**Retorno:** `ImportSource!`
+### createFilesystemMapperFromTemplate
+**Retorno:** `FilesystemMapper!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | template | `ImportTemplateKey!` |  |
 | options | `Mixed` |  |
-| input | `ImportSourceInput!` |  |
 ---
 
-### updateImportSource
-
-**Retorno:** `ImportSource!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `ImportSourceInput!` |             |
-
----
-### deleteImportSource
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### dryRunImportSource
-
-**Retorno:** `ImportRunResult!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-| limit     | `Int` |             |
-
----
-### runImportSource
-**Retorno:** `ImportSource!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createFilesystemMapperFromTemplate
-
-**Retorno:** `FilesystemMapper!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| template  | `ImportTemplateKey!` |             |
-| options   | `Mixed`              |             |
-
----
 ### createAttribute
+
 **Retorno:** `Attributes!`
 
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `AttributeInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AttributeInput!` |  |
 ---
-
 ### updateAttribute
-
-**Retorno:** `Attributes!`
-
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `AttributeUpdateInput!` |             |
-
----
-### updateAttributeTranslations
 **Retorno:** `Attributes!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AttributeTranslationInput!` |  |
-| code | `String!` |  |
-| values | `[AttributeValueTranslationInput]` |  |
+| input | `AttributeUpdateInput!` |  |
 ---
 
+### updateAttributeTranslations
+
+**Retorno:** `Attributes!`
+
+| Argumento | Tipo                               | Descripción |
+| :-------- | :--------------------------------- | :---------- |
+| id        | `ID!`                              |             |
+| input     | `AttributeTranslationInput!`       |             |
+| code      | `String!`                          |             |
+| values    | `[AttributeValueTranslationInput]` |             |
+
+---
 ### deleteAttribute
-
 **Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createBundle
-**Retorno:** `Bundle!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `BundleInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updateBundle
+### createBundle
 
 **Retorno:** `Bundle!`
 
 | Argumento | Tipo           | Descripción |
 | :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
 | input     | `BundleInput!` |             |
 
 ---
+### updateBundle
+**Retorno:** `Bundle!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `BundleInput!` |  |
+---
+
 ### deleteBundle
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createCategory
-
-**Retorno:** `Category!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `CategoryInput!` |             |
-
----
-### updateCategory
-**Retorno:** `Category!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `CategoryUpdateInput!` |  |
----
-
-### updateCategoryTranslations
-
-**Retorno:** `Category!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `ID!`               |             |
-| input     | `TranslationInput!` |             |
-| code      | `String!`           |             |
-
----
-### deleteCategory
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### uploadFileToCategory
-
-**Retorno:** `Product!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| id        | `ID!`     |             |
-| file      | `Upload!` |             |
-
----
-### createChannel
-**Retorno:** `Channel!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateChannelInput!` |  |
----
-
-### updateChannel
-
-**Retorno:** `Channel!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `UpdateChannelInput!` |             |
-
----
-### deleteChannel
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### unPublishAllVariantsFromChannel
 
 **Retorno:** `Boolean!`
 
@@ -1218,15 +1248,110 @@ Upload a file that is publicly available.
 | id        | `ID!` |             |
 
 ---
-### importProduct
-**Retorno:** `String!`
+### createCategory
+**Retorno:** `Category!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `[ImporterProductInput!]!` |  |
-| companyId | `Int!` |  |
-| regionId | `Int` |  |
+| input | `CategoryInput!` |  |
+---
+
+### updateCategory
+
+**Retorno:** `Category!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `CategoryUpdateInput!` |             |
+
+---
+### updateCategoryTranslations
+**Retorno:** `Category!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `TranslationInput!` |  |
+| code | `String!` |  |
+---
+
+### deleteCategory
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### uploadFileToCategory
+**Retorno:** `Category!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| file | `Upload!` |  |
+---
+
+### createChannel
+
+**Retorno:** `Channel!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `CreateChannelInput!` |             |
+
+---
+### updateChannel
+**Retorno:** `Channel!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateChannelInput!` |  |
+---
+
+### deleteChannel
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### unPublishAllVariantsFromChannel
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### importProduct
+
+**Retorno:** `String!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `[ImporterProductInput!]!` |             |
+| companyId | `Int!`                     |             |
+| regionId  | `Int`                      |             |
+
+---
+### importProductFromFile
+**Retorno:** `ProductFileImport!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ProductFileImportInput!` |  |
 ---
 
 ### finishProductImport
@@ -1583,7 +1708,7 @@ force: true skips the half check for a confirmed large clearance.
 
 ---
 ### uploadFileToVariant
-**Retorno:** `Product!`
+**Retorno:** `Variant!`
 
 
 | Argumento | Tipo | Descripción |
@@ -1798,65 +1923,86 @@ force: true skips the half check for a confirmed large clearance.
 **Retorno:** `Boolean!`
 ---
 
-### whatsappConnect
+### twilioResendMessage
 
-**Retorno:** `WhatsappConnectResult!`
+**Retorno:** `Message!`\
+Send a failed or undelivered SMS again, as the same message: same text and
+attachments, same number. The result arrives like any send — in
+`message.delivery` and the `message.delivery.updated` Pusher event.
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| input     | `WhatsappConnectorInput!` |             |
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| message_id | `ID!` |             |
 
 ---
-### whatsappRefreshQrCode
+### whatsappConnect
 **Retorno:** `WhatsappConnectResult!`
-Fetch a fresh QR for an agent's existing WhatsApp session (QRs rotate ~every 20s). Poll while the user is on the scan screen.
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `WhatsappConnectorInput!` |  |
+---
+
+### whatsappRefreshQrCode
+
+**Retorno:** `WhatsappConnectResult!`\
+Fetch a fresh QR for an agent's existing WhatsApp session (QRs rotate ~every
+20s). Poll while the user is on the scan screen.
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| agent_id  | `ID!` |             |
+
+---
+### whatsappDisconnect
+**Retorno:** `Boolean!`
+Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true deletes the session and tears down routing.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
+| remove | `Boolean` |  |
 ---
 
-### whatsappDisconnect
-
-**Retorno:** `Boolean!`\
-Disconnect an agent's WhatsApp. remove=false pauses (can reconnect); remove=true
-deletes the session and tears down routing.
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| agent_id  | `ID!`     |             |
-| remove    | `Boolean` |             |
-
----
 ### createApprovalPolicy
-**Retorno:** `ApprovalPolicy!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ApprovalPolicyInput!` |  |
----
-
-### updateApprovalPolicy
 
 **Retorno:** `ApprovalPolicy!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| id        | `ID!`                  |             |
 | input     | `ApprovalPolicyInput!` |             |
 
 ---
-### deleteApprovalPolicy
-**Retorno:** `Boolean!`
+### updateApprovalPolicy
+**Retorno:** `ApprovalPolicy!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ApprovalPolicyInput!` |  |
 ---
 
+### deleteApprovalPolicy
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### approveApprovalRequest
+**Retorno:** `ApprovalRequest!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ApprovalDecisionInput!` |  |
+---
+
+### rejectApprovalRequest
 
 **Retorno:** `ApprovalRequest!`
 
@@ -1865,218 +2011,44 @@ deletes the session and tears down routing.
 | input     | `ApprovalDecisionInput!` |             |
 
 ---
-### rejectApprovalRequest
+### delegateApprovalRequest
 **Retorno:** `ApprovalRequest!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ApprovalDecisionInput!` |  |
+| input | `DelegateApprovalInput!` |  |
 ---
 
-### delegateApprovalRequest
+### cancelApprovalRequest
 
 **Retorno:** `ApprovalRequest!`
 
 | Argumento | Tipo                     | Descripción |
 | :-------- | :----------------------- | :---------- |
-| input     | `DelegateApprovalInput!` |             |
+| input     | `ApprovalDecisionInput!` |             |
 
 ---
-### cancelApprovalRequest
-**Retorno:** `ApprovalRequest!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ApprovalDecisionInput!` |  |
----
-
 ### createDeal
-
 **Retorno:** `Deal!`
 
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| input     | `DealInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `DealInput!` |  |
 ---
+
 ### updateDeal
-**Retorno:** `Deal!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateDealInput!` |  |
----
-
-### deleteDeal
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### attachFileToDeal
-**Retorno:** `Deal!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### attachFilesToDeal
 
 **Retorno:** `Deal!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| file      | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
-
----
-### createLead
-**Retorno:** `Lead!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadInput!` |  |
----
-
-### updateLead
-
-**Retorno:** `Lead!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `LeadUpdateInput!` |             |
+| input     | `UpdateDealInput!` |             |
 
 ---
-### deleteLead
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### restoreLead
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### addLeadParticipant
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadsParticipantsInput!` |  |
----
-
-### removeLeadParticipant
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| input     | `LeadsParticipantsInput!` |             |
-
----
-### followLead
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowInput!` |  |
----
-
-### unFollowLead
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `FollowInput!` |             |
-
----
-### attachFileToLead
-**Retorno:** `Lead!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| file | `Upload!` |  |
-| id | `ID!` |  |
-| params | `Mixed` |  |
----
-
-### attachFilesToLead
-
-**Retorno:** `Lead!`
-
-| Argumento | Tipo         | Descripción |
-| :-------- | :----------- | :---------- |
-| file      | `[Upload!]!` |             |
-| id        | `ID!`        |             |
-| params    | `Mixed`      |             |
-
----
-### leadWonOrLost
-**Retorno:** `Lead!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| status | `LeadStatusEnum!` |  |
-| reason_lost | `String` |  |
----
-
-### addMessageToLeadChannel
-
-**Retorno:** `Message!`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `LeadMessageInput!` |             |
-
----
-### createLeadReceiver
-**Retorno:** `LeadReceiver!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadReceiverInput!` |  |
----
-
-### updateLeadReceiver
-
-**Retorno:** `LeadReceiver!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `LeadReceiverInput!` |             |
-
----
-### deleteLeadReceiver
+### deleteDeal
 **Retorno:** `Boolean!`
 
 
@@ -2085,381 +2057,9 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### createLeadRotation
+### attachFileToDeal
 
-**Retorno:** `LeadRotation!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `LeadRotationInput!` |             |
-
----
-### updateLeadRotation
-**Retorno:** `LeadRotation!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `LeadRotationInput!` |  |
----
-
-### deleteLeadRotation
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createLeadSource
-**Retorno:** `LeadSource`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadSourceInput` |  |
----
-
-### updateLeadSource
-
-**Retorno:** `LeadSource`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| id        | `ID!`             |             |
-| input     | `LeadSourceInput` |             |
-
----
-### deleteLeadSource
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createLeadStatus
-
-**Retorno:** `LeadStatus`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `LeadStatusInput!` |             |
-
----
-### updateLeadStatus
-**Retorno:** `LeadStatus`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `LeadStatusInput!` |  |
----
-
-### deleteLeadStatus
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createLeadSubSource
-**Retorno:** `LeadSubSource!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `LeadSubSourceInput!` |  |
----
-
-### updateLeadSubSource
-
-**Retorno:** `LeadSubSource!`
-
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `UpdateLeadSubSourceInput!` |             |
-
----
-### deleteLeadSubSource
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createLeadType
-
-**Retorno:** `LeadType`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `LeadTypeInput!` |             |
-
----
-### updateLeadType
-**Retorno:** `LeadType`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `LeadTypeInput!` |  |
----
-
-### deleteLeadType
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createOrganization
-**Retorno:** `Organization`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationInput!` |  |
----
-
-### updateOrganization
-
-**Retorno:** `Organization`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `OrganizationInput!` |             |
-
----
-### deleteOrganization
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### restoreOrganization
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### addPeopleToOrganization
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationPeopleInput!` |  |
----
-
-### removePeopleFromOrganization
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `OrganizationPeopleInput!` |             |
-
----
-### addMessageToOrganizationChannel
-**Retorno:** `Message!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationMessageInput!` |  |
----
-
-### createOrganizationNotesChannel
-
-**Retorno:** `SocialChannel!`
-
-| Argumento       | Tipo  | Descripción |
-| :-------------- | :---- | :---------- |
-| organization_id | `ID!` |             |
-
----
-### mergeOrganizations
-**Retorno:** `Organization!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| source_ids | `[Int!]!` |  |
-| target_id | `Int!` |  |
----
-
-### detectOrganizationDuplicates
-
-**Retorno:** `[OrganizationDuplicateGroup!]!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| max_groups | `Int` |             |
-
----
-### addOrganizationAddress
-**Retorno:** `OrganizationAddress!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| organization_id | `ID!` |  |
-| input | `AddressInput!` |  |
----
-
-### updateOrganizationAddress
-
-**Retorno:** `OrganizationAddress!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| id        | `ID!`           |             |
-| input     | `AddressInput!` |             |
-
----
-### deleteOrganizationAddress
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### addOrganizationApprover
-
-**Retorno:** `OrganizationApprover!`
-
-| Argumento | Tipo                         | Descripción |
-| :-------- | :--------------------------- | :---------- |
-| input     | `OrganizationApproverInput!` |             |
-
----
-### removeOrganizationApprover
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `OrganizationApproverInput!` |  |
----
-
-### createOrganizationType
-
-**Retorno:** `OrganizationType!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `OrganizationTypeInput!` |             |
-
----
-### updateOrganizationType
-**Retorno:** `OrganizationType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateOrganizationTypeInput!` |  |
----
-
-### deleteOrganizationType
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createPeople
-**Retorno:** `People`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PeopleInput!` |  |
----
-
-### updatePeople
-
-**Retorno:** `People`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| id        | `ID!`          |             |
-| input     | `PeopleInput!` |             |
-
----
-### deletePeople
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### restorePeople
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### importPeoples
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `[PeopleInput!]!` |  |
-| companyId | `Int` |  |
----
-
-### addMessageToPeopleChannel
-
-**Retorno:** `Message!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `PeopleMessageInput!` |             |
-
----
-### createPeopleNotesChannel
-**Retorno:** `SocialChannel!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| people_id | `ID!` |  |
----
-
-### attachFileToPeople
-
-**Retorno:** `People!`
+**Retorno:** `Deal!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
@@ -2468,37 +2068,37 @@ deletes the session and tears down routing.
 | params    | `Mixed`   |             |
 
 ---
-### attachFilesToPeople
-**Retorno:** `People!`
+### attachFilesToDeal
+**Retorno:** `Deal!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| files | `[Upload!]!` |  |
+| file | `[Upload!]!` |  |
 | id | `ID!` |  |
 | params | `Mixed` |  |
 ---
 
-### deletePeopleAddress
+### createLead
 
-**Retorno:** `Boolean`
+**Retorno:** `Lead!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `LeadInput!` |             |
 
 ---
-### updateContact
-**Retorno:** `Contact!`
+### updateLead
+**Retorno:** `Lead!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateContactInput!` |  |
+| input | `LeadUpdateInput!` |  |
 ---
 
-### deleteContact
+### deleteLead
 
 **Retorno:** `Boolean`
 
@@ -2507,36 +2107,620 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### updatePeoplePhoto
+### restoreLead
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addLeadParticipant
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `LeadsParticipantsInput!` |             |
+
+---
+### removeLeadParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadsParticipantsInput!` |  |
+---
+
+### followLead
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
+### unFollowLead
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### attachFileToLead
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| file      | `Upload!` |             |
+| id        | `ID!`     |             |
+| params    | `Mixed`   |             |
+
+---
+### attachFilesToLead
+**Retorno:** `Lead!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| file | `[Upload!]!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
+---
+
+### leadWonOrLost
+
+**Retorno:** `Lead!`
+
+| Argumento   | Tipo              | Descripción |
+| :---------- | :---------------- | :---------- |
+| id          | `ID!`             |             |
+| status      | `LeadStatusEnum!` |             |
+| reason_lost | `String`          |             |
+
+---
+### addMessageToLeadChannel
+**Retorno:** `Message!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadMessageInput!` |  |
+---
+
+### createLeadReceiver
+
+**Retorno:** `LeadReceiver!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `LeadReceiverInput!` |             |
+
+---
+### updateLeadReceiver
+**Retorno:** `LeadReceiver!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadReceiverInput!` |  |
+---
+
+### deleteLeadReceiver
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createLeadRotation
+**Retorno:** `LeadRotation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadRotationInput!` |  |
+---
+
+### updateLeadRotation
+
+**Retorno:** `LeadRotation!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| id        | `ID!`                |             |
+| input     | `LeadRotationInput!` |             |
+
+---
+### deleteLeadRotation
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createLeadSource
+
+**Retorno:** `LeadSource`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `LeadSourceInput` |             |
+
+---
+### updateLeadSource
+**Retorno:** `LeadSource`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `LeadSourceInput` |  |
+---
+
+### deleteLeadSource
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createLeadStatus
+**Retorno:** `LeadStatus`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadStatusInput!` |  |
+---
+
+### updateLeadStatus
+
+**Retorno:** `LeadStatus`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
+| input     | `LeadStatusInput!` |             |
+
+---
+### deleteLeadStatus
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createLeadSubSource
+
+**Retorno:** `LeadSubSource!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `LeadSubSourceInput!` |             |
+
+---
+### updateLeadSubSource
+**Retorno:** `LeadSubSource!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateLeadSubSourceInput!` |  |
+---
+
+### deleteLeadSubSource
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createLeadType
+**Retorno:** `LeadType`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LeadTypeInput!` |  |
+---
+
+### updateLeadType
+
+**Retorno:** `LeadType`
+
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
+| input     | `LeadTypeInput!` |             |
+
+---
+### deleteLeadType
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createOrganization
+
+**Retorno:** `Organization`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `OrganizationInput!` |             |
+
+---
+### updateOrganization
+**Retorno:** `Organization`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `OrganizationInput!` |  |
+---
+
+### deleteOrganization
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### restoreOrganization
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addPeopleToOrganization
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `OrganizationPeopleInput!` |             |
+
+---
+### removePeopleFromOrganization
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrganizationPeopleInput!` |  |
+---
+
+### addMessageToOrganizationChannel
+
+**Retorno:** `Message!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `OrganizationMessageInput!` |             |
+
+---
+### createOrganizationNotesChannel
+**Retorno:** `SocialChannel!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| organization_id | `ID!` |  |
+---
+
+### mergeOrganizations
+
+**Retorno:** `Organization!`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| source_ids | `[Int!]!` |             |
+| target_id  | `Int!`    |             |
+
+---
+### detectOrganizationDuplicates
+**Retorno:** `[OrganizationDuplicateGroup!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
+---
+
+### addOrganizationAddress
+
+**Retorno:** `OrganizationAddress!`
+
+| Argumento       | Tipo            | Descripción |
+| :-------------- | :-------------- | :---------- |
+| organization_id | `ID!`           |             |
+| input           | `AddressInput!` |             |
+
+---
+### updateOrganizationAddress
+**Retorno:** `OrganizationAddress!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `AddressInput!` |  |
+---
+
+### deleteOrganizationAddress
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### addOrganizationApprover
+**Retorno:** `OrganizationApprover!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrganizationApproverInput!` |  |
+---
+
+### removeOrganizationApprover
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `OrganizationApproverInput!` |             |
+
+---
+### createOrganizationType
+**Retorno:** `OrganizationType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `OrganizationTypeInput!` |  |
+---
+
+### updateOrganizationType
+
+**Retorno:** `OrganizationType!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateOrganizationTypeInput!` |             |
+
+---
+### deleteOrganizationType
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createPeople
+
+**Retorno:** `People`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `PeopleInput!` |             |
+
+---
+### updatePeople
+**Retorno:** `People`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `PeopleInput!` |  |
+---
+
+### deletePeople
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### restorePeople
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### importPeoples
+
+**Retorno:** `String!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `[PeopleInput!]!` |             |
+| companyId | `Int`             |             |
+
+---
+### addMessageToPeopleChannel
+**Retorno:** `Message!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PeopleMessageInput!` |  |
+---
+
+### createPeopleNotesChannel
+
+**Retorno:** `SocialChannel!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| people_id | `ID!` |             |
+
+---
+### attachFileToPeople
 **Retorno:** `People!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
 | file | `Upload!` |  |
+| id | `ID!` |  |
+| params | `Mixed` |  |
 ---
 
+### attachFilesToPeople
+
+**Retorno:** `People!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| files     | `[Upload!]!` |             |
+| id        | `ID!`        |             |
+| params    | `Mixed`      |             |
+
+---
+### deletePeopleAddress
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateContact
+
+**Retorno:** `Contact!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `UpdateContactInput!` |             |
+
+---
+### deleteContact
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updatePeoplePhoto
+
+**Retorno:** `People!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| file      | `Upload!` |             |
+
+---
 ### createPeopleEmploymentHistory
+**Retorno:** `PeopleEmploymentHistory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EmploymentPeopleHistoryInput!` |  |
+---
+
+### updatePeopleEmploymentHistory
 
 **Retorno:** `PeopleEmploymentHistory!`
 
 | Argumento | Tipo                            | Descripción |
 | :-------- | :------------------------------ | :---------- |
+| id        | `ID!`                           |             |
 | input     | `EmploymentPeopleHistoryInput!` |             |
 
 ---
-### updatePeopleEmploymentHistory
-**Retorno:** `PeopleEmploymentHistory!`
+### deletePeopleEmploymentHistory
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `EmploymentPeopleHistoryInput!` |  |
 ---
 
-### deletePeopleEmploymentHistory
+### mergePeople
+
+**Retorno:** `People!`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| source_ids | `[Int!]!` |             |
+| target_id  | `Int!`    |             |
+
+---
+### detectPeopleDuplicates
+**Retorno:** `[PeopleDuplicateGroup!]!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| max_groups | `Int` |  |
+---
+
+### createPeopleRelationship
+
+**Retorno:** `PeopleRelationship!`
+
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleRelationshipInput!` |             |
+
+---
+### updatePeopleRelationship
+**Retorno:** `PeopleRelationship!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePeopleRelationshipInput!` |  |
+---
+
+### deletePeopleRelationship
 
 **Retorno:** `Boolean!`
 
@@ -2545,110 +2729,54 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### mergePeople
-**Retorno:** `People!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| source_ids | `[Int!]!` |  |
-| target_id | `Int!` |  |
----
-
-### detectPeopleDuplicates
-
-**Retorno:** `[PeopleDuplicateGroup!]!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| max_groups | `Int` |             |
-
----
-### createPeopleRelationship
-**Retorno:** `PeopleRelationship!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PeopleRelationshipInput!` |  |
----
-
-### updatePeopleRelationship
-
-**Retorno:** `PeopleRelationship!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| id        | `ID!`                            |             |
-| input     | `UpdatePeopleRelationshipInput!` |             |
-
----
-### deletePeopleRelationship
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createPeopleType
+**Retorno:** `PeopleType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PeopleTypeInput!` |  |
+---
+
+### updatePeopleType
 
 **Retorno:** `PeopleType!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
+| id        | `ID!`              |             |
 | input     | `PeopleTypeInput!` |             |
 
 ---
-### updatePeopleType
-**Retorno:** `PeopleType!`
+### deletePeopleType
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `PeopleTypeInput!` |  |
 ---
 
-### deletePeopleType
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createPipeline
-**Retorno:** `LeadPipeline`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PipelineInput!` |  |
----
-
-### updatePipeline
 
 **Retorno:** `LeadPipeline`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
-| id        | `ID!`            |             |
 | input     | `PipelineInput!` |             |
 
 ---
-### deletePipeline
-**Retorno:** `Boolean`
+### updatePipeline
+**Retorno:** `LeadPipeline`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineInput!` |  |
 ---
 
-### restorePipeline
+### deletePipeline
 
 **Retorno:** `Boolean`
 
@@ -2657,35 +2785,35 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createPipelineStage
-**Retorno:** `LeadPipelineStage`
+### restorePipeline
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `PipelineStageInput!` |  |
+| id | `ID!` |  |
 ---
 
-### updatePipelineStage
+### createPipelineStage
 
 **Retorno:** `LeadPipelineStage`
 
 | Argumento | Tipo                  | Descripción |
 | :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
 | input     | `PipelineStageInput!` |             |
 
 ---
-### deletePipelineStage
-**Retorno:** `Boolean`
+### updatePipelineStage
+**Retorno:** `LeadPipelineStage`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `PipelineStageInput!` |  |
 ---
 
-### restorePipelineStage
+### deletePipelineStage
 
 **Retorno:** `Boolean`
 
@@ -2694,27 +2822,8 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createSocialChannel
-**Retorno:** `SocialChannel`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SocialChannelInput!` |  |
----
-
-### updateSocialChannel
-
-**Retorno:** `SocialChannel`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `SocialChannelInput!` |             |
-
----
-### deleteSocialChannel
-**Retorno:** `SocialChannel`
+### restorePipelineStage
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
@@ -2722,44 +2831,63 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### attachUserToSocialChannel
+### createSocialChannel
 
 **Retorno:** `SocialChannel`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AttachUserInput!` |             |
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `SocialChannelInput!` |             |
 
 ---
-### detachUserToSocialChannel
+### updateSocialChannel
 **Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `SocialChannelInput!` |  |
+---
+
+### deleteSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### attachUserToSocialChannel
+**Retorno:** `SocialChannel`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AttachUserInput!` |  |
+---
+
+### detachUserToSocialChannel
+
+**Retorno:** `SocialChannel`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| channel_id | `ID!` |             |
+| user_id    | `ID!` |             |
+
+---
+### clearSocialChannelMessages
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | channel_id | `ID!` |  |
-| user_id | `ID!` |  |
 ---
 
-### clearSocialChannelMessages
-
-**Retorno:** `Boolean!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| channel_id | `ID!` |             |
-
----
 ### userFollow
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID!` |  |
----
-
-### userUnFollow
 
 **Retorno:** `Boolean!`
 
@@ -2768,16 +2896,16 @@ deletes the session and tears down routing.
 | user_id   | `ID!` |             |
 
 ---
-### likeEntity
+### userUnFollow
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LikeEntityInput!` |  |
+| user_id | `ID!` |  |
 ---
 
-### unLikeEntity
+### likeEntity
 
 **Retorno:** `Boolean!`
 
@@ -2786,7 +2914,7 @@ deletes the session and tears down routing.
 | input     | `LikeEntityInput!` |             |
 
 ---
-### disLikeEntity
+### unLikeEntity
 **Retorno:** `Boolean!`
 
 
@@ -2795,86 +2923,85 @@ deletes the session and tears down routing.
 | input | `LikeEntityInput!` |  |
 ---
 
-### getInteractionByEntity
+### disLikeEntity
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `LikeEntityInput!` |             |
+
+---
+### getInteractionByEntity
 **Retorno:** `Interactions!`
 
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `LikeEntityInput!` |  |
+---
+
+### createMessage
+
+**Retorno:** `Message`
+
+| Argumento | Tipo            | Descripción |
+| :-------- | :-------------- | :---------- |
+| input     | `MessageInput!` |             |
+
+---
+### updateMessage
+**Retorno:** `Message`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `MessageUpdateInput!` |  |
+---
+
+### deleteMessage
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### restoreMessage
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### deleteMultipleMessages
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| ids       | `[ID!]!` |             |
+
+---
+### deleteAllMessages
+**Retorno:** `Boolean!`
+---
+
+### interactionMessage
+
+**Retorno:** `Message`
+
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
-| input     | `LikeEntityInput!` |             |
+| id        | `ID!`              |             |
+| type      | `InteractionType!` |             |
 
 ---
-### createMessage
-**Retorno:** `Message`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MessageInput!` |  |
----
-
-### updateMessage
-
-**Retorno:** `Message`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| id        | `ID!`                 |             |
-| input     | `MessageUpdateInput!` |             |
-
----
-### deleteMessage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### restoreMessage
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### deleteMultipleMessages
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| ids | `[ID!]!` |  |
----
-
-### deleteAllMessages
-
-**Retorno:** `Boolean!`
-
----
-### interactionMessage
-**Retorno:** `Message`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| type | `InteractionType!` |  |
----
-
 ### likeMessage
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### disLikeMessage
 **Retorno:** `Boolean!`
 
 
@@ -2883,35 +3010,34 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### shareMessage
+### disLikeMessage
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### shareMessage
 **Retorno:** `String!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### viewMessage
-**Retorno:** `Int!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
 ---
 
-### attachTopicToMessage
+### viewMessage
 
-**Retorno:** `Message`
+**Retorno:** `Int!`
 
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| message_id | `ID!` |             |
-| topic_id   | `ID!` |             |
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
 ---
-### detachTopicToMessage
+### attachTopicToMessage
 **Retorno:** `Message`
 
 
@@ -2921,17 +3047,17 @@ deletes the session and tears down routing.
 | topic_id | `ID!` |  |
 ---
 
-### attachFileToMessage
+### detachTopicToMessage
 
-**Retorno:** `Message!`
+**Retorno:** `Message`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| message_id | `ID!`     |             |
-| file       | `Upload!` |             |
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| message_id | `ID!` |             |
+| topic_id   | `ID!` |             |
 
 ---
-### uploadFileToMessage
+### attachFileToMessage
 **Retorno:** `Message!`
 
 
@@ -2941,47 +3067,85 @@ deletes the session and tears down routing.
 | file | `Upload!` |  |
 ---
 
-### approveAgentMessage
+### uploadFileToMessage
 
 **Retorno:** `Message!`
+
+| Argumento  | Tipo      | Descripción |
+| :--------- | :-------- | :---------- |
+| message_id | `ID!`     |             |
+| file       | `Upload!` |             |
+
+---
+### approveAgentMessage
+**Retorno:** `Message!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| message | `String` |  |
+| context | `Mixed` |  |
+---
+
+### rejectAgentMessage
+
+**Retorno:** `Boolean!`
 
 | Argumento | Tipo     | Descripción |
 | :-------- | :------- | :---------- |
 | id        | `ID!`    |             |
-| message   | `String` |             |
-| context   | `Mixed`  |             |
+| reason    | `String` |             |
 
 ---
-### rejectAgentMessage
+### addComment
+**Retorno:** `MessageComments!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CommentInput!` |  |
+---
+
+### updateComment
+
+**Retorno:** `MessageComments!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| id        | `ID!`                 |             |
+| input     | `CommentUpdateInput!` |             |
+
+---
+### deleteComment
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| reason | `String` |  |
 ---
 
-### addComment
+### createMessageType
 
-**Retorno:** `MessageComments!`
+**Retorno:** `MessageType!`
 
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| input     | `CommentInput!` |             |
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `CreateMessageTypeInput!` |             |
 
 ---
-### updateComment
-**Retorno:** `MessageComments!`
+### updateMessageType
+**Retorno:** `MessageType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `CommentUpdateInput!` |  |
+| id | `Int!` |  |
+| input | `CreateMessageTypeInput` |  |
 ---
 
-### deleteComment
+### deleteMessageType
 
 **Retorno:** `Boolean!`
 
@@ -2990,91 +3154,72 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createMessageType
-**Retorno:** `MessageType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateMessageTypeInput!` |  |
----
-
-### updateMessageType
-
-**Retorno:** `MessageType!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| id        | `Int!`                   |             |
-| input     | `CreateMessageTypeInput` |             |
-
----
-### deleteMessageType
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### createReaction
+**Retorno:** `Reaction`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ReactionInput!` |  |
+---
+
+### updateReaction
 
 **Retorno:** `Reaction`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `ReactionInput!` |             |
 
 ---
-### updateReaction
-**Retorno:** `Reaction`
+### deleteReaction
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ReactionInput!` |  |
 ---
 
-### deleteReaction
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### reactToEntity
+
 **Retorno:** `Boolean`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `UserReactionInput!` |             |
+
+---
+### createTag
+**Retorno:** `Tag`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `UserReactionInput!` |  |
+| input | `TagInput!` |  |
 ---
 
-### createTag
+### updateTag
 
 **Retorno:** `Tag`
 
 | Argumento | Tipo        | Descripción |
 | :-------- | :---------- | :---------- |
+| id        | `ID!`       |             |
 | input     | `TagInput!` |             |
 
 ---
-### updateTag
-**Retorno:** `Tag`
+### deleteTag
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `TagInput!` |  |
 ---
 
-### deleteTag
+### followTag
 
 **Retorno:** `Boolean`
 
@@ -3083,25 +3228,7 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### followTag
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### attachTagToEntity
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `AttachTagEntityInput!` |             |
-
----
-### detachTagFromEntity
 **Retorno:** `Boolean`
 
 
@@ -3110,44 +3237,44 @@ deletes the session and tears down routing.
 | input | `AttachTagEntityInput!` |  |
 ---
 
+### detachTagFromEntity
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `AttachTagEntityInput!` |             |
+
+---
 ### createTopic
+**Retorno:** `Topic`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TopicInput!` |  |
+---
+
+### updateTopic
 
 **Retorno:** `Topic`
 
 | Argumento | Tipo          | Descripción |
 | :-------- | :------------ | :---------- |
+| id        | `ID!`         |             |
 | input     | `TopicInput!` |             |
 
 ---
-### updateTopic
-**Retorno:** `Topic`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `TopicInput!` |  |
----
-
 ### followTopic
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### unFollowTopic
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### blockUser
 
 **Retorno:** `Boolean`
 
@@ -3156,7 +3283,7 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### unBlockUser
+### blockUser
 **Retorno:** `Boolean`
 
 
@@ -3165,45 +3292,44 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
+### unBlockUser
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createUserList
+**Retorno:** `UserList`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `UserListInput!` |  |
+---
+
+### updateUserList
 
 **Retorno:** `UserList`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `UserListInput!` |             |
 
 ---
-### updateUserList
-**Retorno:** `UserList`
+### deleteUserList
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UserListInput!` |  |
 ---
 
-### deleteUserList
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### addToUserList
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| users_lists_id | `ID!` |  |
-| messages_id | `ID!` |  |
----
-
-### removeFromUserList
 
 **Retorno:** `Boolean`
 
@@ -3213,16 +3339,17 @@ deletes the session and tears down routing.
 | messages_id    | `ID!` |             |
 
 ---
-### addEntityToUserList
+### removeFromUserList
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| entity | `EntityInput!` |  |
+| users_lists_id | `ID!` |  |
+| messages_id | `ID!` |  |
 ---
 
-### removeEntityFromUserList
+### addEntityToUserList
 
 **Retorno:** `Boolean`
 
@@ -3231,34 +3358,34 @@ deletes the session and tears down routing.
 | entity    | `EntityInput!` |             |
 
 ---
+### removeEntityFromUserList
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| entity | `EntityInput!` |  |
+---
+
 ### createUserRating
+
 **Retorno:** `UserRating`
 
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| input     | `UserRatingInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `UserRatingInput!` |  |
 ---
-
 ### userLikeEntity
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `UserInteractionInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `UserInteractionInput!` |  |
 ---
+
 ### userViewEntity
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `UserInteractionInput!` |  |
----
-
-### userUnLikeEntity
 
 **Retorno:** `Boolean!`
 
@@ -3267,7 +3394,7 @@ deletes the session and tears down routing.
 | input     | `UserInteractionInput!` |             |
 
 ---
-### userDisLikeEntity
+### userUnLikeEntity
 **Retorno:** `Boolean!`
 
 
@@ -3276,175 +3403,156 @@ deletes the session and tears down routing.
 | input | `UserInteractionInput!` |  |
 ---
 
-### shareUser
+### userDisLikeEntity
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `UserInteractionInput!` |             |
+
+---
+### shareUser
 **Retorno:** `String!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliateProgram
+
 **Retorno:** `AffiliateProgram!`
 
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| input     | `AffiliateProgramInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateProgramInput!` |  |
 ---
-
 ### updateAffiliateProgram
-
 **Retorno:** `AffiliateProgram!`
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| id        | `ID!`                          |             |
-| input     | `UpdateAffiliateProgramInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateProgramInput!` |  |
 ---
+
 ### deleteAffiliateProgram
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createAffiliateTier
-
 **Retorno:** `AffiliateTier!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `AffiliateTierInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AffiliateTierInput!` |  |
 ---
+
 ### updateAffiliateTier
+
 **Retorno:** `AffiliateTier!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateAffiliateTierInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateTierInput!` |  |
 ---
-
 ### deleteAffiliateTier
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliate
+
 **Retorno:** `Affiliate!`
 
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `AffiliateInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateInput!` |  |
 ---
-
 ### updateAffiliate
-
 **Retorno:** `Affiliate!`
 
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `UpdateAffiliateInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateInput!` |  |
 ---
+
 ### deleteAffiliate
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createAffiliateLink
-
 **Retorno:** `AffiliateLink!`
 
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `AffiliateLinkInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AffiliateLinkInput!` |  |
 ---
+
 ### updateAffiliateLink
+
 **Retorno:** `AffiliateLink!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateAffiliateLinkInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateLinkInput!` |  |
 ---
-
 ### deleteAffiliateLink
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createAffiliateConversion
+
 **Retorno:** `AffiliateConversion!`
 
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `AffiliateConversionInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AffiliateConversionInput!` |  |
 ---
-
 ### updateAffiliateConversion
-
 **Retorno:** `AffiliateConversion!`
 
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| id        | `ID!`                             |             |
-| input     | `UpdateAffiliateConversionInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAffiliateConversionInput!` |  |
 ---
+
 ### deleteAffiliateConversion
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createAffiliateCommissionPayout
-
-**Retorno:** `AffiliateCommissionPayout!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `AffiliateCommissionPayoutInput!` |             |
-
----
-### updateAffiliateCommissionPayout
-**Retorno:** `AffiliateCommissionPayout!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAffiliateCommissionPayoutInput!` |  |
----
-
-### deleteAffiliateCommissionPayout
 
 **Retorno:** `Boolean!`
 
@@ -3453,95 +3561,114 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### addToCart
-**Retorno:** `[CartItem!]!`
+### createAffiliateCommissionPayout
+**Retorno:** `AffiliateCommissionPayout!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| items | `[CartItemInput!]!` |  |
+| input | `AffiliateCommissionPayoutInput!` |  |
 ---
 
-### updateCart
+### updateAffiliateCommissionPayout
+
+**Retorno:** `AffiliateCommissionPayout!`
+
+| Argumento | Tipo                                    | Descripción |
+| :-------- | :-------------------------------------- | :---------- |
+| id        | `ID!`                                   |             |
+| input     | `UpdateAffiliateCommissionPayoutInput!` |             |
+
+---
+### deleteAffiliateCommissionPayout
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addToCart
 
 **Retorno:** `[CartItem!]!`
 
-| Argumento  | Tipo    | Descripción |
-| :--------- | :------ | :---------- |
-| variant_id | `ID!`   |             |
-| quantity   | `Int!`  |             |
-| attributes | `Mixed` |             |
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| items     | `[CartItemInput!]!` |             |
 
 ---
-### removeFromCart
+### updateCart
 **Retorno:** `[CartItem!]!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | variant_id | `ID!` |  |
+| quantity | `Int!` |  |
+| attributes | `Mixed` |  |
 ---
 
+### removeFromCart
+
+**Retorno:** `[CartItem!]!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| variant_id | `ID!` |             |
+
+---
 ### cartDiscountCodesUpdate
-
-**Retorno:** `Cart!`
-
-| Argumento     | Tipo         | Descripción |
-| :------------ | :----------- | :---------- |
-| discountCodes | `[String!]!` |             |
-
----
-### applyWalletCreditToCart
 **Retorno:** `Cart!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| amount | `Float` |  |
-| tag | `String` |  |
+| discountCodes | `[String!]!` |  |
 ---
 
-### removeWalletCreditFromCart
+### applyWalletCreditToCart
 
 **Retorno:** `Cart!`
 
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| amount    | `Float`  |             |
+| tag       | `String` |             |
+
 ---
+### removeWalletCreditFromCart
+**Retorno:** `Cart!`
+---
+
 ### clearCart
+
 **Retorno:** `Boolean!`
+
 ---
-
 ### amendOrder
-
 **Retorno:** `Order!`
 
-| Argumento       | Tipo        | Descripción |
-| :-------------- | :---------- | :---------- |
-| order_id        | `ID!`       |             |
-| correction_type | `String!`   |             |
-| reason          | `String!`   |             |
-| evidence_urls   | `[String!]` |             |
-| data            | `Mixed`     |             |
-
----
-### createOrder
-**Retorno:** `Mixed!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `OrderInput!` |  |
+| order_id | `ID!` |  |
+| correction_type | `String!` |  |
+| reason | `String!` |  |
+| evidence_urls | `[String!]` |  |
+| data | `Mixed` |  |
 ---
 
+### createOrder
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo          | Descripción |
+| :-------- | :------------ | :---------- |
+| input     | `OrderInput!` |             |
+
+---
 ### createOrderFromCart
-
-**Retorno:** `OrderResult!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| input     | `OrderCartInput!` |             |
-
----
-### createOrderFromWalletCart
 **Retorno:** `OrderResult!`
 
 
@@ -3550,302 +3677,320 @@ deletes the session and tears down routing.
 | input | `OrderCartInput!` |  |
 ---
 
-### createDraftOrder
+### createOrderFromWalletCart
 
-**Retorno:** `Order!`
+**Retorno:** `OrderResult!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `DraftOrderInput!` |             |
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| input     | `OrderCartInput!` |             |
 
 ---
-### updateDraftOrderStatus
+### createDraftOrder
 **Retorno:** `Order!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| order_id | `ID!` |  |
-| status | `OrderStatusEnum!` |  |
+| input | `DraftOrderInput!` |  |
 ---
 
+### updateDraftOrderStatus
+
+**Retorno:** `Order!`
+
+| Argumento | Tipo               | Descripción |
+| :-------- | :----------------- | :---------- |
+| order_id  | `ID!`              |             |
+| status    | `OrderStatusEnum!` |             |
+
+---
 ### updateOrder
+**Retorno:** `OrderResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateOrderInput!` |  |
+---
+
+### extendOrder
 
 **Retorno:** `OrderResult!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | id        | `ID!`               |             |
-| input     | `UpdateOrderInput!` |             |
+| input     | `ExtendOrderInput!` |             |
 
 ---
-### extendOrder
-**Retorno:** `OrderResult!`
+### deleteOrder
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `ExtendOrderInput!` |  |
 ---
 
-### deleteOrder
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderFromAppleInAppPurchase
+
 **Retorno:** `Order!`
 
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `AppleInAppPurchaseReceipt!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AppleInAppPurchaseReceipt!` |  |
 ---
-
 ### createOrderFromGooglePlayInAppPurchase
-
 **Retorno:** `Order!`
-
-| Argumento | Tipo                              | Descripción |
-| :-------- | :-------------------------------- | :---------- |
-| input     | `GooglePlayInAppPurchaseReceipt!` |             |
-
----
-### processOrderPayment
-**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ProcessPaymentInput!` |  |
+| input | `GooglePlayInAppPurchaseReceipt!` |  |
 ---
 
-### importOrderCsv
+### processOrderPayment
 
-**Retorno:** `ImportOrderCsvResult!`
+**Retorno:** `PaymentResult!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `ImportOrderCsvInput!` |             |
+| input     | `ProcessPaymentInput!` |             |
 
 ---
+### importOrderCsv
+**Retorno:** `ImportOrderCsvResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ImportOrderCsvInput!` |  |
+---
+
 ### generateOrderPaymentIntent
+
+**Retorno:** `GeneratePaymentIntentResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| amount    | `Money!` |             |
+
+---
+### generatePaymentIntentFromOrder
 **Retorno:** `GeneratePaymentIntentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| amount | `Money!` |  |
+| orderId | `ID!` |  |
+| stripeVersion | `String` |  |
 ---
 
-### generatePaymentIntentFromOrder
-
-**Retorno:** `GeneratePaymentIntentResult!`
-
-| Argumento     | Tipo     | Descripción |
-| :------------ | :------- | :---------- |
-| orderId       | `ID!`    |             |
-| stripeVersion | `String` |             |
-
----
 ### transitionOrderStatus
+
 **Retorno:** `OrderStatusTransitionResult!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `TransitionOrderStatusInput!` |             |
+
+---
+### createOrderStatus
+**Retorno:** `OrderStatus!`
+
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TransitionOrderStatusInput!` |  |
+| input | `CreateOrderStatusInput!` |  |
 ---
 
-### createOrderStatus
+### updateOrderStatus
 
 **Retorno:** `OrderStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
-| input     | `CreateOrderStatusInput!` |             |
+| id        | `ID!`                     |             |
+| input     | `UpdateOrderStatusInput!` |             |
 
 ---
-### updateOrderStatus
-**Retorno:** `OrderStatus!`
+### deleteOrderStatus
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateOrderStatusInput!` |  |
 ---
 
-### deleteOrderStatus
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createOrderType
-**Retorno:** `OrderType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateOrderTypeInput!` |  |
----
-
-### updateOrderType
 
 **Retorno:** `OrderType!`
 
 | Argumento | Tipo                    | Descripción |
 | :-------- | :---------------------- | :---------- |
-| id        | `ID!`                   |             |
-| input     | `UpdateOrderTypeInput!` |             |
+| input     | `CreateOrderTypeInput!` |             |
 
 ---
-### deleteOrderType
-**Retorno:** `Boolean!`
+### updateOrderType
+**Retorno:** `OrderType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `UpdateOrderTypeInput!` |  |
 ---
 
-### generateOrderReceipt
+### deleteOrderType
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### generateOrderReceipt
 **Retorno:** `Filesystem!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### generateCheckoutSession
+
 **Retorno:** `PaymentLinkResult!`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| order_id  | `ID!`                     |             |
+| options   | `PaymentLinkOptionsInput` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| order_id | `ID!` |  |
-| options | `PaymentLinkOptionsInput` |  |
 ---
-
 ### sendOrderEmail
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| order_id  | `ID!`    |             |
-| template  | `String` |             |
-
----
-### orderChangeCustomer
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | order_id | `ID!` |  |
-| customer_id | `ID!` |  |
+| template | `String` |  |
 ---
 
-### updateReferralCode
+### orderChangeCustomer
 
+**Retorno:** `Boolean!`
+
+| Argumento   | Tipo  | Descripción |
+| :---------- | :---- | :---------- |
+| order_id    | `ID!` |             |
+| customer_id | `ID!` |             |
+
+---
+### updateReferralCode
 **Retorno:** `ReferralCode!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateReferralCodeInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateReferralCodeInput!` |  |
 ---
+
 ### applyShippingQuote
+
 **Retorno:** `Cart!`
 
+| Argumento   | Tipo                        | Descripción |
+| :---------- | :-------------------------- | :---------- |
+| provider    | `String!`                   |             |
+| service     | `String!`                   |             |
+| destination | `ShippingDestinationInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| provider | `String!` |  |
-| service | `String!` |  |
-| destination | `ShippingDestinationInput!` |  |
 ---
-
 ### createPaymentMethod
-
-**Retorno:** `PaymentMethod!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `PaymentMethodInput!` |             |
-
----
-### updatePaymentMethod
 **Retorno:** `PaymentMethod!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PaymentMethodUpdateInput!` |  |
+| input | `PaymentMethodInput!` |  |
 ---
 
-### deletePaymentMethod
+### updatePaymentMethod
 
+**Retorno:** `PaymentMethod!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `PaymentMethodUpdateInput!` |             |
+
+---
+### deletePaymentMethod
 **Retorno:** `Boolean`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### activatePaymentMethod
-**Retorno:** `PaymentMethod!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| activation_code | `String!` |  |
 ---
 
+### activatePaymentMethod
+
+**Retorno:** `PaymentMethod!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| id              | `ID!`     |             |
+| activation_code | `String!` |             |
+
+---
 ### makePaymentIntent
+**Retorno:** `PaymentIntentResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentID | `ID!` |  |
+---
+
+### makePaymentIntentFromOrder
 
 **Retorno:** `PaymentIntentResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentID | `ID!` |             |
+| orderID   | `ID!` |             |
 
 ---
-### makePaymentIntentFromOrder
-**Retorno:** `PaymentIntentResult!`
+### addPaymentToOrder
+**Retorno:** `PaymentResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | orderID | `ID!` |  |
+| input | `PaymentInput!` |  |
 ---
 
-### addPaymentToOrder
-
-**Retorno:** `PaymentResult!`
-
-| Argumento | Tipo            | Descripción |
-| :-------- | :-------------- | :---------- |
-| orderID   | `ID!`           |             |
-| input     | `PaymentInput!` |             |
-
----
 ### initiatePayerAuthentication
+
 **Retorno:** `PayerAuthResponse!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| orderId   | `ID!` |             |
+
+---
+### completeDeviceData
+**Retorno:** `PayerAuthStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -3853,7 +3998,7 @@ deletes the session and tears down routing.
 | orderId | `ID!` |  |
 ---
 
-### completeDeviceData
+### validatePayerAuthResult
 
 **Retorno:** `PayerAuthStatus!`
 
@@ -3862,34 +4007,55 @@ deletes the session and tears down routing.
 | orderId   | `ID!` |             |
 
 ---
-### validatePayerAuthResult
-**Retorno:** `PayerAuthStatus!`
+### validatePayment
+**Retorno:** `PaymentValidationResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
+| paymentId | `ID!` |  |
 ---
 
-### validatePayment
+### validatePaymentByOrder
 
 **Retorno:** `PaymentValidationResult!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
+| orderId   | `ID!` |             |
 
 ---
-### validatePaymentByOrder
-**Retorno:** `PaymentValidationResult!`
+### capturePayment
+**Retorno:** `PaymentActionResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
+| paymentId | `ID!` |  |
+| amount | `Float` |  |
 ---
 
-### capturePayment
+### reversePayment
+
+**Retorno:** `PaymentActionResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| paymentId | `ID!`    |             |
+| reason    | `String` |             |
+
+---
+### processPayment
+**Retorno:** `PaymentActionResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| use_hold | `Boolean` |  |
+---
+
+### refundPayment
 
 **Retorno:** `PaymentActionResult!`
 
@@ -3899,134 +4065,132 @@ deletes the session and tears down routing.
 | amount    | `Float` |             |
 
 ---
-### reversePayment
-**Retorno:** `PaymentActionResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| paymentId | `ID!` |  |
-| reason | `String` |  |
----
-
-### processPayment
-
-**Retorno:** `PaymentActionResult!`
-
-| Argumento | Tipo      | Descripción |
-| :-------- | :-------- | :---------- |
-| paymentId | `ID!`     |             |
-| use_hold  | `Boolean` |             |
-
----
-### refundPayment
-**Retorno:** `PaymentActionResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| paymentId | `ID!` |  |
-| amount | `Float` |  |
----
-
 ### voidPayment
-
 **Retorno:** `PaymentActionResult!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| paymentId | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
 ---
+
 ### verifyPayment
+
 **Retorno:** `PaymentVerifyResult!`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| orderId | `ID` |  |
-| paymentId | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| orderId   | `ID` |             |
+| paymentId | `ID` |             |
 
+---
 ### startPaymentChallenge
-
-**Retorno:** `ThreeDSChallengeResult!`
-
-| Argumento   | Tipo               | Descripción |
-| :---------- | :----------------- | :---------- |
-| paymentId   | `ID!`              |             |
-| browserInfo | `BrowserInfoInput` |             |
-
----
-### startPaymentChallengeWithCard
 **Retorno:** `ThreeDSChallengeResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| orderId | `ID!` |  |
-| paymentData | `StartChallengeCardInput!` |  |
+| paymentId | `ID!` |  |
+| browserInfo | `BrowserInfoInput` |  |
 ---
 
-### finalizePaymentChallenge
+### startPaymentChallengeWithCard
 
 **Retorno:** `ThreeDSChallengeResult!`
 
-| Argumento | Tipo    | Descripción |
-| :-------- | :------ | :---------- |
-| paymentId | `ID!`   |             |
-| metadata  | `Mixed` |             |
+| Argumento   | Tipo                       | Descripción |
+| :---------- | :------------------------- | :---------- |
+| orderId     | `ID!`                      |             |
+| paymentData | `StartChallengeCardInput!` |             |
 
 ---
+### finalizePaymentChallenge
+**Retorno:** `ThreeDSChallengeResult!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| paymentId | `ID!` |  |
+| metadata | `Mixed` |  |
+---
+
 ### flushUserWallet
+
+**Retorno:** `WalletResult!`
+
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID!`    |             |
+| tag       | `String` |             |
+
+---
+### flushCompanyWallet
 **Retorno:** `WalletResult!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| user_id | `ID!` |  |
+| company_id | `ID!` |  |
 | tag | `String` |  |
 ---
 
-### flushCompanyWallet
+### refundOrderToWallet
 
 **Retorno:** `WalletResult!`
 
-| Argumento  | Tipo     | Descripción |
-| :--------- | :------- | :---------- |
-| company_id | `ID!`    |             |
-| tag        | `String` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `WalletRefundInput!` |             |
 
 ---
-### refundOrderToWallet
-**Retorno:** `WalletResult!`
+### createDiscount
+**Retorno:** `Discount!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `WalletRefundInput!` |  |
+| input | `DiscountInput!` |  |
 ---
 
-### createDiscount
+### updateDiscount
 
 **Retorno:** `Discount!`
 
 | Argumento | Tipo             | Descripción |
 | :-------- | :--------------- | :---------- |
+| id        | `ID!`            |             |
 | input     | `DiscountInput!` |             |
 
 ---
-### updateDiscount
-**Retorno:** `Discount!`
+### deleteDiscount
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `DiscountInput!` |  |
 ---
 
-### deleteDiscount
+### createInsurer
+
+**Retorno:** `Insurer!`
+
+| Argumento | Tipo            | Descripción |
+| :-------- | :-------------- | :---------- |
+| input     | `InsurerInput!` |             |
+
+---
+### updateInsurer
+**Retorno:** `Insurer!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateInsurerInput!` |  |
+---
+
+### deleteInsurer
 
 **Retorno:** `Boolean!`
 
@@ -4035,26 +4199,26 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createAction
-**Retorno:** `Action!`
+### createInsurancePlan
+**Retorno:** `InsurancePlan!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ActionInput!` |  |
+| input | `InsurancePlanInput!` |  |
 ---
 
-### updateAction
+### updateInsurancePlan
 
-**Retorno:** `Action!`
+**Retorno:** `InsurancePlan!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| id        | `ID!`                |             |
-| input     | `UpdateActionInput!` |             |
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| id        | `ID!`                       |             |
+| input     | `UpdateInsurancePlanInput!` |             |
 
 ---
-### deleteAction
+### deleteInsurancePlan
 **Retorno:** `Boolean!`
 
 
@@ -4063,44 +4227,99 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
+### selectInsurancePlan
+
+**Retorno:** `Lead!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `SelectInsurancePlanInput!` |             |
+
+---
+### contractInsurancePlan
+**Retorno:** `Order!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ContractInsurancePlanInput!` |  |
+---
+
+### registerInsurancePolicy
+
+**Retorno:** `Order!`
+
+| Argumento | Tipo                            | Descripción |
+| :-------- | :------------------------------ | :---------- |
+| input     | `RegisterInsurancePolicyInput!` |             |
+
+---
+### sendInsurancePolicyEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| order_id | `ID!` |  |
+---
+
+### createAction
+
+**Retorno:** `Action!`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `ActionInput!` |             |
+
+---
+### updateAction
+**Retorno:** `Action!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateActionInput!` |  |
+---
+
+### deleteAction
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createCompanyAction
+**Retorno:** `CompanyAction!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateCompanyActionInput!` |  |
+---
+
+### updateCompanyAction
 
 **Retorno:** `CompanyAction!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `CreateCompanyActionInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `UpdateCompanyActionInput!` |             |
 
 ---
-### updateCompanyAction
-**Retorno:** `CompanyAction!`
+### deleteCompanyAction
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdateCompanyActionInput!` |  |
 ---
 
-### deleteCompanyAction
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### startLeadEngagement
-**Retorno:** `Engagement!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreateEngagementInput!` |  |
----
-
-### continueLeadEngagement
 
 **Retorno:** `Engagement!`
 
@@ -4109,92 +4328,73 @@ deletes the session and tears down routing.
 | input     | `CreateEngagementInput!` |             |
 
 ---
-### updateEngagement
+### continueLeadEngagement
 **Retorno:** `Engagement!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `ID!` |  |
-| input | `UpdateEngagementInput!` |  |
+| input | `CreateEngagementInput!` |  |
 ---
 
+### updateEngagement
+
+**Retorno:** `Engagement!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| uuid      | `ID!`                    |             |
+| input     | `UpdateEngagementInput!` |             |
+
+---
 ### createActionPipeline
+**Retorno:** `ActionPipeline!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreatePipelineInput!` |  |
+---
+
+### updateActionPipeline
 
 **Retorno:** `ActionPipeline!`
 
 | Argumento | Tipo                   | Descripción |
 | :-------- | :--------------------- | :---------- |
-| input     | `CreatePipelineInput!` |             |
+| id        | `ID!`                  |             |
+| input     | `UpdatePipelineInput!` |             |
 
 ---
-### updateActionPipeline
-**Retorno:** `ActionPipeline!`
+### deleteActionPipeline
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `UpdatePipelineInput!` |  |
 ---
 
-### deleteActionPipeline
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
 ### createActionPipelineStage
-**Retorno:** `ActionPipelineStage!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CreatePipelineStageInput!` |  |
----
-
-### updateActionPipelineStage
 
 **Retorno:** `ActionPipelineStage!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `UpdatePipelineStageInput!` |             |
+| input     | `CreatePipelineStageInput!` |             |
 
 ---
+### updateActionPipelineStage
+**Retorno:** `ActionPipelineStage!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdatePipelineStageInput!` |  |
+---
+
 ### deleteActionPipelineStage
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### createTaskList
-
-**Retorno:** `TaskList!`
-
-| Argumento | Tipo             | Descripción |
-| :-------- | :--------------- | :---------- |
-| input     | `TaskListInput!` |             |
-
----
-### updateTaskList
-**Retorno:** `TaskList!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateTaskListInput!` |  |
----
-
-### deleteTaskList
 
 **Retorno:** `Boolean!`
 
@@ -4203,26 +4403,26 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createTaskListItem
-**Retorno:** `TaskListItem!`
+### createTaskList
+**Retorno:** `TaskList!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `TaskListItemInput!` |  |
+| input | `TaskListInput!` |  |
 ---
 
-### updateTaskListItem
+### updateTaskList
 
-**Retorno:** `TaskListItem!`
+**Retorno:** `TaskList!`
 
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateTaskListItemInput!` |             |
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| id        | `ID!`                  |             |
+| input     | `UpdateTaskListInput!` |             |
 
 ---
-### deleteTaskListItem
+### deleteTaskList
 **Retorno:** `Boolean!`
 
 
@@ -4231,48 +4431,67 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### changeTaskEngagementItemStatus
+### createTaskListItem
 
-**Retorno:** `Boolean!`
+**Retorno:** `TaskListItem!`
 
-| Argumento  | Tipo      | Descripción |
-| :--------- | :-------- | :---------- |
-| id         | `ID!`     |             |
-| lead_id    | `ID!`     |             |
-| status     | `String!` |             |
-| message_id | `ID`      |             |
-| config     | `Mixed`   |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `TaskListItemInput!` |             |
 
 ---
-### createApp
-**Retorno:** `App!`
+### updateTaskListItem
+**Retorno:** `TaskListItem!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `AppInput!` |  |
+| id | `ID!` |  |
+| input | `UpdateTaskListItemInput!` |  |
 ---
 
-### updateApp
+### deleteTaskListItem
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### changeTaskEngagementItemStatus
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| lead_id | `ID!` |  |
+| status | `String!` |  |
+| message_id | `ID` |  |
+| config | `Mixed` |  |
+---
+
+### createApp
 
 **Retorno:** `App!`
 
 | Argumento | Tipo        | Descripción |
 | :-------- | :---------- | :---------- |
-| id        | `String!`   |             |
 | input     | `AppInput!` |             |
 
 ---
-### deleteApp
+### updateApp
 **Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| input | `AppInput!` |  |
 ---
 
-### restoreApp
+### deleteApp
 
 **Retorno:** `App!`
 
@@ -4281,17 +4500,16 @@ deletes the session and tears down routing.
 | id        | `String!` |             |
 
 ---
-### assignCompanyToApp
-**Retorno:** `Company!`
+### restoreApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| companyId | `String!` |  |
 ---
 
-### removeCompanyToApp
+### assignCompanyToApp
 
 **Retorno:** `Company!`
 
@@ -4301,16 +4519,17 @@ deletes the session and tears down routing.
 | companyId | `String!` |             |
 
 ---
-### activateApp
-**Retorno:** `App!`
+### removeCompanyToApp
+**Retorno:** `Company!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
+| companyId | `String!` |  |
 ---
 
-### deactivateApp
+### activateApp
 
 **Retorno:** `App!`
 
@@ -4319,104 +4538,86 @@ deletes the session and tears down routing.
 | id        | `String!` |             |
 
 ---
-### saveAppSettings
-**Retorno:** `Mixed!`
+### deactivateApp
+**Retorno:** `App!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `appSettingInput` |  |
 ---
 
+### saveAppSettings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo              | Descripción |
+| :-------- | :---------------- | :---------- |
+| id        | `String!`         |             |
+| input     | `appSettingInput` |             |
+
+---
 ### addTemplateToApp
-
 **Retorno:** `AppTemplate`
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| id        | `String!`           |             |
-| input     | `appTemplateInput!` |             |
-
----
-### appUserUpdatePassword
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| uuid | `String!` |  |
-| password | `String!` |  |
+| id | `String!` |  |
+| input | `appTemplateInput!` |  |
 ---
 
-### appUserUpdateEmail
+### appUserUpdatePassword
 
 **Retorno:** `Boolean!`
 
 | Argumento | Tipo      | Descripción |
 | :-------- | :-------- | :---------- |
 | uuid      | `String!` |             |
-| email     | `Email!`  |             |
+| password  | `String!` |             |
 
 ---
+### appUserUpdateEmail
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| uuid | `String!` |  |
+| email | `Email!` |  |
+---
+
 ### saveS3Settings
+
+**Retorno:** `Mixed!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `String!`                 |             |
+| input     | `s3FilesystemConfigInput` |             |
+
+---
+### saveGcsSettings
 **Retorno:** `Mixed!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `String!` |  |
-| input | `s3FilesystemConfigInput` |  |
+| input | `gcsFilesystemConfigInput` |  |
 ---
 
-### saveGcsSettings
-
-**Retorno:** `Mixed!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `String!`                  |             |
-| input     | `gcsFilesystemConfigInput` |             |
-
----
 ### updateAppLogo
+
 **Retorno:** `App!`
 
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| id        | `ID!`     |             |
+| file      | `Upload!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| file | `Upload!` |  |
 ---
-
 ### setAppSetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteAppSetting
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| key | `String!` |  |
----
-
-### setCompanySetting
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
-
----
-### deleteCompanySetting
 **Retorno:** `Boolean!`
 
 
@@ -4425,43 +4626,61 @@ deletes the session and tears down routing.
 | input | `ModuleConfigInput!` |  |
 ---
 
-### appCreateUser
+### deleteAppSetting
 
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo      | Descripción |
+| :-------- | :-------- | :---------- |
+| key       | `String!` |             |
+
+---
+### setCompanySetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
+### deleteCompanySetting
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
+
+---
+### appCreateUser
 **Retorno:** `User!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| data      | `CreateUserInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| data | `CreateUserInput!` |  |
 ---
+
 ### appDeleteUser
+
 **Retorno:** `Boolean`
 
-
 | Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
+| :-------- | :--- | :---------- |
+| user_id   | `ID` |             |
 
+---
 ### appDeActiveUser
-
 **Retorno:** `Boolean`
 
-| Argumento | Tipo | Descripción |
-| :-------- | :--- | :---------- |
-| user_id   | `ID` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| user_id | `ID` |  |
 ---
+
 ### appActivateUser
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| user_id | `ID` |  |
----
-
-### appRestoreDeletedUser
 
 **Retorno:** `Boolean`
 
@@ -4470,36 +4689,36 @@ deletes the session and tears down routing.
 | user_id   | `ID` |             |
 
 ---
-### appResetUserPassword
+### appRestoreDeletedUser
 **Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | user_id | `ID` |  |
-| password | `String` |  |
 ---
 
-### appUpdateUserDisplayname
+### appResetUserPassword
 
 **Retorno:** `Boolean`
 
-| Argumento   | Tipo     | Descripción |
-| :---------- | :------- | :---------- |
-| user_id     | `ID`     |             |
-| displayname | `String` |             |
+| Argumento | Tipo     | Descripción |
+| :-------- | :------- | :---------- |
+| user_id   | `ID`     |             |
+| password  | `String` |             |
 
 ---
-### setUserSetting
-**Retorno:** `Boolean!`
+### appUpdateUserDisplayname
+**Retorno:** `Boolean`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ModuleConfigInput!` |  |
+| user_id | `ID` |  |
+| displayname | `String` |  |
 ---
 
-### deleteUserSetting
+### setUserSetting
 
 **Retorno:** `Boolean!`
 
@@ -4508,62 +4727,25 @@ deletes the session and tears down routing.
 | input     | `ModuleConfigInput!` |             |
 
 ---
+### deleteUserSetting
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ModuleConfigInput!` |  |
+---
+
 ### integrationCompany
+
 **Retorno:** `IntegrationsCompanies!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationsCompaniesInput!` |  |
----
-
-### removeIntegrationCompany
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### integrationCompanyIsActive
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IntegrationCompanyActive!` |  |
----
-
-### integrationWorkflowRetry
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createReceiverWebhook
-**Retorno:** `WorkflowReceiver!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ReceiverWebhookInput!` |  |
----
-
-### updateReceiverWebhook
-
-**Retorno:** `WorkflowReceiver!`
 
 | Argumento | Tipo                          | Descripción |
 | :-------- | :---------------------------- | :---------- |
-| id        | `ID!`                         |             |
-| input     | `UpdateReceiverWebhookInput!` |             |
+| input     | `IntegrationsCompaniesInput!` |             |
 
 ---
-### deleteReceiverWebhook
+### removeIntegrationCompany
 **Retorno:** `Boolean!`
 
 
@@ -4572,7 +4754,44 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### retryWebhookCall
+### integrationCompanyIsActive
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo                        | Descripción |
+| :-------- | :-------------------------- | :---------- |
+| input     | `IntegrationCompanyActive!` |             |
+
+---
+### integrationWorkflowRetry
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### createReceiverWebhook
+
+**Retorno:** `WorkflowReceiver!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ReceiverWebhookInput!` |             |
+
+---
+### updateReceiverWebhook
+**Retorno:** `WorkflowReceiver!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateReceiverWebhookInput!` |  |
+---
+
+### deleteReceiverWebhook
 
 **Retorno:** `Boolean!`
 
@@ -4581,99 +4800,44 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
+### retryWebhookCall
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### runWorkflowFromEntity
+
 **Retorno:** `Mixed`
 
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `runWorkflowEntityInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `runWorkflowEntityInput!` |  |
 ---
-
 ### createRule
-
 **Retorno:** `WorkflowRule!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `CreateRuleInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CreateRuleInput!` |  |
 ---
+
 ### updateRule
+
 **Retorno:** `WorkflowRule!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateRuleInput!` |  |
----
-
-### deleteRule
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createSubscription
-**Retorno:** `CompanySubscription!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SubscriptionInput!` |  |
----
-
-### updateSubscription
-
-**Retorno:** `CompanySubscription!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `SubscriptionUpdateInput!` |             |
-
----
-### cancelSubscription
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
-### reactivateSubscription
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createPlan
-**Retorno:** `Plan!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `PlanInput!` |  |
----
-
-### updatePlan
-
-**Retorno:** `Plan!`
 
 | Argumento | Tipo               | Descripción |
 | :-------- | :----------------- | :---------- |
 | id        | `ID!`              |             |
-| input     | `PlanUpdateInput!` |             |
+| input     | `UpdateRuleInput!` |             |
 
 ---
-### deletePlan
+### deleteRule
 **Retorno:** `Boolean!`
 
 
@@ -4682,45 +4846,25 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### createPrice
+### createSubscription
 
-**Retorno:** `Price!`
+**Retorno:** `CompanySubscription!`
 
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `PriceInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `SubscriptionInput!` |             |
 
 ---
-### updatePrice
-**Retorno:** `Price!`
+### updateSubscription
+**Retorno:** `CompanySubscription!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `PriceUpdateInput!` |  |
+| input | `SubscriptionUpdateInput!` |  |
 ---
 
-### createEvent
-
-**Retorno:** `Event!`
-
-| Argumento | Tipo          | Descripción |
-| :-------- | :------------ | :---------- |
-| input     | `EventInput!` |             |
-
----
-### updateEvent
-**Retorno:** `Event!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventUpdateInput!` |  |
----
-
-### deleteEvent
+### cancelSubscription
 
 **Retorno:** `Boolean!`
 
@@ -4729,44 +4873,7 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### followEvent
-**Retorno:** `Boolean`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `FollowInput!` |  |
----
-
-### unFollowEvent
-
-**Retorno:** `Boolean`
-
-| Argumento | Tipo           | Descripción |
-| :-------- | :------------- | :---------- |
-| input     | `FollowInput!` |             |
-
----
-### createEventVersion
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventVersionInput!` |  |
----
-
-### updateEventVersion
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `EventVersionUpdateInput!` |             |
-
----
-### deleteEventVersion
+### reactivateSubscription
 **Retorno:** `Boolean!`
 
 
@@ -4775,7 +4882,82 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### followEventVersion
+### createPlan
+
+**Retorno:** `Plan!`
+
+| Argumento | Tipo         | Descripción |
+| :-------- | :----------- | :---------- |
+| input     | `PlanInput!` |             |
+
+---
+### updatePlan
+**Retorno:** `Plan!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `PlanUpdateInput!` |  |
+---
+
+### deletePlan
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### createPrice
+**Retorno:** `Price!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `PriceInput!` |  |
+---
+
+### updatePrice
+
+**Retorno:** `Price!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `PriceUpdateInput!` |             |
+
+---
+### createEvent
+**Retorno:** `Event!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventInput!` |  |
+---
+
+### updateEvent
+
+**Retorno:** `Event!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| id        | `ID!`               |             |
+| input     | `EventUpdateInput!` |             |
+
+---
+### deleteEvent
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### followEvent
 
 **Retorno:** `Boolean`
 
@@ -4784,7 +4966,7 @@ deletes the session and tears down routing.
 | input     | `FollowInput!` |             |
 
 ---
-### unFollowEventVersion
+### unFollowEvent
 **Retorno:** `Boolean`
 
 
@@ -4793,194 +4975,212 @@ deletes the session and tears down routing.
 | input | `FollowInput!` |  |
 ---
 
+### createEventVersion
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `EventVersionInput!` |             |
+
+---
+### updateEventVersion
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventVersionUpdateInput!` |  |
+---
+
+### deleteEventVersion
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### followEventVersion
+**Retorno:** `Boolean`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FollowInput!` |  |
+---
+
+### unFollowEventVersion
+
+**Retorno:** `Boolean`
+
+| Argumento | Tipo           | Descripción |
+| :-------- | :------------- | :---------- |
+| input     | `FollowInput!` |             |
+
+---
 ### addEventVersionDate
+**Retorno:** `EventVersionDate!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AddEventVersionDateInput!` |  |
+---
+
+### updateEventVersionDate
 
 **Retorno:** `EventVersionDate!`
+
+| Argumento | Tipo                           | Descripción |
+| :-------- | :----------------------------- | :---------- |
+| id        | `ID!`                          |             |
+| input     | `UpdateEventVersionDateInput!` |             |
+
+---
+### deleteEventVersionDate
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### updateEventVersionParticipant
+
+**Retorno:** `EventVersionParticipant!`
+
+| Argumento | Tipo                                  | Descripción |
+| :-------- | :------------------------------------ | :---------- |
+| id        | `ID!`                                 |             |
+| input     | `EventVersionParticipantUpdateInput!` |             |
+
+---
+### deleteEventVersionParticipant
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### bookTimeSlot
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `TimeSlotBookingInput!` |             |
+
+---
+### updateTimeSlotBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `TimeSlotBookingUpdateInput!` |  |
+---
+
+### bookResource
+
+**Retorno:** `EventVersion!`
+
+| Argumento | Tipo                    | Descripción |
+| :-------- | :---------------------- | :---------- |
+| input     | `ResourceBookingInput!` |             |
+
+---
+### updateResourceBooking
+**Retorno:** `EventVersion!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceBookingUpdateInput!` |  |
+---
+
+### deleteResourceBooking
+
+**Retorno:** `ResourceBookingDeleteResult!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| event_version_id | `ID!` |             |
+
+---
+### createEventCategory
+**Retorno:** `EventCategory!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventCategoryInput!` |  |
+---
+
+### updateEventCategory
+
+**Retorno:** `EventCategory!`
 
 | Argumento | Tipo                        | Descripción |
 | :-------- | :-------------------------- | :---------- |
-| input     | `AddEventVersionDateInput!` |             |
+| id        | `ID!`                       |             |
+| input     | `EventCategoryUpdateInput!` |             |
 
 ---
-### updateEventVersionDate
-**Retorno:** `EventVersionDate!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateEventVersionDateInput!` |  |
----
-
-### deleteEventVersionDate
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### updateEventVersionParticipant
-**Retorno:** `EventVersionParticipant!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventVersionParticipantUpdateInput!` |  |
----
-
-### deleteEventVersionParticipant
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### bookTimeSlot
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `TimeSlotBookingInput!` |  |
----
-
-### updateTimeSlotBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `TimeSlotBookingUpdateInput!` |             |
-
----
-### bookResource
-**Retorno:** `EventVersion!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ResourceBookingInput!` |  |
----
-
-### updateResourceBooking
-
-**Retorno:** `EventVersion!`
-
-| Argumento | Tipo                          | Descripción |
-| :-------- | :---------------------------- | :---------- |
-| input     | `ResourceBookingUpdateInput!` |             |
-
----
-### deleteResourceBooking
-**Retorno:** `ResourceBookingDeleteResult!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| event_version_id | `ID!` |  |
----
-
-### createEventCategory
-
-**Retorno:** `EventCategory!`
-
-| Argumento | Tipo                  | Descripción |
-| :-------- | :-------------------- | :---------- |
-| input     | `EventCategoryInput!` |             |
-
----
-### updateEventCategory
-**Retorno:** `EventCategory!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventCategoryUpdateInput!` |  |
----
-
 ### deleteEventCategory
-
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
 ---
+
 ### createEventType
+
 **Retorno:** `EventType!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
 ---
-
 ### updateEventType
-
 **Retorno:** `EventType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
+
 ### deleteEventType
+
 **Retorno:** `Boolean!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
 ---
-
 ### createEventClass
-
 **Retorno:** `EventClass!`
 
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| input     | `EventLookupInput!` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `EventLookupInput!` |  |
 ---
+
 ### updateEventClass
+
 **Retorno:** `EventClass!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `EventLookupUpdateInput!` |  |
----
-
-### deleteEventClass
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
-
----
-### createEventStatus
-**Retorno:** `EventStatus!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
----
-
-### updateEventStatus
-
-**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -4988,7 +5188,7 @@ deletes the session and tears down routing.
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventStatus
+### deleteEventClass
 **Retorno:** `Boolean!`
 
 
@@ -4997,17 +5197,17 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### createEventTheme
+### createEventStatus
 
-**Retorno:** `EventTheme!`
+**Retorno:** `EventStatus!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
 | input     | `EventLookupInput!` |             |
 
 ---
-### updateEventTheme
-**Retorno:** `EventTheme!`
+### updateEventStatus
+**Retorno:** `EventStatus!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5016,7 +5216,7 @@ deletes the session and tears down routing.
 | input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteEventTheme
+### deleteEventStatus
 
 **Retorno:** `Boolean!`
 
@@ -5025,8 +5225,8 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createEventThemeArea
-**Retorno:** `EventThemeArea!`
+### createEventTheme
+**Retorno:** `EventTheme!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5034,9 +5234,9 @@ deletes the session and tears down routing.
 | input | `EventLookupInput!` |  |
 ---
 
-### updateEventThemeArea
+### updateEventTheme
 
-**Retorno:** `EventThemeArea!`
+**Retorno:** `EventTheme!`
 
 | Argumento | Tipo                      | Descripción |
 | :-------- | :------------------------ | :---------- |
@@ -5044,7 +5244,7 @@ deletes the session and tears down routing.
 | input     | `EventLookupUpdateInput!` |             |
 
 ---
-### deleteEventThemeArea
+### deleteEventTheme
 **Retorno:** `Boolean!`
 
 
@@ -5053,26 +5253,26 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
-### createFacilitator
+### createEventThemeArea
 
-**Retorno:** `Facilitator!`
+**Retorno:** `EventThemeArea!`
 
 | Argumento | Tipo                | Descripción |
 | :-------- | :------------------ | :---------- |
-| input     | `FacilitatorInput!` |             |
+| input     | `EventLookupInput!` |             |
 
 ---
-### updateFacilitator
-**Retorno:** `Facilitator!`
+### updateEventThemeArea
+**Retorno:** `EventThemeArea!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `FacilitatorUpdateInput!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### deleteFacilitator
+### deleteEventThemeArea
 
 **Retorno:** `Boolean!`
 
@@ -5081,8 +5281,45 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
+### createFacilitator
+**Retorno:** `Facilitator!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `FacilitatorInput!` |  |
+---
+
+### updateFacilitator
+
+**Retorno:** `Facilitator!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| id        | `ID!`                     |             |
+| input     | `FacilitatorUpdateInput!` |             |
+
+---
+### deleteFacilitator
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
 ### attachFacilitatorToEventVersion
+
 **Retorno:** `EventVersionFacilitator!`
+
+| Argumento | Tipo                            | Descripción |
+| :-------- | :------------------------------ | :---------- |
+| input     | `FacilitatorEventVersionInput!` |             |
+
+---
+### detachFacilitatorFromEventVersion
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5090,54 +5327,36 @@ deletes the session and tears down routing.
 | input | `FacilitatorEventVersionInput!` |  |
 ---
 
-### detachFacilitatorFromEventVersion
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                            | Descripción |
-| :-------- | :------------------------------ | :---------- |
-| input     | `FacilitatorEventVersionInput!` |             |
-
----
 ### createParticipant
+
 **Retorno:** `Participant!`
 
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `ParticipantInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ParticipantInput!` |  |
 ---
-
 ### updateParticipant
-
 **Retorno:** `Participant!`
-
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `ParticipantUpdateInput!` |             |
-
----
-### deleteParticipant
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `ParticipantUpdateInput!` |  |
 ---
 
-### addPeopleToEventVersion
+### deleteParticipant
 
-**Retorno:** `Participant!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| input     | `PeopleEventVersionInput!` |             |
-
----
-### removePeopleInEventVersion
 **Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### addPeopleToEventVersion
+**Retorno:** `Participant!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5145,98 +5364,44 @@ deletes the session and tears down routing.
 | input | `PeopleEventVersionInput!` |  |
 ---
 
-### copyParticipantsToEventVersion
+### removePeopleInEventVersion
 
-**Retorno:** `Int!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `CopyParticipantsInput!` |             |
+| Argumento | Tipo                       | Descripción |
+| :-------- | :------------------------- | :---------- |
+| input     | `PeopleEventVersionInput!` |             |
 
 ---
-### createParticipantType
-**Retorno:** `ParticipantType!`
+### copyParticipantsToEventVersion
+**Retorno:** `Int!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `EventLookupInput!` |  |
+| input | `CopyParticipantsInput!` |  |
 ---
 
-### updateParticipantType
+### createParticipantType
 
 **Retorno:** `ParticipantType!`
 
-| Argumento | Tipo                      | Descripción |
-| :-------- | :------------------------ | :---------- |
-| id        | `ID!`                     |             |
-| input     | `EventLookupUpdateInput!` |             |
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `EventLookupInput!` |             |
 
 ---
-### deleteParticipantType
-**Retorno:** `Boolean!`
+### updateParticipantType
+**Retorno:** `ParticipantType!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
+| input | `EventLookupUpdateInput!` |  |
 ---
 
-### issueEventCode
-
-**Retorno:** `IssueCodeResponse!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `IssueEventCodeInput!` |             |
-
----
-### issueParticipantCode
-**Retorno:** `IssueParticipantCodeResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `IssueParticipantCodeInput!` |  |
----
-
-### issueAllParticipantCodes
-
-**Retorno:** `IssueAllCodesResponse!`
-
-| Argumento | Tipo                             | Descripción |
-| :-------- | :------------------------------- | :---------- |
-| input     | `IssueAllParticipantCodesInput!` |             |
-
----
-### checkInWithPin
-**Retorno:** `CheckInResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `CheckInWithPinInput!` |  |
----
-
-### setResourceSchedule
-
-**Retorno:** `ResourceSchedule!`
-
-| Argumento | Tipo                     | Descripción |
-| :-------- | :----------------------- | :---------- |
-| input     | `ResourceScheduleInput!` |             |
-
----
-### createScheduleException
-**Retorno:** `ScheduleException!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `ScheduleExceptionInput!` |  |
----
-
-### deleteScheduleException
+### deleteParticipantType
 
 **Retorno:** `Boolean!`
 
@@ -5245,26 +5410,61 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### createScheduleRules
-**Retorno:** `ScheduleRules!`
+### issueEventCode
+**Retorno:** `IssueCodeResponse!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `ScheduleRulesInput!` |  |
+| input | `IssueEventCodeInput!` |  |
 ---
 
-### updateScheduleRules
+### issueParticipantCode
 
-**Retorno:** `ScheduleRules!`
+**Retorno:** `IssueParticipantCodeResponse!`
 
-| Argumento | Tipo                        | Descripción |
-| :-------- | :-------------------------- | :---------- |
-| id        | `ID!`                       |             |
-| input     | `ScheduleRulesUpdateInput!` |             |
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| input     | `IssueParticipantCodeInput!` |             |
 
 ---
-### deleteScheduleRules
+### issueAllParticipantCodes
+**Retorno:** `IssueAllCodesResponse!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `IssueAllParticipantCodesInput!` |  |
+---
+
+### checkInWithPin
+
+**Retorno:** `CheckInResponse!`
+
+| Argumento | Tipo                   | Descripción |
+| :-------- | :--------------------- | :---------- |
+| input     | `CheckInWithPinInput!` |             |
+
+---
+### setResourceSchedule
+**Retorno:** `ResourceSchedule!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ResourceScheduleInput!` |  |
+---
+
+### createScheduleException
+
+**Retorno:** `ScheduleException!`
+
+| Argumento | Tipo                      | Descripción |
+| :-------- | :------------------------ | :---------- |
+| input     | `ScheduleExceptionInput!` |             |
+
+---
+### deleteScheduleException
 **Retorno:** `Boolean!`
 
 
@@ -5273,140 +5473,196 @@ deletes the session and tears down routing.
 | id | `ID!` |  |
 ---
 
+### createScheduleRules
+
+**Retorno:** `ScheduleRules!`
+
+| Argumento | Tipo                  | Descripción |
+| :-------- | :-------------------- | :---------- |
+| input     | `ScheduleRulesInput!` |             |
+
+---
+### updateScheduleRules
+**Retorno:** `ScheduleRules!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `ScheduleRulesUpdateInput!` |  |
+---
+
+### deleteScheduleRules
+
+**Retorno:** `Boolean!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
 ### createAiAgent
+**Retorno:** `AgentAi!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `AgentAiInput!` |  |
+---
+
+### updateAiAgent
 
 **Retorno:** `AgentAi!`
 
 | Argumento | Tipo            | Descripción |
 | :-------- | :-------------- | :---------- |
+| id        | `ID!`           |             |
 | input     | `AgentAiInput!` |             |
 
 ---
-### updateAiAgent
-**Retorno:** `AgentAi!`
+### deleteAiAgent
+**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | id | `ID!` |  |
-| input | `AgentAiInput!` |  |
 ---
 
-### deleteAiAgent
+### aiAgentCreateSession
 
+**Retorno:** `String!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentSessionInput!` |             |
+
+---
+### aiAgentChat
+**Retorno:** `String!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `ChatSimpleInput!` |  |
+---
+
+### aiAgentUserChat
+
+**Retorno:** `UserChatResponse!`
+
+| Argumento | Tipo             | Descripción |
+| :-------- | :--------------- | :---------- |
+| input     | `UserChatInput!` |             |
+
+---
+### aiAgentCancelChat
 **Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CancelAgentChatInput!` |  |
+---
+
+### setAgentIntegrationConfig
+
+**Retorno:** `AgentAi!`
+
+| Argumento | Tipo                              | Descripción |
+| :-------- | :-------------------------------- | :---------- |
+| input     | `SetAgentIntegrationConfigInput!` |             |
+
+---
+### createAgentConfigBackup
+**Retorno:** `AgentConfigBackupType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| agent_id | `ID!` |  |
+| notes | `String` |  |
+---
+
+### restoreAgentFromConfigBackup
+
+**Retorno:** `AgentAi!`
 
 | Argumento | Tipo  | Descripción |
 | :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+| backup_id | `ID!` |             |
 
 ---
-### aiAgentCreateSession
-**Retorno:** `String!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentSessionInput!` |  |
----
-
-### aiAgentChat
-
-**Retorno:** `String!`
-
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `ChatSimpleInput!` |             |
-
----
-### aiAgentUserChat
-**Retorno:** `UserChatResponse!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `UserChatInput!` |  |
----
-
-### aiAgentCancelChat
-
-**Retorno:** `Boolean!`
-
-| Argumento | Tipo                    | Descripción |
-| :-------- | :---------------------- | :---------- |
-| input     | `CancelAgentChatInput!` |             |
-
----
-### setAgentIntegrationConfig
-**Retorno:** `AgentAi!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `SetAgentIntegrationConfigInput!` |  |
----
-
-### createAgentConfigBackup
-
-**Retorno:** `AgentConfigBackupType!`
-
-| Argumento | Tipo     | Descripción |
-| :-------- | :------- | :---------- |
-| agent_id  | `ID!`    |             |
-| notes     | `String` |             |
-
----
-### restoreAgentFromConfigBackup
-**Retorno:** `AgentAi!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| backup_id | `ID!` |  |
----
-
 ### setAgentKanvasModule
-
 **Retorno:** `AgentKanvasModule!`
-
-| Argumento        | Tipo      | Descripción |
-| :--------------- | :-------- | :---------- |
-| agent_id         | `ID!`     |             |
-| kanvas_module_id | `ID!`     |             |
-| config           | `Mixed`   |             |
-| is_active        | `Boolean` |             |
-
----
-### removeAgentKanvasModule
-**Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
 | kanvas_module_id | `ID!` |  |
+| config | `Mixed` |  |
+| is_active | `Boolean` |  |
 ---
 
+### removeAgentKanvasModule
+
+**Retorno:** `Boolean!`
+
+| Argumento        | Tipo  | Descripción |
+| :--------------- | :---- | :---------- |
+| agent_id         | `ID!` |             |
+| kanvas_module_id | `ID!` |             |
+
+---
 ### createAgentLlmConfig
-
-**Retorno:** `AgentLlmConfig!`
-
-| Argumento | Tipo                   | Descripción |
-| :-------- | :--------------------- | :---------- |
-| input     | `AgentLlmConfigInput!` |             |
-
----
-### updateAgentLlmConfig
 **Retorno:** `AgentLlmConfig!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentLlmConfigInput!` |  |
+| input | `AgentLlmConfigInput!` |  |
 ---
 
+### updateAgentLlmConfig
+
+**Retorno:** `AgentLlmConfig!`
+
+| Argumento | Tipo                         | Descripción |
+| :-------- | :--------------------------- | :---------- |
+| id        | `ID!`                        |             |
+| input     | `UpdateAgentLlmConfigInput!` |             |
+
+---
 ### deleteAgentLlmConfig
+**Retorno:** `Boolean!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### agentRuntimeCreateMachine
+
+**Retorno:** `AgentMachineType!`
+
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `AgentMachineInput!` |             |
+
+---
+### agentRuntimeUpdateMachine
+**Retorno:** `AgentMachineType!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| input | `UpdateAgentMachineInput!` |  |
+---
+
+### agentRuntimeDeleteMachine
 
 **Retorno:** `Boolean!`
 
@@ -5415,45 +5671,8 @@ deletes the session and tears down routing.
 | id        | `ID!` |             |
 
 ---
-### agentRuntimeCreateMachine
-**Retorno:** `AgentMachineType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentMachineInput!` |  |
----
-
-### agentRuntimeUpdateMachine
-
-**Retorno:** `AgentMachineType!`
-
-| Argumento | Tipo                       | Descripción |
-| :-------- | :------------------------- | :---------- |
-| id        | `ID!`                      |             |
-| input     | `UpdateAgentMachineInput!` |             |
-
----
-### agentRuntimeDeleteMachine
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
----
-
 ### agentRuntimeUpdateMachineContainers
-
 **Retorno:** `Boolean!`
-
-| Argumento  | Tipo  | Descripción |
-| :--------- | :---- | :---------- |
-| machine_id | `ID!` |             |
-
----
-### agentRuntimePingMachine
-**Retorno:** `AgentMachineType!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5461,45 +5680,44 @@ deletes the session and tears down routing.
 | machine_id | `ID!` |  |
 ---
 
-### agentRuntimeBackupAgent
+### agentRuntimePingMachine
 
+**Retorno:** `AgentMachineType!`
+
+| Argumento  | Tipo  | Descripción |
+| :--------- | :---- | :---------- |
+| machine_id | `ID!` |             |
+
+---
+### agentRuntimeBackupAgent
 **Retorno:** `AgentBackupType!`
 
-| Argumento         | Tipo      | Descripción |
-| :---------------- | :-------- | :---------- |
-| deployment_id     | `ID!`     |             |
-| include_workspace | `Boolean` |             |
-
----
-### agentRuntimeLaunchAgent
-**Retorno:** `AgentDeploymentType!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| input | `LaunchAgentInput!` |  |
+| deployment_id | `ID!` |  |
+| include_workspace | `Boolean` |  |
 ---
 
-### agentRuntimeRetryDeployment
+### agentRuntimeLaunchAgent
 
-**Retorno:** `AgentDeploymentType!`\
+**Retorno:** `AgentDeploymentType!`
+
+| Argumento | Tipo                | Descripción |
+| :-------- | :------------------ | :---------- |
+| input     | `LaunchAgentInput!` |             |
+
+---
+### agentRuntimeRetryDeployment
+**Retorno:** `AgentDeploymentType!`
 Retry a failed deployment on the same agent + machine it already targeted.
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
 ---
+
 ### agentRuntimeTerminateAgent
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
----
-
-### agentRuntimeDeleteDeployment
 
 **Retorno:** `Boolean!`
 
@@ -5508,7 +5726,7 @@ Retry a failed deployment on the same agent + machine it already targeted.
 | deployment_id | `ID!` |             |
 
 ---
-### agentRuntimeRestartContainer
+### agentRuntimeDeleteDeployment
 **Retorno:** `Boolean!`
 
 
@@ -5517,138 +5735,137 @@ Retry a failed deployment on the same agent + machine it already targeted.
 | deployment_id | `ID!` |  |
 ---
 
-### agentRuntimeContainerLogs
+### agentRuntimeRestartContainer
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
+
+---
+### agentRuntimeContainerLogs
 **Retorno:** `String!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-| lines         | `Int` |             |
 
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+| lines | `Int` |  |
 ---
+
 ### agentRuntimeContainerStatus
+
 **Retorno:** `AgentDeploymentType!`
 
+| Argumento     | Tipo  | Descripción |
+| :------------ | :---- | :---------- |
+| deployment_id | `ID!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
 ---
-
 ### agentRuntimeCollectUsage
-
 **Retorno:** `AgentUsageSnapshot!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeCollectSessionTranscripts
-**Retorno:** `Int!`
-Pull conversation transcripts out of the deployment runtime and persist into agent_conversations / agent_conversation_messages. Returns the count of newly persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't support transcript collection throw a clear LogicException.
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| since | `DateTime` |  |
 ---
 
+### agentRuntimeCollectSessionTranscripts
+
+**Retorno:** `Int!`\
+Pull conversation transcripts out of the deployment runtime and persist into
+agent_conversations / agent_conversation_messages. Returns the count of newly
+persisted messages. Routes via AgentRuntimeProviderFactory — runtimes that don't
+support transcript collection throw a clear LogicException.
+
+| Argumento     | Tipo       | Descripción |
+| :------------ | :--------- | :---------- |
+| deployment_id | `ID!`      |             |
+| since         | `DateTime` |             |
+
+---
 ### agentRuntimeSyncKanban
+**Retorno:** `Boolean!`
+Mirror the deployment's runtime kanban board into NervousSystem plans/tasks (async). Returns true once the per-deployment sync job is queued. Routes via AgentRuntimeProviderFactory — runtimes without a kanban throw a clear LogicException when the job runs.
 
-**Retorno:** `Boolean!`\
-Mirror the deployment's runtime kanban board into NervousSystem plans/tasks
-(async). Returns true once the per-deployment sync job is queued. Routes via
-AgentRuntimeProviderFactory — runtimes without a kanban throw a clear
-LogicException when the job runs.
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| deployment_id | `ID!` |  |
+---
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
+### agentRuntimeSetSlackTokens
+
+**Retorno:** `Boolean!`
+
+| Argumento       | Tipo      | Descripción |
+| :-------------- | :-------- | :---------- |
+| agent_id        | `ID!`     |             |
+| slack_bot_token | `String!` |             |
+| slack_app_token | `String!` |             |
 
 ---
-### agentRuntimeSetSlackTokens
+### agentRuntimeSetTelegramToken
 **Retorno:** `Boolean!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | agent_id | `ID!` |  |
-| slack_bot_token | `String!` |  |
-| slack_app_token | `String!` |  |
+| telegram_bot_token | `String!` |  |
+| telegram_allowed_users | `String` |  |
 ---
 
-### agentRuntimeSetTelegramToken
-
-**Retorno:** `Boolean!`
-
-| Argumento              | Tipo      | Descripción |
-| :--------------------- | :-------- | :---------- |
-| agent_id               | `ID!`     |             |
-| telegram_bot_token     | `String!` |             |
-| telegram_allowed_users | `String`  |             |
-
----
 ### agentRuntimeMigrateAgentWorkspace
+
 **Retorno:** `AgentDeploymentType!`
 
+| Argumento | Tipo                          | Descripción |
+| :-------- | :---------------------------- | :---------- |
+| input     | `MigrateAgentWorkspaceInput!` |             |
 
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `MigrateAgentWorkspaceInput!` |  |
 ---
-
 ### agentRuntimeMigrateAgentToProvider
-
-**Retorno:** `AgentDeploymentType!`\
+**Retorno:** `AgentDeploymentType!`
 Cross-runtime adoption — replaces the old per-provider migration mutations.
 
-| Argumento | Tipo                           | Descripción |
-| :-------- | :----------------------------- | :---------- |
-| input     | `MigrateAgentToProviderInput!` |             |
-
----
-### agentRuntimeExecCommand
-**Retorno:** `Boolean!`
-
-
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| deployment_id | `ID!` |  |
-| command | `String!` |  |
-| session_id | `String!` |  |
+| input | `MigrateAgentToProviderInput!` |  |
 ---
 
-### agentRuntimeGetConfig
+### agentRuntimeExecCommand
 
+**Retorno:** `Boolean!`
+
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| command       | `String!` |             |
+| session_id    | `String!` |             |
+
+---
+### agentRuntimeGetConfig
 **Retorno:** `String!`
 
-| Argumento     | Tipo  | Descripción |
-| :------------ | :---- | :---------- |
-| deployment_id | `ID!` |             |
-
----
-### agentRuntimeUpdateConfig
-**Retorno:** `Boolean!`
-
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | deployment_id | `ID!` |  |
-| config | `String!` |  |
 ---
 
-### setAgentSetting
+### agentRuntimeUpdateConfig
 
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo                 | Descripción |
-| :-------- | :------------------- | :---------- |
-| input     | `ModuleConfigInput!` |             |
+| Argumento     | Tipo      | Descripción |
+| :------------ | :-------- | :---------- |
+| deployment_id | `ID!`     |             |
+| config        | `String!` |             |
 
 ---
-### deleteAgentSetting
+### setAgentSetting
 **Retorno:** `Boolean!`
 
 
@@ -5657,36 +5874,57 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | input | `ModuleConfigInput!` |  |
 ---
 
-### createAgentSwarm
+### deleteAgentSetting
 
-**Retorno:** `AgentSwarm!`
+**Retorno:** `Boolean!`
 
-| Argumento | Tipo               | Descripción |
-| :-------- | :----------------- | :---------- |
-| input     | `AgentSwarmInput!` |             |
+| Argumento | Tipo                 | Descripción |
+| :-------- | :------------------- | :---------- |
+| input     | `ModuleConfigInput!` |             |
 
 ---
-### updateAgentSwarm
+### createAgentSwarm
 **Retorno:** `AgentSwarm!`
 
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
-| id | `ID!` |  |
-| input | `UpdateAgentSwarmInput!` |  |
+| input | `AgentSwarmInput!` |  |
 ---
 
-### deleteAgentSwarm
+### updateAgentSwarm
 
+**Retorno:** `AgentSwarm!`
+
+| Argumento | Tipo                     | Descripción |
+| :-------- | :----------------------- | :---------- |
+| id        | `ID!`                    |             |
+| input     | `UpdateAgentSwarmInput!` |             |
+
+---
+### deleteAgentSwarm
 **Retorno:** `Boolean!`
 
-| Argumento | Tipo  | Descripción |
-| :-------- | :---- | :---------- |
-| id        | `ID!` |             |
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+---
+
+### addAgentToSwarm
+
+**Retorno:** `AgentSwarm!`
+
+| Argumento           | Tipo     | Descripción |
+| :------------------ | :------- | :---------- |
+| swarm_id            | `ID!`    |             |
+| agent_id            | `ID!`    |             |
+| role                | `String` |             |
+| reports_to_agent_id | `ID`     |             |
 
 ---
-### addAgentToSwarm
-**Retorno:** `AgentSwarm!`
+### updateSwarmMember
+**Retorno:** `AgentSwarmMember!`
 
 
 | Argumento | Tipo | Descripción |
@@ -5697,66 +5935,24 @@ Cross-runtime adoption — replaces the old per-provider migration mutations.
 | reports_to_agent_id | `ID` |  |
 ---
 
-### updateSwarmMember
-
-**Retorno:** `AgentSwarmMember!`
-
-| Argumento           | Tipo     | Descripción |
-| :------------------ | :------- | :---------- |
-| swarm_id            | `ID!`    |             |
-| agent_id            | `ID!`    |             |
-| role                | `String` |             |
-| reports_to_agent_id | `ID`     |             |
-
----
 ### removeAgentFromSwarm
+
 **Retorno:** `AgentSwarm!`
 
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| swarm_id  | `ID!` |             |
+| agent_id  | `ID!` |             |
+
+---
+### setAgentSwarmBudget
+**Retorno:** `AgentSwarmBudgetSnapshot!`
+Create or update the monthly budget for a swarm. Idempotent — one budget per (swarm, period).
 
 | Argumento | Tipo | Descripción |
 | :--- | :--- | :--- |
 | swarm_id | `ID!` |  |
-| agent_id | `ID!` |  |
----
-
-### setAgentSwarmBudget
-
-**Retorno:** `AgentSwarmBudgetSnapshot!`\
-Create or update the monthly budget for a swarm. Idempotent — one budget per
-(swarm, period).
-
-| Argumento | Tipo                | Descripción |
-| :-------- | :------------------ | :---------- |
-| swarm_id  | `ID!`               |             |
-| input     | `SwarmBudgetInput!` |             |
-
----
-### createAgentType
-**Retorno:** `agentType!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| input | `AgentTypeInput!` |  |
----
-
-### updateAgentType
-
-**Retorno:** `agentType!`
-
-| Argumento | Tipo              | Descripción |
-| :-------- | :---------------- | :---------- |
-| id        | `ID!`             |             |
-| input     | `AgentTypeInput!` |             |
-
----
-### deleteAgentType
-**Retorno:** `Boolean!`
-
-
-| Argumento | Tipo | Descripción |
-| :--- | :--- | :--- |
-| id | `ID!` |  |
+| input | `SwarmBudgetInput!` |  |
 ---
 
 ### createFollowUp
@@ -6943,4 +7139,31 @@ the default layout.
 | id               | `ID!`     |             |
 | void_reason_code | `String!` |             |
 
+---
+### communicationSend
+**Retorno:** `CommunicationOperation!`
+
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| input | `CommunicationSendInput!` |  |
+---
+
+### communicationRetryDelivery
+
+**Retorno:** `CommunicationDelivery!`
+
+| Argumento | Tipo  | Descripción |
+| :-------- | :---- | :---------- |
+| id        | `ID!` |             |
+
+---
+### communicationConnectionEnabled
+**Retorno:** `CommunicationConnection!`
+The connection's On/Off. Off cancels what is queued on it; On never releases work queued before the Off.
+
+| Argumento | Tipo | Descripción |
+| :--- | :--- | :--- |
+| id | `ID!` |  |
+| enabled | `Boolean!` |  |
 ---

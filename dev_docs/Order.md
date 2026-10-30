@@ -13,7 +13,7 @@
 | token                       | `String`                    |             |
 | billing_address_id          | `Int`                       |             |
 | shipping_address_id         | `Int`                       |             |
-| order_number                | `Int`                       |             |
+| order_number                | `String`                    |             |
 | user_id                     | `Int`                       |             |
 | user                        | `User!`                     |             |
 | people                      | `People!`                   |             |

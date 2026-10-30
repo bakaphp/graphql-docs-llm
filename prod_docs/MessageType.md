@@ -11,5 +11,6 @@
 | verb            | `String!`   |             |
 | template        | `Mixed`     |             |
 | templates_plura | `Mixed`     |             |
+| is_public       | `Boolean!`  |             |
 | created_at      | `DateTime!` |             |
 | updated_at      | `DateTime`  |             |

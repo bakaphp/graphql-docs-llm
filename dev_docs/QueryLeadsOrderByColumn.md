@@ -9,6 +9,7 @@ Allowed column names for Query.leads.orderBy.
 | ID                |             |
 | CREATED_AT        |             |
 | UPDATED_AT        |             |
+| CLOSED_AT         |             |
 | TITLE             |             |
 | STATUS            |             |
 | PIPELINE_STAGE_ID |             |

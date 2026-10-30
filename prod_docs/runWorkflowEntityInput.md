@@ -9,3 +9,4 @@
 | action           | `String!` |             |
 | params           | `Mixed`   |             |
 | activity_class   | `String`  |             |
+| include_run      | `Boolean` |             |

@@ -12,6 +12,7 @@
 | parent_id   | `ID`      |             |
 | action      | `String!` |             |
 | data        | `Mixed`   |             |
+| from        | `String`  |             |
 | source      | `String!` |             |
 | status      | `String!` |             |
 | description | `String`  |             |

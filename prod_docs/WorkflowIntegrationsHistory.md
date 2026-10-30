@@ -11,6 +11,7 @@
 | integrationCompany | `IntegrationsCompanies` |             |
 | status             | `Status`                |             |
 | workflow           | `Workflow`              |             |
+| action             | `WorkflowAction`        |             |
 | input              | `Mixed`                 |             |
 | response           | `Mixed`                 |             |
 | exception          | `Mixed`                 |             |

@@ -24,3 +24,4 @@ Allowed column names for Query.leads.where.
 | STATUS                |             |
 | IS_PUBLISHED          |             |
 | CREATED_AT            |             |
+| CLOSED_AT             |             |

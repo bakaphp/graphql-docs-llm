@@ -5,6 +5,7 @@
 | Campo                | Tipo      | Descripción |
 | :------------------- | :-------- | :---------- |
 | id                   | `ID!`     |             |
+| attachment_uuid      | `String`  |             |
 | name                 | `String!` |             |
 | url                  | `String!` |             |
 | file_type            | `String`  |             |

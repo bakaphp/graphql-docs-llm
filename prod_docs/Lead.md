@@ -31,10 +31,12 @@
 | systemModule     | `SystemModule`             |             |
 | events           | `[Event!]!`                |             |
 | variantInterests | `[LeadVariantInterest!]!`  |             |
+| deals            | `[Deal!]!`                 |             |
 | channel_files    | `LeadChannelFilesViewer!`  |             |
 | is_published     | `Boolean!`                 |             |
 | created_at       | `DateTime!`                |             |
 | updated_at       | `DateTime!`                |             |
+| closed_at        | `DateTime`                 |             |
 | ai_session       | `AIAgentSessionPaginator!` |             |
 | tags             | `TagPaginator!`            |             |
 | files            | `FilesystemPaginator!`     |             |

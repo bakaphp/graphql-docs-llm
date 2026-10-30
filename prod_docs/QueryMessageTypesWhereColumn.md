@@ -13,3 +13,4 @@ Allowed column names for Query.messageTypes.where.
 | VERB            |             |
 | TEMPLATE        |             |
 | TEMPLATES_PLURA |             |
+| IS_PUBLIC       |             |

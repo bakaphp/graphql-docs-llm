@@ -5,6 +5,7 @@
 | Campo             | Tipo               | Descripción |
 | :---------------- | :----------------- | :---------- |
 | id                | `ID!`              |             |
+| uuid              | `String!`          |             |
 | user              | `User!`            |             |
 | company           | `Company!`         |             |
 | results           | `Mixed`            |             |

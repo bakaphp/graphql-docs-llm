@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (237)
+## Queries con filtros (241)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -44,27 +44,27 @@ GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels,
 HrDepartmentModuleAccess, HrDepartments, HrEmployees, HrLeaveRequests,
 HrLeaveTypes, HrPayBands, HrPositions, ImportConnections, ImportSources,
-Integrations, IntegrationsByEntityHistory, Languages, LeadReceivers,
-LeadSources, LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations,
-LedgerEvents, MechanicOrders, MechanicOrdersOrderStatus, Mechanics,
-MessageChildren, MessageTypes, Messages, MessagesGroupByDate,
-MessagesLikedByUser, NervousSystemPlans, NervousSystemProjects,
-NervousSystemScheduledActions, NervousSystemSkills, NervousSystemToolCategories,
-NervousSystemTools, NervousSystemWorkspaces, NotificationChannels,
-NotificationSettings, NotificationTypes, Notifications, OrderActivityLogs,
-OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatus,
-OrderTransitionHistoryOrderType, OrderTransitionHistoryToStatus,
-OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
-OrdersByUserCustomFieldOrderStatus, OrdersByUserCustomFieldOrderType,
-OrdersOrderStatus, OrdersOrderType, OrganizationTypes, Organizations,
-ParticipantPassMotives, ParticipantPasses, ParticipantTypes, Participants,
-PaymentMethods, Payments, PaymentsOrderType, PeopleRelationships, PeopleTypes,
-Peoples, Pipelines, ProductTypes, Products, ProviderOrders,
-ProviderOrdersOrderStatus, ProviderOrdersOrderType, ProviderPayments,
-ProviderPaymentsOrderType, Reactions, ReceiverWebhooks, ReferralCodeUsages,
-Regions, Roles, RuleTypes, Rules, ScheduleExceptions, ScheduleHistory,
-ScheduleRules, ScheduleRulesResourceType, ScribeAccounts, ScribeApprovalQueue,
-ScribeBankAccounts, ScribeBankTransactions, ScribeBills,
+InsurancePlans, Insurers, Integrations, IntegrationsByEntityHistory, Languages,
+LeadCampaignRecipients, LeadCampaigns, LeadReceivers, LeadSources, LeadStatuses,
+LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MechanicOrders,
+MechanicOrdersOrderStatus, Mechanics, MessageChildren, MessageTypes, Messages,
+MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
+NervousSystemProjects, NervousSystemScheduledActions, NervousSystemSkills,
+NervousSystemToolCategories, NervousSystemTools, NervousSystemWorkspaces,
+NotificationChannels, NotificationSettings, NotificationTypes, Notifications,
+OrderActivityLogs, OrderStatus, OrderTransitionHistory,
+OrderTransitionHistoryFromStatus, OrderTransitionHistoryOrderType,
+OrderTransitionHistoryToStatus, OrderTypeStatuses, OrderTypes, Orders,
+OrdersByUserCustomField, OrdersByUserCustomFieldOrderStatus,
+OrdersByUserCustomFieldOrderType, OrdersOrderStatus, OrdersOrderType,
+OrganizationTypes, Organizations, ParticipantPassMotives, ParticipantPasses,
+ParticipantTypes, Participants, PaymentMethods, Payments, PaymentsOrderType,
+PeopleRelationships, PeopleTypes, Peoples, Pipelines, ProductTypes, Products,
+ProviderOrders, ProviderOrdersOrderStatus, ProviderOrdersOrderType,
+ProviderPayments, ProviderPaymentsOrderType, Reactions, ReceiverWebhooks,
+ReferralCodeUsages, Regions, Roles, RuleTypes, Rules, ScheduleExceptions,
+ScheduleHistory, ScheduleRules, ScheduleRulesResourceType, ScribeAccounts,
+ScribeApprovalQueue, ScribeBankAccounts, ScribeBankTransactions, ScribeBills,
 ScribeDocumentSequences, ScribeExpenses, ScribeFiscalPeriods, ScribeFxRates,
 ScribeInvoices, ScribeItems, ScribeJournalEntries, ScribePaymentTerms,
 ScribePayments, ScribePdfIngestLogs, ScribePurchaseOrders, ScribeQuotes,
@@ -81,6 +81,8 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 - [AgentConversationMessagesWhereWhereConditions](./AgentConversationMessagesWhereWhereConditions.md)
 - [CompanyBranchCustomFieldsOrderByOrderByClause](./CompanyBranchCustomFieldsOrderByOrderByClause.md)
 - [CompanyCustomFieldsOrderByOrderByClause](./CompanyCustomFieldsOrderByOrderByClause.md)
+- [LeadCampaignRecipientsOrderByOrderByClause](./LeadCampaignRecipientsOrderByOrderByClause.md)
+- [LeadCampaignRecipientsWhereWhereConditions](./LeadCampaignRecipientsWhereWhereConditions.md)
 - [MessageChildrenOrderByOrderByClause](./MessageChildrenOrderByOrderByClause.md)
 - [OrderActivityLogsOrderByOrderByClause](./OrderActivityLogsOrderByOrderByClause.md)
 - [OrderActivityLogsWhereWhereConditions](./OrderActivityLogsWhereWhereConditions.md)

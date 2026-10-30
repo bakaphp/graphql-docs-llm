@@ -13,3 +13,4 @@
 | validation_status | `String!`      |             |
 | bounced_at        | `String`       |             |
 | is_deliverable    | `Boolean!`     |             |
+| is_landline       | `Boolean`      |             |

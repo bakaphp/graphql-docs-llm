@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (235)
+## Queries con enums de columnas (239)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -34,15 +34,16 @@ GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
 GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels,
 HrDepartmentModuleAccess, HrDepartments, HrEmployees, HrLeaveRequests,
 HrLeaveTypes, HrPayBands, HrPositions, ImportConnections, ImportSources,
-Integrations, IntegrationsByEntityHistory, Languages, LeadReceivers,
-LeadSources, LeadStatuses, LeadTypes, Leads, LeadsDashboard, LeadsRotations,
-LedgerEvents, Mechanic, MechanicOrders, MechanicOrdersOrderStatusColumn,
-Mechanics, MessageChildren, MessageTypes, Messages, MessagesGroupByDate,
-MessagesLikedByUser, NervousSystemPlans, NervousSystemProjects,
-NervousSystemScheduledActions, NervousSystemSkills, NervousSystemToolCategories,
-NervousSystemTools, NervousSystemWorkspaces, NotificationChannels,
-NotificationSettings, NotificationTypes, Notifications, OrderActivityLogs,
-OrderStatus, OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
+InsurancePlans, Insurers, Integrations, IntegrationsByEntityHistory, Languages,
+LeadCampaignRecipients, LeadCampaigns, LeadReceivers, LeadSources, LeadStatuses,
+LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents, Mechanic,
+MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics, MessageChildren,
+MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser,
+NervousSystemPlans, NervousSystemProjects, NervousSystemScheduledActions,
+NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
+NervousSystemWorkspaces, NotificationChannels, NotificationSettings,
+NotificationTypes, Notifications, OrderActivityLogs, OrderStatus,
+OrderTransitionHistory, OrderTransitionHistoryFromStatusColumn,
 OrderTransitionHistoryOrderTypeColumn, OrderTransitionHistoryToStatusColumn,
 OrderTypeStatuses, OrderTypes, Orders, OrdersByUserCustomField,
 OrdersByUserCustomFieldOrderStatusColumn,
@@ -72,6 +73,8 @@ Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 - [AgentConversationMessagesWhereColumn](./AgentConversationMessagesWhereColumn.md)
 - [CompanyBranchCustomFieldsOrderByColumn](./CompanyBranchCustomFieldsOrderByColumn.md)
 - [CompanyCustomFieldsOrderByColumn](./CompanyCustomFieldsOrderByColumn.md)
+- [LeadCampaignRecipientsOrderByColumn](./LeadCampaignRecipientsOrderByColumn.md)
+- [LeadCampaignRecipientsWhereColumn](./LeadCampaignRecipientsWhereColumn.md)
 - [MechanicWhereColumn](./MechanicWhereColumn.md)
 - [MessageChildrenOrderByColumn](./MessageChildrenOrderByColumn.md)
 - [OrderActivityLogsOrderByColumn](./OrderActivityLogsOrderByColumn.md)

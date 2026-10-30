@@ -16,3 +16,4 @@ Allowed column names for Query.deals.where.
 | PIPELINE_STAGE_ID |             |
 | STATUS_ID         |             |
 | CREATED_AT        |             |
+| CLOSED_AT         |             |
