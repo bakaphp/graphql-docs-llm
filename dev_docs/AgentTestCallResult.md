@@ -1,4 +1,4 @@
-# OBJECT: VoiceAgentCallResult
+# OBJECT: AgentTestCallResult
 
 ## Estructura
 

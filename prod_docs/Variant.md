@@ -19,6 +19,9 @@
 | status             | `Status`                           |             |
 | rating             | `Float`                            |             |
 | weight             | `Float`                            |             |
+| is_taxable         | `Boolean`                          |             |
+| tax_category       | `String`                           |             |
+| tax_code_override  | `String`                           |             |
 | created_at         | `DateTime!`                        |             |
 | updated_at         | `DateTime`                         |             |
 | is_published       | `Boolean`                          |             |

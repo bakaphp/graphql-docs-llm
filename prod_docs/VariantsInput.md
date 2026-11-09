@@ -27,3 +27,7 @@
 | channels          | `[VariantChannelReferenceInput!]` |             |
 | custom_fields     | `[CustomFieldEntityInput!]`       |             |
 | tags              | `[TagInput!]`                     |             |
+| is_taxable        | `Boolean`                         |             |
+| tax_category      | `String`                          |             |
+| tax_code_override | `String`                          |             |
+| tax_code_id       | `ID`                              |             |

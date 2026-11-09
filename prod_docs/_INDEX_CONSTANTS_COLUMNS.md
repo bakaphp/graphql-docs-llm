@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (239)
+## Queries con enums de columnas (243)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -18,10 +18,10 @@ Cities, Comments, Companies, CompanyActions, CompanyBranchCustomFields,
 CompanyBranchUsers, CompanyCustomFields, CompanyKanvasModules,
 CompanyReviewTypes, CompanySubscriptions, CompanyUsersUserRoleColumn,
 ContactType, CountUserReaction, Countries, Currencies, CustomFeedMessages,
-Deals, DiscountTypes, Discounts, DuplicateOrders, Engagements, EntityFiles,
-EntityInteractions, EventCategories, EventClasses, EventStatus, EventThemeAreas,
-EventThemes, EventTypes, EventVersionParticipants, EventVersions,
-EventVersionsEventStatusColumn, Events, EventsStatusColumn,
+CustomerTaxExemptions, Deals, DiscountTypes, Discounts, DuplicateOrders,
+Engagements, EntityFiles, EntityInteractions, EventCategories, EventClasses,
+EventStatus, EventThemeAreas, EventThemes, EventTypes, EventVersionParticipants,
+EventVersions, EventVersionsEventStatusColumn, Events, EventsStatusColumn,
 ExportMechanicOrders, ExportMechanicOrdersOrderStatusColumn, ExportMechanics,
 ExportOrderTransitionHistory, ExportOrderTransitionHistoryFromStatusColumn,
 ExportOrderTransitionHistoryOrderTypeColumn,
@@ -62,10 +62,11 @@ ScribeInvoices, ScribeItems, ScribeJournalEntries, ScribePaymentTerms,
 ScribePayments, ScribePdfIngestLogs, ScribePurchaseOrders, ScribeQuotes,
 ScribeSalesReceipts, ScribeSubaccounts, ScribeTaxCodes, SearchUsersLists,
 SocialChannels, States, Status, SubSources, SubscriptionPlans, SystemModels,
-TagChildren, Tags, TaskListItems, TaskLists, Templates, TimeSlots,
-TimeSlotsResourceTypeColumn, Topics, UserCustomFields, UserReactions, Users,
-UsersInvites, Variants, VariantsByStatus, ViewMessageHistory, WarehouseVariants,
-Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
+TagChildren, Tags, TaskListItems, TaskLists, TaxCategories, TaxRegistrations,
+TaxRoutingRules, Templates, TimeSlots, TimeSlotsResourceTypeColumn, Topics,
+UserCustomFields, UserReactions, Users, UsersInvites, Variants,
+VariantsByStatus, ViewMessageHistory, WarehouseVariants, Warehouses,
+WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 ## Columnas adicionales
 

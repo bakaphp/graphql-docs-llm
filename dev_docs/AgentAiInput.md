@@ -19,6 +19,7 @@
 | user_context           | `String`                       |             |
 | tools_config           | `String`                       |             |
 | voice_config           | `Mixed`                        |             |
+| sms_config             | `Mixed`                        |             |
 | parent_agent_id        | `ID`                           |             |
 | is_active              | `Boolean!`                     |             |
 | company_task_list_id   | `Int`                          |             |

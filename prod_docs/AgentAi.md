@@ -27,6 +27,7 @@
 | user_context          | `String`                |             |
 | tools_config          | `String`                |             |
 | voice_config          | `Mixed`                 |             |
+| sms_config            | `Mixed`                 |             |
 | deployment_status     | `String!`               |             |
 | activeDeployment      | `AgentDeploymentType`   |             |
 | agent_model_id        | `ID`                    |             |

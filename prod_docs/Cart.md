@@ -11,3 +11,5 @@
 | total          | `Money!`         |             |
 | shipping       | `CartShipping`   |             |
 | subtotal       | `Money!`         |             |
+| tax            | `CartTax`        |             |
+| total_tax      | `Float!`         |             |

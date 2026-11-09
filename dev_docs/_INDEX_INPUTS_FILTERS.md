@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (241)
+## Queries con filtros (245)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -29,19 +29,19 @@ Cities, Comments, Companies, CompanyActions, CompanyAddresses,
 CompanyBranchCustomFields, CompanyBranchUsers, CompanyCustomFields,
 CompanyKanvasModules, CompanyReviewTypes, CompanySubscriptions, CompanyUsers,
 CompanyUsersUserRole, ContactType, CountUserReaction, Countries, Currencies,
-CustomFeedMessages, Deals, DiscountTypes, Discounts, DuplicateOrders,
-Engagements, EntityFiles, EntityInteractions, EventCategories, EventClasses,
-EventStatus, EventThemeAreas, EventThemes, EventTypes, EventVersionParticipants,
-EventVersions, EventVersionsEventStatus, Events, EventsStatus,
-ExportMechanicOrders, ExportMechanicOrdersOrderStatus, ExportMechanics,
-ExportOrderTransitionHistory, ExportOrderTransitionHistoryFromStatus,
-ExportOrderTransitionHistoryOrderType, ExportOrderTransitionHistoryToStatus,
-ExportOrders, ExportOrdersOrderStatus, ExportOrdersOrderType, ExportProducts,
-Facilitators, FilesystemImportHistory, FilesystemMappers, FollowUpDays,
-FollowUpTemplates, FollowUps, FollowingFeedMessages, ForYouMessages,
-GetActivityLog, GetAppSettings, GetCompanyWalletTransactions,
-GetUserInteractions, GetUserWalletTransactions, GetUsersLists,
-GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels,
+CustomFeedMessages, CustomerTaxExemptions, Deals, DiscountTypes, Discounts,
+DuplicateOrders, Engagements, EntityFiles, EntityInteractions, EventCategories,
+EventClasses, EventStatus, EventThemeAreas, EventThemes, EventTypes,
+EventVersionParticipants, EventVersions, EventVersionsEventStatus, Events,
+EventsStatus, ExportMechanicOrders, ExportMechanicOrdersOrderStatus,
+ExportMechanics, ExportOrderTransitionHistory,
+ExportOrderTransitionHistoryFromStatus, ExportOrderTransitionHistoryOrderType,
+ExportOrderTransitionHistoryToStatus, ExportOrders, ExportOrdersOrderStatus,
+ExportOrdersOrderType, ExportProducts, Facilitators, FilesystemImportHistory,
+FilesystemMappers, FollowUpDays, FollowUpTemplates, FollowUps,
+FollowingFeedMessages, ForYouMessages, GetActivityLog, GetAppSettings,
+GetCompanyWalletTransactions, GetUserInteractions, GetUserWalletTransactions,
+GetUsersLists, GetUsersListsEntities, GetWalletTransactions, GlobalSystemModels,
 HrDepartmentModuleAccess, HrDepartments, HrEmployees, HrLeaveRequests,
 HrLeaveTypes, HrPayBands, HrPositions, ImportConnections, ImportSources,
 InsurancePlans, Insurers, Integrations, IntegrationsByEntityHistory, Languages,
@@ -70,10 +70,11 @@ ScribeInvoices, ScribeItems, ScribeJournalEntries, ScribePaymentTerms,
 ScribePayments, ScribePdfIngestLogs, ScribePurchaseOrders, ScribeQuotes,
 ScribeSalesReceipts, ScribeSubaccounts, ScribeTaxCodes, SearchUsersLists,
 SocialChannels, States, Status, SubSources, SubscriptionPlans, SystemModels,
-TagChildren, Tags, TaskListItems, TaskLists, Templates, TimeSlots,
-TimeSlotsResourceType, Topics, UserCustomFields, UserReactions, Users,
-UsersInvites, Variants, VariantsByStatus, ViewMessageHistory, WarehouseVariants,
-Warehouses, WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
+TagChildren, Tags, TaskListItems, TaskLists, TaxCategories, TaxRegistrations,
+TaxRoutingRules, Templates, TimeSlots, TimeSlotsResourceType, Topics,
+UserCustomFields, UserReactions, Users, UsersInvites, Variants,
+VariantsByStatus, ViewMessageHistory, WarehouseVariants, Warehouses,
+WorkflowIntegrationsHistory, WorkflowReceiverHistory, WorkflowStatus
 
 ## Filtros adicionales
 

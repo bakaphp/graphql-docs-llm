@@ -25,3 +25,5 @@
 | weight            | `Float`                              |             |
 | company_id        | `ID`                                 |             |
 | custom_fields     | `[CustomFieldEntityInput!]`          |             |
+| tax_category      | `String`                             |             |
+| tax_code_override | `String`                             |             |

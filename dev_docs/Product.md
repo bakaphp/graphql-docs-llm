@@ -34,6 +34,8 @@
 | usersRatings      | `[UserRating!]`                   |             |
 | rating            | `Float`                           |             |
 | weight            | `Float`                           |             |
+| tax_category      | `String`                          |             |
+| tax_code_override | `String`                          |             |
 | activities        | `[ActivityLog!]`                  |             |
 | files             | `FilesystemPaginator!`            |             |
 | variantsPaginate  | `VariantPaginator!`               |             |

@@ -33,6 +33,7 @@
 | variantInterests | `[LeadVariantInterest!]!`  |             |
 | deals            | `[Deal!]!`                 |             |
 | channel_files    | `LeadChannelFilesViewer!`  |             |
+| followUpPlan     | `LeadFollowUpPlan`         |             |
 | is_published     | `Boolean!`                 |             |
 | created_at       | `DateTime!`                |             |
 | updated_at       | `DateTime!`                |             |

@@ -18,3 +18,5 @@
 | attributes        | `[ProductAttributesInput!]`          |             |
 | files             | `[FilesystemInputUrl!]`              |             |
 | categories        | `[ProductCategoriesReferenceInput!]` |             |
+| tax_category      | `String`                             |             |
+| tax_code_override | `String`                             |             |
