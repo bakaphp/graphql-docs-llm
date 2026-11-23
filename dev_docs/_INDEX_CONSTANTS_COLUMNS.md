@@ -3,7 +3,7 @@
 Enums auto-generados que definen columnas permitidas para filtrado/ordenamiento.
 Patron: `Query{Q}{Where|OrderBy}Column` → ver archivo .md individual.
 
-## Queries con enums de columnas (243)
+## Queries con enums de columnas (244)
 
 ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -38,7 +38,7 @@ InsurancePlans, Insurers, Integrations, IntegrationsByEntityHistory, Languages,
 LeadCampaignRecipients, LeadCampaigns, LeadReceivers, LeadSources, LeadStatuses,
 LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents, Mechanic,
 MechanicOrders, MechanicOrdersOrderStatusColumn, Mechanics, MessageChildren,
-MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser,
+MessageTypes, Messages, MessagesGroupByDate, MessagesLikedByUser, MyMessages,
 NervousSystemPlans, NervousSystemProjects, NervousSystemScheduledActions,
 NervousSystemSkills, NervousSystemToolCategories, NervousSystemTools,
 NervousSystemWorkspaces, NotificationChannels, NotificationSettings,

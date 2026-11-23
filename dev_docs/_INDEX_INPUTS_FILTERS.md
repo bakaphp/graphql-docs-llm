@@ -14,7 +14,7 @@ Para construir el nombre del tipo, reemplaza `{Q}` con el nombre del query.
 Ejemplo: query `actions` → `QueryActionsWhereWhereConditions` →
 [archivo](./QueryActionsWhereWhereConditions.md)
 
-## Queries con filtros (245)
+## Queries con filtros (246)
 
 , ActionEngineActions, ActionPipelines, Actions, AdminInvites,
 AffiliateCommissionPayouts, AffiliateConversions, AffiliateLinks,
@@ -48,7 +48,7 @@ InsurancePlans, Insurers, Integrations, IntegrationsByEntityHistory, Languages,
 LeadCampaignRecipients, LeadCampaigns, LeadReceivers, LeadSources, LeadStatuses,
 LeadTypes, Leads, LeadsDashboard, LeadsRotations, LedgerEvents, MechanicOrders,
 MechanicOrdersOrderStatus, Mechanics, MessageChildren, MessageTypes, Messages,
-MessagesGroupByDate, MessagesLikedByUser, NervousSystemPlans,
+MessagesGroupByDate, MessagesLikedByUser, MyMessages, NervousSystemPlans,
 NervousSystemProjects, NervousSystemScheduledActions, NervousSystemSkills,
 NervousSystemToolCategories, NervousSystemTools, NervousSystemWorkspaces,
 NotificationChannels, NotificationSettings, NotificationTypes, Notifications,

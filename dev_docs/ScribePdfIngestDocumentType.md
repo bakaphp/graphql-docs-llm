@@ -4,11 +4,15 @@ Scribe.PdfIngest — audit trail for email-driven PDF ingest. Read-only surface.
 
 ## Valores
 
-| Valor           | Descripción |
-| :-------------- | :---------- |
-| EXPENSE_RECEIPT |             |
-| VENDOR_INVOICE  |             |
-| VENDOR_QUOTE    |             |
-| OUR_INVOICE     |             |
-| OUR_QUOTE       |             |
-| UNKNOWN         |             |
+| Valor             | Descripción |
+| :---------------- | :---------- |
+| EXPENSE_RECEIPT   |             |
+| VENDOR_INVOICE    |             |
+| VENDOR_QUOTE      |             |
+| OUR_INVOICE       |             |
+| OUR_QUOTE         |             |
+| BANK_STATEMENT    |             |
+| REMITTANCE_ADVICE |             |
+| CUSTOMER_PO       |             |
+| CREDIT_REQUEST    |             |
+| UNKNOWN           |             |

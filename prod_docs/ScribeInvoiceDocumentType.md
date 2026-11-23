@@ -9,3 +9,4 @@ document_type discriminator).
 | :---------- | :---------- |
 | INVOICE     |             |
 | CREDIT_NOTE |             |
+| DEBIT_NOTE  |             |

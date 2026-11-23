@@ -4,11 +4,11 @@ Esquema GraphQL completo. Navega: Mapa → Índice → Archivo de tipo.
 
 ## Core (empieza aquí)
 
-- [Queries](./_INDEX_QUERIES.md) — 358 operaciones de lectura
-- [Mutations](./_INDEX_MUTATIONS.md) — 771 operaciones de escritura
-- [Entities](./_INDEX_ENTITIES.md) — 516 objetos de respuesta
-- [Inputs](./_INDEX_INPUTS.md) — 402 estructuras de entrada
-- [Constants](./_INDEX_CONSTANTS.md) — 115 enums
+- [Queries](./_INDEX_QUERIES.md) — 365 operaciones de lectura
+- [Mutations](./_INDEX_MUTATIONS.md) — 777 operaciones de escritura
+- [Entities](./_INDEX_ENTITIES.md) — 530 objetos de respuesta
+- [Inputs](./_INDEX_INPUTS.md) — 407 estructuras de entrada
+- [Constants](./_INDEX_CONSTANTS.md) — 121 enums
 
 ## Auto-Generados (solo si necesario)
 
@@ -16,7 +16,7 @@ Esquema GraphQL completo. Navega: Mapa → Índice → Archivo de tipo.
   queries
 - [Column Enums](./_INDEX_CONSTANTS_COLUMNS.md) — 509 enums de columnas
   permitidas
-- [Paginators](./_INDEX_ENTITIES_PAGINATORS.md) — 186 wrappers de paginación
+- [Paginators](./_INDEX_ENTITIES_PAGINATORS.md) — 187 wrappers de paginación
 
 ---
 

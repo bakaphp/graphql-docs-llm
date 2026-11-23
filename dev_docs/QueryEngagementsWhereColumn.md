@@ -14,6 +14,8 @@ Allowed column names for Query.engagements.where.
 | MESSAGE_ID           |             |
 | LEADS_ID             |             |
 | PEOPLE_ID            |             |
+| ENTITY_TYPE          |             |
+| ENTITY_ID            |             |
 | PIPELINES_STAGES_ID  |             |
 | ENTITY_UUID          |             |
 | SLUG                 |             |

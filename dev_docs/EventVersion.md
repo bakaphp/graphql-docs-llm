@@ -22,6 +22,7 @@
 | eventStatus           | `EventStatus`                           |             |
 | timeSlot              | `TimeSlots`                             |             |
 | max_capacity          | `Int`                                   |             |
+| pass_code             | `String`                                |             |
 | created_at            | `DateTime`                              |             |
 | updated_at            | `DateTime`                              |             |
 | dates                 | `[EventVersionDate!]!`                  |             |

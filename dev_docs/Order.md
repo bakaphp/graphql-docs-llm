@@ -57,6 +57,7 @@
 | order_status                | `OrderStatus`               |             |
 | payment_status              | `String`                    |             |
 | payments                    | `[Payment!]`                |             |
+| invoices                    | `[ScribeInvoice!]!`         |             |
 | payment_logs                | `[PaymentLog!]`             |             |
 | orderTransitionHistory      | `[OrderTransitionHistory!]` |             |
 | discount_codes              | `[OrderDiscountRelation]`   |             |

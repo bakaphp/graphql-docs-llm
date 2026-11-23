@@ -5,6 +5,7 @@
 | Campo             | Tipo                | Descripción |
 | :---------------- | :------------------ | :---------- |
 | time_slot_id      | `ID`                |             |
+| invite_code       | `String`            |             |
 | participants      | `Mixed`             |             |
 | event_name        | `String`            |             |
 | event_description | `String`            |             |

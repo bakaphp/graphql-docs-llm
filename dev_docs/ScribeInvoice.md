@@ -60,8 +60,10 @@
 | lines                     | `[ScribeInvoiceLine!]!`              |             |
 | tax_lines                 | `[ScribeInvoiceTaxLine!]!`           |             |
 | allocations               | `[ScribeInvoicePaymentAllocation!]!` |             |
+| order                     | `Order`                              |             |
 | parent_invoice            | `ScribeInvoice`                      |             |
 | credit_notes              | `[ScribeInvoice!]!`                  |             |
+| debit_notes               | `[ScribeInvoice!]!`                  |             |
 | approvalRequests          | `[ApprovalRequest!]!`                |             |
 | created_at                | `DateTime!`                          |             |
 | updated_at                | `DateTime!`                          |             |

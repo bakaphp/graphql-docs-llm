@@ -5,6 +5,8 @@
 | Campo                | Tipo              | Descripción                                                                                                                                    |
 | :------------------- | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
 | name                 | `String!`         |                                                                                                                                                |
+| tax_id               | `String`          | Tax id for any country (RNC in the Dominican Republic). On update, omitting it keeps the stored one and null clears it.                        |
+| tax_id_type          | `TaxIdType`       | Which id tax_id is. Omitted, it is inferred from the company's country and the id's shape; given, it must fit the id.                          |
 | email                | `String`          |                                                                                                                                                |
 | phone                | `String`          |                                                                                                                                                |
 | address              | `String`          | Legacy free-text address. Use `addresses` for anything structured.                                                                             |

@@ -8,4 +8,5 @@
 | access            | `AgentMailboxAccess!` |             |
 | route_id          | `String!`             |             |
 | receiver_url      | `String!`             |             |
+| connected         | `Boolean!`            |             |
 | contact_email_set | `Boolean!`            |             |

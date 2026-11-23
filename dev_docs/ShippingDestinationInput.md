@@ -7,3 +7,4 @@
 | country     | `String!` |             |
 | city        | `String`  |             |
 | postal_code | `String`  |             |
+| state       | `String`  |             |

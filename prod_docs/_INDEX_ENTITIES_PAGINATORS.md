@@ -3,7 +3,7 @@
 Wrappers auto-generados para respuestas paginadas. Patron: `{Entity}Paginator` —
 contiene `data: [Entity]` + `paginatorInfo: PaginatorInfo`.
 
-## Entidades con paginador (186)
+## Entidades con paginador (187)
 
 AIAgentSession, Action, ActionPipeline, ActivityLog, AdminInvite, Affiliate,
 AffiliateCommissionPayout, AffiliateConversion, AffiliateLink, AffiliateProgram,
@@ -34,13 +34,13 @@ ParticipantPass, ParticipantPassMotive, ParticipantType, Payment, PaymentMethod,
 People, PeopleRelationship, PeopleType, Plan, Product, ProductType, Reaction,
 ReferralRedemption, Region, Role, ScheduleException, ScheduleHistory,
 ScheduleRules, ScribeAccount, ScribeApprovalQueueItem, ScribeBankAccount,
-ScribeBankTransaction, ScribeBill, ScribeDocumentSequence, ScribeExpense,
-ScribeFiscalPeriod, ScribeFxRate, ScribeInvoice, ScribeItem, ScribeJournalEntry,
-ScribePayment, ScribePaymentTerm, ScribePdfIngestLog, ScribePurchaseOrder,
-ScribeQuote, ScribeSalesReceipt, ScribeSubaccount, ScribeTaxCode, SocialChannel,
-States, Status, SystemModule, Tag, TaskList, TaskListItem, TaxCategory,
-TaxRegistration, TaxRoutingRule, Template, TimeSlots, Topic, User,
-UserInteraction, UserList, UserReaction, Variant, VariantChannel,
+ScribeBankTransaction, ScribeBill, ScribeDocumentSequence, ScribeEcfRange,
+ScribeExpense, ScribeFiscalPeriod, ScribeFxRate, ScribeInvoice, ScribeItem,
+ScribeJournalEntry, ScribePayment, ScribePaymentTerm, ScribePdfIngestLog,
+ScribePurchaseOrder, ScribeQuote, ScribeSalesReceipt, ScribeSubaccount,
+ScribeTaxCode, SocialChannel, States, Status, SystemModule, Tag, TaskList,
+TaskListItem, TaxCategory, TaxRegistration, TaxRoutingRule, Template, TimeSlots,
+Topic, User, UserInteraction, UserList, UserReaction, Variant, VariantChannel,
 WalletTransaction, Warehouse, WorkflowAction, WorkflowIntegrationsHistory,
 WorkflowReceiver, WorkflowReceiversHistory, WorkflowRule, WorkflowRuleType,
 WorkflowStatus, agentType

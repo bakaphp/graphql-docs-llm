@@ -2,7 +2,8 @@
 
 ## Valores
 
-| Valor      | Descripción |
-| :--------- | :---------- |
-| RESTRICTED |             |
-| OPEN       |             |
+| Valor         | Descripción |
+| :------------ | :---------- |
+| RESTRICTED    |             |
+| OPEN          |             |
+| CUSTOMER_LINE |             |
